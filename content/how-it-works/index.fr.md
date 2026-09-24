@@ -11,7 +11,7 @@ menus:
 
 Pyronear est une **solution complète de gestion du risque incendie**. Elle est constituée d’un **algorithme de détection** précoce des départs de feu, implémenté sur un micro ordinateur, connecté à des **caméras positionnées sur des points hauts** avec vue sur la forêt. Nos détecteurs communiquent les **alertes de détection de départ de feu** à une base de données elle-même connectée à une **plateforme de supervision** à destination des pompiers.
 
-![Vue d'ensemble de la solution Pyronear](/img/solution.png)
+![Vue d'ensemble de la solution Pyronear](solution.png)
 
 ## La station de détection
 
@@ -23,7 +23,7 @@ Nos stations sont installées sur des points hauts (pylônes, châteaux d'eau, t
 
 Nos tours de détection se composent de 4/5 caméras haute résolution et d’un micro ordinateur qui capture une image par caméra à intervalles réguliers puis l’analyse localement à l’aide de notre modèle de détection de feux de forêt. En cas de détection, le mode alerte est activé, toutes les images provenant de la caméra ayant détecté le feu sont alors envoyées à notre base de données via notre api, le protocole de communication que nous avons développé.
 
-![Fonctionnement d'une station de détection](/img/model.png)
+![Fonctionnement d'une station de détection](model.png)
 
 ## La plateforme d'alerte
 

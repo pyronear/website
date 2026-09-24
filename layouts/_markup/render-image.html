@@ -1,0 +1,19 @@
+{{- /* Page-bundle raster images become responsive WebP; anything else (SVG, static, external) is left as-is */ -}}
+{{- $img := .Page.Resources.Get .Destination -}}
+{{- if and $img (in (slice "jpeg" "png") $img.MediaType.SubType) -}}
+  {{- $widths := slice -}}
+  {{- range slice 480 960 1600 -}}
+    {{- if le . $img.Width }}{{ $widths = $widths | append . }}{{ end -}}
+  {{- end -}}
+  {{- if not $widths }}{{ $widths = slice $img.Width }}{{ end -}}
+  {{- $srcset := slice -}}
+  {{- $largest := "" -}}
+  {{- range $widths -}}
+    {{- $largest = $img.Resize (printf "%dx webp q78" .) -}}
+    {{- $srcset = $srcset | append (printf "%s %dw" $largest.RelPermalink .) -}}
+  {{- end -}}
+  <img src="{{ $largest.RelPermalink }}" srcset="{{ delimit $srcset ", " }}" sizes="(max-width: 760px) 100vw, 760px"
+    width="{{ $largest.Width }}" height="{{ $largest.Height }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+{{- else -}}
+  <img src="{{ with $img }}{{ .RelPermalink }}{{ else }}{{ .Destination | safeURL }}{{ end }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy">
+{{- end -}}

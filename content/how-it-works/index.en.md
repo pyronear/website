@@ -11,7 +11,7 @@ menus:
 
 Pyronear is a **complete fire risk management solution**. It consists of an **early wildfire detection algorithm**, implemented on a microcomputer, connected to **cameras positioned on high spots** with a view on the forest. Our detectors communicate **fire alerts** to a database that is connected to a **supervision platform** for the fire department.
 
-![Overview of the Pyronear solution](/img/solution-en.png)
+![Overview of the Pyronear solution](solution-en.png)
 
 ## The detection station
 
@@ -23,7 +23,7 @@ Our stations are installed on high points (pylons, water towers, lookout towers)
 
 Our detection towers consist of 4/5 high resolution cameras and a micro computer. We capture one image per camera at regular intervals and then analyze it locally using our wildfire detection model. In case of detection, the alert mode is activated, all the images coming from the camera having detected the fire are then sent to our database via our api, the communication protocol we have developed.
 
-![How a detection station works](/img/model.png)
+![How a detection station works](model.png)
 
 ## The alert platform
 

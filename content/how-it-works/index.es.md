@@ -11,7 +11,7 @@ menus:
 
 Pironear es un **solución completa de gestión de riesgos de incendio**. consiste en un **early algoritmo de detección de incendios forestales**, implementado en una microcomputadora, conectada a **cámaras colocadas en puntos altos** con vista al bosque. Nuestros detectores se comunican **alertas de incendios** a una base de datos que está conectada a un **plataforma de supervisión** para el cuerpo de bomberos.
 
-![Visión general de la solución Pyronear](/img/solution-en.png)
+![Visión general de la solución Pyronear](solution-en.png)
 
 ## La estación de detección
 
@@ -23,7 +23,7 @@ Nuestras estaciones se instalan en puntos altos (torres eléctricas, depósitos 
 
 Nuestras torres de detección consisten en 4/5 cámaras de alta resolución y una microcomputadora. Capturamos una imagen por cámara a intervalos regulares y luego la analizamos localmente usando nuestro modelo de detección de incendios forestales. En caso de detección, se activa el modo de alerta, todas las imágenes provenientes de la cámara que detectó el incendio se envían a nuestra base de datos a través de nuestra api, el protocolo de comunicación que hemos desarrollado.
 
-![Funcionamiento de una estación de detección](/img/model.png)
+![Funcionamiento de una estación de detección](model.png)
 
 ## La plataforma de alertas
 
