@@ -1,0 +1,34 @@
+baseURL = "https://pyronear.org/"
+title = "Pyronear"
+defaultContentLanguage = "fr"
+defaultContentLanguageInSubdir = false
+disableKinds = ["taxonomy", "term", "section", "rss"]
+enableRobotsTXT = true
+
+[params]
+  formAction = "https://script.google.com/macros/s/AKfycbxzvB_Jbta7xCVuz-iThqXftPb1DcBTf-P-ah4KnbxBn3OhcHJF/exec"
+  googleSiteVerification = "NRZ27lDopfjKH3Lx1eWvh6WczAGh0hgqVg0AtB-ZK6c"
+  social = [
+    { name = "LinkedIn", url = "https://www.linkedin.com/company/pyronearfr" },
+    { name = "GitHub", url = "https://github.com/pyronear" },
+    { name = "Facebook", url = "https://www.facebook.com/pyronear" },
+  ]
+
+[languages]
+  [languages.fr]
+    label = "FR"
+    locale = "fr-FR"
+    weight = 1
+  [languages.en]
+    label = "EN"
+    locale = "en"
+    weight = 2
+  [languages.es]
+    label = "ES"
+    locale = "es"
+    weight = 3
+  # Catalan; the key keeps the historical /es-ct/ URL
+  [languages.es-ct]
+    label = "CA"
+    locale = "ca"
+    weight = 4
