@@ -40,7 +40,7 @@ Languages: French (default, served at `/`), English (`/en/`), Spanish (`/es/`) a
 
 ### Ordering
 
-- Press items: newest first. Items with an `image` are shown as cards (the 3 first ones also on the home page), the others in the list below. Quote dates (`date: "09.2025"`).
+- Press items: newest first. Items with an `image` are shown as cards, the others in the list below. Add `featured: true` to show an item on the home page (keep it to 3). Quote dates (`date: "09.2025"`).
 - Partners and supporters: newest last.
 
 ### Images and embeds in pages

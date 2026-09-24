@@ -41,7 +41,7 @@
       <p class="eyebrow">{{ .Params.media.eyebrow }}</p>
       <h2>{{ .Params.media.title }}</h2>
       <div class="media">
-        {{- range first 3 (where hugo.Data.medias "image" "ne" nil) }}
+        {{- range where hugo.Data.medias "featured" true }}
         {{ partial "media-card.html" . }}
         {{- end }}
       </div>
