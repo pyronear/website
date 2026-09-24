@@ -5,11 +5,19 @@ description: Des stations sur des points hauts, une IA sobre et une plateforme d
 menus:
   main:
     weight: 2
+images:
+  - view.jpg
+build:
+  publishResources: false
 ---
 
 ## Une solution complète
 
 Pyronear est une **solution complète de gestion du risque incendie**. Elle est constituée d’un **algorithme de détection** précoce des départs de feu, implémenté sur un micro ordinateur, connecté à des **caméras positionnées sur des points hauts** avec vue sur la forêt. Nos détecteurs communiquent les **alertes de détection de départ de feu** à une base de données elle-même connectée à une **plateforme de supervision** à destination des pompiers.
+
+{{< youtube id="W3DxacGsdks" title="Démonstration du système Pyronear en forêt de Fontainebleau" loading="lazy" >}}
+
+*Démonstration du système Pyronear en forêt de Fontainebleau, de la détection à l'alerte.*
 
 ![Vue d'ensemble de la solution Pyronear](solution.png)
 
@@ -20,16 +28,44 @@ Nos stations sont installées sur des points hauts (pylônes, châteaux d'eau, t
 - Détection des fumées jusqu'à **15 km**
 - Jusqu'à **2 heures d'avance** sur les premiers appels au 18
 - Analyse sur place, **très faible consommation**, matériel standard
+- Record : un départ de feu détecté à **42 km**
 
 Nos tours de détection se composent de 4/5 caméras haute résolution et d’un micro ordinateur qui capture une image par caméra à intervalles réguliers puis l’analyse localement à l’aide de notre modèle de détection de feux de forêt. En cas de détection, le mode alerte est activé, toutes les images provenant de la caméra ayant détecté le feu sont alors envoyées à notre base de données via notre api, le protocole de communication que nous avons développé.
 
 ![Fonctionnement d'une station de détection](model.png)
+
+{{< gallery >}}
+![Pylône équipé d'une station Pyronear en forêt de Fontainebleau](antenna.jpg)
+![Caméras installées en haut du pylône](cameras.jpg)
+![Le boîtier de la station : un micro-ordinateur, l'alimentation et la connexion 4G](hardware.jpg)
+![La forêt vue depuis le haut du pylône](view.jpg)
+{{< /gallery >}}
+
+## Moins de fausses alertes
+
+Une fumée naissante ressemble parfois à un nuage, à du brouillard ou à de la poussière. Pour ne pas alerter les pompiers pour rien, chaque détection passe par deux étapes :
+
+1. **Repérer** : sur chaque image, notre modèle signale tout ce qui ressemble à une fumée.
+2. **Confirmer** : le système suit cette fumée sur plusieurs images. Une vraie fumée reste au même endroit, grossit et dérive lentement, contrairement à un nuage.
+
+Résultat : **4 fois moins de fausses alertes**, sans manquer les vrais départs de feu.
 
 ## La plateforme d'alerte
 
 Quand une station détecte une fumée, les images sont envoyées à notre plateforme web. Les opérateurs des SDIS y reçoivent l'alerte en temps réel : ils lèvent le doute, pilotent les caméras et localisent le départ de feu par triangulation entre plusieurs stations.
 
 En avril 2026, une station a ainsi repéré le premier feu de l'année en forêt de Fontainebleau, vingt minutes avant le premier appel au 18.
+
+{{< gallery >}}
+![Une alerte sur la plateforme Pyronear, avec l'image de la caméra et la position estimée du feu](platform-alert.jpg)
+![Vue d'ensemble de la plateforme utilisée par les pompiers](platform-overview.jpg)
+{{< /gallery >}}
+
+## Essayer le modèle
+
+Testez notre modèle de détection dans votre navigateur : choisissez une image de caméra et regardez-le repérer les fumées.
+
+{{< hf-space "pyronear/Pyronear-Wildfire-Detection" "https://pyronear-pyronear-wildfire-detection.hf.space" >}}
 
 ## Open source
 
@@ -45,3 +81,11 @@ En octobre 2025, nous avons publié PYRONEAR-2025, le plus grand jeu de données
 
 - [Retrouvez le dataset sur HuggingFace](https://huggingface.co/datasets/pyronear/pyro-sdis)
 - [Note juridique pour les SDIS qui souhaitent partager leurs images](https://pyronear.notion.site/Notes-de-synth-se-FAQ-du-webinaire-open-data-DINUM-SDIS-MSP-18c425b63668806cb5dbc7a35d7452b4)
+
+## Pour aller plus loin
+
+Notre partenaire [EarthToolsMaker](https://www.earthtoolsmaker.org/) raconte en détail comment nous avons amélioré nos modèles (en anglais) :
+
+- [Smoke Is a Behavior: Inside Pyronear's Temporal Wildfire Detection Model](https://www.earthtoolsmaker.org/posts/smoke-is-a-behavior/)
+- [Racing Models, Not Opinions: How We Ran Wildfire ML R&D for Pyronear](https://www.earthtoolsmaker.org/posts/racing-models-not-opinions/)
+- [Protecting the Forest: Building an early forest fire detector](https://www.earthtoolsmaker.org/posts/protecting-the-forest-early-forest-fire-detector/)

@@ -5,11 +5,19 @@ description: Estacions en punts alts, una IA sòbria i una plataforma d'alertes 
 menus:
   main:
     weight: 2
+images:
+  - view.jpg
+build:
+  publishResources: false
 ---
 
 ## Una solució completa
 
 Pyronear és un **solució completa de gestió del risc d'incendi**. Consta d'un **algorisme de detecció precoç d'incendis forestals**, implementat en un microordinador, connectat a **càmeres col·locades en punts alts** amb vistes al bosc. Els nostres detectors es comuniquen **alertes d'incendi** a una base de dades connectada a **plataforma de supervisió** per al cos de bombers.
+
+{{< youtube id="W3DxacGsdks" title="Demostració del sistema Pyronear al bosc de Fontainebleau" loading="lazy" >}}
+
+*Demostració del sistema Pyronear al bosc de Fontainebleau, de la detecció a l'alerta.*
 
 ![Visió general de la solució Pyronear](solution-en.png)
 
@@ -20,16 +28,44 @@ Les nostres estacions s'instal·len en punts alts (torres elèctriques, dipòsit
 - Detecció de fum fins a **15 km**
 - Fins a **2 hores d'avançament** sobre les primeres trucades d'emergència
 - Anàlisi in situ, **consum molt baix**, maquinari estàndard
+- Rècord: un inici d'incendi detectat a **42 km**
 
 Les nostres torres de detecció estan formades per 4/5 càmeres d'alta resolució i un micro ordinador. Capturem una imatge per càmera a intervals regulars i després l'analitzem localment mitjançant el nostre model de detecció d'incendis forestals. En cas de detecció, s'activa el mode d'alerta, totes les imatges procedents de la càmera després d'haver detectat l'incendi s'envien a la nostra base de dades a través de la nostra API, el protocol de comunicació que hem desenvolupat.
 
 ![Funcionament d'una estació de detecció](model.png)
+
+{{< gallery >}}
+![Torre equipada amb una estació Pyronear al bosc de Fontainebleau](antenna.jpg)
+![Càmeres instal·lades a dalt de la torre](cameras.jpg)
+![La caixa de l'estació: un microordinador, l'alimentació i la connexió 4G](hardware.jpg)
+![El bosc vist des de dalt de la torre](view.jpg)
+{{< /gallery >}}
+
+## Menys falses alarmes
+
+Un fum incipient pot semblar un núvol, boira o pols. Per no alertar els bombers en va, cada detecció passa per dues etapes:
+
+1. **Detectar**: a cada imatge, el nostre model assenyala tot el que sembla fum.
+2. **Confirmar**: el sistema segueix aquest fum en diverses imatges. Un fum real es queda al mateix lloc, creix i es desplaça lentament, a diferència d'un núvol.
+
+Resultat: **4 vegades menys falses alarmes**, sense perdre els incendis reals.
 
 ## La plataforma d'alertes
 
 Quan una estació detecta fum, les imatges s'envien a la nostra plataforma web. Els operadors dels serveis de bombers reben l'alerta en temps real: la confirmen, controlen les càmeres i localitzen l'incendi per triangulació entre diverses estacions.
 
 L'abril del 2026, una estació va detectar el primer incendi de l'any al bosc de Fontainebleau, vint minuts abans de la primera trucada d'emergència.
+
+{{< gallery >}}
+![Una alerta a la plataforma Pyronear, amb la imatge de la càmera i la ubicació estimada de l'incendi](platform-alert.jpg)
+![Visió general de la plataforma que fan servir els bombers](platform-overview.jpg)
+{{< /gallery >}}
+
+## Prova el model
+
+Prova el nostre model de detecció al navegador: tria una imatge de càmera i mira com detecta el fum.
+
+{{< hf-space "pyronear/Pyronear-Wildfire-Detection" "https://pyronear-pyronear-wildfire-detection.hf.space" >}}
 
 ## Open source
 
@@ -45,3 +81,11 @@ L'octubre del 2025 vam publicar PYRONEAR-2025, el conjunt de dades obert més gr
 
 - [Trobeu el conjunt de dades a HuggingFace](https://huggingface.co/datasets/pyronear/pyro-sdis)
 - [Nota jurídica per als serveis de bombers que vulguin compartir les seves imatges (en francès)](https://pyronear.notion.site/Notes-de-synth-se-FAQ-du-webinaire-open-data-DINUM-SDIS-MSP-18c425b63668806cb5dbc7a35d7452b4)
+
+## Per saber-ne més
+
+El nostre soci [EarthToolsMaker](https://www.earthtoolsmaker.org/) explica en detall com hem millorat els nostres models (en anglès):
+
+- [Smoke Is a Behavior: Inside Pyronear's Temporal Wildfire Detection Model](https://www.earthtoolsmaker.org/posts/smoke-is-a-behavior/)
+- [Racing Models, Not Opinions: How We Ran Wildfire ML R&D for Pyronear](https://www.earthtoolsmaker.org/posts/racing-models-not-opinions/)
+- [Protecting the Forest: Building an early forest fire detector](https://www.earthtoolsmaker.org/posts/protecting-the-forest-early-forest-fire-detector/)

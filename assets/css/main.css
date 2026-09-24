@@ -417,6 +417,64 @@ h3 {
   margin-top: 0.4rem;
 }
 
+.prose iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+.prose em {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+/* Markdown wraps the images in paragraphs; let the images be the grid items */
+.gallery p {
+  display: contents;
+}
+
+.prose .gallery img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.demo summary {
+  list-style: none;
+}
+
+.demo summary::-webkit-details-marker {
+  display: none;
+}
+
+.demo[open] summary {
+  margin-bottom: 1rem;
+}
+
+.prose .demo__frame {
+  aspect-ratio: auto;
+  height: 780px;
+  background: var(--bg-alt);
+}
+
+.demo__link {
+  font-size: 0.9rem;
+}
+
 .more {
   margin: 2rem 0 0;
   text-align: center;

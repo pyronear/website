@@ -1,0 +1,2 @@
+{{- /* Grid of Markdown images: {{< gallery >}} ![alt](a.jpg) ![alt](b.jpg) {{< /gallery >}} */ -}}
+<div class="gallery">{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>

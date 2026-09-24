@@ -1,0 +1,17 @@
+{{- /* Hugging Face Space, only loaded when the visitor opens it: {{< hf-space "owner/name" "https://owner-name.hf.space" >}} */ -}}
+{{- $page := printf "https://huggingface.co/spaces/%s" (.Get 0) -}}
+<details class="demo" data-src="{{ .Get 1 }}">
+  <summary class="btn btn--accent">{{ i18n "tryDemo" }}</summary>
+  <iframe title="{{ i18n "tryDemo" }}" class="demo__frame" allow="clipboard-write"></iframe>
+</details>
+<p class="demo__link"><a href="{{ $page }}" target="_blank" rel="noopener">{{ i18n "openDemo" }}</a></p>
+{{- if not (.Page.Store.Get "hfSpaceScript") }}{{ .Page.Store.Set "hfSpaceScript" true }}
+<script>
+  document.querySelectorAll("details.demo").forEach(function (d) {
+    d.addEventListener("toggle", function () {
+      var frame = d.querySelector("iframe");
+      if (d.open && !frame.src) frame.src = d.dataset.src;
+    });
+  });
+</script>
+{{- end }}
