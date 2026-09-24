@@ -9,6 +9,8 @@ enableRobotsTXT = true
   # Default social share image (Open Graph / Twitter cards)
   images = ["img/og.jpg"]
   formAction = "https://script.google.com/macros/s/AKfycbxzvB_Jbta7xCVuz-iThqXftPb1DcBTf-P-ah4KnbxBn3OhcHJF/exec"
+  # Cloudflare Turnstile public site key (the secret key lives only in the Apps Script properties)
+  turnstileSiteKey = "0x4AAAAAAFCZrJDl8WAfpV8P"
   googleSiteVerification = "NRZ27lDopfjKH3Lx1eWvh6WczAGh0hgqVg0AtB-ZK6c"
   # icon: file name in assets/icons/
   social = [

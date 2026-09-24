@@ -5,8 +5,7 @@ emailLabel: La teva adreça de correu electrònic
 emailPrivacy: Mai compartirem el teu correu electrònic sense el teu consentiment.
 subjectLabel: Assumpte
 messageLabel: El teu missatge
-captchaLabel: 'Pregunta anti-brossa: quant fan 3 + 3?'
-captchaError: Respon correctament a la pregunta anti-brossa.
+captchaError: Completa la verificació anti-brossa.
 sentTitle: Missatge enviat!
 sentSubtitle: Gràcies per contactar amb nosaltres, us respondrem el més aviat possible!
 sendError: "L'enviament ha fallat. Torneu-ho a provar d'aquí a uns minuts."

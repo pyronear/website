@@ -5,8 +5,7 @@ emailLabel: Your e-mail address
 emailPrivacy: We will never share your email without your consent.
 subjectLabel: Subject
 messageLabel: Your message
-captchaLabel: 'Anti-spam question: what is 3 + 3?'
-captchaError: Please answer the anti-spam question correctly.
+captchaError: Please complete the anti-spam check.
 sentTitle: Message sent!
 sentSubtitle: Thank you for contacting us, we will get back to you as soon as possible!
 sendError: "Sending failed. Please try again in a few minutes."

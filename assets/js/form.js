@@ -1,5 +1,6 @@
-// Posts the contact form to the Google Apps Script endpoint, which writes to a
-// sheet and sends the email. The payload shape must match that script.
+// Posts the contact form to the Google Apps Script endpoint, which verifies the
+// Cloudflare Turnstile token, writes to a sheet and sends the email. The payload
+// shape must match that script.
 // The script takes 3 to 30 seconds to answer, so the form shows progress and
 // only reports success when the script says so.
 var TIMEOUT_MS = 45000;
@@ -22,6 +23,12 @@ document.querySelectorAll("form.form").forEach(function (form) {
     note.hidden = !sending;
   }
 
+  function resetCaptcha() {
+    // Turnstile tokens are single-use: get a fresh one after a failed attempt
+    var widget = form.querySelector(".cf-turnstile");
+    if (window.turnstile && widget) window.turnstile.reset(widget);
+  }
+
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     if (button.disabled) return;
@@ -29,7 +36,9 @@ document.querySelectorAll("form.form").forEach(function (form) {
     var data = new FormData(form);
     // Silently drop submissions from bots that fill the hidden field
     if (data.get("honeypot")) return;
-    if (String(data.get("captcha")).trim() !== "6") {
+    // Token set by the Turnstile widget, verified server-side by the script
+    var token = data.get("cf-turnstile-response");
+    if (!token) {
       showError(form.dataset.captchaError);
       return;
     }
@@ -40,6 +49,7 @@ document.querySelectorAll("form.form").forEach(function (form) {
     body.append("formDataNameOrder", JSON.stringify(fields));
     body.append("formGoogleSheetName", "responses");
     body.append("formGoogleSendEmail", "");
+    body.append("cf-turnstile-response", token);
 
     var controller = new AbortController();
     var timer = setTimeout(function () { controller.abort(); }, TIMEOUT_MS);
@@ -55,6 +65,7 @@ document.querySelectorAll("form.form").forEach(function (form) {
       })
       .catch(function () {
         setSending(false);
+        resetCaptcha();
         showError(form.dataset.sendError);
       })
       .finally(function () { clearTimeout(timer); });

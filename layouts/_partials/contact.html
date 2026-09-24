@@ -14,8 +14,7 @@
       <input type="text" id="subject" name="subject">
       <label for="message">{{ i18n "messageLabel" }}</label>
       <textarea id="message" name="message" rows="4"></textarea>
-      <label for="captcha">{{ i18n "captchaLabel" }}</label>
-      <input type="text" id="captcha" name="captcha" inputmode="numeric" required>
+      <div class="cf-turnstile" data-sitekey="{{ site.Params.turnstileSiteKey }}" data-action="contact"></div>
       <p class="form__error" role="alert" hidden></p>
       <button class="btn btn--accent" type="submit">{{ i18n "submit" }}</button>
       <p class="form__note" role="status" hidden>{{ i18n "sendingNote" }}</p>
@@ -23,4 +22,5 @@
     </form>
   </div>
 </section>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
