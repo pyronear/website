@@ -56,9 +56,21 @@ Quan una estació detecta fum, les imatges s'envien a la nostra plataforma web. 
 
 L'abril del 2026, una estació va detectar el primer incendi de l'any al bosc de Fontainebleau, vint minuts abans de la primera trucada d'emergència.
 
-{{< gallery >}}
-![Una alerta a la plataforma Pyronear, amb la imatge de la càmera i la ubicació estimada de l'incendi](platform-alert.jpg)
-![Visió general de la plataforma que fan servir els bombers](platform-overview.jpg)
+El que permet la plataforma:
+
+- **Alertes en directe**: les alertes del dia, amb les seves seqüències d'imatges per reproduir i ampliar.
+- **Localització de l'incendi**: quan diverses càmeres veuen el mateix fum, la seva posició apareix al mapa.
+- **Verificació remota**: prendre el control d'una càmera a distància (orientació, zoom, clic per centrar) per confirmar o descartar una alerta.
+- **Etiquetatge**: classificar cada alerta com a inici d'incendi, fum no rellevant o un altre fals positiu.
+- **Màscares**: ignorar un fum recurrent, com la xemeneia d'una fàbrica.
+- **Seguiment de les càmeres**: l'estat i l'última imatge de cada càmera, amb un avís si una es desconnecta.
+- **Compartir i historial**: enviar una alerta a un company, trobar alertes passades i exportar-les en CSV.
+
+{{< gallery "screens" >}}
+![Una alerta en curs: imatges de la càmera i localització de l'incendi al mapa](platform-alert.jpg)
+![Etiquetatge d'una alerta](platform-annotation.jpg)
+![Afegir una màscara per ignorar un fum recurrent](platform-masks.jpg)
+![Vista de les càmeres amb la seva última imatge](platform-cameras.jpg)
 {{< /gallery >}}
 
 ## Prova el model

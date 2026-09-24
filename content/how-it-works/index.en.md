@@ -56,9 +56,21 @@ When a station detects smoke, the images are sent to our web platform. Fire serv
 
 In April 2026, a station spotted the first fire of the year in the Fontainebleau forest, twenty minutes before the first emergency call.
 
-{{< gallery >}}
-![An alert on the Pyronear platform, with the camera image and the estimated fire location](platform-alert.jpg)
-![Overview of the platform used by firefighters](platform-overview.jpg)
+What the platform does:
+
+- **Live alerts**: today's alerts, with image sequences you can play and zoom into.
+- **Fire location**: when several cameras see the same smoke, its position appears on the map.
+- **Remote check**: take control of a camera remotely (direction, zoom, click to center) to confirm or rule out an alert.
+- **Labelling**: classify each alert as a fire start, irrelevant smoke or another false positive.
+- **Masks**: ignore recurring smoke, such as a factory chimney.
+- **Camera monitoring**: the status and latest image of each camera, with a warning if one goes offline.
+- **Sharing and history**: send an alert to a colleague, find past alerts and export them as CSV.
+
+{{< gallery "screens" >}}
+![A live alert: camera images and fire location on the map](platform-alert.jpg)
+![Labelling an alert](platform-annotation.jpg)
+![Adding a mask to ignore recurring smoke](platform-masks.jpg)
+![Camera view with the latest image from each one](platform-cameras.jpg)
 {{< /gallery >}}
 
 ## Try the model

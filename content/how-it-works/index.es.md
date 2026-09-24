@@ -56,9 +56,21 @@ Cuando una estación detecta humo, las imágenes se envían a nuestra plataforma
 
 En abril de 2026, una estación detectó el primer incendio del año en el bosque de Fontainebleau, veinte minutos antes de la primera llamada de emergencia.
 
-{{< gallery >}}
-![Una alerta en la plataforma Pyronear, con la imagen de la cámara y la ubicación estimada del incendio](platform-alert.jpg)
-![Vista general de la plataforma que usan los bomberos](platform-overview.jpg)
+Lo que permite la plataforma:
+
+- **Alertas en directo**: las alertas del día, con sus secuencias de imágenes para reproducir y ampliar.
+- **Localización del incendio**: cuando varias cámaras ven el mismo humo, su posición aparece en el mapa.
+- **Verificación remota**: tomar el control de una cámara a distancia (orientación, zoom, clic para centrar) para confirmar o descartar una alerta.
+- **Etiquetado**: clasificar cada alerta como inicio de incendio, humo no relevante u otro falso positivo.
+- **Máscaras**: ignorar un humo recurrente, como la chimenea de una fábrica.
+- **Seguimiento de las cámaras**: el estado y la última imagen de cada cámara, con un aviso si una se desconecta.
+- **Compartir e historial**: enviar una alerta a un compañero, encontrar alertas pasadas y exportarlas en CSV.
+
+{{< gallery "screens" >}}
+![Una alerta en curso: imágenes de la cámara y localización del incendio en el mapa](platform-alert.jpg)
+![Etiquetado de una alerta](platform-annotation.jpg)
+![Añadir una máscara para ignorar un humo recurrente](platform-masks.jpg)
+![Vista de las cámaras con su última imagen](platform-cameras.jpg)
 {{< /gallery >}}
 
 ## Prueba el modelo

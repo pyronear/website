@@ -453,6 +453,18 @@ h3 {
   object-fit: cover;
 }
 
+.gallery--screens {
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.prose .gallery--screens img {
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  box-shadow: var(--shadow);
+}
+
 .demo summary {
   list-style: none;
 }

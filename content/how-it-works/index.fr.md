@@ -56,9 +56,21 @@ Quand une station détecte une fumée, les images sont envoyées à notre platef
 
 En avril 2026, une station a ainsi repéré le premier feu de l'année en forêt de Fontainebleau, vingt minutes avant le premier appel au 18.
 
-{{< gallery >}}
-![Une alerte sur la plateforme Pyronear, avec l'image de la caméra et la position estimée du feu](platform-alert.jpg)
-![Vue d'ensemble de la plateforme utilisée par les pompiers](platform-overview.jpg)
+Ce que permet la plateforme :
+
+- **Alertes en direct** : les alertes du jour, avec leurs séquences d'images à faire défiler et à zoomer.
+- **Localisation du feu** : quand plusieurs caméras voient la même fumée, sa position s'affiche sur la carte.
+- **Levée de doute** : prendre la main sur une caméra à distance (orientation, zoom, clic pour centrer) pour confirmer ou écarter une alerte.
+- **Annotation** : classer chaque alerte en départ de feu, fumée non pertinente ou autre faux positif.
+- **Masques** : ignorer une fumée récurrente, comme une cheminée d'usine.
+- **Suivi des caméras** : l'état et la dernière image de chaque caméra, avec un signal en cas de coupure.
+- **Partage et historique** : envoyer une alerte à un collègue, retrouver les alertes passées et les exporter en CSV.
+
+{{< gallery "screens" >}}
+![Une alerte en cours : images de la caméra et localisation du feu sur la carte](platform-alert.jpg)
+![Annotation d'une alerte](platform-annotation.jpg)
+![Ajout d'un masque pour ignorer une fumée récurrente](platform-masks.jpg)
+![Vue des caméras avec leur dernière image](platform-cameras.jpg)
 {{< /gallery >}}
 
 ## Essayer le modèle
