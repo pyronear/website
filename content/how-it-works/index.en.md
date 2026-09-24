@@ -30,6 +30,8 @@ Our stations are installed on high points (pylons, water towers, lookout towers)
 - On-site analysis, **very low power use**, standard hardware
 - Record: a fire start detected **42 km** away
 
+A station is installed in less than half a day: [see how]({{< relref "/deployments#installation" >}}).
+
 Our detection towers consist of 4/5 high resolution cameras and a micro computer. We capture one image per camera at regular intervals and then analyze it locally using our wildfire detection model. In case of detection, the alert mode is activated, all the images coming from the camera having detected the fire are then sent to our database via our api, the communication protocol we have developed.
 
 ![How a detection station works](model.png)

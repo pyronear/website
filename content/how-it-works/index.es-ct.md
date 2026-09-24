@@ -30,6 +30,8 @@ Les nostres estacions s'instal·len en punts alts (torres elèctriques, dipòsit
 - Anàlisi in situ, **consum molt baix**, maquinari estàndard
 - Rècord: un inici d'incendi detectat a **42 km**
 
+Una estació s'instal·la en menys de mitja jornada: [vegeu com]({{< relref "/deployments#installation" >}}).
+
 Les nostres torres de detecció estan formades per 4/5 càmeres d'alta resolució i un micro ordinador. Capturem una imatge per càmera a intervals regulars i després l'analitzem localment mitjançant el nostre model de detecció d'incendis forestals. En cas de detecció, s'activa el mode d'alerta, totes les imatges procedents de la càmera després d'haver detectat l'incendi s'envien a la nostra base de dades a través de la nostra API, el protocol de comunicació que hem desenvolupat.
 
 ![Funcionament d'una estació de detecció](model.png)
