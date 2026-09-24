@@ -1,0 +1,22 @@
+{{- with .Params.media -}}
+<section class="section" id="media">
+  <div class="container">
+    <p class="eyebrow">{{ .eyebrow }}</p>
+    <h2>{{ .title }}</h2>
+    <div class="media">
+      {{- range first 4 hugo.Data.medias }}
+      <a class="media-card" href="{{ .url }}" target="_blank" rel="noopener">
+        <span class="media-card__img">
+          <img src="{{ .image }}" alt="" loading="lazy">
+          <img class="media-card__logo" src="{{ .logo }}" alt="" loading="lazy">
+        </span>
+        <span class="media-card__body">
+          <h3>{{ .title }}</h3>
+          <time>{{ .date }}</time>
+        </span>
+      </a>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end -}}

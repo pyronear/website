@@ -1,0 +1,16 @@
+{{- $lang := site.Language.Lang -}}
+<section class="section{{ if eq .id "sponsors" }} section--alt{{ end }}" id="{{ .id }}">
+  <div class="container">
+    <p class="eyebrow">{{ .copy.eyebrow }}</p>
+    <h2>{{ .copy.title }}</h2>
+    <div class="logos">
+      {{- range .items }}
+      <a class="logo-card" href="{{ .url }}" target="_blank" rel="noopener">
+        <span class="logo-card__img"><img src="{{ .logo | relURL }}" alt="{{ .name }}" loading="lazy"></span>
+        <h3>{{ .name }}</h3>
+        <p>{{ index .description $lang }}</p>
+      </a>
+      {{- end }}
+    </div>
+  </div>
+</section>

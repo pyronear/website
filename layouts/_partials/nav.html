@@ -1,0 +1,30 @@
+{{- $home := site.Home -}}
+<header class="nav">
+  <div class="container nav__inner">
+    <a class="nav__brand" href="{{ $home.RelPermalink }}">
+      <img src="{{ "img/logo_letters.png" | relURL }}" alt="Pyronear" width="1108" height="226">
+    </a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="{{ $home.RelPermalink }}#about">{{ $home.Params.about.title }}</a>
+      <a href="{{ $home.RelPermalink }}#partners">{{ $home.Params.partners.title }}</a>
+      <a href="{{ $home.RelPermalink }}#media">{{ $home.Params.media.title }}</a>
+    </nav>
+    <a class="btn btn--small" href="{{ $home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
+    <details class="lang">
+      <summary>
+        <img src="{{ printf "img/flags/%s.svg" site.Language.Lang | relURL }}" alt="" width="20" height="20">
+        {{ site.Language.Label }}
+      </summary>
+      <ul>
+        {{- range site.Home.AllTranslations }}
+        <li>
+          <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}"{{ if eq .Language.Lang site.Language.Lang }} aria-current="true"{{ end }}>
+            <img src="{{ printf "img/flags/%s.svg" .Language.Lang | relURL }}" alt="" width="20" height="20">
+            {{ .Language.Label }}
+          </a>
+        </li>
+        {{- end }}
+      </ul>
+    </details>
+  </div>
+</header>

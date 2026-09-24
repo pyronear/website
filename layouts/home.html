@@ -1,0 +1,11 @@
+{{ define "main" }}
+  {{ partial "hero.html" . }}
+  {{ partial "about.html" . }}
+  {{ partial "steps.html" . }}
+  {{ partial "opendata.html" . }}
+  {{ partial "cta.html" . }}
+  {{ partial "logos.html" (dict "id" "partners" "items" hugo.Data.partners "copy" .Params.partners) }}
+  {{ partial "logos.html" (dict "id" "sponsors" "items" hugo.Data.sponsors "copy" .Params.sponsors) }}
+  {{ partial "media.html" . }}
+  {{ partial "contact.html" . }}
+{{ end }}

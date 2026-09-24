@@ -1,0 +1,15 @@
+{{- with .Params.steps -}}
+<section class="section section--alt" id="services">
+  <div class="container">
+    <h2>{{ .title }}</h2>
+    <div class="split">
+      <p>{{ .text1 | safeHTML }}</p>
+      <img src="{{ .image1 | relURL }}" alt="" loading="lazy">
+    </div>
+    <div class="split split--reverse">
+      <p>{{ .text2 | safeHTML }}</p>
+      <img src="{{ .image2 | relURL }}" alt="" loading="lazy">
+    </div>
+  </div>
+</section>
+{{- end -}}

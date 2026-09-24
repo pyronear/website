@@ -1,0 +1,11 @@
+{{- $img := (resources.Get "img/hero.jpg").Resize "1920x webp q70" -}}
+<section class="hero" style="--hero-image: url('{{ $img.RelPermalink }}')">
+  <div class="container">
+    <h1>{{ .Params.hero.title }}</h1>
+    <p class="lead">{{ .Params.hero.subtitle }}</p>
+    <div class="hero__actions">
+      <a class="btn btn--accent" href="#about">{{ i18n "moreInfo" }}</a>
+      <a class="btn btn--ghost" href="#contact-form">{{ i18n "contactUs" }}</a>
+    </div>
+  </div>
+</section>

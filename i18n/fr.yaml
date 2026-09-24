@@ -1,0 +1,14 @@
+moreInfo: En savoir plus
+contactUs: Nous contacter
+submit: Envoyer
+emailLabel: Votre adresse e-mail
+emailPrivacy: Nous ne partagerons jamais votre adresse e-mail sans votre autorisation.
+subjectLabel: Objet
+messageLabel: Votre message
+captchaLabel: 'Question anti-spam : combien font 3 + 3 ?'
+captchaError: Merci de répondre correctement à la question anti-spam.
+sentTitle: Message envoyé !
+sentSubtitle: Merci de nous avoir contacté, nous revenons vers vous le plus vite possible !
+sendError: L'envoi a échoué, merci de réessayer.
+notFound: Page introuvable
+backHome: Retour à l'accueil
