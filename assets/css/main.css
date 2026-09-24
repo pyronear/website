@@ -153,8 +153,57 @@ h3 {
   text-decoration: none;
 }
 
-.nav__links a:hover {
+.nav__links a:hover,
+.nav__links a[aria-current] {
   color: var(--teal);
+}
+
+.nav__links a[aria-current] {
+  text-decoration: underline 2px var(--amber);
+  text-underline-offset: 6px;
+}
+
+.menu {
+  display: none;
+  position: relative;
+}
+
+.menu summary {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu nav {
+  position: absolute;
+  right: 0;
+  display: grid;
+  min-width: 220px;
+  margin-top: 0.25rem;
+  padding: 0.35rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.menu nav a {
+  padding: 0.55rem 0.9rem;
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.menu nav a:hover,
+.menu nav a[aria-current] {
+  background: var(--bg-alt);
 }
 
 .lang {
@@ -277,7 +326,6 @@ h3 {
 }
 
 .cards,
-.links,
 .logos,
 .media {
   display: grid;
@@ -311,29 +359,6 @@ h3 {
   color: var(--muted);
 }
 
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 2.5rem;
-  align-items: center;
-  margin-top: 2.5rem;
-}
-
-.split--reverse p {
-  order: 2;
-}
-
-.split img {
-  border-radius: var(--radius);
-  background: #fff;
-  box-shadow: var(--shadow);
-}
-
-.links {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 340px));
-  justify-content: center;
-}
-
 .card--link {
   color: inherit;
   text-align: center;
@@ -341,18 +366,236 @@ h3 {
   transition: box-shadow 0.15s, transform 0.15s;
 }
 
-.card--link img {
-  display: block;
-  margin: 0 auto 1rem;
-  height: 64px;
-  width: auto;
-}
-
 .card--link:hover,
 .logo-card:hover,
 .media-card:hover {
   box-shadow: var(--shadow);
   transform: translateY(-2px);
+}
+
+/* Inner pages */
+.page-header {
+  padding: clamp(3rem, 7vw, 5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+  background: var(--teal);
+  color: #fff;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.page-header .lead {
+  margin-bottom: 0;
+}
+
+.container--prose {
+  width: min(760px, 100% - 2rem);
+}
+
+.prose {
+  font-size: 1.05rem;
+}
+
+.prose h2 {
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose img {
+  display: block;
+  margin: 2rem auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.prose li + li {
+  margin-top: 0.4rem;
+}
+
+.more {
+  margin: 2rem 0 0;
+  text-align: center;
+}
+
+.cards--pages {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.card--page {
+  text-align: left;
+}
+
+.card--page h3::after {
+  content: " →";
+  color: var(--amber-dark);
+}
+
+.figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0 0;
+}
+
+.figures div {
+  padding: 1.25rem 1rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.figures dt {
+  color: var(--teal);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.figures dd {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.timeline {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-left: 3px solid var(--amber);
+}
+
+.timeline li {
+  position: relative;
+  padding: 0 0 1.25rem 1.5rem;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 0.45rem;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+
+.timeline__date {
+  display: block;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.logo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem 2.5rem;
+  margin-top: 2rem;
+}
+
+/* Fixed boxes so logos without intrinsic size (some SVGs) still show */
+.logo-strip a {
+  display: block;
+  width: 110px;
+  height: 56px;
+}
+
+.logo-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.map {
+  height: min(70vh, 520px);
+  margin-top: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  z-index: 0;
+}
+
+.map-note {
+  margin: 0.5rem 0 2.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.areas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.5rem 1.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.areas li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.press-archive-title {
+  margin-top: 4rem;
+}
+
+.press-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 0.75rem 1.25rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.press-list a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  padding: 0.9rem 1rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: inherit;
+  text-decoration: none;
+}
+
+.press-list a:hover {
+  border-color: var(--teal);
+}
+
+.press-list__logo {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 72px;
+  height: 44px;
+}
+
+.press-list__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.press-list__outlet {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.press-list__title {
+  display: block;
+  font-weight: 600;
+  line-height: 1.35;
 }
 
 /* Call-to-action and contact bands */
@@ -542,25 +785,23 @@ h3 {
   font-weight: 600;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1100px) {
   .nav__links {
     display: none;
   }
 
-  .nav__inner > .btn {
+  .nav__contact {
     margin-left: auto;
   }
 
+  .menu {
+    display: block;
+  }
+}
+
+@media (max-width: 760px) {
   .nav__brand img {
     width: 110px;
-  }
-
-  .split {
-    grid-template-columns: 1fr;
-  }
-
-  .split--reverse p {
-    order: 0;
   }
 }
 
@@ -569,12 +810,16 @@ h3 {
     gap: 0.5rem;
   }
 
-  .nav__inner > .btn {
+  .nav__contact {
     display: none;
   }
 
   .lang {
     margin-left: auto;
+  }
+
+  .press-list {
+    grid-template-columns: 1fr;
   }
 }
 
