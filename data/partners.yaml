@@ -94,3 +94,11 @@
     en: Our partner for the protection of the Brenne forest and its surroundings in the Indre
     es: Nuestro socio para la protección del bosque de la Brenne y sus alrededores en el Indre
     es-ct: El nostre soci per a la protecció del bosc de la Brenne i els seus voltants a l'Indre
+- name: EarthToolsMaker
+  url: https://www.earthtoolsmaker.org/
+  logo: /img/earthtoolsmaker.svg
+  description:
+    fr: "Notre partenaire technique en intelligence artificielle, qui améliore nos modèles de détection et réduit les fausses alertes"
+    en: "Our technical AI partner, improving our detection models and cutting false alarms"
+    es: "Nuestro socio técnico en inteligencia artificial, que mejora nuestros modelos de detección y reduce las falsas alarmas"
+    es-ct: "El nostre soci tècnic en intel·ligència artificial, que millora els nostres models de detecció i redueix les falses alarmes"

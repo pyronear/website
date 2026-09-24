@@ -5,7 +5,9 @@
     <p>{{ .text }}</p>
     <p class="footer__social">
       {{- range site.Params.social }}
-      <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
+      <a href="{{ .url }}" target="_blank" rel="noopener" aria-label="{{ .name }}" title="{{ .name }}">
+        {{- with resources.Get (printf "icons/%s.svg" .icon) }}{{ .Content | safeHTML }}{{ else }}{{ .name }}{{ end -}}
+      </a>
       {{- end }}
     </p>
   </div>

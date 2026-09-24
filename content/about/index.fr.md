@@ -33,6 +33,19 @@ values:
   - icon: /img/cards_icons/grid-view-solid.svg
     title: Modulable
     text: Nous proposons un système de détection complet mais notre dispositif a été pensé pour fonctionner avec le matériel existant (utilisation de caméras déjà en place, connexion avec nexSIS …)
+forests:
+  title: Pourquoi protéger les forêts ?
+  cards:
+  - title: Biodiversité
+    text: Les forêts abritent d'innombrables espèces. Un incendie détruit leurs habitats et menace les plus fragiles.
+  - title: Climat
+    text: Les forêts stockent du carbone dans les arbres et les sols. Quand elles brûlent, ce carbone repart dans l'atmosphère.
+  - title: Eau
+    text: Les forêts régulent le cycle de l'eau, retiennent les sols et alimentent les rivières. Le feu dégrade les sols et la qualité de l'eau.
+  - title: Économie
+    text: 'Bois, tourisme, agriculture : de nombreux emplois locaux dépendent des forêts.'
+  - title: Santé
+    text: La fumée des incendies pollue l'air bien au-delà du feu, surtout pour les enfants, les personnes âgées et les personnes fragiles.
 timeline:
   title: Dates clés
   items:
@@ -50,8 +63,6 @@ timeline:
     text: Sélectionné comme bonne pratique par la Commission européenne
   - date: '08.2025'
     text: Premier contrat pluriannuel avec un SDIS (Seine-et-Marne)
-  - date: '10.2025'
-    text: Publication du jeu de données ouvert PYRONEAR-2025
   - date: '2026'
     text: Programme d'accélération Fast Forward
 ---

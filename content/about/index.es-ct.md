@@ -33,6 +33,19 @@ values:
   - icon: /img/cards_icons/grid-view-solid.svg
     title: Modular
     text: Oferim un sistema de detecció complet però el nostre dispositiu ha estat dissenyat per funcionar amb equips existents (ús de càmeres ja instal·lades, connexió amb programari existent...)
+forests:
+  title: Per què protegir els boscos?
+  cards:
+  - title: Biodiversitat
+    text: Els boscos acullen innombrables espècies. Un incendi destrueix els seus hàbitats i amenaça les més vulnerables.
+  - title: Clima
+    text: Els boscos emmagatzemen carboni als arbres i al sòl. Quan cremen, aquest carboni torna a l'atmosfera.
+  - title: Aigua
+    text: Els boscos regulen el cicle de l'aigua, subjecten el sòl i alimenten els rius. El foc degrada el sòl i la qualitat de l'aigua.
+  - title: Economia
+    text: 'Fusta, turisme, agricultura: molts llocs de treball locals depenen dels boscos.'
+  - title: Salut
+    text: El fum dels incendis contamina l'aire molt més enllà del foc, sobretot per als infants, la gent gran i les persones amb problemes respiratoris.
 timeline:
   title: Dates clau
   items:
@@ -50,8 +63,6 @@ timeline:
     text: Seleccionat com a bona pràctica per la Comissió Europea
   - date: '08.2025'
     text: Primer contracte plurianual amb un servei de bombers (Sena i Marne)
-  - date: '10.2025'
-    text: Publicació del conjunt de dades obert PYRONEAR-2025
   - date: '2026'
     text: Programa d'acceleració Fast Forward
 ---

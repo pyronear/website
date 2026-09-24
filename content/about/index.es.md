@@ -33,6 +33,19 @@ values:
   - icon: /img/cards_icons/grid-view-solid.svg
     title: Modular
     text: Ofrecemos un sistema de detección completo pero nuestro dispositivo ha sido diseñado para trabajar con equipos existentes (uso de cámaras ya instaladas, conexión con software existente...)
+forests:
+  title: ¿Por qué proteger los bosques?
+  cards:
+  - title: Biodiversidad
+    text: Los bosques albergan innumerables especies. Un incendio destruye sus hábitats y amenaza a las más vulnerables.
+  - title: Clima
+    text: Los bosques almacenan carbono en los árboles y el suelo. Cuando arden, ese carbono vuelve a la atmósfera.
+  - title: Agua
+    text: Los bosques regulan el ciclo del agua, sujetan el suelo y alimentan los ríos. El fuego degrada el suelo y la calidad del agua.
+  - title: Economía
+    text: 'Madera, turismo, agricultura: muchos empleos locales dependen de los bosques.'
+  - title: Salud
+    text: El humo de los incendios contamina el aire mucho más allá del fuego, sobre todo para niños, personas mayores y personas con problemas respiratorios.
 timeline:
   title: Fechas clave
   items:
@@ -50,8 +63,6 @@ timeline:
     text: Seleccionado como buena práctica por la Comisión Europea
   - date: '08.2025'
     text: Primer contrato plurianual con un servicio de bomberos (Sena y Marne)
-  - date: '10.2025'
-    text: Publicación del conjunto de datos abierto PYRONEAR-2025
   - date: '2026'
     text: Programa de aceleración Fast Forward
 ---

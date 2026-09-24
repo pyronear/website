@@ -25,8 +25,23 @@
     </div>
   </section>
   {{- end }}
+  {{- with .Params.forests }}
+  <section class="section section--alt" id="forests">
+    <div class="container">
+      <h2>{{ .title }}</h2>
+      <div class="cards cards--pages">
+        {{- range .cards }}
+        <article class="card">
+          <h3>{{ .title }}</h3>
+          <p>{{ .text }}</p>
+        </article>
+        {{- end }}
+      </div>
+    </div>
+  </section>
+  {{- end }}
   {{- with .Params.timeline }}
-  <section class="section section--alt" id="timeline">
+  <section class="section" id="timeline">
     <div class="container container--prose">
       <h2>{{ .title }}</h2>
       <ol class="timeline">

@@ -417,6 +417,76 @@ h3 {
   margin-top: 0.4rem;
 }
 
+.prose iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+.prose em {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+/* Markdown wraps the images in paragraphs; let the images be the grid items */
+.gallery p {
+  display: contents;
+}
+
+.prose .gallery img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.gallery--screens {
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.prose .gallery--screens img {
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  box-shadow: var(--shadow);
+}
+
+.demo summary {
+  list-style: none;
+}
+
+.demo summary::-webkit-details-marker {
+  display: none;
+}
+
+.demo[open] summary {
+  margin-bottom: 1rem;
+}
+
+.prose .demo__frame {
+  aspect-ratio: auto;
+  height: 780px;
+  background: var(--bg-alt);
+}
+
+.demo__link {
+  font-size: 0.9rem;
+}
+
 .more {
   margin: 2rem 0 0;
   text-align: center;
@@ -781,8 +851,29 @@ h3 {
 .footer__social {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  font-weight: 600;
+  gap: 0.75rem;
+}
+
+.footer__social a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  color: var(--teal);
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.footer__social a:hover {
+  background: var(--teal);
+  color: #fff;
+}
+
+.footer__social svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
 }
 
 @media (max-width: 1100px) {
