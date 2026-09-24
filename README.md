@@ -30,7 +30,8 @@ hugo --gc --minify
 | Site settings, languages, social links, form endpoint | `hugo.toml` |
 | Templates | `layouts/` |
 | Styles and scripts | `assets/css/main.css`, `assets/js/` |
-| Images | `static/img/` (the hero photo is in `assets/img/`) |
+| Images | `static/img/`; photos used in a page's Markdown go next to it in `content/<page>/` (the hero photo is in `assets/img/`) |
+| Default social share image | `static/img/og.jpg` |
 | Leaflet (map library) | `static/vendor/leaflet/` |
 
 Each page's URL is set by `slug` in its front matter, and its place in the menu by `menus.main.weight`.
@@ -41,6 +42,14 @@ Languages: French (default, served at `/`), English (`/en/`), Spanish (`/es/`) a
 
 - Press items: newest first. Items with an `image` are shown as cards (the 3 first ones also on the home page), the others in the list below. Quote dates (`date: "09.2025"`).
 - Partners and supporters: newest last.
+
+### Images and embeds in pages
+
+- Put photos in the page folder (for example `content/how-it-works/`) and reference them by file name: `![Alt text](photo.jpg)`. They are converted to WebP at several sizes. Strip location metadata (GPS) before adding a photo.
+- `{{< gallery >}} ... {{< /gallery >}}` shows the images inside as a grid.
+- `{{< youtube id="VIDEO_ID" title="..." loading="lazy" >}}` embeds a video from youtube-nocookie.com.
+- `{{< hf-space "owner/name" "https://owner-name.hf.space" >}}` embeds a Hugging Face demo that only loads when opened.
+- A page's share image can be set with `images: [photo.jpg]` in its front matter.
 
 ### Deployment map
 
