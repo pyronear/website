@@ -1,20 +1,19 @@
-{{- $description := .Params.description | default site.Home.Params.description -}}
+{{- $description := .Description | default site.Home.Description -}}
 {{- $css := resources.Get "css/main.css" | minify | fingerprint -}}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ site.Title }} - {{ $description }}</title>
+  <title>{{ if .IsHome }}{{ site.Title }} - {{ $description }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
   <meta name="description" content="{{ $description }}">
   <meta name="google-site-verification" content="{{ site.Params.googleSiteVerification }}">
   <link rel="canonical" href="{{ .Permalink }}">
   {{- range .AllTranslations }}
   <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
   {{- end }}
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ site.Title }}">
-  <meta property="og:description" content="{{ $description }}">
-  <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:image" content="{{ "img/logo.png" | absURL }}">
+  {{ partial "opengraph.html" . }}
+  {{ partial "twitter_cards.html" . }}
+  {{- $sameAs := slice }}{{ range site.Params.social }}{{ $sameAs = $sameAs | append .url }}{{ end }}
+  <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "NGO" "name" site.Title "url" site.Home.Permalink "logo" ("img/logo.png" | absURL) "description" site.Home.Description "sameAs" $sameAs | jsonify | safeJS }}</script>
   <link rel="icon" href="{{ "img/favicon.ico" | relURL }}">
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>
