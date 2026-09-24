@@ -33,7 +33,7 @@ Más de 150 voluntarios han contribuido desde 2020, y acogemos proyectos de estu
 
 Fundaciones, empresas y administraciones locales pueden:
 
-- **Financiar estaciones** para un servicio de bomberos con medios limitados, como hace Crédit Agricole d'Île-de-France en Essonne.
+- **Financiar estaciones** para un servicio de bomberos con medios limitados.
 - **Apoyar la investigación abierta**: cada mejora de nuestros modelos beneficia de inmediato a todas las estaciones, en Francia y en el extranjero.
 - **Acompañarnos a largo plazo**: el mantenimiento y el seguimiento de las estaciones, temporada tras temporada.
 

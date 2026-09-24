@@ -33,7 +33,7 @@ More than 150 volunteers have contributed since 2020, and we welcome student pro
 
 Foundations, companies and local authorities can:
 
-- **Fund stations** for a fire service with limited means, as Crédit Agricole d'Île-de-France does in Essonne.
+- **Fund stations** for a fire service with limited means.
 - **Support open research**: every improvement to our models immediately benefits all stations, in France and abroad.
 - **Support us over time**: station maintenance and follow-up, season after season.
 

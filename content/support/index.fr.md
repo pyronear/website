@@ -33,7 +33,7 @@ Plus de 150 bénévoles ont contribué depuis 2020, et nous accueillons des proj
 
 Fondations, entreprises et collectivités peuvent :
 
-- **Financer des stations** pour un SDIS aux moyens limités, comme le Crédit Agricole d'Île-de-France dans l'Essonne.
+- **Financer des stations** pour un SDIS aux moyens limités.
 - **Soutenir la recherche ouverte** : chaque amélioration de nos modèles profite immédiatement à toutes les stations, en France et à l'étranger.
 - **Nous accompagner dans la durée** : la maintenance et le suivi des stations, saison après saison.
 
