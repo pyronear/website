@@ -55,7 +55,7 @@ Prefer putting the logo in `static/img/` over linking to an external image.
 
 ## Deployment
 
-`.github/workflows/deploy.yml` builds the site on every pull request and deploys it to GitHub Pages on every push to `main`. The site URL comes from the repository's Pages settings (custom domain `website.pyronear.org` for now), so changing the domain needs no code change.
+`.github/workflows/deploy.yml` builds the site on every pull request and deploys it to GitHub Pages on every push to `main` (or when run manually from the Actions tab). The repository's Pages source must be set to "GitHub Actions". The site URL comes from the repository's Pages settings (custom domain `website.pyronear.org` for now), so changing the domain needs no code change.
 
 ## Contact form
 
