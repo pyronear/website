@@ -9,7 +9,7 @@ captchaLabel: 'Anti-spam question: what is 3 + 3?'
 captchaError: Please answer the anti-spam question correctly.
 sentTitle: Message sent!
 sentSubtitle: Thank you for contacting us, we will get back to you as soon as possible!
-sendError: Sending failed, please try again.
+sendError: "Sending failed. Please try again in a few minutes."
 notFound: Page not found
 backHome: Back to home
 menu: "Menu"
@@ -22,3 +22,5 @@ mapNote: "Approximate locations, at department or region level."
 pressArchive: "All coverage"
 tryDemo: "Launch the demo"
 openDemo: "Open the demo on Hugging Face"
+sending: "Sending…"
+sendingNote: "This can take up to 30 seconds, please wait."

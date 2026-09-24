@@ -9,7 +9,7 @@ captchaLabel: 'Pregunta anti-brossa: quant fan 3 + 3?'
 captchaError: Respon correctament a la pregunta anti-brossa.
 sentTitle: Missatge enviat!
 sentSubtitle: Gràcies per contactar amb nosaltres, us respondrem el més aviat possible!
-sendError: L'enviament ha fallat, torna-ho a provar.
+sendError: "L'enviament ha fallat. Torneu-ho a provar d'aquí a uns minuts."
 notFound: Pàgina no trobada
 backHome: Tornar a l'inici
 menu: "Menú"
@@ -22,3 +22,5 @@ mapNote: "Ubicacions aproximades, a escala de departament o regió."
 pressArchive: "Totes les aparicions"
 tryDemo: "Inicia la demo"
 openDemo: "Obre la demo a Hugging Face"
+sending: "Enviant…"
+sendingNote: "Pot trigar fins a 30 segons, espereu, si us plau."

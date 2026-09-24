@@ -843,6 +843,11 @@ h3 {
   font-weight: 600;
 }
 
+.form__note {
+  margin: 0.75rem 0 0;
+  opacity: 0.8;
+}
+
 .form__thanks {
   margin: 1rem 0 0;
   text-align: center;
