@@ -34,7 +34,7 @@ about:
     text: Ofrecemos un sistema de detección completo pero nuestro dispositivo ha sido diseñado para trabajar con equipos existentes (uso de cámaras ya instaladas, conexión con software existente...)
 steps:
   title: Como funciona ?
-  text1: Pironear es un <b>solución completa de gestión de riesgos de incendio</b>. consiste en un <b>early algoritmo de detección de incendios forestales</b>, implementado en una microcomputadora, conectada a <b>cámaras colocadas en puntos altos</b> con vista al bosque. Nuestros detectores se comunican <b>alertas de incendios<b> a una base de datos que está conectada a un <b>plataforma de supervisión</b> para el cuerpo de bomberos.
+  text1: Pironear es un <b>solución completa de gestión de riesgos de incendio</b>. consiste en un <b>early algoritmo de detección de incendios forestales</b>, implementado en una microcomputadora, conectada a <b>cámaras colocadas en puntos altos</b> con vista al bosque. Nuestros detectores se comunican <b>alertas de incendios</b> a una base de datos que está conectada a un <b>plataforma de supervisión</b> para el cuerpo de bomberos.
   image1: /img/solution-en.png
   text2: Nuestras torres de detección consisten en 4/5 cámaras de alta resolución y una microcomputadora. Capturamos una imagen por cámara a intervalos regulares y luego la analizamos localmente usando nuestro modelo de detección de incendios forestales. En caso de detección, se activa el modo de alerta, todas las imágenes provenientes de la cámara que detectó el incendio se envían a nuestra base de datos a través de nuestra api, el protocolo de comunicación que hemos desarrollado.
   image2: /img/model.png

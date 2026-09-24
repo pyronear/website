@@ -34,7 +34,7 @@ about:
     text: We offer a complete detection pipeline but our system has been designed to work with existing equipment (use of cameras already in place, connection with existing software ...)
 steps:
   title: How does it work?
-  text1: Pyronear is a <b>complete fire risk management solution</b>. It consists of an <b>early wildfire detection algorithm</b>, implemented on a microcomputer, connected to <b>cameras positioned on high spots</b> with a view on the forest. Our detectors communicate <b>fire alerts<b> to a database that is connected to a <b>supervision platform</b> for the fire department.
+  text1: Pyronear is a <b>complete fire risk management solution</b>. It consists of an <b>early wildfire detection algorithm</b>, implemented on a microcomputer, connected to <b>cameras positioned on high spots</b> with a view on the forest. Our detectors communicate <b>fire alerts</b> to a database that is connected to a <b>supervision platform</b> for the fire department.
   image1: /img/solution-en.png
   text2: Our detection towers consist of 4/5 high resolution cameras and a micro computer. We capture one image per camera at regular intervals and then analyze it locally using our wildfire detection model. In case of detection, the alert mode is activated, all the images coming from the camera having detected the fire are then sent to our database via our api, the communication protocol we have developed.
   image2: /img/model.png
