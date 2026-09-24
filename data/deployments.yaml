@@ -1,0 +1,56 @@
+# One marker per partner area. Coordinates are approximate (department or region level),
+# never the exact position of a station.
+- name: SDIS 07
+  lat: 44.73
+  lng: 4.60
+  place: { fr: Ardèche, en: Ardèche, es: Ardèche, es-ct: Ardèche }
+- name: SDIS 12
+  lat: 44.35
+  lng: 2.57
+  place: { fr: Aveyron, en: Aveyron, es: Aveyron, es-ct: Aveyron }
+- name: SDIS 13
+  lat: 43.53
+  lng: 5.45
+  place: { fr: Bouches-du-Rhône, en: Bouches-du-Rhône, es: Bouches-du-Rhône, es-ct: Boques del Roine }
+- name: SDIS 36
+  lat: 46.70
+  lng: 1.25
+  place: { fr: "Indre, Brenne", en: "Indre, Brenne", es: "Indre, Brenne", es-ct: "Indre, Brenne" }
+- name: SDIS 40
+  lat: 43.95
+  lng: -0.75
+  place: { fr: Landes, en: Landes, es: Landas, es-ct: Landes }
+- name: SIS 67
+  lat: 48.58
+  lng: 7.60
+  place: { fr: Bas-Rhin, en: Bas-Rhin, es: Bajo Rin, es-ct: Baix Rin }
+- name: SDIS 77
+  lat: 48.40
+  lng: 2.70
+  place: { fr: "Seine-et-Marne, forêt de Fontainebleau", en: "Seine-et-Marne, Fontainebleau forest", es: "Sena y Marne, bosque de Fontainebleau", es-ct: "Sena i Marne, bosc de Fontainebleau" }
+- name: SDIS 78 & ONF
+  lat: 48.64
+  lng: 1.83
+  place: { fr: "Yvelines, forêt de Rambouillet", en: "Yvelines, Rambouillet forest", es: "Yvelines, bosque de Rambouillet", es-ct: "Yvelines, bosc de Rambouillet" }
+- name: SDIS 91
+  lat: 48.53
+  lng: 2.30
+  place: { fr: Essonne, en: Essonne, es: Essonne, es-ct: Essonne }
+- name: ENGIE Green
+  lat: 44.84
+  lng: -0.58
+  place: { fr: Gironde, en: Gironde, es: Gironda, es-ct: Gironda }
+- name: ADF Subirats
+  lat: 41.40
+  lng: 1.81
+  place: { fr: "Catalogne, Espagne", en: "Catalonia, Spain", es: "Cataluña, España", es-ct: "Catalunya, Espanya" }
+- name: CENIA
+  lat: -33.45
+  lng: -70.67
+  place: { fr: Chili, en: Chile, es: Chile, es-ct: Xile }
+- lat: 50.50
+  lng: 4.47
+  place: { fr: Belgique, en: Belgium, es: Bélgica, es-ct: Bèlgica }
+- lat: 51.16
+  lng: 10.45
+  place: { fr: Allemagne, en: Germany, es: Alemania, es-ct: Alemanya }
