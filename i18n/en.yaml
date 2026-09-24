@@ -1,0 +1,14 @@
+moreInfo: More information
+contactUs: Contact us
+submit: Submit
+emailLabel: Your e-mail address
+emailPrivacy: We will never share your email without your consent.
+subjectLabel: Subject
+messageLabel: Your message
+captchaLabel: 'Anti-spam question: what is 3 + 3?'
+captchaError: Please answer the anti-spam question correctly.
+sentTitle: Message sent!
+sentSubtitle: Thank you for contacting us, we will get back to you as soon as possible!
+sendError: Sending failed, please try again.
+notFound: Page not found
+backHome: Back to home
