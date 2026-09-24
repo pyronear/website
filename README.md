@@ -53,6 +53,10 @@ Add an entry to `data/partners.yaml` or `data/sponsors.yaml` with a `description
 
 Prefer putting the logo in `static/img/` over linking to an external image.
 
+## Deployment
+
+`.github/workflows/deploy.yml` builds the site on every pull request and deploys it to GitHub Pages on every push to `main`. The site URL comes from the repository's Pages settings (custom domain `website.pyronear.org` for now), so changing the domain needs no code change.
+
 ## Contact form
 
 The form posts to a Google Apps Script (URL in `hugo.toml`) that stores messages in a Google Sheet and sends an email. The sheet and script are in Pyronear's Google Drive.
