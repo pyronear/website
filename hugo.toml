@@ -10,10 +10,12 @@ enableRobotsTXT = true
   images = ["img/og.jpg"]
   formAction = "https://script.google.com/macros/s/AKfycbxzvB_Jbta7xCVuz-iThqXftPb1DcBTf-P-ah4KnbxBn3OhcHJF/exec"
   googleSiteVerification = "NRZ27lDopfjKH3Lx1eWvh6WczAGh0hgqVg0AtB-ZK6c"
+  # icon: file name in assets/icons/
   social = [
-    { name = "LinkedIn", url = "https://www.linkedin.com/company/pyronearfr" },
-    { name = "GitHub", url = "https://github.com/pyronear" },
-    { name = "Facebook", url = "https://www.facebook.com/pyronear" },
+    { name = "LinkedIn", url = "https://www.linkedin.com/company/pyronearfr", icon = "linkedin" },
+    { name = "GitHub", url = "https://github.com/pyronear", icon = "github" },
+    { name = "Hugging Face", url = "https://huggingface.co/pyronear", icon = "huggingface" },
+    { name = "Facebook", url = "https://www.facebook.com/pyronear", icon = "facebook" },
   ]
 
 [languages]

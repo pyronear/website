@@ -839,8 +839,29 @@ h3 {
 .footer__social {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  font-weight: 600;
+  gap: 0.75rem;
+}
+
+.footer__social a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  color: var(--teal);
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.footer__social a:hover {
+  background: var(--teal);
+  color: #fff;
+}
+
+.footer__social svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
 }
 
 @media (max-width: 1100px) {
