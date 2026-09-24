@@ -63,8 +63,6 @@ timeline:
     text: Sélectionné comme bonne pratique par la Commission européenne
   - date: '08.2025'
     text: Premier contrat pluriannuel avec un SDIS (Seine-et-Marne)
-  - date: '10.2025'
-    text: Publication du jeu de données ouvert PYRONEAR-2025
   - date: '2026'
     text: Programme d'accélération Fast Forward
 ---

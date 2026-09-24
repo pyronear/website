@@ -77,8 +77,6 @@ El nostre algorisme de detecció és un **model d'intel·ligència artificial (I
 
 Amb aquesta finalitat, estem construint **amb l'ajuda dels nostres socis i voluntaris**, un **conjunt de dades** que compartim en **dades obertes**, en per tal que les imatges recollides i anotades puguin ser utilitzades per tantes persones com sigui possible. Així, posant en comú aquests recursos, augmentem les possibilitats de preservar un altre recurs, boscos i espais naturals
 
-L'octubre del 2025 vam publicar PYRONEAR-2025, el conjunt de dades obert més gran del món sobre detecció d'incendis: 50.000 imatges de 640 incendis en 4 països.
-
 - [Trobeu el conjunt de dades a HuggingFace](https://huggingface.co/datasets/pyronear/pyro-sdis)
 - [Nota jurídica per als serveis de bombers que vulguin compartir les seves imatges (en francès)](https://pyronear.notion.site/Notes-de-synth-se-FAQ-du-webinaire-open-data-DINUM-SDIS-MSP-18c425b63668806cb5dbc7a35d7452b4)
 

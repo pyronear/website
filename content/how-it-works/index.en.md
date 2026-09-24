@@ -77,8 +77,6 @@ Our detection algorithm is an **artificial intelligence (AI)** model that has be
 
 To this end, **with the help of our partners and volunteers**, we are building a **dataset** that we are sharing in **open data**, so that the images collected and annotated can be used by as many people as possible. In this way, by sharing these resources, we are increasing the chances of preserving another resource: forests and natural areas.
 
-In October 2025, we released PYRONEAR-2025, the largest open wildfire detection dataset in the world: 50,000 images from 640 fires in 4 countries.
-
 - [Find the dataset on HuggingFace](https://huggingface.co/datasets/pyronear/pyro-sdis)
 - [Legal note for fire services who want to share their images (in French)](https://pyronear.notion.site/Notes-de-synth-se-FAQ-du-webinaire-open-data-DINUM-SDIS-MSP-18c425b63668806cb5dbc7a35d7452b4)
 

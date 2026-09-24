@@ -63,8 +63,6 @@ timeline:
     text: Selected as a good practice by the European Commission
   - date: '08.2025'
     text: First multi-year contract with a fire service (Seine-et-Marne)
-  - date: '10.2025'
-    text: Release of the open dataset PYRONEAR-2025
   - date: '2026'
     text: Fast Forward acceleration program
 ---

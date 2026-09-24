@@ -63,8 +63,6 @@ timeline:
     text: Seleccionado como buena práctica por la Comisión Europea
   - date: '08.2025'
     text: Primer contrato plurianual con un servicio de bomberos (Sena y Marne)
-  - date: '10.2025'
-    text: Publicación del conjunto de datos abierto PYRONEAR-2025
   - date: '2026'
     text: Programa de aceleración Fast Forward
 ---

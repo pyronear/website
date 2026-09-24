@@ -77,8 +77,6 @@ Notre algorithme de détection est un **modèle d’intelligence artificielle (I
 
 A cette fin, nous construisons **à l’aide de nos partenaires et bénévoles**, un **dataset** que nous partageons en **open data**, afin que les images collectées et annotées puissent servir au plus grande nombre. Ainsi, en mettant en commun ces ressources, nous augmentons les chances de préserver une autre ressource, les forêts et espaces naturels.
 
-En octobre 2025, nous avons publié PYRONEAR-2025, le plus grand jeu de données ouvert au monde sur la détection de feux : 50 000 images de 640 incendies dans 4 pays.
-
 - [Retrouvez le dataset sur HuggingFace](https://huggingface.co/datasets/pyronear/pyro-sdis)
 - [Note juridique pour les SDIS qui souhaitent partager leurs images](https://pyronear.notion.site/Notes-de-synth-se-FAQ-du-webinaire-open-data-DINUM-SDIS-MSP-18c425b63668806cb5dbc7a35d7452b4)
 
