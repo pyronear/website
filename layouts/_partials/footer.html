@@ -1,0 +1,13 @@
+{{- with site.Home.Params.follow -}}
+<footer class="footer" id="contact">
+  <div class="container">
+    <h2>{{ .title }}</h2>
+    <p>{{ .text }}</p>
+    <p class="footer__social">
+      {{- range site.Params.social }}
+      <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
+      {{- end }}
+    </p>
+  </div>
+</footer>
+{{- end -}}

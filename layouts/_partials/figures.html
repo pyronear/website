@@ -1,0 +1,9 @@
+{{- $lang := site.Language.Lang -}}
+<dl class="figures">
+  {{- range hugo.Data.figures }}
+  <div>
+    <dt>{{ .value }}</dt>
+    <dd>{{ index .label $lang }}</dd>
+  </div>
+  {{- end }}
+</dl>

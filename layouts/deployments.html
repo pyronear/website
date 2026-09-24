@@ -1,0 +1,26 @@
+{{ define "main" }}
+  {{- $lang := site.Language.Lang -}}
+  {{- $markers := slice -}}
+  {{- range hugo.Data.deployments -}}
+    {{- $markers = $markers | append (dict "name" (.name | default "") "place" (index .place $lang) "lat" .lat "lng" .lng) -}}
+  {{- end -}}
+  {{- $js := resources.Get "js/map.js" | minify | fingerprint -}}
+  {{ partial "page-header.html" . }}
+  <section class="section">
+    <div class="container container--prose prose">{{ .Content }}</div>
+    <div class="container">
+      <link rel="stylesheet" href="{{ "vendor/leaflet/leaflet.css" | relURL }}">
+      <div id="map" class="map" data-markers="{{ $markers | jsonify }}"></div>
+      <p class="map-note">{{ i18n "mapNote" }}</p>
+      <h2>{{ i18n "deploymentAreas" }}</h2>
+      <ul class="areas">
+        {{- range $markers }}
+        <li>{{ with .name }}<strong>{{ . }}</strong> · {{ end }}{{ .place }}</li>
+        {{- end }}
+      </ul>
+    </div>
+  </section>
+  {{ partial "logos.html" (dict "id" "partners" "items" hugo.Data.partners "copy" .Params.partners "alt" true) }}
+  <script src="{{ "vendor/leaflet/leaflet.js" | relURL }}" defer></script>
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ end }}

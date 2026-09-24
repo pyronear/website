@@ -19,22 +19,32 @@ hugo --gc --minify
 
 | What | File |
 | --- | --- |
-| Page copy per language (hero, sections, cards) | `content/_index.<lang>.md` |
-| Buttons, form labels, 404 text | `i18n/<lang>.yaml` |
+| Home page copy (hero, intro, contact form, footer) | `content/_index.<lang>.md` |
+| Other pages (About, How it works, Deployments, Support us, Press) | `content/<page>/index.<lang>.md` |
+| Buttons, form labels, short UI text | `i18n/<lang>.yaml` |
+| Key figures (home and About) | `data/figures.yaml` |
+| Deployment map markers | `data/deployments.yaml` |
 | Partners | `data/partners.yaml` |
 | Supporters | `data/sponsors.yaml` |
-| Press items (only the first 4 are shown) | `data/medias.yaml` |
+| Press items | `data/medias.yaml` |
 | Site settings, languages, social links, form endpoint | `hugo.toml` |
 | Templates | `layouts/` |
-| Styles and scripts | `assets/css/main.css`, `assets/js/form.js` |
+| Styles and scripts | `assets/css/main.css`, `assets/js/` |
 | Images | `static/img/` (the hero photo is in `assets/img/`) |
+| Leaflet (map library) | `static/vendor/leaflet/` |
+
+Each page's URL is set by `slug` in its front matter, and its place in the menu by `menus.main.weight`.
 
 Languages: French (default, served at `/`), English (`/en/`), Spanish (`/es/`) and Catalan (`/es-ct/`).
 
 ### Ordering
 
-- Press items: newest first.
+- Press items: newest first. Items with an `image` are shown as cards (the 3 first ones also on the home page), the others in the list below. Quote dates (`date: "09.2025"`).
 - Partners and supporters: newest last.
+
+### Deployment map
+
+Each entry in `data/deployments.yaml` is one marker. Use approximate coordinates (department or region level), never the exact position of a station.
 
 ### Adding a partner or supporter
 

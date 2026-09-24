@@ -1,0 +1,10 @@
+<a class="media-card" href="{{ .url }}" target="_blank" rel="noopener">
+  <span class="media-card__img">
+    <img src="{{ .image }}" alt="" loading="lazy">
+    <img class="media-card__logo" src="{{ .logo | relURL }}" alt="{{ .outlet }}" loading="lazy">
+  </span>
+  <span class="media-card__body">
+    <h3>{{ .title }}</h3>
+    {{ with .date }}<time>{{ . }}</time>{{ end }}
+  </span>
+</a>

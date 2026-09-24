@@ -1,11 +1,54 @@
 {{ define "main" }}
   {{ partial "hero.html" . }}
-  {{ partial "about.html" . }}
-  {{ partial "steps.html" . }}
-  {{ partial "opendata.html" . }}
-  {{ partial "cta.html" . }}
-  {{ partial "logos.html" (dict "id" "partners" "items" hugo.Data.partners "copy" .Params.partners) }}
-  {{ partial "logos.html" (dict "id" "sponsors" "items" hugo.Data.sponsors "copy" .Params.sponsors) }}
-  {{ partial "media.html" . }}
+  <section class="section" id="about">
+    <div class="container">
+      <h2>{{ .Params.about.title }}</h2>
+      <p class="intro">{{ .Params.about.intro | safeHTML }}</p>
+      {{ partial "figures.html" . }}
+    </div>
+  </section>
+  <section class="section section--alt" id="discover">
+    <div class="container">
+      <h2>{{ i18n "discover" }}</h2>
+      <div class="cards cards--pages">
+        {{- range site.Menus.main }}
+        {{- with .Page }}
+        <a class="card card--link card--page" href="{{ .RelPermalink }}">
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Description }}</p>
+        </a>
+        {{- end }}
+        {{- end }}
+      </div>
+    </div>
+  </section>
+  {{- with site.GetPage "/deployments" }}
+  <section class="section" id="partners">
+    <div class="container">
+      <p class="eyebrow">{{ .Params.partners.eyebrow }}</p>
+      <h2>{{ .Params.partners.title }}</h2>
+      <div class="logo-strip">
+        {{- range hugo.Data.partners }}
+        <a href="{{ .url }}" target="_blank" rel="noopener"><img src="{{ .logo | relURL }}" alt="{{ .name }}" loading="lazy"></a>
+        {{- end }}
+      </div>
+      <p class="more"><a class="btn" href="{{ .RelPermalink }}">{{ i18n "seeDeployments" }}</a></p>
+    </div>
+  </section>
+  {{- end }}
+  <section class="section section--alt" id="media">
+    <div class="container">
+      <p class="eyebrow">{{ .Params.media.eyebrow }}</p>
+      <h2>{{ .Params.media.title }}</h2>
+      <div class="media">
+        {{- range first 3 (where hugo.Data.medias "image" "ne" nil) }}
+        {{ partial "media-card.html" . }}
+        {{- end }}
+      </div>
+      {{- with site.GetPage "/press" }}
+      <p class="more"><a class="btn" href="{{ .RelPermalink }}">{{ i18n "allPress" }}</a></p>
+      {{- end }}
+    </div>
+  </section>
   {{ partial "contact.html" . }}
 {{ end }}

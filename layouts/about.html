@@ -1,0 +1,40 @@
+{{ define "main" }}
+  {{ partial "page-header.html" . }}
+  <section class="section">
+    <div class="container container--prose prose">{{ .Content }}</div>
+  </section>
+  <section class="section section--alt">
+    <div class="container">
+      <h2>{{ i18n "keyFigures" }}</h2>
+      {{ partial "figures.html" . }}
+    </div>
+  </section>
+  {{- with .Params.values }}
+  <section class="section" id="values">
+    <div class="container">
+      <h2>{{ .title }}</h2>
+      <div class="cards">
+        {{- range .cards }}
+        <article class="card">
+          <span class="card__icon" style="--icon: url('{{ .icon | relURL }}')"></span>
+          <h3>{{ .title }}</h3>
+          <p>{{ .text }}</p>
+        </article>
+        {{- end }}
+      </div>
+    </div>
+  </section>
+  {{- end }}
+  {{- with .Params.timeline }}
+  <section class="section section--alt" id="timeline">
+    <div class="container container--prose">
+      <h2>{{ .title }}</h2>
+      <ol class="timeline">
+        {{- range .items }}
+        <li><span class="timeline__date">{{ .date }}</span> {{ .text }}</li>
+        {{- end }}
+      </ol>
+    </div>
+  </section>
+  {{- end }}
+{{ end }}

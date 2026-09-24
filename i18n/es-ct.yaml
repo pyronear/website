@@ -12,3 +12,11 @@ sentSubtitle: Gràcies per contactar amb nosaltres, us respondrem el més aviat 
 sendError: L'enviament ha fallat, torna-ho a provar.
 notFound: Pàgina no trobada
 backHome: Tornar a l'inici
+menu: "Menú"
+keyFigures: "Pyronear en xifres"
+discover: "Descobreix Pyronear"
+allPress: "Tota la premsa"
+seeDeployments: "Veure els desplegaments"
+deploymentAreas: "Zones de desplegament"
+mapNote: "Ubicacions aproximades, a escala de departament o regió."
+pressArchive: "Totes les aparicions"

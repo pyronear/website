@@ -4,7 +4,7 @@
     <h1>{{ .Params.hero.title }}</h1>
     <p class="lead">{{ .Params.hero.subtitle }}</p>
     <div class="hero__actions">
-      <a class="btn btn--accent" href="#about">{{ i18n "moreInfo" }}</a>
+      <a class="btn btn--accent" href="{{ with site.GetPage "/about" }}{{ .RelPermalink }}{{ end }}">{{ i18n "moreInfo" }}</a>
       <a class="btn btn--ghost" href="#contact-form">{{ i18n "contactUs" }}</a>
     </div>
   </div>

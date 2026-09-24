@@ -1,0 +1,7 @@
+{{ define "main" }}
+  {{ partial "page-header.html" . }}
+  <section class="section">
+    <div class="container container--prose prose">{{ .Content }}</div>
+  </section>
+  {{ partial "logos.html" (dict "id" "sponsors" "items" hugo.Data.sponsors "copy" .Params.sponsors "alt" true) }}
+{{ end }}
