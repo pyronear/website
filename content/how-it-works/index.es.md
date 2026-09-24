@@ -39,7 +39,7 @@ Nuestras torres de detección consisten en 4/5 cámaras de alta resolución y un
 {{< gallery >}}
 ![Torre equipada con una estación Pyronear en el bosque de Fontainebleau](antenna.jpg)
 ![Cámaras instaladas en lo alto de la torre](cameras.jpg)
-![La caja de la estación: un microordenador, la alimentación y la conexión 4G](hardware.jpg)
+![La caja de la estación, que contiene el microordenador, la alimentación y la conexión 4G](hardware.jpg)
 ![El bosque visto desde lo alto de la torre](view.jpg)
 {{< /gallery >}}
 

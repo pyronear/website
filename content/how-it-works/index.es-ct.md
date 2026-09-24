@@ -39,7 +39,7 @@ Les nostres torres de detecció estan formades per 4/5 càmeres d'alta resoluci�
 {{< gallery >}}
 ![Torre equipada amb una estació Pyronear al bosc de Fontainebleau](antenna.jpg)
 ![Càmeres instal·lades a dalt de la torre](cameras.jpg)
-![La caixa de l'estació: un microordinador, l'alimentació i la connexió 4G](hardware.jpg)
+![La caixa de l'estació, que conté el microordinador, l'alimentació i la connexió 4G](hardware.jpg)
 ![El bosc vist des de dalt de la torre](view.jpg)
 {{< /gallery >}}
 

@@ -39,7 +39,7 @@ Our detection towers consist of 4/5 high resolution cameras and a micro computer
 {{< gallery >}}
 ![Pylon fitted with a Pyronear station in the Fontainebleau forest](antenna.jpg)
 ![Cameras installed at the top of the pylon](cameras.jpg)
-![The station box: a micro-computer, power supply and 4G connection](hardware.jpg)
+![The station box, which holds the micro-computer, power supply and 4G connection](hardware.jpg)
 ![The forest seen from the top of the pylon](view.jpg)
 {{< /gallery >}}
 

@@ -39,7 +39,7 @@ Nos tours de détection se composent de 4/5 caméras haute résolution et d’un
 {{< gallery >}}
 ![Pylône équipé d'une station Pyronear en forêt de Fontainebleau](antenna.jpg)
 ![Caméras installées en haut du pylône](cameras.jpg)
-![Le boîtier de la station : un micro-ordinateur, l'alimentation et la connexion 4G](hardware.jpg)
+![Le boîtier de la station, qui contient le micro-ordinateur, l'alimentation et la connexion 4G](hardware.jpg)
 ![La forêt vue depuis le haut du pylône](view.jpg)
 {{< /gallery >}}
 
