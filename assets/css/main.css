@@ -458,6 +458,12 @@ h3 {
   gap: 1.25rem;
 }
 
+/* An odd image out spans the full row instead of leaving a gap */
+.prose .gallery img:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  aspect-ratio: 2 / 1;
+}
+
 .prose .gallery--screens img {
   height: auto;
   aspect-ratio: auto;

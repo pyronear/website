@@ -30,6 +30,8 @@ Nos stations sont installées sur des points hauts (pylônes, châteaux d'eau, t
 - Analyse sur place, **très faible consommation**, matériel standard
 - Record : un départ de feu détecté à **42 km**
 
+Une station s'installe en moins d'une demi-journée : [voir comment]({{< relref "/deployments#installation" >}}).
+
 Nos tours de détection se composent de 4/5 caméras haute résolution et d’un micro ordinateur qui capture une image par caméra à intervalles réguliers puis l’analyse localement à l’aide de notre modèle de détection de feux de forêt. En cas de détection, le mode alerte est activé, toutes les images provenant de la caméra ayant détecté le feu sont alors envoyées à notre base de données via notre api, le protocole de communication que nous avons développé.
 
 ![Fonctionnement d'une station de détection](model.png)
