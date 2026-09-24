@@ -15,9 +15,9 @@ build:
 
 Pyronear is a **complete fire risk management solution**. It consists of an **early wildfire detection algorithm**, implemented on a microcomputer, connected to **cameras positioned on high spots** with a view on the forest. Our detectors communicate **fire alerts** to a database that is connected to a **supervision platform** for the fire department.
 
-{{< youtube id="W3DxacGsdks" title="Demonstration of the Pyronear system in the Fontainebleau forest" loading="lazy" >}}
+{{< youtube id="f2z8mvvggI0" title="Pyronear mini-documentary" loading="lazy" >}}
 
-*Demonstration of the Pyronear system in the Fontainebleau forest, from detection to alert.*
+*A mini-documentary about Pyronear, made by Fast Forward.*
 
 ![Overview of the Pyronear solution](solution-en.png)
 

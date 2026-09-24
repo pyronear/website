@@ -15,9 +15,9 @@ build:
 
 Pyronear est une **solution complète de gestion du risque incendie**. Elle est constituée d’un **algorithme de détection** précoce des départs de feu, implémenté sur un micro ordinateur, connecté à des **caméras positionnées sur des points hauts** avec vue sur la forêt. Nos détecteurs communiquent les **alertes de détection de départ de feu** à une base de données elle-même connectée à une **plateforme de supervision** à destination des pompiers.
 
-{{< youtube id="W3DxacGsdks" title="Démonstration du système Pyronear en forêt de Fontainebleau" loading="lazy" >}}
+{{< youtube id="f2z8mvvggI0" title="Mini-documentaire sur Pyronear" loading="lazy" >}}
 
-*Démonstration du système Pyronear en forêt de Fontainebleau, de la détection à l'alerte.*
+*Mini-documentaire sur Pyronear, réalisé par Fast Forward.*
 
 ![Vue d'ensemble de la solution Pyronear](solution.png)
 

@@ -15,9 +15,9 @@ build:
 
 Pyronear és un **solució completa de gestió del risc d'incendi**. Consta d'un **algorisme de detecció precoç d'incendis forestals**, implementat en un microordinador, connectat a **càmeres col·locades en punts alts** amb vistes al bosc. Els nostres detectors es comuniquen **alertes d'incendi** a una base de dades connectada a **plataforma de supervisió** per al cos de bombers.
 
-{{< youtube id="W3DxacGsdks" title="Demostració del sistema Pyronear al bosc de Fontainebleau" loading="lazy" >}}
+{{< youtube id="f2z8mvvggI0" title="Minidocumental sobre Pyronear" loading="lazy" >}}
 
-*Demostració del sistema Pyronear al bosc de Fontainebleau, de la detecció a l'alerta.*
+*Un minidocumental sobre Pyronear, realitzat per Fast Forward.*
 
 ![Visió general de la solució Pyronear](solution-en.png)
 
