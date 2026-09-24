@@ -1,10 +1,11 @@
-# Newest first. Items with an `image` are shown as cards; the 3 first cards also appear on the home page.
+# Newest first. Items with an `image` are shown as cards; items with `featured: true` also appear on the home page.
 - outlet: Sciences et Avenir
   title: À Fontainebleau, une IA sobre en énergie s'entraîne à détecter les feux de forêt
   url: https://www.sciencesetavenir.fr/nature-environnement/a-fontainebleau-une-ia-sobre-en-energie-s-entraine-a-detecter-les-feux-de-foret_188336
   logo: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Sciences_et_Avenir_2024.jpg/500px-Sciences_et_Avenir_2024.jpg
   image: https://www.sciencesetavenir.fr/assets/img/2025/09/23/cover-r4x3w1200-68d2413d77f24-e8bda95730789a3609aaea6cf6422a7fc24c9015-jpg.jpg
   date: "09.2025"
+  featured: true
 - outlet: TV5MONDE
   title: Fontainebleau, une IA sobre en énergie s'entraîne à détecter les feux de forêt
   url: https://information.tv5monde.com/economie/fontainebleau-une-ia-sobre-en-energie-sentraine-detecter-les-feux-de-foret-2791827
@@ -22,12 +23,14 @@
   logo: https://upload.wikimedia.org/wikipedia/commons/5/5b/Le_Parisien_-_logo_2016.png
   image: https://www.leparisien.fr/resizer/zJGpJSr1z-NYQ6IW7TYEvioILNw=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/leparisien/CERVYLPLTZFXPBEEJW2VPHF3QQ.jpg
   date: "08.2025"
+  featured: true
 - outlet: France Inter
   title: "Podcast : Le téléphone sonne"
   url: https://www.radiofrance.fr/franceinter/podcasts/le-18-20-le-telephone-sonne/le-telephone-sonne-du-mercredi-09-juillet-2025-6681787
   logo: /img/france-inter.svg
   image: https://www.radiofrance.fr/pikapi/images/8087a2cc-b877-4bf8-8e42-9abcb133795a/1200x680
   date: "07.2025"
+  featured: true
 - outlet: Le Progrès
   title: "Feux de forêt : comment l'intelligence artificielle se met au service de leur détection"
   url: https://www.leprogres.fr/environnement/2025/06/03/feux-de-foret-comment-l-intelligence-artificielle-se-met-au-service-de-leur-detection
