@@ -9,7 +9,7 @@ captchaLabel: 'Question anti-spam : combien font 3 + 3 ?'
 captchaError: Merci de répondre correctement à la question anti-spam.
 sentTitle: Message envoyé !
 sentSubtitle: Merci de nous avoir contacté, nous revenons vers vous le plus vite possible !
-sendError: L'envoi a échoué, merci de réessayer.
+sendError: "L'envoi a échoué. Merci de réessayer dans quelques minutes."
 notFound: Page introuvable
 backHome: Retour à l'accueil
 menu: "Menu"
@@ -22,3 +22,5 @@ mapNote: "Positions approximatives, à l'échelle du département ou de la régi
 pressArchive: "Toutes les apparitions"
 tryDemo: "Lancer la démo"
 openDemo: "Ouvrir la démo sur Hugging Face"
+sending: "Envoi en cours…"
+sendingNote: "Cela peut prendre jusqu'à 30 secondes, merci de patienter."
