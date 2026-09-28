@@ -15,8 +15,9 @@ The Worker fixes these headers server-side:
 | From | `Pyronear website <forms@pyronear.org>` |
 | To | `inquiries@pyronear.org` |
 | Reply-To | The trimmed, validated visitor email |
+| Subject | `[Contact form]` followed by the submitted subject |
 
-The visitor is not used as From and receives no automated copy. This is email format validation, not proof that the visitor owns the address.
+The body contains only the submitted message. The visitor is not used as From and receives no automated copy. This is email format validation, not proof that the visitor owns the address.
 
 ### DNS in Cloudflare
 
