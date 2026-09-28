@@ -5,8 +5,13 @@ emailLabel: Your e-mail address
 emailPrivacy: We will never share your email without your consent.
 subjectLabel: Subject
 messageLabel: Your message
-captchaLabel: 'Anti-spam question: what is 3 + 3?'
-captchaError: Please answer the anti-spam question correctly.
+captchaError: Verification failed. Please retry the security check.
+retryVerification: Retry verification
+emailError: Enter a valid email address, such as name@example.org.
+inputError: Check your email address and message, then try again.
+rateError: Too many attempts. Please wait a minute before trying again.
+formUnavailable: The contact form is temporarily unavailable. Please try again later.
+formNeedsJS: Enable JavaScript to complete the security check and send your message.
 sentTitle: Message sent!
 sentSubtitle: Thank you for contacting us, we will get back to you as soon as possible!
 sendError: "Sending failed. Please try again in a few minutes."
@@ -23,4 +28,4 @@ pressArchive: "All coverage"
 tryDemo: "Launch the demo"
 openDemo: "Open the demo on Hugging Face"
 sending: "Sending…"
-sendingNote: "This can take up to 30 seconds, please wait."
+sendingNote: "Please wait while we send your message."

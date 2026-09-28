@@ -5,8 +5,13 @@ emailLabel: La teva adreça de correu electrònic
 emailPrivacy: Mai compartirem el teu correu electrònic sense el teu consentiment.
 subjectLabel: Assumpte
 messageLabel: El teu missatge
-captchaLabel: 'Pregunta anti-brossa: quant fan 3 + 3?'
-captchaError: Respon correctament a la pregunta anti-brossa.
+captchaError: La verificació ha fallat. Torna a provar el control de seguretat.
+retryVerification: Torna a provar la verificació
+emailError: Introdueix una adreça de correu vàlida, com ara nom@exemple.org.
+inputError: Comprova la teva adreça de correu i el missatge i torna-ho a provar.
+rateError: Massa intents. Espera un minut abans de tornar-ho a provar.
+formUnavailable: El formulari de contacte no està disponible temporalment. Torna-ho a provar més tard.
+formNeedsJS: Activa JavaScript per completar el control de seguretat i enviar el missatge.
 sentTitle: Missatge enviat!
 sentSubtitle: Gràcies per contactar amb nosaltres, us respondrem el més aviat possible!
 sendError: "L'enviament ha fallat. Torneu-ho a provar d'aquí a uns minuts."
@@ -23,4 +28,4 @@ pressArchive: "Totes les aparicions"
 tryDemo: "Inicia la demo"
 openDemo: "Obre la demo a Hugging Face"
 sending: "Enviant…"
-sendingNote: "Pot trigar fins a 30 segons, espereu, si us plau."
+sendingNote: "Espera mentre enviem el teu missatge."

@@ -27,7 +27,7 @@ hugo --gc --minify
 | Partners | `data/partners.yaml` |
 | Supporters | `data/sponsors.yaml` |
 | Press items | `data/medias.yaml` |
-| Site settings, languages, social links, form endpoint | `hugo.toml` |
+| Site settings, languages, social links | `hugo.toml` |
 | Templates | `layouts/` |
 | Styles and scripts | `assets/css/main.css`, `assets/js/` |
 | Images | `static/img/`; photos used in a page's Markdown go next to it in `content/<page>/` (the hero photo is in `assets/img/`) |
@@ -78,4 +78,8 @@ Prefer putting the logo in `static/img/` over linking to an external image.
 
 ## Contact form
 
-The form posts to a Google Apps Script (URL in `hugo.toml`) that stores messages in a Google Sheet and sends an email. The sheet and script are in Pyronear's Google Drive.
+The website stays on GitHub Pages. The form uses Cloudflare Turnstile and a small Cloudflare Worker, which validates requests before sending through Resend. Messages go from `forms@pyronear.org` to `inquiries@pyronear.org`, with the visitor's address in `Reply-To`. No new spreadsheet entries are created.
+
+See [contact backend setup](worker/README.md) for deployment, DNS authentication, and verification. Configure the repository variables `CONTACT_FORM_URL` and `TURNSTILE_SITE_KEY` before merging this change: production deployment deliberately fails if either is missing. Local/PR builds without them display an unavailable form.
+
+A later hosting migration can reuse this backend; it is not required for the CAPTCHA change.
