@@ -96,8 +96,8 @@ export default {
           from: "Pyronear website <forms@pyronear.org>",
           to: ["inquiries@pyronear.org"],
           reply_to: email,
-          subject: `[Pyronear] ${subject || "Website contact"}`,
-          text: `Email: ${email}\n\n${message}`,
+          subject: `[Contact form] ${subject || "Website contact"}`,
+          text: message,
         }),
         signal: AbortSignal.timeout(10000),
       });

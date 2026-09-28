@@ -29,7 +29,9 @@ test("verified request sends plain text with fixed routing and a retry key", asy
     calls.push({ url, options });
     return Response.json(calls.length === 1 ? verified : { id: "email-id" });
   });
-  const response = await worker.fetch(request({ to: "attacker@example.org", from: "fake@example.org" }), env);
+  const response = await worker.fetch(request({
+    to: "attacker@example.org", from: "fake@example.org", bcc: "hidden@example.org", cc: "copy@example.org",
+  }), env);
   assert.equal(response.status, 200);
   assert.deepEqual(await response.json(), { result: "success" });
   assert.equal(response.headers.get("Access-Control-Allow-Origin"), origin);
@@ -41,7 +43,7 @@ test("verified request sends plain text with fixed routing and a retry key", asy
   assert.equal(calls[1].options.headers["Idempotency-Key"], `contact/${valid.requestId}`);
   assert.deepEqual(JSON.parse(calls[1].options.body), {
     from: "Pyronear website <forms@pyronear.org>", to: ["inquiries@pyronear.org"],
-    reply_to: valid.email, subject: "[Pyronear] Bonjour", text: `Email: ${valid.email}\n\n${valid.message}`,
+    reply_to: valid.email, subject: "[Contact form] Bonjour", text: valid.message,
   });
 });
 
