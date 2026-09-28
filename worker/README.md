@@ -20,7 +20,7 @@ The visitor is not used as From and receives no automated copy. This is email fo
 
 ### DNS in Cloudflare
 
-Add the exact sending records provided by Resend: DKIM, and its return-path SPF/MX records (normally on `send.pyronear.org`). Keep the domain's existing Google Workspace MX records at `@`; those still receive the team's mail. Enable **sending only**, not Resend inbound email for the root domain. Mail-related CNAME records must be DNS-only.
+Add the exact sending records provided by Resend. Depending on its sending infrastructure, these can be TXT/MX records or CNAME delegations. Pyronear's setup uses a DKIM TXT record at `resend._domainkey`, plus DNS-only CNAMEs at `rsend` and `send`. Use the values shown in the Resend dashboard rather than generic SPF examples. Keep the domain's existing Google Workspace MX records at `@`; those still receive the team's mail. Enable **sending only**, not Resend inbound email for the root domain.
 
 Public DNS checked on 2026-09-28 already includes:
 
@@ -75,6 +75,18 @@ After the new form is live and checked, disable **all old Google Apps Script web
 - Watch Cloudflare Worker errors and Resend delivery/bounce logs after rollout. Application logs deliberately exclude visitor addresses, messages, IPs and secrets. No database or background delivery queue is maintained.
 
 For local UI checks, use [Cloudflare's test sitekeys](https://developers.cloudflare.com/turnstile/troubleshooting/testing/) and a local mock endpoint via the Hugo environment variables. Keep real Resend credentials out of local UI tests. Any future hosted previews must also use test verification and a backend that cannot send production email.
+
+### Manual local test with real services
+
+For an explicitly requested live test, use a separate real Managed Turnstile widget restricted to `127.0.0.1`. Put its secret, the restricted Resend sending key, and `ALLOWED_ORIGINS="http://127.0.0.1:14137"` in the Git-ignored `worker/.dev.vars` file, with file permissions `600`. Do not reuse the production widget for localhost.
+
+Run `npx wrangler dev --local --ip 127.0.0.1 --port 14138 --inspector-port 14139` from `worker/`. Restart it after changing credentials. In a second terminal at the repository root, run Hugo with `HUGO_PARAMS_FORMACTION=http://127.0.0.1:14138/contact` and `HUGO_PARAMS_TURNSTILESITEKEY` set to the real widget's public sitekey:
+
+```sh
+hugo server --bind 127.0.0.1 --port 14137 --baseURL http://127.0.0.1:14137 --disableFastRender
+```
+
+Open `http://127.0.0.1:14137/#contact-form` in a regular browser. This mode sends real mail to `inquiries@pyronear.org`; it does not deploy the Worker or change website hosting. Keep the test recipient group restricted until validation is complete.
 
 ## Phase 2
 
