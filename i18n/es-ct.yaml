@@ -6,8 +6,6 @@ emailPrivacy: Mai compartirem el teu correu electrònic sense el teu consentimen
 subjectLabel: Assumpte
 messageLabel: El teu missatge
 captchaError: La verificació ha fallat. Torna a provar el control de seguretat.
-retryVerification: Torna a provar la verificació
-emailError: Introdueix una adreça de correu vàlida, com ara nom@exemple.org.
 inputError: Comprova la teva adreça de correu i el missatge i torna-ho a provar.
 rateError: Massa intents. Espera un minut abans de tornar-ho a provar.
 formUnavailable: El formulari de contacte no està disponible temporalment. Torna-ho a provar més tard.

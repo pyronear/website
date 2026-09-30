@@ -31,11 +31,6 @@ export default {
 
     if (!origin || !allowed.includes(origin)) return reply(403, "origin_denied");
     if (new URL(request.url).pathname !== "/contact") return reply(404, "not_found");
-    if (request.method === "OPTIONS") {
-      return new Response(null, { status: 204, headers: {
-        ...headers, "Access-Control-Allow-Methods": "POST", "Access-Control-Allow-Headers": "Content-Type",
-      } });
-    }
     if (request.method !== "POST") return reply(405, "method_not_allowed");
     if (request.headers.get("Content-Type")?.split(";")[0].trim().toLowerCase() !== "application/x-www-form-urlencoded") {
       return reply(415, "invalid_input");
@@ -68,18 +63,13 @@ export default {
       }
       if (!token || token.length > 2048) return reply(403, "captcha_failed");
 
-      let verified;
-      try {
-        const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-          method: "POST",
-          body: new URLSearchParams({ secret: env.TURNSTILE_SECRET_KEY, response: token, remoteip: ip }),
-          signal: AbortSignal.timeout(8000),
-        });
-        if (!response.ok) return reply(503, "unavailable");
-        verified = await response.json();
-      } catch {
-        return reply(503, "unavailable");
-      }
+      const verification = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+        method: "POST",
+        body: new URLSearchParams({ secret: env.TURNSTILE_SECRET_KEY, response: token, remoteip: ip }),
+        signal: AbortSignal.timeout(8000),
+      });
+      if (!verification.ok) throw new Error("Verification unavailable");
+      const verified = await verification.json();
       if (verified.success !== true || verified.hostname !== new URL(origin).hostname || verified.action !== "contact") {
         return reply(403, "captcha_failed");
       }
@@ -102,10 +92,7 @@ export default {
         signal: AbortSignal.timeout(10000),
       });
       const result = await response.json();
-      if (!response.ok || !result.id) {
-        console.error("Contact email rejected", response.status);
-        return reply(502, "send_failed");
-      }
+      if (!response.ok || !result.id) throw new Error("Email rejected");
       return reply(200);
     } catch {
       // Do not log message contents, email addresses, IPs, tokens, or provider responses.

@@ -6,8 +6,6 @@ emailPrivacy: We will never share your email without your consent.
 subjectLabel: Subject
 messageLabel: Your message
 captchaError: Verification failed. Please retry the security check.
-retryVerification: Retry verification
-emailError: Enter a valid email address, such as name@example.org.
 inputError: Check your email address and message, then try again.
 rateError: Too many attempts. Please wait a minute before trying again.
 formUnavailable: The contact form is temporarily unavailable. Please try again later.
