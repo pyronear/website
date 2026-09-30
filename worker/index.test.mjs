@@ -73,17 +73,11 @@ test("untrusted origins, methods and body types cannot send", async () => {
     assert.equal(response.status, 403);
     assert.equal(response.headers.get("Access-Control-Allow-Origin"), null);
   }
-  assert.equal((await worker.fetch(request({}, { method: "GET", body: undefined }), env)).status, 405);
+  for (const method of ["GET", "OPTIONS"]) {
+    assert.equal((await worker.fetch(request({}, { method, body: undefined }), env)).status, 405);
+  }
   assert.equal((await worker.fetch(request({}, { body: "invalid" }), env)).status, 415);
   assert.equal(network.mock.callCount(), 0);
-});
-
-test("preflight succeeds only for the allowed origin without external calls", async () => {
-  const response = await worker.fetch(request({}, { method: "OPTIONS", body: undefined }), {});
-  assert.equal(response.status, 403);
-  const allowed = await worker.fetch(request({}, { method: "OPTIONS", body: undefined }), env);
-  assert.equal(allowed.status, 204);
-  assert.equal(allowed.headers.get("Access-Control-Allow-Methods"), "POST");
 });
 
 test("oversized streamed bodies are stopped even without Content-Length", async () => {
@@ -132,8 +126,9 @@ test("verification outages never fall through to sending", async () => {
     () => new Response("bad gateway", { status: 502 }),
     () => new Response("invalid JSON"),
   ]) {
+    mock.method(console, "error", () => {});
     const network = mock.method(globalThis, "fetch", verify);
-    assert.equal((await worker.fetch(request(), env)).status, 503);
+    assert.equal((await worker.fetch(request(), env)).status, 502);
     assert.equal(network.mock.callCount(), 1);
     mock.restoreAll();
   }
@@ -154,82 +149,60 @@ test("provider failure never reports success; retry preserves the mail identity"
   assert.equal(keys[0], keys[1]);
 });
 
-test("browser controller gates submission and preserves messages and retry IDs after failure", async () => {
-  function element(value = "") {
-    return { value, hidden: true, textContent: "", listeners: {},
-      addEventListener(name, fn) { this.listeners[name] = fn; }, setAttribute() {},
-    };
-  }
-  const email = element(valid.email);
-  email.validity = { valid: false };
-  const message = element(valid.message);
-  const subject = element(valid.subject);
-  const selectors = Object.fromEntries([
-    "p.form__error", ".form__note", ".form__thanks", '[type="submit"]', ".form__retry", "#email-error", ".form__captcha",
-  ].map(key => [key, element()]));
-  const submit = selectors['[type="submit"]'];
-  submit.textContent = "Submit";
-  submit.disabled = true;
-  let callbacks;
-  let resets = 0;
-  let removed = false;
-  let fail = true;
+test("form submission validates, preserves failed messages and deduplicates retries", async () => {
+  const controls = Object.fromEntries([".form__error", ".form__note", ".form__thanks", "button", ".cf-turnstile"]
+    .map(selector => [selector, { hidden: true, disabled: true, textContent: "Submit" }]));
+  const values = { ...valid, "cf-turnstile-response": "" };
   const bodies = [];
+  let submit, formValid = false, fail = true, resets = 0, removed = false;
   const form = {
-    ...element(), action: "http://local.test/contact",
-    elements: { email, subject, message },
-    dataset: { sitekey: "test", language: "en", captchaError: "captcha", sendError: "send", sending: "sending" },
-    querySelector: selector => selectors[selector],
-    getAttribute: () => "http://local.test/contact",
-    checkValidity: () => email.validity.valid && Boolean(message.value),
-    reportValidity: () => email.validity.valid && Boolean(message.value),
-    reset() { email.value = ""; subject.value = ""; message.value = ""; },
+    action: "http://local.test/contact",
+    dataset: { captchaError: "captcha", inputError: "input", sendError: "send", sending: "sending" },
+    querySelector: selector => controls[selector],
+    reportValidity: () => formValid,
+    reset: () => { values.message = ""; },
+    addEventListener: (_, handler) => { submit = handler; },
   };
   runInNewContext(readFileSync(new URL("../assets/js/form.js", import.meta.url), "utf8"), {
-    document: {
-      querySelectorAll: () => [form], createElement: () => ({}),
-      head: { appendChild: script => script.onload() },
-    },
+    document: { querySelectorAll: () => [form] },
+    FormData: class extends Map { constructor() { super(Object.entries(values)); } },
+    URLSearchParams, AbortSignal, crypto,
     window: { turnstile: {
-      render: (_, options) => { callbacks = options; return "widget"; },
-      reset: () => resets++, remove: () => { removed = true; },
+      reset: () => { resets++; values["cf-turnstile-response"] = ""; },
+      remove: () => { removed = true; },
     } },
-    FormData: class {
-      get(name) { return form.elements[name]?.value || ""; }
-    },
-    URLSearchParams, AbortController, setTimeout, clearTimeout, crypto,
     fetch: async (_, options) => {
       bodies.push(new URLSearchParams(options.body));
       return fail ? Response.json({ error: "send_failed" }, { status: 502 }) : Response.json({ result: "success" });
     },
   });
   const event = { preventDefault() {} };
-  callbacks.callback("first-token");
-  assert.equal(submit.disabled, true, "invalid email is blocked despite a valid token");
-  await form.listeners.submit(event);
-  assert.equal(bodies.length, 0);
-  email.validity.valid = true;
-  form.listeners.input();
-  assert.equal(submit.disabled, false);
-  callbacks["expired-callback"]();
-  assert.equal(submit.disabled, true, "expired challenge disables submission");
-  callbacks.callback("fresh-token");
-  await form.listeners.submit(event);
-  assert.equal(selectors["p.form__error"].textContent, "send");
-  assert.equal(message.value, valid.message, "failed sends preserve the message");
-  assert.equal(submit.disabled, true, "retry requires a fresh challenge");
+  await submit(event);
+  assert.equal(bodies.length, 0, "invalid fields cannot send");
+  formValid = true;
+  await submit(event);
+  assert.equal(bodies.length, 0, "missing or expired challenge cannot send");
+  assert.equal(controls[".form__error"].textContent, "captcha");
+  values.message = "   ";
+  await submit(event);
+  assert.equal(controls[".form__error"].textContent, "input");
+  assert.equal(bodies.length, 0, "whitespace-only messages cannot send");
+  values.message = valid.message;
+  values["cf-turnstile-response"] = "fresh-token";
+  await submit(event);
+  assert.equal(values.message, valid.message, "failed sends preserve the message");
+  assert.equal(controls[".form__error"].textContent, "send");
   assert.equal(resets, 1);
-  callbacks.callback("retry-token");
-  await form.listeners.submit(event);
+  values["cf-turnstile-response"] = "retry-token";
+  await submit(event);
   assert.equal(bodies[0].get("requestId"), bodies[1].get("requestId"));
-  message.value = "Edited message";
-  callbacks.callback("another-token");
+  values.message = "Edited message";
+  values["cf-turnstile-response"] = "another-token";
   fail = false;
-  await form.listeners.submit(event);
+  await submit(event);
   assert.notEqual(bodies[1].get("requestId"), bodies[2].get("requestId"));
   assert.equal(bodies[2].get("cf-turnstile-response"), "another-token");
-  assert.equal(selectors[".form__thanks"].hidden, false);
-  assert.equal(selectors["p.form__error"].hidden, true);
-  assert.equal(submit.disabled, true, "successful submission cannot be repeated");
+  assert.equal(controls[".form__thanks"].hidden, false);
+  assert.equal(controls.button.disabled, true, "successful submission cannot be repeated");
   assert.equal(removed, true);
 });

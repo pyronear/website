@@ -6,8 +6,6 @@ emailPrivacy: Nunca compartiremos su correo electrónico sin su consentimiento.
 subjectLabel: Asunto
 messageLabel: Tu mensaje
 captchaError: La verificación ha fallado. Vuelva a intentar el control de seguridad.
-retryVerification: Reintentar la verificación
-emailError: Introduzca una dirección de correo válida, como nombre@ejemplo.org.
 inputError: Compruebe su dirección de correo y su mensaje e inténtelo de nuevo.
 rateError: Demasiados intentos. Espere un minuto antes de volver a intentarlo.
 formUnavailable: El formulario de contacto no está disponible temporalmente. Inténtelo de nuevo más tarde.

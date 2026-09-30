@@ -2,21 +2,19 @@
 <section class="band band--dark" id="contact-form">
   <div class="container container--narrow">
     <h2>{{ .Params.contactForm.title }}</h2>
-    <form class="form" method="POST" action="{{ site.Params.formAction }}" data-sitekey="{{ site.Params.turnstileSiteKey }}" data-language="{{ if eq .Language.Lang "es-ct" }}auto{{ else }}{{ .Language.Lang }}{{ end }}" data-captcha-error="{{ i18n "captchaError" }}" data-send-error="{{ i18n "sendError" }}" data-rate-error="{{ i18n "rateError" }}" data-input-error="{{ i18n "inputError" }}" data-sending="{{ i18n "sending" }}">
+    <form class="form" method="POST" action="{{ site.Params.formAction }}" data-captcha-error="{{ i18n "captchaError" }}" data-send-error="{{ i18n "sendError" }}" data-rate-error="{{ i18n "rateError" }}" data-input-error="{{ i18n "inputError" }}" data-sending="{{ i18n "sending" }}">
       <div class="form__honeypot" aria-hidden="true">
         <label for="honeypot">Leave this field empty</label>
         <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
       </div>
       <label for="email">{{ i18n "emailLabel" }}</label>
-      <input type="email" id="email" name="email" aria-describedby="email-help email-error" autocomplete="email" maxlength="254" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" required>
+      <input type="email" id="email" name="email" aria-describedby="email-help" autocomplete="email" maxlength="254" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" required>
       <small id="email-help">{{ i18n "emailPrivacy" }}</small>
-      <small id="email-error" class="form__error" hidden>{{ i18n "emailError" }}</small>
       <label for="subject">{{ i18n "subjectLabel" }}</label>
       <input type="text" id="subject" name="subject" maxlength="200">
       <label for="message">{{ i18n "messageLabel" }}</label>
       <textarea id="message" name="message" rows="4" maxlength="5000" required></textarea>
-      <div class="form__captcha"></div>
-      <button class="btn btn--ghost form__retry" type="button" hidden>{{ i18n "retryVerification" }}</button>
+      {{ if and site.Params.formAction site.Params.turnstileSiteKey }}<div class="cf-turnstile form__captcha" data-sitekey="{{ site.Params.turnstileSiteKey }}" data-action="contact" data-theme="dark" data-size="flexible" data-language="{{ if eq .Language.Lang "es-ct" }}auto{{ else }}{{ .Language.Lang }}{{ end }}"></div>{{ end }}
       <p class="form__error" role="alert" hidden></p>
       {{ if not (and site.Params.formAction site.Params.turnstileSiteKey) }}<p role="status">{{ i18n "formUnavailable" }}</p>{{ end }}
       <noscript><p>{{ i18n "formNeedsJS" }}</p></noscript>
@@ -27,3 +25,4 @@
   </div>
 </section>
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ if and site.Params.formAction site.Params.turnstileSiteKey }}<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>{{ end }}

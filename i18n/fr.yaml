@@ -6,8 +6,6 @@ emailPrivacy: Nous ne partagerons jamais votre adresse e-mail sans votre autoris
 subjectLabel: Objet
 messageLabel: Votre message
 captchaError: La vérification a échoué. Merci de réessayer le contrôle de sécurité.
-retryVerification: Réessayer la vérification
-emailError: Saisissez une adresse e-mail valide, par exemple nom@exemple.org.
 inputError: Vérifiez votre adresse e-mail et votre message, puis réessayez.
 rateError: Trop de tentatives. Merci de patienter une minute avant de réessayer.
 formUnavailable: Le formulaire de contact est temporairement indisponible. Merci de réessayer plus tard.
