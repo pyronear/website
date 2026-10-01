@@ -5,7 +5,7 @@ workers_dev = true
 preview_urls = false
 
 [vars]
-ALLOWED_ORIGINS = "https://website.pyronear.org"
+ALLOWED_ORIGINS = "https://website.pyronear.org,https://pyronear.org"
 
 [[ratelimits]]
 name = "CONTACT_RATE_LIMITER"

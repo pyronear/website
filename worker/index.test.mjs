@@ -11,7 +11,8 @@ const valid = {
   requestId: "fa418393-75df-4ee4-a643-4a5694897c74",
 };
 const env = {
-  ALLOWED_ORIGINS: origin, TURNSTILE_SECRET_KEY: "secret", RESEND_API_KEY: "secret",
+  ALLOWED_ORIGINS: readFileSync(new URL("./wrangler.toml", import.meta.url), "utf8").match(/^ALLOWED_ORIGINS = "([^"]+)"/m)[1],
+  TURNSTILE_SECRET_KEY: "secret", RESEND_API_KEY: "secret",
   CONTACT_RATE_LIMITER: { limit: async () => ({ success: true }) },
 };
 function request(fields = {}, options = {}) {
@@ -45,6 +46,33 @@ test("verified request sends plain text with fixed routing and a retry key", asy
     from: "Pyronear website <forms@pyronear.org>", to: ["inquiries@pyronear.org"],
     reply_to: valid.email, subject: "[Contact form] Bonjour", text: valid.message,
   });
+});
+
+test("both production domains work with matching Turnstile hostnames", async () => {
+  for (const source of [origin, "https://pyronear.org"]) {
+    const network = mock.method(globalThis, "fetch", async url => Response.json(
+      url.includes("siteverify") ? { ...verified, hostname: new URL(source).hostname } : { id: "email-id" },
+    ));
+    const response = await worker.fetch(request({}, {
+      headers: { Origin: source, "CF-Connecting-IP": "192.0.2.1" },
+    }), env);
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("Access-Control-Allow-Origin"), source);
+    assert.equal(network.mock.callCount(), 2);
+    mock.restoreAll();
+  }
+});
+
+test("CRLF messages use the textarea's 5000-character limit", async () => {
+  const message = "ab\r\n".repeat(1666) + "ab";
+  const network = mock.method(globalThis, "fetch", async (url, options) => {
+    if (url.includes("siteverify")) return Response.json(verified);
+    assert.equal(JSON.parse(options.body).text, message.replace(/\r\n/g, "\n"));
+    return Response.json({ id: "email-id" });
+  });
+  assert.equal((await worker.fetch(request({ message }), env)).status, 200);
+  assert.equal((await worker.fetch(request({ message: message + "a" }), env)).status, 400);
+  assert.equal(network.mock.callCount(), 2);
 });
 
 test("invalid inputs and absent challenges never reach external services", async () => {
@@ -111,6 +139,7 @@ test("failed, expired, reused and mismatched Turnstile tokens cannot send", asyn
   for (const result of [
     { ...verified, success: false, "error-codes": ["timeout-or-duplicate"] },
     { ...verified, success: "true" }, { ...verified, hostname: "evil.example" },
+    { ...verified, hostname: "pyronear.org" },
     { ...verified, action: "login" }, {},
   ]) {
     const network = mock.method(globalThis, "fetch", async () => Response.json(result));

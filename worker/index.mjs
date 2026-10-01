@@ -54,7 +54,7 @@ export default {
       if (form.get("honeypot")) return reply(400, "invalid_input");
       const email = (form.get("email") || "").trim();
       const subject = (form.get("subject") || "").trim();
-      const message = (form.get("message") || "").trim();
+      const message = (form.get("message") || "").replace(/\r\n/g, "\n").trim();
       const token = form.get("cf-turnstile-response") || "";
       const requestId = form.get("requestId") || "";
       if (email.length > 254 || !EMAIL.test(email) || subject.length > 200 || /[\r\n\x00]/.test(subject) ||
