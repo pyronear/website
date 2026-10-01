@@ -837,6 +837,10 @@ h3 {
   left: -5000px;
 }
 
+.form__captcha {
+  margin-top: 1rem;
+}
+
 .form__error {
   margin: 0.75rem 0 0;
   color: #ffd27a;

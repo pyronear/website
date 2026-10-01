@@ -5,8 +5,11 @@ emailLabel: Votre adresse e-mail
 emailPrivacy: Nous ne partagerons jamais votre adresse e-mail sans votre autorisation.
 subjectLabel: Objet
 messageLabel: Votre message
-captchaLabel: 'Question anti-spam : combien font 3 + 3 ?'
-captchaError: Merci de répondre correctement à la question anti-spam.
+captchaError: La vérification a échoué. Merci de réessayer le contrôle de sécurité.
+inputError: Vérifiez votre adresse e-mail et votre message, puis réessayez.
+rateError: Trop de tentatives. Merci de patienter une minute avant de réessayer.
+formUnavailable: Le formulaire de contact est temporairement indisponible. Merci de réessayer plus tard.
+formNeedsJS: Activez JavaScript pour effectuer le contrôle de sécurité et envoyer votre message.
 sentTitle: Message envoyé !
 sentSubtitle: Merci de nous avoir contacté, nous revenons vers vous le plus vite possible !
 sendError: "L'envoi a échoué. Merci de réessayer dans quelques minutes."
@@ -23,4 +26,4 @@ pressArchive: "Toutes les apparitions"
 tryDemo: "Lancer la démo"
 openDemo: "Ouvrir la démo sur Hugging Face"
 sending: "Envoi en cours…"
-sendingNote: "Cela peut prendre jusqu'à 30 secondes, merci de patienter."
+sendingNote: "Merci de patienter pendant l'envoi de votre message."
