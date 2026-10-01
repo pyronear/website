@@ -74,7 +74,7 @@ Prefer putting the logo in `static/img/` over linking to an external image.
 
 ## Deployment
 
-`.github/workflows/deploy.yml` builds the site on every pull request and deploys it to GitHub Pages on every push to `main` (or when run manually from the Actions tab). The repository's Pages source must be set to "GitHub Actions". The site URL comes from the repository's Pages settings (custom domain `website.pyronear.org` for now), so changing the domain needs no code change.
+`.github/workflows/deploy.yml` builds the site on every pull request and deploys it to GitHub Pages on every push to `main` (or when run manually from the Actions tab). The repository's Pages source must be set to "GitHub Actions". The site URL comes from the repository's Pages settings (custom domain `website.pyronear.org` for now). Before changing domains, allow the new origin in `worker/wrangler.toml`, redeploy the Worker, and add the hostname to the Turnstile widget. The Worker configuration already allows both `website.pyronear.org` and `pyronear.org`.
 
 ## Contact form
 
@@ -83,7 +83,7 @@ The form uses Managed Cloudflare Turnstile and the Worker in `worker/` to valida
 Mail goes from `forms@pyronear.org` to `inquiries@pyronear.org`, with the visitor in `Reply-To`, `[Contact form]` before the subject, and only the message in the body. Keep the recipient as a shared team inbox with clear reply ownership. For a Google Group, allow the external sender and preserve the visitor's Reply-To. No automated copy goes to the visitor and no spreadsheet entries are created.
 
 1. Verify `pyronear.org` in Resend and create a sending key restricted to that domain. Add its exact DKIM and return-path DNS records in Cloudflare; Pyronear uses `resend._domainkey` (TXT) and `rsend`/`send` (DNS-only CNAMEs). Preserve Google's root MX/SPF records and the existing DMARC policy. Never add a second SPF record at the same hostname. Check SPF, aligned DKIM and DMARC in a received message; authentication cannot guarantee inbox placement. Disable open/click tracking for these notifications.
-2. Create a Managed Turnstile widget restricted to `website.pyronear.org`. Keep `ALLOWED_ORIGINS` in `worker/wrangler.toml` aligned with the actual website. Production widgets should exclude localhost and preview domains. Check the rate-limit namespace ID is unused by other Workers in the account.
+2. Create a Managed Turnstile widget with both `website.pyronear.org` and `pyronear.org` in its hostname allowlist before deployment. Keep it aligned with `ALLOWED_ORIGINS` in `worker/wrangler.toml`. Production widgets should exclude localhost and preview domains; the existing local test widget is separate. Check the rate-limit namespace ID is unused by other Workers in the account.
 3. From `worker/`, check and deploy using the Pyronear Cloudflare account:
 
 ```sh
