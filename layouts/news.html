@@ -1,0 +1,26 @@
+{{ define "main" }}
+  {{ partial "page-header.html" . }}
+  <section class="section">
+    <div class="container">
+      <div class="media">
+        {{- range where hugo.Data.news "image" "ne" nil }}
+        {{ partial "media-card.html" . }}
+        {{- end }}
+      </div>
+      <h2 class="news-archive-title">{{ i18n "allNewsList" }}</h2>
+      <ul class="news-list">
+        {{- range where hugo.Data.news "image" "eq" nil }}
+        <li>
+          <a href="{{ .url }}" target="_blank" rel="noopener">
+            <span class="news-list__logo"><img src="{{ .logo | relURL }}" alt="" loading="lazy"></span>
+            <span>
+              <span class="news-list__outlet">{{ .outlet }}{{ with .date }} · {{ . }}{{ end }}</span>
+              <span class="news-list__title">{{ .title }}</span>
+            </span>
+          </a>
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+  </section>
+{{ end }}

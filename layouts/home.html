@@ -41,12 +41,12 @@
       <p class="eyebrow">{{ .Params.media.eyebrow }}</p>
       <h2>{{ .Params.media.title }}</h2>
       <div class="media">
-        {{- range where hugo.Data.medias "featured" true }}
+        {{- range where hugo.Data.news "featured" true }}
         {{ partial "media-card.html" . }}
         {{- end }}
       </div>
-      {{- with site.GetPage "/press" }}
-      <p class="more"><a class="btn" href="{{ .RelPermalink }}">{{ i18n "allPress" }}</a></p>
+      {{- with site.GetPage "/news" }}
+      <p class="more"><a class="btn" href="{{ .RelPermalink }}">{{ i18n "allNews" }}</a></p>
       {{- end }}
     </div>
   </section>
