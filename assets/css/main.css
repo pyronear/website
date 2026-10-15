@@ -624,6 +624,33 @@ h3 {
   border-bottom: 1px solid var(--line);
 }
 
+.follow-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding: 1.5rem 1.75rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--teal);
+  border-radius: var(--radius);
+}
+
+.follow-box h3,
+.follow-box p {
+  margin: 0;
+}
+
+.follow-box p {
+  margin-top: 0.25rem;
+  color: var(--muted);
+}
+
+.follow-box .btn {
+  flex: none;
+}
+
 .news-archive-title {
   margin-top: 4rem;
 }
@@ -928,6 +955,11 @@ h3 {
 
   .news-list {
     grid-template-columns: 1fr;
+  }
+
+  .follow-box {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 

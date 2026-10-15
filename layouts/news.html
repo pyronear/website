@@ -2,14 +2,24 @@
   {{ partial "page-header.html" . }}
   <section class="section">
     <div class="container">
+      <h2>{{ i18n "featured" }}</h2>
       <div class="media">
-        {{- range where hugo.Data.news "image" "ne" nil }}
+        {{- range where hugo.Data.news "featured" true }}
         {{ partial "media-card.html" . }}
         {{- end }}
       </div>
+      {{- range where site.Params.social "icon" "linkedin" }}
+      <aside class="follow-box">
+        <div>
+          <h3>{{ i18n "linkedinTitle" }}</h3>
+          <p>{{ i18n "linkedinText" }}</p>
+        </div>
+        <a class="btn" href="{{ .url }}" target="_blank" rel="noopener">{{ i18n "linkedinButton" }}</a>
+      </aside>
+      {{- end }}
       <h2 class="news-archive-title">{{ i18n "allNewsList" }}</h2>
       <ul class="news-list">
-        {{- range where hugo.Data.news "image" "eq" nil }}
+        {{- range hugo.Data.news }}
         <li>
           <a href="{{ .url }}" target="_blank" rel="noopener">
             <span class="news-list__logo"><img src="{{ .logo | relURL }}" alt="" loading="lazy"></span>
