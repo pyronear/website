@@ -40,7 +40,7 @@ Languages: French (default, served at `/`), English (`/en/`), Spanish (`/es/`) a
 
 ### Ordering
 
-- News items: newest first. Items with an `image` are shown as cards, the others in the list below. Add `featured: true` to show an item on the home page (keep it to 3). Quote dates (`date: "09.2025"`).
+- News items: newest first, every item dated. All items are listed on the News page. Add `featured: true` (with an `image`) to show an item on the home page and at the top of the News page (keep it to 3). Quote dates (`date: "09.2025"`).
 - Partners and supporters: newest last.
 
 ### Images and embeds in pages
