@@ -7,7 +7,28 @@
       {{ partial "figures.html" . }}
     </div>
   </section>
-  <section class="section section--alt" id="discover">
+  {{- with .Params.howItWorks }}
+  <section class="section section--alt" id="how-it-works">
+    <div class="container">
+      <h2>{{ .title }}</h2>
+      <p class="intro">{{ .intro }}</p>
+      {{- $icons := slice "img/cards_icons/cctv.svg" "img/cards_icons/radio-tower.svg" "img/cards_icons/siren.svg" }}
+      <div class="cards steps">
+        {{- range $i, $step := .steps }}
+        <article class="card step">
+          <span class="card__icon" style="--icon: url('{{ index $icons $i | relURL }}')"></span>
+          <h3>{{ $step.title }}</h3>
+          <p>{{ $step.text }}</p>
+        </article>
+        {{- end }}
+      </div>
+      {{- with site.GetPage "/how-it-works" }}
+      <p class="more"><a class="btn" href="{{ .RelPermalink }}">{{ i18n "seeHowItWorks" }}</a></p>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+  <section class="section" id="discover">
     <div class="container">
       <h2>{{ i18n "discover" }}</h2>
       <div class="cards cards--pages">
@@ -23,7 +44,7 @@
     </div>
   </section>
   {{- with site.GetPage "/deployments" }}
-  <section class="section" id="partners">
+  <section class="section section--alt" id="partners">
     <div class="container">
       <p class="eyebrow">{{ .Params.partners.eyebrow }}</p>
       <h2>{{ .Params.partners.title }}</h2>
@@ -36,7 +57,7 @@
     </div>
   </section>
   {{- end }}
-  <section class="section section--alt" id="media">
+  <section class="section" id="media">
     <div class="container">
       <p class="eyebrow">{{ .Params.media.eyebrow }}</p>
       <h2>{{ .Params.media.title }}</h2>
