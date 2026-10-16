@@ -28,7 +28,7 @@ Les nostres estacions s'instal·len en punts alts (torres elèctriques, dipòsit
 - Detecció de fum fins a **15 km**
 - Fins a **2 hores d'avançament** sobre les primeres trucades d'emergència
 - Anàlisi in situ, **consum molt baix**, maquinari estàndard
-- Rècord: un inici d'incendi detectat a **42 km**
+- Rècord: un inici d'incendi detectat a **72 km**
 
 Una estació s'instal·la en menys de mitja jornada: [vegeu com]({{< relref "/deployments#installation" >}}).
 

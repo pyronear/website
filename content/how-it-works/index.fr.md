@@ -28,7 +28,7 @@ Nos stations sont installées sur des points hauts (pylônes, châteaux d'eau, t
 - Détection des fumées jusqu'à **15 km**
 - Jusqu'à **2 heures d'avance** sur les premiers appels au 18
 - Analyse sur place, **très faible consommation**, matériel standard
-- Record : un départ de feu détecté à **42 km**
+- Record : un départ de feu détecté à **72 km**
 
 Une station s'installe en moins d'une demi-journée : [voir comment]({{< relref "/deployments#installation" >}}).
 

@@ -28,7 +28,7 @@ Nuestras estaciones se instalan en puntos altos (torres eléctricas, depósitos 
 - Detección de humo hasta **15 km**
 - Hasta **2 horas de adelanto** sobre las primeras llamadas de emergencia
 - Análisis in situ, **consumo muy bajo**, hardware estándar
-- Récord: un inicio de incendio detectado a **42 km**
+- Récord: un inicio de incendio detectado a **72 km**
 
 Una estación se instala en menos de media jornada: [ver cómo]({{< relref "/deployments#installation" >}}).
 

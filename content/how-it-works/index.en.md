@@ -28,7 +28,7 @@ Our stations are installed on high points (pylons, water towers, lookout towers)
 - Smoke detection up to **15 km** away
 - Up to **2 hours earlier** than the first emergency calls
 - On-site analysis, **very low power use**, standard hardware
-- Record: a fire start detected **42 km** away
+- Record: a fire start detected **72 km** away
 
 A station is installed in less than half a day: [see how]({{< relref "/deployments#installation" >}}).
 
