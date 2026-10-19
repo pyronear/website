@@ -23,9 +23,12 @@ Bénévole ou salarié d'une entreprise qui pratique le mécénat de compétence
 - **Développement** : faire évoluer la plateforme d'alerte et le logiciel des stations. Tout est open source sur [GitHub](https://github.com/pyronear).
 - **Annotation d'images** : repérer les fumées sur les images de nos caméras pour entraîner le modèle. Aucune compétence technique n'est nécessaire.
 - **Terrain** : pompiers, forestiers, collectivités, installateurs, votre expérience nous aide à choisir les points hauts, installer les stations et adapter l'outil aux besoins réels.
-- **Communication, design, recherche de financements** : faire connaître le projet et lui donner les moyens de grandir.
+- **Communication et design** : créer des visuels, des animations et des vidéos, animer nos réseaux et raconter le projet.
+- **Recherche de financements** : monter des dossiers, identifier des fondations et des partenaires, donner au projet les moyens de grandir.
 
 Plus de 150 bénévoles ont contribué depuis 2020. Pour une entreprise, le mécénat de compétences permet à vos équipes de consacrer des jours de travail au projet.
+
+Envie de contribuer ? [Contactez-nous](../#contact-form).
 {{< /fold >}}
 
 {{< fold title="Financer le projet" for="Fondations, fonds de dotation, entreprises, collectivités" >}}
@@ -35,17 +38,18 @@ Fondations, fonds de dotation, entreprises et collectivités peuvent :
 - **Soutenir la recherche ouverte** : chaque amélioration de nos modèles profite immédiatement à toutes les stations, en France et à l'étranger.
 - **Nous accompagner dans la durée** : la maintenance et le suivi des stations, saison après saison.
 
+Pyronear est une association d'intérêt général : vos dons ouvrent droit à une réduction d'impôt et nous émettons des reçus fiscaux.
+
 Pour en parler, [contactez-nous](../#contact-form) : nous construisons chaque soutien avec vous.
 {{< /fold >}}
 
 {{< fold title="Collaborer sur l'enseignement et la recherche" for="Écoles, universités, laboratoires : avançons ensemble sur les formations et les sujets de recherche en détection précoce" >}}
-Nous proposons des projets concrets à des étudiants (intelligence artificielle, données, logiciel, terrain) et collaborons avec des écoles et des laboratoires. Nous travaillons déjà avec Mines Paris et CentraleSupélec.
+Pyronear est un écosystème ouvert : nous pratiquons la science ouverte avec les acteurs du monde académique et nous offrons des opportunités concrètes aux étudiants (intelligence artificielle, données, logiciel, terrain). Nous travaillons déjà avec Mines Paris, et avec CentraleSupélec via l'association [Latitudes](https://www.latitudes.cc/).
 
 Vous enseignez, encadrez des projets ou dirigez un laboratoire ? [Contactez-nous](../#contact-form).
 {{< /fold >}}
 
 {{< fold title="Faire connaître Pyronear" for="Tout le monde" >}}
-- Parlez de nous à votre service d'incendie, votre commune ou votre intercommunalité.
-- Mettez-nous en relation avec les propriétaires de points hauts (châteaux d'eau, pylônes, tours).
+- Parlez de nous à tout acteur concerné par la protection des espaces naturels et la prévention des incendies : service d'incendie, commune, intercommunalité, gestionnaire d'espaces, entreprise, association.
 - Suivez et partagez nos actualités sur [LinkedIn](https://www.linkedin.com/company/pyronearfr).
 {{< /fold >}}
