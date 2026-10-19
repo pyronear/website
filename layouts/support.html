@@ -4,4 +4,13 @@
     <div class="container container--prose prose">{{ .Content }}</div>
   </section>
   {{ partial "logos.html" (dict "id" "sponsors" "items" hugo.Data.sponsors "copy" .Params.sponsors "alt" true) }}
+  {{- with .Params.cta }}
+  <section class="band">
+    <div class="container container--narrow">
+      <h2>{{ .title }}</h2>
+      <p>{{ .text }}</p>
+      <a class="btn btn--accent" href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
+    </div>
+  </section>
+  {{- end }}
 {{ end }}

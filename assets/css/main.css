@@ -373,6 +373,79 @@ h3 {
   transform: translateY(-2px);
 }
 
+/* Collapsible blocks (fold shortcode) */
+.fold {
+  margin: 1rem 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.fold:hover,
+.fold[open] {
+  border-color: var(--teal);
+  box-shadow: var(--shadow);
+}
+
+.fold summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.fold summary::-webkit-details-marker {
+  display: none;
+}
+
+.fold__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.fold__title {
+  color: var(--teal);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.fold__for {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fold__chevron {
+  flex: none;
+  width: 0.6rem;
+  height: 0.6rem;
+  border: solid var(--teal);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+}
+
+.fold[open] .fold__chevron {
+  transform: rotate(-135deg);
+}
+
+.fold__body {
+  padding: 0 1.5rem 1.25rem;
+}
+
+.fold__body > :first-child {
+  margin-top: 0;
+}
+
+.fold__body > :last-child {
+  margin-bottom: 0;
+}
+
 /* Inner pages */
 .page-header {
   padding: clamp(3rem, 7vw, 5rem) 0 clamp(2.5rem, 5vw, 3.5rem);

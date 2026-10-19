@@ -1,7 +1,7 @@
 ---
-title: Dona'ns suport
-slug: dona-suport
-description: 'Voluntaris, fundacions i empreses: protegim junts els boscos.'
+title: Actua amb nosaltres
+slug: actua-amb-nosaltres
+description: "Voluntaris, socis, finançadors, escoles: tria la teva manera d'actuar."
 layout: support
 menus:
   main:
@@ -9,16 +9,14 @@ menus:
 sponsors:
   eyebrow: Suport i Compromís
   title: Els Nostres Partidaris
+cta:
+  title: "Preparat per actuar amb nosaltres?"
+  text: "Una pregunta, una idea, una proposta de suport: escriu-nos."
 ---
 
-Pyronear funciona gràcies als seus voluntaris, als seus socis i al suport de fundacions i empreses compromeses. Aquest suport ens permet equipar serveis de bombers amb pressupostos limitats i dedicar temps a la recerca oberta.
+Pyronear és una associació sense ànim de lucre que anima una comunitat de col·laboradors. Siguis voluntari, empresa, fundació, administració local, escola o servei de bombers, hi ha una manera d'actuar amb nosaltres. Obre el bloc que et correspongui.
 
-## Com ajudar-nos
-
-Pyronear és una associació sense ànim de lucre: cada contribució, ja sigui temps, competències o finançament, es tradueix directament en boscos més ben protegits. Aquestes són tres maneres d'unir-te a nosaltres.
-
-### Dedicar el teu temps i les teves competències
-
+{{< fold title="Dedicar el teu temps i les teves competències" for="Voluntaris, treballadors amb mecenatge de competències" >}}
 Siguis voluntari o treballador d'una empresa que fa mecenatge de competències, hi ha un lloc per a tu:
 
 - **Intel·ligència artificial i dades**: millorar els nostres models de detecció, reduir les falses alarmes, ampliar els nostres conjunts de dades.
@@ -27,22 +25,27 @@ Siguis voluntari o treballador d'una empresa que fa mecenatge de competències, 
 - **Terreny**: bombers, forestals, administracions locals, instal·ladors, la vostra experiència ens ajuda a triar els punts alts, instal·lar les estacions i adaptar l'eina a les necessitats reals.
 - **Comunicació, disseny, recerca de finançament**: donar a conèixer el projecte i donar-li els mitjans per créixer.
 
-Més de 150 voluntaris hi han contribuït des del 2020, i acollim projectes d'estudiants amb escoles d'enginyeria. Per a una empresa, el mecenatge de competències permet als seus equips dedicar jornades de feina al projecte.
+Més de 150 voluntaris hi han contribuït des del 2020. Per a una empresa, el mecenatge de competències permet als seus equips dedicar jornades de feina al projecte.
+{{< /fold >}}
 
-### Finançar el projecte
+{{< fold title="Finançar el projecte" for="Fundacions, fons de dotació, empreses, administracions locals" >}}
+Fundacions, fons de dotació, empreses i administracions locals poden:
 
-Fundacions, empreses i administracions locals poden:
-
-- **Finançar estacions** per a un servei de bombers amb mitjans limitats.
+- **Finançar estacions** per a serveis de bombers amb mitjans limitats.
 - **Donar suport a la recerca oberta**: cada millora dels nostres models beneficia immediatament totes les estacions, a França i a l'estranger.
 - **Acompanyar-nos a llarg termini**: el manteniment i el seguiment de les estacions, temporada rere temporada.
 
 Per parlar-ne, [contacta'ns](../#contact-form): construïm cada col·laboració amb tu.
+{{< /fold >}}
 
-### Donar a conèixer Pyronear
+{{< fold title="Col·laborar en ensenyament i recerca" for="Escoles, universitats, laboratoris: avancem junts en formacions i temes de recerca sobre la detecció precoç" >}}
+Proposem projectes concrets a estudiants (intel·ligència artificial, dades, programari, terreny) i col·laborem amb escoles i laboratoris. Ja treballem amb Mines Paris i CentraleSupélec.
 
+Ensenyes, dirigeixes projectes o dirigeixes un laboratori? [Contacta'ns](../#contact-form).
+{{< /fold >}}
+
+{{< fold title="Donar a conèixer Pyronear" for="Tothom" >}}
 - Parla de nosaltres al teu servei de bombers, al teu ajuntament o al teu consell comarcal.
 - Posa'ns en contacte amb propietaris de punts alts (dipòsits d'aigua, torres elèctriques, torres).
 - Segueix i comparteix les nostres novetats a [LinkedIn](https://www.linkedin.com/company/pyronearfr).
-
-Vols implicar-te? [Contacta'ns](../#contact-form).
+{{< /fold >}}
