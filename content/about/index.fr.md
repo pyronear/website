@@ -46,25 +46,6 @@ forests:
     text: 'Bois, tourisme, agriculture : de nombreux emplois locaux dépendent des forêts.'
   - title: Santé
     text: La fumée des incendies pollue l'air bien au-delà du feu, surtout pour les enfants, les personnes âgées et les personnes fragiles.
-timeline:
-  title: Dates clés
-  items:
-  - date: '2020'
-    text: Création de l'association Pyronear
-  - date: '2021'
-    text: Premiers déploiements pilotes avec le SDIS de l'Ardèche
-  - date: '2022'
-    text: Partenariat avec ENGIE Green en Gironde
-  - date: '2023'
-    text: Premiers déploiements à l'international, au Chili et en Espagne
-  - date: '2024'
-    text: Lauréat de l'Accélérateur d'initiatives citoyennes (DINUM, beta.gouv.fr)
-  - date: '05.2025'
-    text: Sélectionné comme bonne pratique par la Commission européenne
-  - date: '08.2025'
-    text: Premier contrat pluriannuel avec un SDIS (Seine-et-Marne)
-  - date: '2026'
-    text: Programme d'accélération Fast Forward
 ---
 
 ## Notre histoire
