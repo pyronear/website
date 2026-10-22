@@ -13,7 +13,7 @@ build:
 
 ## Una solución completa
 
-Pironear es un **solución completa de gestión de riesgos de incendio**. consiste en un **early algoritmo de detección de incendios forestales**, implementado en una microcomputadora, conectada a **cámaras colocadas en puntos altos** con vista al bosque. Nuestros detectores se comunican **alertas de incendios** a una base de datos que está conectada a un **plataforma de supervisión** para el cuerpo de bomberos.
+Pironear es un **solución completa de gestión de riesgos de incendio**. consiste en un **early algoritmo de detección de incendios forestales**, implementado en una microcomputadora, conectada a **cámaras colocadas en puntos altos** con vista a los espacios naturales, ya sean nuestras propias estaciones o cámaras ya instaladas. Nuestros detectores se comunican **alertas de incendios** a una base de datos que está conectada a un **plataforma de supervisión** para el cuerpo de bomberos.
 
 {{< youtube id="f2z8mvvggI0" title="Minidocumental sobre Pyronear" loading="lazy" >}}
 
@@ -29,6 +29,7 @@ Nuestras estaciones se instalan en puntos altos (torres eléctricas, depósitos 
 - Hasta **2 horas de adelanto** sobre las primeras llamadas de emergencia
 - Análisis in situ, **consumo muy bajo**, hardware estándar
 - Récord: un inicio de incendio detectado a **42 km**
+- Compatible con **cámaras ya instaladas**: nuestra detección también puede conectarse a redes de cámaras existentes
 
 Una estación se instala en menos de media jornada: [ver cómo]({{< relref "/deployments#installation" >}}).
 

@@ -1,7 +1,7 @@
 ---
 title: Déploiements
 slug: deploiements
-description: 'Plus de XX caméras déployées en France et à l''international pour protéger les espaces naturels.'
+description: 'Plus de 150 caméras déployées en France et à l''international pour protéger les espaces naturels.'
 layout: deployments
 menus:
   main:
@@ -19,6 +19,8 @@ build:
 Depuis 2021, Pyronear déploie son dispositif de détection avec les services d'incendie et de secours (SDIS), l'ONF, des collectivités et des partenaires privés. Chaque déploiement est co-construit avec les équipes locales : identification des points hauts, étude de couverture, installation, formation des opérateurs.
 
 ## Installation plug and play {#installation}
+
+Selon les besoins, nous installons nos stations complètes ou nous connectons notre détection à des caméras déjà en place.
 
 Nos stations sont pensées pour être **plug and play** : simples, robustes et rapides à installer. Une installation prend **moins d'une demi-journée par station**. Elle peut être réalisée par un professionnel agréé ou directement par le service utilisateur, en autonomie.
 

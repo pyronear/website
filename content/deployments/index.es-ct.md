@@ -1,7 +1,7 @@
 ---
 title: Desplegaments
 slug: desplegaments
-description: 'Més de XX càmeres desplegades a França i a l''estranger per protegir els espais naturals.'
+description: 'Més de 150 càmeres desplegades a França i a l''estranger per protegir els espais naturals.'
 layout: deployments
 menus:
   main:
@@ -19,6 +19,8 @@ build:
 Des del 2021, Pyronear desplega el seu sistema de detecció amb els serveis de bombers i emergències, les oficines de gestió forestal, ens locals i socis privats. Cada desplegament es construeix amb els equips locals: identificació de punts alts, estudi de cobertura, instal·lació i formació dels operadors.
 
 ## Instal·lació plug and play {#installation}
+
+Segons les necessitats, instal·lem les nostres estacions completes o connectem la nostra detecció a càmeres ja instal·lades.
 
 Les nostres estacions estan pensades per ser **plug and play**: senzilles, robustes i ràpides d'instal·lar. Una instal·lació dura **menys de mitja jornada per estació**. La pot fer un professional acreditat o directament el servei usuari.
 

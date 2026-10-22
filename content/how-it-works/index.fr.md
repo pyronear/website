@@ -13,7 +13,7 @@ build:
 
 ## Une solution complète
 
-Pyronear est une **solution complète de gestion du risque incendie**. Elle est constituée d’un **algorithme de détection** précoce des départs de feu, implémenté sur un micro ordinateur, connecté à des **caméras positionnées sur des points hauts** avec vue sur la forêt. Nos détecteurs communiquent les **alertes de détection de départ de feu** à une base de données elle-même connectée à une **plateforme de supervision** à destination des pompiers.
+Pyronear est une **solution complète de gestion du risque incendie**. Elle est constituée d’un **algorithme de détection** précoce des départs de feu, implémenté sur un micro ordinateur, connecté à des **caméras positionnées sur des points hauts** avec vue sur les espaces naturels, que ce soient nos propres stations ou des caméras déjà en place. Nos détecteurs communiquent les **alertes de détection de départ de feu** à une base de données elle-même connectée à une **plateforme de supervision** à destination des pompiers.
 
 {{< youtube id="f2z8mvvggI0" title="Mini-documentaire sur Pyronear" loading="lazy" >}}
 
@@ -29,6 +29,7 @@ Nos stations sont installées sur des points hauts (pylônes, châteaux d'eau, t
 - Jusqu'à **2 heures d'avance** sur les premiers appels au 18
 - Analyse sur place, **très faible consommation**, matériel standard
 - Record : un départ de feu détecté à **42 km**
+- Compatible avec des **caméras déjà en place** : notre détection peut aussi se connecter à des réseaux de caméras existants
 
 Une station s'installe en moins d'une demi-journée : [voir comment]({{< relref "/deployments#installation" >}}).
 

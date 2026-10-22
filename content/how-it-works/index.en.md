@@ -13,7 +13,7 @@ build:
 
 ## A complete solution
 
-Pyronear is a **complete fire risk management solution**. It consists of an **early wildfire detection algorithm**, implemented on a microcomputer, connected to **cameras positioned on high spots** with a view on the forest. Our detectors communicate **fire alerts** to a database that is connected to a **supervision platform** for the fire department.
+Pyronear is a **complete fire risk management solution**. It consists of an **early wildfire detection algorithm**, implemented on a microcomputer, connected to **cameras positioned on high spots** with a view on natural areas, whether they are our own stations or cameras already in place. Our detectors communicate **fire alerts** to a database that is connected to a **supervision platform** for the fire department.
 
 {{< youtube id="f2z8mvvggI0" title="Pyronear mini-documentary" loading="lazy" >}}
 
@@ -29,6 +29,7 @@ Our stations are installed on high points (pylons, water towers, lookout towers)
 - Up to **2 hours earlier** than the first emergency calls
 - On-site analysis, **very low power use**, standard hardware
 - Record: a fire start detected **42 km** away
+- Works with **cameras already in place**: our detection can also connect to existing camera networks
 
 A station is installed in less than half a day: [see how]({{< relref "/deployments#installation" >}}).
 

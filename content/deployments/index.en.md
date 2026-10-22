@@ -1,7 +1,7 @@
 ---
 title: Deployments
 slug: deployments
-description: More than XX cameras deployed in France and abroad to protect natural areas.
+description: More than 150 cameras deployed in France and abroad to protect natural areas.
 layout: deployments
 menus:
   main:
@@ -19,6 +19,8 @@ build:
 Since 2021, Pyronear has deployed its detection system with fire and rescue services, forest management offices, local authorities and private partners. Each deployment is co-built with local teams: finding high points, studying coverage, installing the system and training operators.
 
 ## Plug-and-play installation {#installation}
+
+Depending on the needs, we install our complete stations or connect our detection to cameras that are already in place.
 
 Our stations are designed to be **plug and play**: simple, robust and quick to install. An installation takes **less than half a day per station**. It can be done by an approved professional or directly by the end user.
 

@@ -13,7 +13,7 @@ build:
 
 ## Una solució completa
 
-Pyronear és un **solució completa de gestió del risc d'incendi**. Consta d'un **algorisme de detecció precoç d'incendis forestals**, implementat en un microordinador, connectat a **càmeres col·locades en punts alts** amb vistes al bosc. Els nostres detectors es comuniquen **alertes d'incendi** a una base de dades connectada a **plataforma de supervisió** per al cos de bombers.
+Pyronear és un **solució completa de gestió del risc d'incendi**. Consta d'un **algorisme de detecció precoç d'incendis forestals**, implementat en un microordinador, connectat a **càmeres col·locades en punts alts** amb vistes als espais naturals, ja siguin les nostres pròpies estacions o càmeres ja instal·lades. Els nostres detectors es comuniquen **alertes d'incendi** a una base de dades connectada a **plataforma de supervisió** per al cos de bombers.
 
 {{< youtube id="f2z8mvvggI0" title="Minidocumental sobre Pyronear" loading="lazy" >}}
 
@@ -29,6 +29,7 @@ Les nostres estacions s'instal·len en punts alts (torres elèctriques, dipòsit
 - Fins a **2 hores d'avançament** sobre les primeres trucades d'emergència
 - Anàlisi in situ, **consum molt baix**, maquinari estàndard
 - Rècord: un inici d'incendi detectat a **42 km**
+- Compatible amb **càmeres ja instal·lades**: la nostra detecció també es pot connectar a xarxes de càmeres existents
 
 Una estació s'instal·la en menys de mitja jornada: [vegeu com]({{< relref "/deployments#installation" >}}).
 
