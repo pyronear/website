@@ -23,7 +23,7 @@
     en: countries
     es: países
     es-ct: països
-- value: "15 km"
+- value: "25 km"
   label:
     fr: de portée de détection
     en: detection range

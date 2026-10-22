@@ -13,7 +13,7 @@ build:
 
 ## Une solution complète
 
-Pyronear est une **solution complète de gestion du risque incendie**. Elle est constituée d’un **algorithme de détection** précoce des départs de feu, implémenté sur un micro ordinateur, connecté à des **caméras positionnées sur des points hauts** avec vue sur les espaces naturels, que ce soient nos propres stations ou des caméras déjà en place. Nos détecteurs communiquent les **alertes de détection de départ de feu** à une base de données elle-même connectée à une **plateforme de supervision** à destination des pompiers.
+Pyronear est une **solution complète de gestion du risque incendie** : des **caméras** installées sur des points hauts, nos propres stations ou des caméras déjà en place, **détectent précocement** les départs de feu grâce à une IA légère et embarquée. Les services d'incendie **reçoivent rapidement** une alerte, qu'ils **analysent et qualifient** sur notre plateforme de supervision.
 
 {{< youtube id="f2z8mvvggI0" title="Mini-documentaire sur Pyronear" loading="lazy" >}}
 
@@ -23,17 +23,14 @@ Pyronear est une **solution complète de gestion du risque incendie**. Elle est 
 
 ## La station de détection
 
-Nos stations sont installées sur des points hauts (pylônes, châteaux d'eau, tours de guet) avec vue sur la forêt. Des caméras haute résolution couvrent l'horizon à 360° et un micro-ordinateur, de la taille d'une carte de crédit, analyse les images sur place avec notre modèle d'intelligence artificielle. Très sobre en énergie, la station peut fonctionner sur panneau solaire et communique en 4G.
+Nos stations sont installées sur des points hauts (pylônes, châteaux d'eau, tours de guet) avec vue sur les espaces naturels. Elles comptent généralement 2 caméras PTZ de détection, qui couvrent l'horizon à 360°, et un micro-ordinateur de la taille d'une carte de crédit. Il capture régulièrement une image par caméra et l'analyse sur place avec notre modèle d'intelligence artificielle. Très sobre en énergie, la station peut fonctionner sur panneau solaire et communique en 4G.
 
-- Détection des fumées jusqu'à **15 km**
+- Détection jusqu'à **25 km**. *Un record à 72 km.*
 - Jusqu'à **2 heures d'avance** sur les premiers appels au 18
 - Analyse sur place, **très faible consommation**, matériel standard
-- Record : un départ de feu détecté à **42 km**
 - Compatible avec des **caméras déjà en place** : notre détection peut aussi se connecter à des réseaux de caméras existants
 
 Une station s'installe en moins d'une demi-journée : [voir comment]({{< relref "/deployments#installation" >}}).
-
-Nos tours de détection se composent de 4/5 caméras haute résolution et d’un micro ordinateur qui capture une image par caméra à intervalles réguliers puis l’analyse localement à l’aide de notre modèle de détection de feux de forêt. En cas de détection, le mode alerte est activé, toutes les images provenant de la caméra ayant détecté le feu sont alors envoyées à notre base de données via notre api, le protocole de communication que nous avons développé.
 
 ![Fonctionnement d'une station de détection](model.png)
 
@@ -44,37 +41,13 @@ Nos tours de détection se composent de 4/5 caméras haute résolution et d’un
 ![La forêt vue depuis le haut du pylône](view.jpg)
 {{< /gallery >}}
 
-## Moins de fausses alertes
+## Alerter et analyser
 
-Une fumée naissante ressemble parfois à un nuage, à du brouillard ou à de la poussière. Pour ne pas alerter les pompiers pour rien, chaque détection passe par deux étapes :
+Quand une caméra détecte une fumée, la station passe en mode alerte : toutes les images de la caméra concernée sont envoyées à notre base de données via notre API. L'alerte est notifiée aux utilisateurs par plusieurs canaux, selon leurs besoins, pour qu'elle arrive au plus vite et qu'ils puissent la qualifier au mieux. Sur notre plateforme, les opérateurs lèvent le doute, pilotent les caméras à distance et localisent le départ de feu par triangulation entre plusieurs caméras.
 
-1. **Repérer** : sur chaque image, notre modèle signale tout ce qui ressemble à une fumée.
-2. **Confirmer** : le système suit cette fumée sur plusieurs images. Une vraie fumée reste au même endroit, grossit et dérive lentement, contrairement à un nuage.
-
-Résultat : **4 fois moins de fausses alertes**, sans manquer les vrais départs de feu.
-
-## La plateforme d'alerte
-
-Quand une station détecte une fumée, les images sont envoyées à notre plateforme web. Les opérateurs des SDIS y reçoivent l'alerte en temps réel : ils lèvent le doute, pilotent les caméras et localisent le départ de feu par triangulation entre plusieurs stations.
-
-En avril 2026, une station a ainsi repéré le premier feu de l'année en forêt de Fontainebleau, vingt minutes avant le premier appel au 18.
-
-Ce que permet la plateforme :
-
-- **Alertes en direct** : les alertes du jour, avec leurs séquences d'images à faire défiler et à zoomer.
-- **Localisation du feu** : quand plusieurs caméras voient la même fumée, sa position s'affiche sur la carte.
-- **Levée de doute** : prendre la main sur une caméra à distance (orientation, zoom, clic pour centrer) pour confirmer ou écarter une alerte.
-- **Annotation** : classer chaque alerte en départ de feu, fumée non pertinente ou autre faux positif.
-- **Masques** : ignorer une fumée récurrente, comme une cheminée d'usine.
-- **Suivi des caméras** : l'état et la dernière image de chaque caméra, avec un signal en cas de coupure.
-- **Partage et historique** : envoyer une alerte à un collègue, retrouver les alertes passées et les exporter en CSV.
-
-{{< gallery "screens" >}}
 ![Une alerte en cours : images de la caméra et localisation du feu sur la carte](platform-alert.jpg)
-![Annotation d'une alerte](platform-annotation.jpg)
-![Ajout d'un masque pour ignorer une fumée récurrente](platform-masks.jpg)
-![Vue des caméras avec leur dernière image](platform-cameras.jpg)
-{{< /gallery >}}
+
+*Par exemple, en avril 2026, une station a repéré le premier feu de l'année en forêt de Fontainebleau, vingt minutes avant le premier appel au 18.*
 
 ## Essayer le modèle
 
