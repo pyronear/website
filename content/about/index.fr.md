@@ -33,25 +33,6 @@ values:
   - icon: /img/cards_icons/grid-view-solid.svg
     title: Modulable
     text: Nous proposons un système de détection complet mais notre dispositif a été pensé pour fonctionner avec le matériel existant (utilisation de caméras déjà en place, connexion avec nexSIS …)
-timeline:
-  title: Dates clés
-  items:
-  - date: '2020'
-    text: Création de l'association Pyronear
-  - date: '2021'
-    text: Premiers déploiements pilotes avec le SDIS de l'Ardèche
-  - date: '2022'
-    text: Partenariat avec ENGIE Green en Gironde
-  - date: '2023'
-    text: Premiers déploiements à l'international, au Chili et en Espagne
-  - date: '2024'
-    text: Lauréat de l'Accélérateur d'initiatives citoyennes (DINUM, beta.gouv.fr)
-  - date: '05.2025'
-    text: Sélectionné comme bonne pratique par la Commission européenne
-  - date: '08.2025'
-    text: Premier contrat pluriannuel avec un SDIS (Seine-et-Marne)
-  - date: '2026'
-    text: Programme d'accélération Fast Forward
 ---
 
 ## Notre histoire

@@ -25,16 +25,4 @@
     </div>
   </section>
   {{- end }}
-  {{- with .Params.timeline }}
-  <section class="section" id="timeline">
-    <div class="container container--prose">
-      <h2>{{ .title }}</h2>
-      <ol class="timeline">
-        {{- range .items }}
-        <li><span class="timeline__date">{{ .date }}</span> {{ .text }}</li>
-        {{- end }}
-      </ol>
-    </div>
-  </section>
-  {{- end }}
 {{ end }}

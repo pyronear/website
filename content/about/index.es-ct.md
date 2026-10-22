@@ -33,25 +33,6 @@ values:
   - icon: /img/cards_icons/grid-view-solid.svg
     title: Modular
     text: Oferim un sistema de detecció complet però el nostre dispositiu ha estat dissenyat per funcionar amb equips existents (ús de càmeres ja instal·lades, connexió amb programari existent...)
-timeline:
-  title: Dates clau
-  items:
-  - date: '2020'
-    text: Creació de l'associació Pyronear
-  - date: '2021'
-    text: Primers desplegaments pilot amb el servei de bombers de l'Ardèche (SDIS 07)
-  - date: '2022'
-    text: Col·laboració amb ENGIE Green a la Gironda
-  - date: '2023'
-    text: Primers desplegaments internacionals, a Xile i a Espanya
-  - date: '2024'
-    text: Guanyador de l'Accelerador d'iniciatives ciutadanes (DINUM, beta.gouv.fr)
-  - date: '05.2025'
-    text: Seleccionat com a bona pràctica per la Comissió Europea
-  - date: '08.2025'
-    text: Primer contracte plurianual amb un servei de bombers (Sena i Marne)
-  - date: '2026'
-    text: Programa d'acceleració Fast Forward
 ---
 
 ## La nostra història
