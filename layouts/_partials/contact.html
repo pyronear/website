@@ -2,25 +2,27 @@
 <section class="band band--dark" id="contact-form">
   <div class="container container--narrow">
     <h2>{{ .Params.contactForm.title }}</h2>
-    <form class="form" method="POST" action="{{ site.Params.formAction }}" data-captcha-error="{{ i18n "captchaError" }}" data-send-error="{{ i18n "sendError" }}" data-sending="{{ i18n "sending" }}">
+    <form class="form" method="POST" action="{{ site.Params.formAction }}" data-captcha-error="{{ i18n "captchaError" }}" data-send-error="{{ i18n "sendError" }}" data-rate-error="{{ i18n "rateError" }}" data-input-error="{{ i18n "inputError" }}" data-sending="{{ i18n "sending" }}">
       <div class="form__honeypot" aria-hidden="true">
         <label for="honeypot">Leave this field empty</label>
         <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
       </div>
       <label for="email">{{ i18n "emailLabel" }}</label>
-      <input type="email" id="email" name="email" aria-describedby="email-help" autocomplete="email">
+      <input type="email" id="email" name="email" aria-describedby="email-help" autocomplete="email" maxlength="254" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" required>
       <small id="email-help">{{ i18n "emailPrivacy" }}</small>
       <label for="subject">{{ i18n "subjectLabel" }}</label>
-      <input type="text" id="subject" name="subject">
+      <input type="text" id="subject" name="subject" maxlength="200">
       <label for="message">{{ i18n "messageLabel" }}</label>
-      <textarea id="message" name="message" rows="4"></textarea>
-      <label for="captcha">{{ i18n "captchaLabel" }}</label>
-      <input type="text" id="captcha" name="captcha" inputmode="numeric" required>
+      <textarea id="message" name="message" rows="4" maxlength="5000" required></textarea>
+      {{ if and site.Params.formAction site.Params.turnstileSiteKey }}<div class="cf-turnstile form__captcha" data-sitekey="{{ site.Params.turnstileSiteKey }}" data-action="contact" data-theme="dark" data-size="flexible" data-language="{{ if eq .Language.Lang "es-ct" }}auto{{ else }}{{ .Language.Lang }}{{ end }}"></div>{{ end }}
       <p class="form__error" role="alert" hidden></p>
-      <button class="btn btn--accent" type="submit">{{ i18n "submit" }}</button>
+      {{ if not (and site.Params.formAction site.Params.turnstileSiteKey) }}<p role="status">{{ i18n "formUnavailable" }}</p>{{ end }}
+      <noscript><p>{{ i18n "formNeedsJS" }}</p></noscript>
+      <button class="btn btn--accent" type="submit" disabled>{{ i18n "submit" }}</button>
       <p class="form__note" role="status" hidden>{{ i18n "sendingNote" }}</p>
       <p class="form__thanks" role="status" hidden>✅ {{ i18n "sentTitle" }}<br>{{ i18n "sentSubtitle" }}</p>
     </form>
   </div>
 </section>
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ if and site.Params.formAction site.Params.turnstileSiteKey }}<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>{{ end }}

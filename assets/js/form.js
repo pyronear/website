@@ -1,15 +1,12 @@
-// Posts the contact form to the Google Apps Script endpoint, which writes to a
-// sheet and sends the email. The payload shape must match that script.
-// The script takes 3 to 30 seconds to answer, so the form shows progress and
-// only reports success when the script says so.
-var TIMEOUT_MS = 45000;
-
 document.querySelectorAll("form.form").forEach(function (form) {
   var error = form.querySelector(".form__error");
   var note = form.querySelector(".form__note");
   var thanks = form.querySelector(".form__thanks");
   var button = form.querySelector("button");
   var label = button.textContent;
+  var widget = form.querySelector(".cf-turnstile");
+  var previousPayload, requestId;
+  button.disabled = !widget;
 
   function showError(message) {
     error.textContent = message;
@@ -22,41 +19,45 @@ document.querySelectorAll("form.form").forEach(function (form) {
     note.hidden = !sending;
   }
 
-  form.addEventListener("submit", function (event) {
+  form.addEventListener("submit", async function (event) {
     event.preventDefault();
-    if (button.disabled) return;
+    if (button.disabled || !form.reportValidity()) return;
     error.hidden = true;
     var data = new FormData(form);
-    // Silently drop submissions from bots that fill the hidden field
     if (data.get("honeypot")) return;
-    if (String(data.get("captcha")).trim() !== "6") {
+    if (!data.get("message").trim()) return showError(form.dataset.inputError);
+    if (!data.get("cf-turnstile-response")) {
       showError(form.dataset.captchaError);
       return;
     }
-
-    var fields = ["email", "subject", "message"];
-    var body = new URLSearchParams();
-    fields.forEach(function (name) { body.append(name, data.get(name)); });
-    body.append("formDataNameOrder", JSON.stringify(fields));
-    body.append("formGoogleSheetName", "responses");
-    body.append("formGoogleSendEmail", "");
-
-    var controller = new AbortController();
-    var timer = setTimeout(function () { controller.abort(); }, TIMEOUT_MS);
+    // Reuse the retry key until the actual message changes.
+    var payload = JSON.stringify(["email", "subject", "message"].map(name => data.get(name).trim()));
+    if (payload !== previousPayload) {
+      requestId = crypto.randomUUID();
+      previousPayload = payload;
+    }
+    data.set("requestId", requestId);
     setSending(true);
-    fetch(form.action, { method: "POST", body: body, signal: controller.signal })
-      .then(function (response) { return response.json(); })
-      .then(function (result) {
-        if (result.result !== "success") throw new Error(result.error || "script error");
-        form.reset();
-        note.hidden = true;
-        button.textContent = label;
-        thanks.hidden = false; // the button stays disabled: one message per visit
-      })
-      .catch(function () {
-        setSending(false);
-        showError(form.dataset.sendError);
-      })
-      .finally(function () { clearTimeout(timer); });
+    try {
+      var response = await fetch(form.action, {
+        method: "POST", body: new URLSearchParams(data), signal: AbortSignal.timeout(25000),
+      });
+      var result = await response.json();
+      if (!response.ok || result.result !== "success") throw new Error(result.error || "send_failed");
+      form.reset();
+      window.turnstile.remove(widget);
+      button.textContent = label;
+      thanks.hidden = false; // the button stays disabled: one message per visit
+    } catch (failure) {
+      setSending(false);
+      showError({
+        captcha_failed: form.dataset.captchaError,
+        invalid_input: form.dataset.inputError,
+        rate_limited: form.dataset.rateError,
+      }[failure.message] || form.dataset.sendError);
+      window.turnstile.reset(widget);
+    } finally {
+      note.hidden = true;
+    }
   });
 });
