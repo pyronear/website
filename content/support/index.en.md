@@ -1,7 +1,7 @@
 ---
 title: Get involved
 slug: get-involved
-description: "Volunteers, partners, funders, schools: choose your way to get involved."
+description: "Volunteers, partners, funders, universities: choose your way to get involved."
 layout: support
 menus:
   main:
@@ -14,7 +14,9 @@ cta:
   text: "A question, an idea, an offer of support: write to us."
 ---
 
-Pyronear is a non-profit that runs a community of contributors. Whether you are a volunteer, a company, a foundation, a local authority, a school or a fire service, there is a way to get involved with us. Open the block that fits you.
+Pyronear is a non-profit that runs a community of contributors. Whether you are a volunteer, a company, a foundation, a local authority, a university or a fire service, there is a way to get involved with us.
+
+Open the block that fits you:
 
 {{< fold title="Give your time and skills" for="Volunteers, employees through skills sponsorship" >}}
 Whether you are a volunteer or an employee of a company that offers skills sponsorship, there is a place for you:
@@ -36,7 +38,7 @@ Foundations, endowment funds, companies and local authorities can:
 
 - **Fund stations** for fire services with limited means.
 - **Support open research**: every improvement to our models immediately benefits all stations, in France and abroad.
-- **Support us over time**: station maintenance and follow-up, season after season.
+- **Support us over time**: making it possible to support the deployment of the solution with other non-profit organisations, to maintain it and to follow up the stations, season after season.
 
 Pyronear is a non-profit of general interest: donations qualify for a tax reduction in France, and we issue tax receipts.
 

@@ -1,7 +1,7 @@
 ---
 title: Actua amb nosaltres
 slug: actua-amb-nosaltres
-description: "Voluntaris, socis, finançadors, escoles: tria la teva manera d'actuar."
+description: "Voluntaris, socis, finançadors, universitats: tria la teva manera d'actuar."
 layout: support
 menus:
   main:
@@ -14,7 +14,9 @@ cta:
   text: "Una pregunta, una idea, una proposta de suport: escriu-nos."
 ---
 
-Pyronear és una associació sense ànim de lucre que anima una comunitat de col·laboradors. Siguis voluntari, empresa, fundació, administració local, escola o servei de bombers, hi ha una manera d'actuar amb nosaltres. Obre el bloc que et correspongui.
+Pyronear és una associació sense ànim de lucre que anima una comunitat de col·laboradors. Siguis voluntari, empresa, fundació, administració local, universitat o servei de bombers, hi ha una manera d'actuar amb nosaltres.
+
+Obre el bloc que et correspongui:
 
 {{< fold title="Dedicar el teu temps i les teves competències" for="Voluntaris, treballadors amb mecenatge de competències" >}}
 Siguis voluntari o treballador d'una empresa que fa mecenatge de competències, hi ha un lloc per a tu:
@@ -36,7 +38,7 @@ Fundacions, fons de dotació, empreses i administracions locals poden:
 
 - **Finançar estacions** per a serveis de bombers amb mitjans limitats.
 - **Donar suport a la recerca oberta**: cada millora dels nostres models beneficia immediatament totes les estacions, a França i a l'estranger.
-- **Acompanyar-nos a llarg termini**: el manteniment i el seguiment de les estacions, temporada rere temporada.
+- **Acompanyar-nos a llarg termini**: permetre acompanyar el desplegament de la solució amb altres organitzacions sense ànim de lucre, assegurar-ne el manteniment i el seguiment de les estacions, temporada rere temporada.
 
 Pyronear és una associació d'interès general: les donacions donen dret a una reducció d'impostos a França i emetem rebuts fiscals.
 

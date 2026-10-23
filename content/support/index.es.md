@@ -1,7 +1,7 @@
 ---
 title: Actúa con nosotros
 slug: actua-con-nosotros
-description: "Voluntarios, socios, financiadores, escuelas: elige tu forma de actuar."
+description: "Voluntarios, socios, financiadores, universidades: elige tu forma de actuar."
 layout: support
 menus:
   main:
@@ -14,7 +14,9 @@ cta:
   text: "Una pregunta, una idea, una propuesta de apoyo: escríbenos."
 ---
 
-Pyronear es una asociación sin ánimo de lucro que anima una comunidad de colaboradores. Seas voluntario, empresa, fundación, administración local, escuela o servicio de bomberos, hay una forma de actuar con nosotros. Abre el bloque que te corresponda.
+Pyronear es una asociación sin ánimo de lucro que anima una comunidad de colaboradores. Seas voluntario, empresa, fundación, administración local, universidad o servicio de bomberos, hay una forma de actuar con nosotros.
+
+Abre el bloque que te corresponda:
 
 {{< fold title="Dedicar tu tiempo y tus competencias" for="Voluntarios, empleados con mecenazgo de competencias" >}}
 Seas voluntario o empleado de una empresa que practica el mecenazgo de competencias, hay un lugar para ti:
@@ -36,7 +38,7 @@ Fundaciones, fondos de dotación, empresas y administraciones locales pueden:
 
 - **Financiar estaciones** para servicios de bomberos con medios limitados.
 - **Apoyar la investigación abierta**: cada mejora de nuestros modelos beneficia de inmediato a todas las estaciones, en Francia y en el extranjero.
-- **Acompañarnos a largo plazo**: el mantenimiento y el seguimiento de las estaciones, temporada tras temporada.
+- **Acompañarnos a largo plazo**: permitir acompañar el despliegue de la solución con otras organizaciones sin ánimo de lucro, asegurar su mantenimiento y el seguimiento de las estaciones, temporada tras temporada.
 
 Pyronear es una asociación de interés general: las donaciones dan derecho a una reducción de impuestos en Francia y emitimos recibos fiscales.
 

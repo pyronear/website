@@ -1,7 +1,7 @@
 ---
 title: Agir avec nous
 slug: agir-avec-nous
-description: "Bénévoles, partenaires, financeurs, écoles : choisissez votre façon d'agir."
+description: "Bénévoles, partenaires, financeurs, universités : choisissez votre façon d'agir."
 layout: support
 menus:
   main:
@@ -14,7 +14,9 @@ cta:
   text: "Une question, une idée, une proposition de soutien : écrivez-nous."
 ---
 
-Pyronear est une association à but non lucratif qui anime une communauté de contributeurs. Que vous soyez bénévole, entreprise, fondation, collectivité, école ou service d'incendie, il y a une façon d'agir avec nous. Ouvrez le bloc qui vous correspond.
+Pyronear est une association à but non lucratif qui anime une communauté de contributeurs. Que vous soyez bénévole, entreprise, fondation, collectivité, université ou service d'incendie, il y a une façon d'agir avec nous.
+
+Ouvrez le bloc qui vous correspond :
 
 {{< fold title="Donner de son temps et de ses compétences" for="Bénévoles, salariés en mécénat de compétences" >}}
 Bénévole ou salarié d'une entreprise qui pratique le mécénat de compétences, il y a une place pour vous :
@@ -36,7 +38,7 @@ Fondations, fonds de dotation, entreprises et collectivités peuvent :
 
 - **Financer des stations** pour des services d'incendie aux moyens limités.
 - **Soutenir la recherche ouverte** : chaque amélioration de nos modèles profite immédiatement à toutes les stations, en France et à l'étranger.
-- **Nous accompagner dans la durée** : la maintenance et le suivi des stations, saison après saison.
+- **Nous accompagner dans la durée** : permettre d'accompagner le déploiement de la solution avec d'autres structures à but non lucratif, d'en assurer la maintenance et le suivi des stations, saison après saison.
 
 Pyronear est une association d'intérêt général : vos dons ouvrent droit à une réduction d'impôt et nous émettons des reçus fiscaux.
 
