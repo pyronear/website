@@ -81,23 +81,6 @@ Prova el nostre model de detecció al navegador: tria una imatge de càmera i mi
 
 {{< hf-space "pyronear/Pyronear-Wildfire-Detection" "https://pyronear-pyronear-wildfire-detection.hf.space" >}}
 
-## Open source
+## Un enfocament obert
 
-Tota la nostra feina es publica amb llicència lliure (Apache 2.0): el programari de les estacions, els models d'IA i la plataforma. Qualsevol servei de bombers, administració local o investigador la pot reutilitzar sense dependre d'un proveïdor. Trobeu el nostre codi a [GitHub](https://github.com/pyronear).
-
-## Per què un conjunt de dades obertes?
-
-El nostre algorisme de detecció és un **model d'intel·ligència artificial (IA)** entrenat en nombroses **imatges d'inici de foc**. És a dir, l'algorisme ha estat entrenat per reconèixer el fum i les flames. en moltes situacions i en diferents territoris.
-
-Amb aquesta finalitat, estem construint **amb l'ajuda dels nostres socis i voluntaris**, un **conjunt de dades** que compartim en **dades obertes**, en per tal que les imatges recollides i anotades puguin ser utilitzades per tantes persones com sigui possible. Així, posant en comú aquests recursos, augmentem les possibilitats de preservar un altre recurs, boscos i espais naturals
-
-- [Trobeu el conjunt de dades a HuggingFace](https://huggingface.co/datasets/pyronear/pyro-sdis)
-- [Nota jurídica per als serveis de bombers que vulguin compartir les seves imatges (en francès)](https://pyronear.notion.site/Notes-de-synth-se-FAQ-du-webinaire-open-data-DINUM-SDIS-MSP-18c425b63668806cb5dbc7a35d7452b4)
-
-## Per saber-ne més
-
-El nostre soci [EarthToolsMaker](https://www.earthtoolsmaker.org/) explica en detall com hem millorat els nostres models (en anglès):
-
-- [Smoke Is a Behavior: Inside Pyronear's Temporal Wildfire Detection Model](https://www.earthtoolsmaker.org/posts/smoke-is-a-behavior/)
-- [Racing Models, Not Opinions: How We Ran Wildfire ML R&D for Pyronear](https://www.earthtoolsmaker.org/posts/racing-models-not-opinions/)
-- [Protecting the Forest: Building an early forest fire detector](https://www.earthtoolsmaker.org/posts/protecting-the-forest-early-forest-fire-detector/)
+Codi, models, dades i maquinari: tot el que construïm és obert. [Descobreix el nostre enfocament obert]({{< relref "/open-approach" >}}).
