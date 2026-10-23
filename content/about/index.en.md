@@ -33,38 +33,6 @@ values:
   - icon: /img/cards_icons/grid-view-solid.svg
     title: Modular
     text: We offer a complete detection pipeline but our system has been designed to work with existing equipment (use of cameras already in place, connection with existing software ...)
-forests:
-  title: Why protect forests?
-  cards:
-  - title: Biodiversity
-    text: Forests are home to countless species. A fire destroys their habitats and threatens the most vulnerable ones.
-  - title: Climate
-    text: Forests store carbon in trees and soil. When they burn, that carbon goes back into the atmosphere.
-  - title: Water
-    text: Forests regulate the water cycle, hold the soil and feed rivers. Fire damages soil and water quality.
-  - title: Economy
-    text: 'Timber, tourism, farming: many local jobs depend on forests.'
-  - title: Health
-    text: Wildfire smoke pollutes the air far beyond the fire, especially for children, older people and people with breathing problems.
-timeline:
-  title: Key dates
-  items:
-  - date: '2020'
-    text: Pyronear association founded
-  - date: '2021'
-    text: First pilot deployments with the Ardèche fire service (SDIS 07)
-  - date: '2022'
-    text: Partnership with ENGIE Green in Gironde
-  - date: '2023'
-    text: First international deployments, in Chile and Spain
-  - date: '2024'
-    text: Winner of the Citizen Initiatives Accelerator (DINUM, beta.gouv.fr)
-  - date: '05.2025'
-    text: Selected as a good practice by the European Commission
-  - date: '08.2025'
-    text: First multi-year contract with a fire service (Seine-et-Marne)
-  - date: '2026'
-    text: Fast Forward acceleration program
 ---
 
 ## Our story

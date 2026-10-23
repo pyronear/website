@@ -618,35 +618,6 @@ h3 {
   font-size: 0.92rem;
 }
 
-.timeline {
-  margin: 2rem 0 0;
-  padding: 0;
-  list-style: none;
-  border-left: 3px solid var(--amber);
-}
-
-.timeline li {
-  position: relative;
-  padding: 0 0 1.25rem 1.5rem;
-}
-
-.timeline li::before {
-  content: "";
-  position: absolute;
-  left: -8px;
-  top: 0.45rem;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: var(--teal);
-}
-
-.timeline__date {
-  display: block;
-  color: var(--teal);
-  font-weight: 700;
-}
-
 .logo-strip {
   display: flex;
   flex-wrap: wrap;
@@ -697,11 +668,38 @@ h3 {
   border-bottom: 1px solid var(--line);
 }
 
-.press-archive-title {
+.follow-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding: 1.5rem 1.75rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--teal);
+  border-radius: var(--radius);
+}
+
+.follow-box h3,
+.follow-box p {
+  margin: 0;
+}
+
+.follow-box p {
+  margin-top: 0.25rem;
+  color: var(--muted);
+}
+
+.follow-box .btn {
+  flex: none;
+}
+
+.news-archive-title {
   margin-top: 4rem;
 }
 
-.press-list {
+.news-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 0.75rem 1.25rem;
@@ -710,7 +708,7 @@ h3 {
   list-style: none;
 }
 
-.press-list a {
+.news-list a {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -723,11 +721,11 @@ h3 {
   text-decoration: none;
 }
 
-.press-list a:hover {
+.news-list a:hover {
   border-color: var(--teal);
 }
 
-.press-list__logo {
+.news-list__logo {
   display: grid;
   flex: none;
   place-items: center;
@@ -735,19 +733,19 @@ h3 {
   height: 44px;
 }
 
-.press-list__logo img {
+.news-list__logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-.press-list__outlet {
+.news-list__outlet {
   display: block;
   color: var(--muted);
   font-size: 0.85rem;
 }
 
-.press-list__title {
+.news-list__title {
   display: block;
   font-weight: 600;
   line-height: 1.35;
@@ -999,8 +997,13 @@ h3 {
     margin-left: auto;
   }
 
-  .press-list {
+  .news-list {
     grid-template-columns: 1fr;
+  }
+
+  .follow-box {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
