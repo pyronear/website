@@ -10,6 +10,7 @@
     <div class="container container--prose prose">{{ .Content }}</div>
     <div class="container">
       <link rel="stylesheet" href="{{ "vendor/leaflet/leaflet.css" | relURL }}">
+      <h2>{{ i18n "whereDeployed" }}</h2>
       <div id="map" class="map" data-markers="{{ $markers | jsonify }}"></div>
       <p class="map-note">{{ i18n "mapNote" }}</p>
       <h2>{{ i18n "deploymentAreas" }}</h2>
@@ -21,6 +22,15 @@
     </div>
   </section>
   {{ partial "logos.html" (dict "id" "partners" "items" hugo.Data.partners "copy" .Params.partners "alt" true) }}
+  {{- with .Params.cta }}
+  <section class="band">
+    <div class="container container--narrow">
+      <h2>{{ .title }}</h2>
+      <p>{{ .text }}</p>
+      <a class="btn btn--accent" href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
+    </div>
+  </section>
+  {{- end }}
   <script src="{{ "vendor/leaflet/leaflet.js" | relURL }}" defer></script>
   <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 {{ end }}

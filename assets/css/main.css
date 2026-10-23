@@ -439,6 +439,14 @@ h3 {
   text-align: center;
 }
 
+/* Italics in a list are emphasis, not a caption */
+.prose li em {
+  display: inline;
+  color: inherit;
+  font-size: inherit;
+  text-align: inherit;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

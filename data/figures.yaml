@@ -1,10 +1,10 @@
 # Key figures shown on the home and About pages
-- value: "50+"
+- value: "150+"
   label:
-    fr: stations de détection installées
-    en: detection stations installed
-    es: estaciones de detección instaladas
-    es-ct: estacions de detecció instal·lades
+    fr: caméras de détection déployées
+    en: detection cameras deployed
+    es: cámaras de detección desplegadas
+    es-ct: càmeres de detecció desplegades
 - value: "500+"
   label:
     fr: départs de feu détectés
@@ -23,7 +23,7 @@
     en: countries
     es: países
     es-ct: països
-- value: "15 km"
+- value: "25 km"
   label:
     fr: de portée de détection
     en: detection range

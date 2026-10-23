@@ -13,7 +13,7 @@ build:
 
 ## Una solución completa
 
-Pironear es un **solución completa de gestión de riesgos de incendio**. consiste en un **early algoritmo de detección de incendios forestales**, implementado en una microcomputadora, conectada a **cámaras colocadas en puntos altos** con vista al bosque. Nuestros detectores se comunican **alertas de incendios** a una base de datos que está conectada a un **plataforma de supervisión** para el cuerpo de bomberos.
+Pyronear es una **solución completa de gestión del riesgo de incendio**: **cámaras** instaladas en puntos altos, nuestras propias estaciones o cámaras ya instaladas, **detectan de forma temprana** los inicios de incendio gracias a una IA ligera e integrada. Los servicios de bomberos **reciben rápidamente** una alerta, que **analizan y evalúan** en nuestra plataforma de supervisión.
 
 {{< youtube id="f2z8mvvggI0" title="Minidocumental sobre Pyronear" loading="lazy" >}}
 
@@ -23,16 +23,14 @@ Pironear es un **solución completa de gestión de riesgos de incendio**. consis
 
 ## La estación de detección
 
-Nuestras estaciones se instalan en puntos altos (torres eléctricas, depósitos de agua, torres de vigilancia) con vistas al bosque. Cámaras de alta resolución cubren el horizonte a 360° y un microordenador del tamaño de una tarjeta de crédito analiza las imágenes in situ con nuestro modelo de inteligencia artificial. Muy sobria en energía, la estación puede funcionar con un panel solar y se comunica por 4G.
+Nuestras estaciones se instalan en puntos altos (torres eléctricas, depósitos de agua, torres de vigilancia) con vistas a los espacios naturales. Suelen tener 2 cámaras PTZ de detección, que cubren el horizonte a 360°, y un microordenador del tamaño de una tarjeta de crédito. Captura regularmente una imagen por cámara y la analiza in situ con nuestro modelo de inteligencia artificial. Muy sobria en energía, la estación puede funcionar con un panel solar y se comunica por 4G.
 
-- Detección de humo hasta **15 km**
+- Detección hasta **25 km**. *Un récord a 72 km.*
 - Hasta **2 horas de adelanto** sobre las primeras llamadas de emergencia
 - Análisis in situ, **consumo muy bajo**, hardware estándar
-- Récord: un inicio de incendio detectado a **42 km**
+- Compatible con **cámaras ya instaladas**: nuestra detección también puede conectarse a redes de cámaras existentes
 
 Una estación se instala en menos de media jornada: [ver cómo]({{< relref "/deployments#installation" >}}).
-
-Nuestras torres de detección consisten en 4/5 cámaras de alta resolución y una microcomputadora. Capturamos una imagen por cámara a intervalos regulares y luego la analizamos localmente usando nuestro modelo de detección de incendios forestales. En caso de detección, se activa el modo de alerta, todas las imágenes provenientes de la cámara que detectó el incendio se envían a nuestra base de datos a través de nuestra api, el protocolo de comunicación que hemos desarrollado.
 
 ![Funcionamiento de una estación de detección](model.png)
 
@@ -43,37 +41,13 @@ Nuestras torres de detección consisten en 4/5 cámaras de alta resolución y un
 ![El bosque visto desde lo alto de la torre](view.jpg)
 {{< /gallery >}}
 
-## Menos falsas alarmas
+## Alertar y analizar
 
-Un humo incipiente puede parecerse a una nube, a niebla o a polvo. Para no alertar a los bomberos en vano, cada detección pasa por dos etapas:
+Cuando una cámara detecta humo, la estación pasa a modo de alerta: todas las imágenes de la cámara afectada se envían a nuestra base de datos a través de nuestra API. La alerta se notifica a los usuarios por varios canales, según sus necesidades, para que llegue lo antes posible y puedan evaluarla lo mejor posible. En nuestra plataforma, los operadores la confirman, controlan las cámaras a distancia y localizan el incendio por triangulación entre varias cámaras.
 
-1. **Detectar**: en cada imagen, nuestro modelo señala todo lo que parece humo.
-2. **Confirmar**: el sistema sigue ese humo en varias imágenes. Un humo real se queda en el mismo sitio, crece y se desplaza lentamente, a diferencia de una nube.
-
-Resultado: **4 veces menos falsas alarmas**, sin perder los incendios reales.
-
-## La plataforma de alertas
-
-Cuando una estación detecta humo, las imágenes se envían a nuestra plataforma web. Los operadores de los servicios de bomberos reciben la alerta en tiempo real: la confirman, controlan las cámaras y localizan el incendio por triangulación entre varias estaciones.
-
-En abril de 2026, una estación detectó el primer incendio del año en el bosque de Fontainebleau, veinte minutos antes de la primera llamada de emergencia.
-
-Lo que permite la plataforma:
-
-- **Alertas en directo**: las alertas del día, con sus secuencias de imágenes para reproducir y ampliar.
-- **Localización del incendio**: cuando varias cámaras ven el mismo humo, su posición aparece en el mapa.
-- **Verificación remota**: tomar el control de una cámara a distancia (orientación, zoom, clic para centrar) para confirmar o descartar una alerta.
-- **Etiquetado**: clasificar cada alerta como inicio de incendio, humo no relevante u otro falso positivo.
-- **Máscaras**: ignorar un humo recurrente, como la chimenea de una fábrica.
-- **Seguimiento de las cámaras**: el estado y la última imagen de cada cámara, con un aviso si una se desconecta.
-- **Compartir e historial**: enviar una alerta a un compañero, encontrar alertas pasadas y exportarlas en CSV.
-
-{{< gallery "screens" >}}
 ![Una alerta en curso: imágenes de la cámara y localización del incendio en el mapa](platform-alert.jpg)
-![Etiquetado de una alerta](platform-annotation.jpg)
-![Añadir una máscara para ignorar un humo recurrente](platform-masks.jpg)
-![Vista de las cámaras con su última imagen](platform-cameras.jpg)
-{{< /gallery >}}
+
+*Por ejemplo, en abril de 2026, una estación detectó el primer incendio del año en el bosque de Fontainebleau, veinte minutos antes de la primera llamada de emergencia.*
 
 ## Prueba el modelo
 

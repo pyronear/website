@@ -13,7 +13,7 @@ build:
 
 ## Una solució completa
 
-Pyronear és un **solució completa de gestió del risc d'incendi**. Consta d'un **algorisme de detecció precoç d'incendis forestals**, implementat en un microordinador, connectat a **càmeres col·locades en punts alts** amb vistes al bosc. Els nostres detectors es comuniquen **alertes d'incendi** a una base de dades connectada a **plataforma de supervisió** per al cos de bombers.
+Pyronear és una **solució completa de gestió del risc d'incendi**: **càmeres** instal·lades en punts alts, les nostres pròpies estacions o càmeres ja instal·lades, **detecten de manera precoç** els inicis d'incendi gràcies a una IA lleugera i integrada. Els serveis de bombers **reben ràpidament** una alerta, que **analitzen i qualifiquen** a la nostra plataforma de supervisió.
 
 {{< youtube id="f2z8mvvggI0" title="Minidocumental sobre Pyronear" loading="lazy" >}}
 
@@ -23,16 +23,14 @@ Pyronear és un **solució completa de gestió del risc d'incendi**. Consta d'un
 
 ## L'estació de detecció
 
-Les nostres estacions s'instal·len en punts alts (torres elèctriques, dipòsits d'aigua, torres de guaita) amb vista al bosc. Càmeres d'alta resolució cobreixen l'horitzó a 360° i un microordinador de la mida d'una targeta de crèdit analitza les imatges in situ amb el nostre model d'intel·ligència artificial. Molt sòbria en energia, l'estació pot funcionar amb un panell solar i es comunica per 4G.
+Les nostres estacions s'instal·len en punts alts (torres elèctriques, dipòsits d'aigua, torres de guaita) amb vista als espais naturals. Solen tenir 2 càmeres PTZ de detecció, que cobreixen l'horitzó a 360°, i un microordinador de la mida d'una targeta de crèdit. Captura regularment una imatge per càmera i l'analitza in situ amb el nostre model d'intel·ligència artificial. Molt sòbria en energia, l'estació pot funcionar amb un panell solar i es comunica per 4G.
 
-- Detecció de fum fins a **15 km**
+- Detecció fins a **25 km**. *Un rècord a 72 km.*
 - Fins a **2 hores d'avançament** sobre les primeres trucades d'emergència
 - Anàlisi in situ, **consum molt baix**, maquinari estàndard
-- Rècord: un inici d'incendi detectat a **42 km**
+- Compatible amb **càmeres ja instal·lades**: la nostra detecció també es pot connectar a xarxes de càmeres existents
 
 Una estació s'instal·la en menys de mitja jornada: [vegeu com]({{< relref "/deployments#installation" >}}).
-
-Les nostres torres de detecció estan formades per 4/5 càmeres d'alta resolució i un micro ordinador. Capturem una imatge per càmera a intervals regulars i després l'analitzem localment mitjançant el nostre model de detecció d'incendis forestals. En cas de detecció, s'activa el mode d'alerta, totes les imatges procedents de la càmera després d'haver detectat l'incendi s'envien a la nostra base de dades a través de la nostra API, el protocol de comunicació que hem desenvolupat.
 
 ![Funcionament d'una estació de detecció](model.png)
 
@@ -43,37 +41,13 @@ Les nostres torres de detecció estan formades per 4/5 càmeres d'alta resoluci�
 ![El bosc vist des de dalt de la torre](view.jpg)
 {{< /gallery >}}
 
-## Menys falses alarmes
+## Alertar i analitzar
 
-Un fum incipient pot semblar un núvol, boira o pols. Per no alertar els bombers en va, cada detecció passa per dues etapes:
+Quan una càmera detecta fum, l'estació passa a mode d'alerta: totes les imatges de la càmera afectada s'envien a la nostra base de dades a través de la nostra API. L'alerta es notifica als usuaris per diversos canals, segons les seves necessitats, perquè arribi com més aviat millor i la puguin qualificar el millor possible. A la nostra plataforma, els operadors la confirmen, controlen les càmeres a distància i localitzen l'incendi per triangulació entre diverses càmeres.
 
-1. **Detectar**: a cada imatge, el nostre model assenyala tot el que sembla fum.
-2. **Confirmar**: el sistema segueix aquest fum en diverses imatges. Un fum real es queda al mateix lloc, creix i es desplaça lentament, a diferència d'un núvol.
-
-Resultat: **4 vegades menys falses alarmes**, sense perdre els incendis reals.
-
-## La plataforma d'alertes
-
-Quan una estació detecta fum, les imatges s'envien a la nostra plataforma web. Els operadors dels serveis de bombers reben l'alerta en temps real: la confirmen, controlen les càmeres i localitzen l'incendi per triangulació entre diverses estacions.
-
-L'abril del 2026, una estació va detectar el primer incendi de l'any al bosc de Fontainebleau, vint minuts abans de la primera trucada d'emergència.
-
-El que permet la plataforma:
-
-- **Alertes en directe**: les alertes del dia, amb les seves seqüències d'imatges per reproduir i ampliar.
-- **Localització de l'incendi**: quan diverses càmeres veuen el mateix fum, la seva posició apareix al mapa.
-- **Verificació remota**: prendre el control d'una càmera a distància (orientació, zoom, clic per centrar) per confirmar o descartar una alerta.
-- **Etiquetatge**: classificar cada alerta com a inici d'incendi, fum no rellevant o un altre fals positiu.
-- **Màscares**: ignorar un fum recurrent, com la xemeneia d'una fàbrica.
-- **Seguiment de les càmeres**: l'estat i l'última imatge de cada càmera, amb un avís si una es desconnecta.
-- **Compartir i historial**: enviar una alerta a un company, trobar alertes passades i exportar-les en CSV.
-
-{{< gallery "screens" >}}
 ![Una alerta en curs: imatges de la càmera i localització de l'incendi al mapa](platform-alert.jpg)
-![Etiquetatge d'una alerta](platform-annotation.jpg)
-![Afegir una màscara per ignorar un fum recurrent](platform-masks.jpg)
-![Vista de les càmeres amb la seva última imatge](platform-cameras.jpg)
-{{< /gallery >}}
+
+*Per exemple, l'abril del 2026, una estació va detectar el primer incendi de l'any al bosc de Fontainebleau, vint minuts abans de la primera trucada d'emergència.*
 
 ## Prova el model
 
