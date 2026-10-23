@@ -20,13 +20,13 @@ hugo --gc --minify
 | What | File |
 | --- | --- |
 | Home page copy (hero, intro, contact form, footer) | `content/_index.<lang>.md` |
-| Other pages (About, How it works, Deployments, Support us, Press) | `content/<page>/index.<lang>.md` |
+| Other pages (About, How it works, Deployments, Support us, News) | `content/<page>/index.<lang>.md` |
 | Buttons, form labels, short UI text | `i18n/<lang>.yaml` |
 | Key figures (home and About) | `data/figures.yaml` |
 | Deployment map markers | `data/deployments.yaml` |
 | Partners | `data/partners.yaml` |
 | Supporters | `data/sponsors.yaml` |
-| Press items | `data/medias.yaml` |
+| News items | `data/news.yaml` |
 | Site settings, languages, social links, form endpoint | `hugo.toml` |
 | Templates | `layouts/` |
 | Styles and scripts | `assets/css/main.css`, `assets/js/` |
@@ -40,7 +40,7 @@ Languages: French (default, served at `/`), English (`/en/`), Spanish (`/es/`) a
 
 ### Ordering
 
-- Press items: newest first. Items with an `image` are shown as cards, the others in the list below. Add `featured: true` to show an item on the home page (keep it to 3). Quote dates (`date: "09.2025"`).
+- News items: newest first, every item dated. All items are listed on the News page. Add `featured: true` (with an `image`) to show an item on the home page and at the top of the News page (keep it to 3). Quote dates (`date: "09.2025"`).
 - Partners and supporters: newest last.
 
 ### Images and embeds in pages
