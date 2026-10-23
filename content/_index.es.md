@@ -10,6 +10,16 @@ about:
 media:
   eyebrow: Noticias y Perspectivas
   title: Destacados
+howItWorks:
+  title: "Cómo funciona"
+  intro: "Una detección de principio a fin, de la cámara al bombero."
+  steps:
+  - title: "Detectar"
+    text: "Cámaras en puntos altos vigilan el horizonte. Una IA ligera analiza las imágenes en el lugar."
+  - title: "Alertar"
+    text: "La alerta se difunde por varios canales, sin depender de una sola aplicación, y luego se analiza en nuestra plataforma."
+  - title: "Intervenir"
+    text: "Los usuarios evalúan rápido el riesgo y activan antes las operaciones: valiosas decenas de minutos ganadas frente a las llamas."
 contactForm:
   title: Protejamos nuestros bosques
 follow:

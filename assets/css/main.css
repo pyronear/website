@@ -373,6 +373,64 @@ h3 {
   transform: translateY(-2px);
 }
 
+/* Home "How it works": three steps linked by a flow, lit one after the other */
+.steps {
+  gap: 2.5rem;
+}
+
+.step {
+  position: relative;
+  text-align: center;
+}
+
+.step .card__icon {
+  width: 72px;
+  height: 72px;
+  margin-inline: auto;
+  animation: step-light 4.5s ease-in-out infinite;
+}
+
+.step:nth-child(2) .card__icon {
+  animation-delay: 1.5s;
+}
+
+.step:nth-child(3) .card__icon {
+  animation-delay: 3s;
+}
+
+@keyframes step-light {
+  0%,
+  30%,
+  100% {
+    background: var(--teal);
+    transform: scale(1);
+  }
+
+  10% {
+    background: var(--amber-dark);
+    transform: scale(1.2);
+  }
+}
+
+@media (min-width: 900px) {
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: calc(1.5rem + 36px);
+    left: 100%;
+    width: 2.5rem;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--amber) 0 6px, transparent 6px 12px);
+    animation: step-flow 0.8s linear infinite;
+  }
+}
+
+@keyframes step-flow {
+  to {
+    background-position-x: 12px;
+  }
+}
+
 /* Inner pages */
 .page-header {
   padding: clamp(3rem, 7vw, 5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
@@ -941,5 +999,6 @@ h3 {
 
   * {
     transition: none !important;
+    animation: none !important;
   }
 }

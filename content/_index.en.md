@@ -10,6 +10,16 @@ about:
 media:
   eyebrow: News & Insights
   title: Featured Stories
+howItWorks:
+  title: "How it works"
+  intro: "End-to-end detection, from the camera to the firefighter."
+  steps:
+  - title: "Detect"
+    text: "Cameras on high points watch the horizon. A lightweight AI analyses the images on site."
+  - title: "Alert"
+    text: "The alert is sent through several channels, so it does not depend on a single application, then analysed on our platform."
+  - title: "Respond"
+    text: "Users quickly assess the risk and launch operations sooner: precious tens of minutes gained against the flames."
 contactForm:
   title: Let us protect our forests
 follow:

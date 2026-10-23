@@ -10,6 +10,16 @@ about:
 media:
   eyebrow: Notícies i Perspectives
   title: Destacats
+howItWorks:
+  title: "Com funciona"
+  intro: "Una detecció de punta a punta, de la càmera al bomber."
+  steps:
+  - title: "Detectar"
+    text: "Càmeres en punts alts vigilen l'horitzó. Una IA lleugera analitza les imatges in situ."
+  - title: "Alertar"
+    text: "L'alerta es difon per diversos canals, sense dependre d'una sola aplicació, i després s'analitza a la nostra plataforma."
+  - title: "Intervenir"
+    text: "Els usuaris avaluen ràpidament el risc i activen abans les operacions: valuoses desenes de minuts guanyades contra les flames."
 contactForm:
   title: Protegim els nostres boscos
 follow:
