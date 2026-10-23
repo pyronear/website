@@ -1,0 +1,11 @@
+{{- /* Collapsible block: {{< fold title="..." for="who it is for" >}} Markdown {{< /fold >}} */ -}}
+<details class="fold">
+  <summary>
+    <span class="fold__head">
+      <span class="fold__title">{{ .Get "title" }}</span>
+      {{- with .Get "for" }}<span class="fold__for">{{ . }}</span>{{ end }}
+    </span>
+    <span class="fold__chevron" aria-hidden="true"></span>
+  </summary>
+  <div class="fold__body">{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>
+</details>

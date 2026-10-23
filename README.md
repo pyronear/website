@@ -41,7 +41,7 @@ Languages: French (default, served at `/`), English (`/en/`), Spanish (`/es/`) a
 ### Ordering
 
 - News items: newest first, every item dated. All items are listed on the News page. Add `featured: true` (with an `image`) to show an item on the home page and at the top of the News page (keep it to 3). Quote dates (`date: "09.2025"`).
-- Partners and supporters: newest last.
+- Partners and supporters: newest last. Add `home: true` to a supporter to also show its logo in the partners strip of the home page.
 
 ### Images and embeds in pages
 

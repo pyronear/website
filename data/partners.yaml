@@ -14,14 +14,6 @@
     en: Our first private partner, with whom we are conducting an experiment in Gironde
     es: Nuestro primer socio privado, con quien estamos realizando un experimento en Gironde
     es-ct: El nostre primer soci privat, amb qui estem fent un experiment a Gironda
-- name: CENIA
-  url: https://cenia.cl/
-  logo: /img/cenia.jpg
-  description:
-    fr: Le centre national d'intelligence artificielle chilien avec qui on travaille pour notre premier déploiement à l’étranger
-    en: The Chilean National Center of Artificial Intelligence with whom we are working for our first deployment abroad
-    es: El Centro Nacional de Inteligencia Artificial de Chile con el que estamos trabajando para nuestro primer despliegue en el exterior
-    es-ct: El Centre Nacional d'Intel·ligència Artificial de Xile amb qui estem treballant per al nostre primer desplegament a l'estranger
 - name: ADF Subirats
   url: https://subirats.cat/adfsubirats/
   logo: https://i.postimg.cc/NfW4Xyx7/camera-logo.png
