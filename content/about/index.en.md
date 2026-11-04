@@ -2,10 +2,6 @@
 title: About
 slug: about
 description: A non-profit building a digital commons to detect wildfires.
-layout: about
-menus:
-  main:
-    weight: 1
 values:
   title: Our values
   cards:

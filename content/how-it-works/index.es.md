@@ -2,13 +2,8 @@
 title: Cómo funciona
 slug: como-funciona
 description: Estaciones en puntos altos, una IA sobria y una plataforma de alertas para los bomberos.
-menus:
-  main:
-    weight: 2
 images:
   - view.jpg
-build:
-  publishResources: false
 ---
 
 ## Una solución completa

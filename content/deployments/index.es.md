@@ -2,18 +2,12 @@
 title: Despliegues
 slug: despliegues
 description: Más de 150 cámaras desplegadas en Francia y en el extranjero para proteger los espacios naturales.
-layout: deployments
-menus:
-  main:
-    weight: 3
 partners:
   eyebrow: Colaboración e Innovación
   title: Nuestros Socios
 cta:
   title: "¿Le preocupa la detección temprana de incendios?"
   text: "Servicios de bomberos, oficinas de gestión forestal, entidades locales, empresas: hablemos de sus necesidades de detección."
-build:
-  publishResources: false
 ---
 
 Desde 2021, Pyronear despliega su sistema de detección con los servicios de bomberos y emergencias, las oficinas de gestión forestal, entidades locales y socios privados. Cada despliegue se construye con los equipos locales: identificación de puntos altos, estudio de cobertura, instalación y formación de los operadores.

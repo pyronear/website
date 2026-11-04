@@ -42,3 +42,36 @@ enableRobotsTXT = true
 # youtube-nocookie.com for the embedded videos
 [privacy.youTube]
   privacyEnhanced = true
+
+# Shared page settings apply to every translation.
+[[cascade]]
+target = { kind = "page" }
+build = { publishResources = false }
+
+[[cascade]]
+target = { path = "/about" }
+menus = { main = { weight = 1 } }
+layout = "about"
+
+[[cascade]]
+target = { path = "/how-it-works" }
+menus = { main = { weight = 2 } }
+
+[[cascade]]
+target = { path = "/deployments" }
+menus = { main = { weight = 3 } }
+layout = "deployments"
+
+[[cascade]]
+target = { path = "/support" }
+menus = { main = { weight = 4 } }
+layout = "support"
+
+[[cascade]]
+target = { path = "/news" }
+menus = { main = { weight = 5 } }
+layout = "news"
+
+[[cascade]]
+target = { path = "/open-approach" }
+menus = { main = { weight = 6 } }
