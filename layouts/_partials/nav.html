@@ -14,14 +14,14 @@
     <a class="btn btn--small nav__contact" href="{{ $home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
     <details class="lang">
       <summary>
-        <img src="{{ printf "img/flags/%s.svg" site.Language.Lang | relURL }}" alt="" width="20" height="20">
+        <img src="{{ printf "img/flags/%s.webp" site.Language.Lang | relURL }}" alt="" width="20" height="20">
         {{ site.Language.Label }}
       </summary>
       <ul>
         {{- range $current.AllTranslations | default site.Home.AllTranslations }}
         <li>
           <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}"{{ if eq .Language.Lang site.Language.Lang }} aria-current="true"{{ end }}>
-            <img src="{{ printf "img/flags/%s.svg" .Language.Lang | relURL }}" alt="" width="20" height="20">
+            <img src="{{ printf "img/flags/%s.webp" .Language.Lang | relURL }}" alt="" width="20" height="20">
             {{ .Language.Label }}
           </a>
         </li>
