@@ -1,0 +1,11 @@
+name = "pyronear-website"
+account_id = "3c02cbaca55b87fc626a756dff91834b"
+compatibility_date = "2026-11-04"
+workers_dev = true
+previews = {}
+routes = [{ pattern = "website.pyronear.org", custom_domain = true }]
+
+[assets]
+directory = "./public"
+html_handling = "force-trailing-slash"
+not_found_handling = "404-page"
