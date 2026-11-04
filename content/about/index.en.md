@@ -47,7 +47,7 @@ To democratize frugal, open and collaborative technologies for fighting wildfire
 
 - **Detect** fire starts as early as possible, so a quick response limits burned areas, emissions and biodiversity loss.
 - **Make** this technology affordable for every fire and rescue service, including small rural ones.
-- **Share** open knowledge: code, models, datasets and field feedback.
+- **Share** open knowledge: code, models, datasets and field feedback. [Our open approach]({{< relref "/open-approach" >}}).
 - **Bring together** volunteers, researchers and firefighters around a commons that helps regions adapt to climate change.
 
 ## A community

@@ -81,23 +81,6 @@ Prueba nuestro modelo de detección en tu navegador: elige una imagen de cámara
 
 {{< hf-space "pyronear/Pyronear-Wildfire-Detection" "https://pyronear-pyronear-wildfire-detection.hf.space" >}}
 
-## Open source
+## Un enfoque abierto
 
-Todo nuestro trabajo se publica con licencia libre (Apache 2.0): el software de las estaciones, los modelos de IA y la plataforma. Cualquier servicio de bomberos, administración local o investigador puede reutilizarlo sin depender de un proveedor. Encuentra nuestro código en [GitHub](https://github.com/pyronear).
-
-## ¿Por qué una base de datos abierta?
-
-Nuestro algoritmo de detección es un **modelo de inteligencia artificial (IA)** entrenado en un gran número de **imágenes de incendios**. En otras palabras, el algoritmo ha sido entrenado para reconocer el humo y las llamas en numerosas situaciones y en diferentes territorios.
-
-Para ello, **con la ayuda de nuestros socios y voluntarios**, estamos construyendo **un conjunto de datos** que compartimos en **open data**, para que las imágenes recogidas y anotadas puedan ser utilizadas por el mayor número posible de personas. De este modo, al poner en común estos recursos, aumentamos las posibilidades de preservar otro recurso: los bosques y las zonas naturales.
-
-- [Ver el conjunto de datos en HuggingFace](https://huggingface.co/datasets/pyronear/pyro-sdis)
-- [Nota jurídica para los servicios de bomberos que quieran compartir sus imágenes (en francés)](https://pyronear.notion.site/Notes-de-synth-se-FAQ-du-webinaire-open-data-DINUM-SDIS-MSP-18c425b63668806cb5dbc7a35d7452b4)
-
-## Para saber más
-
-Nuestro socio [EarthToolsMaker](https://www.earthtoolsmaker.org/) explica en detalle cómo mejoramos nuestros modelos (en inglés):
-
-- [Smoke Is a Behavior: Inside Pyronear's Temporal Wildfire Detection Model](https://www.earthtoolsmaker.org/posts/smoke-is-a-behavior/)
-- [Racing Models, Not Opinions: How We Ran Wildfire ML R&D for Pyronear](https://www.earthtoolsmaker.org/posts/racing-models-not-opinions/)
-- [Protecting the Forest: Building an early forest fire detector](https://www.earthtoolsmaker.org/posts/protecting-the-forest-early-forest-fire-detector/)
+Código, modelos, datos y hardware: todo lo que construimos es abierto. [Descubre nuestro enfoque abierto]({{< relref "/open-approach" >}}).

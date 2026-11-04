@@ -47,7 +47,7 @@ Democratitzar solucions tecnològiques sòbries, obertes i col·laboratives per 
 
 - **Detectar** els inicis d'incendi com més aviat millor, per a una intervenció ràpida que limiti la superfície cremada, les emissions i la pèrdua de biodiversitat.
 - **Fer accessible** aquesta tecnologia a tots els serveis de bombers, inclosos els petits serveis rurals.
-- **Compartir** coneixement obert: codi, models, conjunts de dades i experiència de camp.
+- **Compartir** coneixement obert: codi, models, conjunts de dades i experiència de camp. [El nostre enfocament obert]({{< relref "/open-approach" >}}).
 - **Aplegar** voluntaris, investigadors i bombers al voltant d'un bé comú útil per adaptar-se al canvi climàtic.
 
 ## Una comunitat

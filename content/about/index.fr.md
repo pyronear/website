@@ -47,7 +47,7 @@ Démocratiser des solutions technologiques sobres, ouvertes et collaboratives de
 
 - **Détecter** les départs de feu le plus tôt possible, pour une intervention rapide qui limite les surfaces brûlées, les émissions et les pertes de biodiversité.
 - **Rendre accessible** cette technologie à tous les services d'incendie et de secours, y compris les petits SDIS ruraux.
-- **Partager** des connaissances ouvertes : code, modèles, jeux de données et retours d'expérience.
+- **Partager** des connaissances ouvertes : code, modèles, jeux de données et retours d'expérience. [Notre démarche ouverte]({{< relref "/open-approach" >}}).
 - **Fédérer** une communauté de bénévoles, de chercheurs et de pompiers autour d'un commun utile à l'adaptation au changement climatique.
 
 ## Une communauté

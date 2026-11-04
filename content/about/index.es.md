@@ -47,7 +47,7 @@ Democratizar soluciones tecnológicas sobrias, abiertas y colaborativas para luc
 
 - **Detectar** los inicios de incendio lo antes posible, para una intervención rápida que limite la superficie quemada, las emisiones y la pérdida de biodiversidad.
 - **Hacer accesible** esta tecnología a todos los servicios de bomberos, incluidos los pequeños servicios rurales.
-- **Compartir** conocimiento abierto: código, modelos, conjuntos de datos y experiencia de campo.
+- **Compartir** conocimiento abierto: código, modelos, conjuntos de datos y experiencia de campo. [Nuestro enfoque abierto]({{< relref "/open-approach" >}}).
 - **Reunir** a voluntarios, investigadores y bomberos en torno a un bien común útil para adaptarse al cambio climático.
 
 ## Una comunidad
