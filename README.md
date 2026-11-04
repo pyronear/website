@@ -75,14 +75,14 @@ Prefer putting the logo in `static/img/` over linking to an external image.
 
 ## Deployment
 
-Cloudflare Workers Builds connects `pyronear/website` to `pyronear-website` in the **Pyronear** account. GitHub Actions checks the build; it no longer publishes to GitHub Pages.
+Cloudflare Workers Builds connects `pyronear/website` to `pyronear-website` in the **Pyronear** account and runs all tests, builds, previews and deployments from Git events.
 
 | Git branch | Result | Deploy command |
 | --- | --- | --- |
 | `main` | Deploy the website at `https://website.pyronear.org/` | `npx --yes wrangler@4.157.0 deploy` |
 | All other branches | Update a separate Preview; Cloudflare adds its URL to the pull request | `npx --yes wrangler@4.157.0 preview` |
 
-The website's Production and Previews Base build settings use the repository root, `HUGO_VERSION=0.166.0`, `NODE_VERSION=22.23.4`, and build command `node --test worker/index.test.mjs && hugo --gc --minify --panicOnWarning`. Enable Previews and include all paths. Previews follow branches pushed to this repository; for a fork pull request, push a reviewed copy of its branch here.
+The website's Production and Previews Base build settings use the repository root, `HUGO_VERSION=0.166.0`, `NODE_VERSION=22.23.4`, and build command `node --test worker/index.test.mjs && npx --yes wrangler@4.157.0 deploy --dry-run --config worker/wrangler.toml && hugo --gc --minify --panicOnWarning`. Enable Previews and include all paths. Previews follow branches pushed to this repository; for a fork pull request, push a reviewed copy of its branch here.
 
 The production build also needs `HUGO_PARAMS_FORMACTION` (the contact Worker's HTTPS `/contact` URL) and `HUGO_PARAMS_TURNSTILESITEKEY` (the production widget's public sitekey). Leave these unset in Previews Base: previews show the website with an unavailable contact form and cannot send real mail. Deployment credentials stay in Cloudflare Builds, and mail secrets stay in the contact Worker.
 
@@ -109,7 +109,7 @@ npx wrangler@4.157.0 secret put RESEND_API_KEY
 npx wrangler@4.157.0 deploy
 ```
 
-4. Set the production Cloudflare build variables described above. Mirror their public values in GitHub Actions repository variables `CONTACT_FORM_URL` and `TURNSTILE_SITE_KEY` for CI; the `main` check stops if either is missing. Keys named `*_SECRET_KEY` and `RESEND_API_KEY` belong only in Worker secrets, never in the website or Git. Local/preview builds without public form configuration show an unavailable form.
+4. Set the production Cloudflare build variables described above. Keys named `*_SECRET_KEY` and `RESEND_API_KEY` belong only in Worker secrets, never in the website or Git. Local/preview builds without public form configuration show an unavailable form.
 5. Test a real submission, delivery, Reply-To and token replay rejection before cutover. Then disable all old Google Apps Script web deployments that can send contact mail; removing their URL does not close them. Preserve the old Sheet as history.
 
 Failed submissions preserve the form and require a fresh CAPTCHA token. Unchanged manual retries reuse the Resend idempotency key to avoid duplicate emails after timeouts. Application logs exclude visitor addresses, messages, IPs and secrets. Tests mock the external services and send no email.
