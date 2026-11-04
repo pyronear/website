@@ -10,6 +10,16 @@ about:
 media:
   eyebrow: Actualités & Perspectives
   title: En vedette
+howItWorks:
+  title: "Comment ça marche"
+  intro: "Une détection de bout en bout, de la caméra au pompier."
+  steps:
+  - title: "Détecter"
+    text: "Des caméras sur des points hauts surveillent l'horizon. Une IA sobre analyse les images sur place."
+  - title: "Alerter"
+    text: "L'alerte est diffusée sur plusieurs canaux, sans dépendre d'une seule application, puis analysée sur notre plateforme."
+  - title: "Intervenir"
+    text: "Les utilisateurs qualifient rapidement le risque et déclenchent plus tôt les opérations : de précieuses dizaines de minutes gagnées contre les flammes."
 contactForm:
   title: Protégeons nos forêts
 follow:
