@@ -25,7 +25,7 @@ Pyronear is a **complete fire risk management solution**: **cameras** installed 
 
 Our stations are installed on high points (pylons, water towers, lookout towers) overlooking natural areas. They usually have 2 PTZ detection cameras, covering the horizon at 360°, and a credit-card-sized micro-computer. It captures an image per camera at regular intervals and analyses it on site with our artificial intelligence model. Very energy-efficient, a station can run on a solar panel and communicates over 4G.
 
-- Detection up to **25 km**. *A record at 72 km.*
+- Reliable detection up to **20 km**. *A record at 72 km.*
 - Up to **2 hours earlier** than the first emergency calls
 - On-site analysis, **very low power use**, standard hardware
 - Works with **cameras already in place**: our detection can also connect to existing camera networks

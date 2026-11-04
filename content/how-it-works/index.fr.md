@@ -25,7 +25,7 @@ Pyronear est une **solution complète de gestion du risque incendie** : des **ca
 
 Nos stations sont installées sur des points hauts (pylônes, châteaux d'eau, tours de guet) avec vue sur les espaces naturels. Elles comptent généralement 2 caméras PTZ de détection, qui couvrent l'horizon à 360°, et un micro-ordinateur de la taille d'une carte de crédit. Il capture régulièrement une image par caméra et l'analyse sur place avec notre modèle d'intelligence artificielle. Très sobre en énergie, la station peut fonctionner sur panneau solaire et communique en 4G.
 
-- Détection jusqu'à **25 km**. *Un record à 72 km.*
+- Détection fiable jusqu'à **20 km**. *Un record à 72 km.*
 - Jusqu'à **2 heures d'avance** sur les premiers appels au 18
 - Analyse sur place, **très faible consommation**, matériel standard
 - Compatible avec des **caméras déjà en place** : notre détection peut aussi se connecter à des réseaux de caméras existants

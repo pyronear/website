@@ -25,7 +25,7 @@ Pyronear és una **solució completa de gestió del risc d'incendi**: **càmeres
 
 Les nostres estacions s'instal·len en punts alts (torres elèctriques, dipòsits d'aigua, torres de guaita) amb vista als espais naturals. Solen tenir 2 càmeres PTZ de detecció, que cobreixen l'horitzó a 360°, i un microordinador de la mida d'una targeta de crèdit. Captura regularment una imatge per càmera i l'analitza in situ amb el nostre model d'intel·ligència artificial. Molt sòbria en energia, l'estació pot funcionar amb un panell solar i es comunica per 4G.
 
-- Detecció fins a **25 km**. *Un rècord a 72 km.*
+- Detecció fiable fins a **20 km**. *Un rècord a 72 km.*
 - Fins a **2 hores d'avançament** sobre les primeres trucades d'emergència
 - Anàlisi in situ, **consum molt baix**, maquinari estàndard
 - Compatible amb **càmeres ja instal·lades**: la nostra detecció també es pot connectar a xarxes de càmeres existents
