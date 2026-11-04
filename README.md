@@ -28,6 +28,7 @@ hugo --gc --minify
 | Supporters | `data/sponsors.yaml` |
 | News items | `data/news.yaml` |
 | Site settings, languages, social links | `hugo.toml` |
+| Website / contact Worker settings | `wrangler.toml` / `worker/wrangler.toml` |
 | Templates | `layouts/` |
 | Styles and scripts | `assets/css/main.css`, `assets/js/` |
 | Images | `static/img/`; photos used in a page's Markdown go next to it in `content/<page>/` (the hero photo is in `assets/img/`) |
@@ -74,7 +75,20 @@ Prefer putting the logo in `static/img/` over linking to an external image.
 
 ## Deployment
 
-`.github/workflows/deploy.yml` builds the site on every pull request and deploys it to GitHub Pages on every push to `main` (or when run manually from the Actions tab). The repository's Pages source must be set to "GitHub Actions". The site URL comes from the repository's Pages settings (custom domain `website.pyronear.org` for now). Before changing domains, allow the new origin in `worker/wrangler.toml`, redeploy the Worker, and add the hostname to the Turnstile widget. The Worker configuration already allows both `website.pyronear.org` and `pyronear.org`.
+Cloudflare Workers Builds connects `pyronear/website` to `pyronear-website` in the **Pyronear** account. GitHub Actions checks the build; it no longer publishes to GitHub Pages.
+
+| Git branch | Result | Deploy command |
+| --- | --- | --- |
+| `main` | Deploy the website at `https://website.pyronear.org/` | `npx --yes wrangler@4.157.0 deploy` |
+| All other branches | Update a separate Preview; Cloudflare adds its URL to the pull request | `npx --yes wrangler@4.157.0 preview` |
+
+The website's Production and Previews Base build settings use the repository root, `HUGO_VERSION=0.166.0`, `NODE_VERSION=22.23.4`, and build command `node --test worker/index.test.mjs && hugo --gc --minify --panicOnWarning`. Enable Previews and include all paths. Previews follow branches pushed to this repository; for a fork pull request, push a reviewed copy of its branch here.
+
+The production build also needs `HUGO_PARAMS_FORMACTION` (the contact Worker's HTTPS `/contact` URL) and `HUGO_PARAMS_TURNSTILESITEKEY` (the production widget's public sitekey). Leave these unset in Previews Base: previews show the website with an unavailable contact form and cannot send real mail. Deployment credentials stay in Cloudflare Builds, and mail secrets stay in the contact Worker.
+
+The separate `pyronear-contact` Worker connects to the same repository with production branch `main`, root directory `worker`, build command `node --test index.test.mjs`, deploy command `npx --yes wrangler@4.157.0 deploy`, and Previews disabled. Both Workers deploy on each push to `main`.
+
+The custom domain is declared in `wrangler.toml`. Before changing domains, update `hugo.toml`, the website route, the contact Worker's allowed origins, and the Turnstile widget hostnames. The contact Worker already allows both `website.pyronear.org` and `pyronear.org`.
 
 ## Contact form
 
@@ -88,22 +102,22 @@ Mail goes from `forms@pyronear.org` to `inquiries@pyronear.org`, with the visito
 
 ```sh
 node --test index.test.mjs
-npx --yes wrangler@4.143.0 deploy --dry-run
-npx wrangler@4.143.0 login
-npx wrangler@4.143.0 secret put TURNSTILE_SECRET_KEY
-npx wrangler@4.143.0 secret put RESEND_API_KEY
-npx wrangler@4.143.0 deploy
+npx --yes wrangler@4.157.0 deploy --dry-run
+npx wrangler@4.157.0 login
+npx wrangler@4.157.0 secret put TURNSTILE_SECRET_KEY
+npx wrangler@4.157.0 secret put RESEND_API_KEY
+npx wrangler@4.157.0 deploy
 ```
 
-4. Set GitHub Actions repository variables `CONTACT_FORM_URL` to the deployed HTTPS `/contact` URL and `TURNSTILE_SITE_KEY` to the public production sitekey. GitHub Pages deployment stops if either is missing. Keys named `*_SECRET_KEY` and `RESEND_API_KEY` belong only in Worker secrets, never in the website or Git. Local/PR builds without public form configuration show an unavailable form.
+4. Set the production Cloudflare build variables described above. Mirror their public values in GitHub Actions repository variables `CONTACT_FORM_URL` and `TURNSTILE_SITE_KEY` for CI; the `main` check stops if either is missing. Keys named `*_SECRET_KEY` and `RESEND_API_KEY` belong only in Worker secrets, never in the website or Git. Local/preview builds without public form configuration show an unavailable form.
 5. Test a real submission, delivery, Reply-To and token replay rejection before cutover. Then disable all old Google Apps Script web deployments that can send contact mail; removing their URL does not close them. Preserve the old Sheet as history.
 
 Failed submissions preserve the form and require a fresh CAPTCHA token. Unchanged manual retries reuse the Resend idempotency key to avoid duplicate emails after timeouts. Application logs exclude visitor addresses, messages, IPs and secrets. Tests mock the external services and send no email.
 
-For a manual local test with real mail, use a separate real widget restricted to `127.0.0.1`. Store credentials in the ignored `worker/.dev.vars` file (permissions `600`) with `ALLOWED_ORIGINS="http://127.0.0.1:14137"`. From `worker/`, run `npx wrangler@4.143.0 dev --local --ip 127.0.0.1 --port 14138 --inspector-port 14139`; restart after credential changes. From the repository root, set `HUGO_PARAMS_FORMACTION=http://127.0.0.1:14138/contact` and `HUGO_PARAMS_TURNSTILESITEKEY` to the public sitekey, then run:
+For a manual local test with real mail, use a separate real widget restricted to `127.0.0.1`. Store credentials in the ignored `worker/.dev.vars` file (permissions `600`) with `ALLOWED_ORIGINS="http://127.0.0.1:14137"`. From `worker/`, run `npx wrangler@4.157.0 dev --local --ip 127.0.0.1 --port 14138 --inspector-port 14139`; restart after credential changes. From the repository root, set `HUGO_PARAMS_FORMACTION=http://127.0.0.1:14138/contact` and `HUGO_PARAMS_TURNSTILESITEKEY` to the public sitekey, then run:
 
 ```sh
 hugo server --bind 127.0.0.1 --port 14137 --baseURL http://127.0.0.1:14137 --disableFastRender
 ```
 
-Open `http://127.0.0.1:14137/#contact-form` in a regular browser. Automated/preview UI tests should use [Turnstile test keys](https://developers.cloudflare.com/turnstile/troubleshooting/testing/) and a mock mail endpoint. GitHub Pages still hosts the website; a later Cloudflare hosting migration can reuse the Worker.
+Open `http://127.0.0.1:14137/#contact-form` in a regular browser. Automated UI tests should use [Turnstile test keys](https://developers.cloudflare.com/turnstile/troubleshooting/testing/) and a mock mail endpoint.

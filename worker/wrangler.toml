@@ -1,4 +1,5 @@
 name = "pyronear-contact"
+account_id = "3c02cbaca55b87fc626a756dff91834b"
 main = "index.mjs"
 compatibility_date = "2026-09-28"
 workers_dev = true

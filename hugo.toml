@@ -1,4 +1,4 @@
-baseURL = "https://pyronear.org/"
+baseURL = "https://website.pyronear.org/"
 title = "Pyronear"
 defaultContentLanguage = "fr"
 defaultContentLanguageInSubdir = false
