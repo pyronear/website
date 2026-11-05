@@ -1,0 +1,13 @@
+{{- /* Opening of an inner page: title and one-line lead beside a real photo. Pass a dict: title, lead, img (optional resource). */ -}}
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <div>
+      <h1>{{ .title }}</h1>
+      {{ with .lead }}<p class="lead">{{ . }}</p>{{ end }}
+    </div>
+    {{- with .img }}
+    {{- $img := .Fill "1200x720 webp q75 Center" }}
+    <figure class="frame page-hero__figure"><img class="page-hero__img" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt=""></figure>
+    {{- end }}
+  </div>
+</section>

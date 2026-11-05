@@ -1,11 +1,36 @@
-{{- $img := (resources.Get "img/hero.jpg").Resize "1920x webp q70" -}}
-<section class="hero" style="--hero-image: url('{{ $img.RelPermalink }}')">
-  <div class="container">
-    <h1>{{ .Params.hero.title }}</h1>
-    <p class="lead">{{ .Params.hero.subtitle }}</p>
-    <div class="hero__actions">
-      <a class="btn btn--accent" href="{{ with site.GetPage "/about" }}{{ .RelPermalink }}{{ end }}">{{ i18n "moreInfo" }}</a>
-      <a class="btn btn--ghost" href="#contact-form">{{ i18n "contactUs" }}</a>
+{{- $hero := .Params.hero -}}
+<section class="hero">
+  <div class="hero__stage">
+    <div class="hero__visual">
+      {{ partial "scene.html" $hero }}
+    </div>
+    <div class="container hero__content">
+      <div class="hero__text">
+        {{/* The key phrase gets a hand-drawn stroke */}}
+        {{- $title := $hero.title | htmlEscape }}
+        {{- with $hero.emph }}{{ $title = replace $title (. | htmlEscape) (printf `<span class="mark">%s</span>` (. | htmlEscape)) }}{{ end }}
+        <h1>{{ $title | safeHTML }}</h1>
+        <p class="lead">{{ $hero.subtitle }}</p>
+        <div class="hero__actions">
+          <a class="btn btn--accent btn--lg btn--go" href="#contact-form">{{ i18n "contactUs" }}</a>
+          {{- with site.GetPage "/how-it-works" }}
+          <a class="btn btn--outline btn--lg" href="{{ .RelPermalink }}">{{ i18n "seeHowItWorks" }}</a>
+          {{- end }}
+        </div>
+      </div>
+      {{- with $hero.alert }}
+      <figure class="alert-mock">
+        <div class="alert-mock__card" aria-hidden="true">
+          <div class="alert-mock__head"><strong>{{ .title }}</strong><time>{{ .time }}</time></div>
+          {{/* The story in four steps, ticked off in order by the animation, matching the numbered markers in the scene */}}
+          <ol class="alert-steps">
+            {{- range .steps }}
+            <li><span class="alert-steps__mark"></span><span class="alert-steps__label">{{ .label }}</span><span class="alert-steps__value">{{ .value }}</span></li>
+            {{- end }}
+          </ol>
+        </div>
+      </figure>
+      {{- end }}
     </div>
   </div>
 </section>

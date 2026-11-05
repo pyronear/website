@@ -5,53 +5,81 @@ description: Una associació d'interès general que construeix un bé comú digi
 layout: about
 menus:
   main:
-    weight: 1
+    weight: 4
+story:
+  year: "Març del 2020"
+  title: "La nostra història"
+  idea: "Enginyers i científics de dades voluntaris es troben durant una temporada de Data for Good. Estan convençuts que la IA pot ajudar els bombers a detectar els inicis d'incendi abans que esdevinguin incontrolables."
+  choice: "Davant de solucions propietàries cares, inaccessibles per als petits serveis de bombers, decideixen construir un bé comú digital: obert, sobri en energia i en cost, construït conjuntament amb els bombers."
+mission:
+  title: "La nostra missió"
+  intro: "Democratitzar solucions tecnològiques sòbries, obertes i col·laboratives per lluitar contra els incendis forestals, al servei dels ecosistemes i de la ciutadania."
+  items:
+  - icon: camera
+    title: "Detectar"
+    text: "Detectar els inicis d'incendi a temps, per a una resposta ràpida que limiti la superfície cremada."
+  - icon: shield
+    title: "Equipar"
+    text: "Fer la tecnologia accessible a tots els serveis de bombers, fins i tot els petits rurals."
+  - icon: share
+    title: "Compartir"
+    text: "Codi, models, conjunts de dades i experiència de camp oberts."
+    page: /open-approach
+    link: "El nostre enfocament obert"
+  - icon: people
+    title: "Aplegar"
+    text: "Unir voluntaris, investigadors i bombers al voltant d'un bé comú."
 values:
-  title: Els nostres valors
-  cards:
-  - icon: /img/cards_icons/opensource.svg
-    title: Open source
-    text: Tot el nostre codi està disponible de forma gratuïta i desenvolupat conjuntament pels nostres voluntaris. Creiem que la intel·ligència col·lectiva és la millor manera de resoldre un problema complex.
-  - icon: /img/cards_icons/radar-2.svg
-    title: Detecció precoç
-    text: Per lluitar eficaçment contra els incendis forestals, és important detectar-los precoçment per tal de permetre una intervenció ràpida dels serveis de bombers i salvament i limitar així el seu impacte.
-  - icon: /img/cards_icons/share.svg
-    title: Open data
-    text: Amb l'ajuda dels nostres socis i voluntaris, estem construint un conjunt de dades que compartim com a Open Data, de manera que les imatges recollides i anotades puguin ser utilitzades per tantes persones com sigui possible.
-  - icon: /img/cards_icons/savings-solid.svg
-    title: Economic
-    text: La nostra R+D la fan voluntaris, el nostre dispositiu és sobri i objecte sense ànim de lucre de la nostra associació, la qual cosa ens permet proposar preus molt competitius per facilitar un desplegament al territori.
-  - icon: /img/cards_icons/eco.svg
-    title: Sobre energia
-    text: Estem en un enfocament denominat de baixa tecnologia, hem construït un dispositiu de baix consum que permet un desplegament més fàcil i un ús més raonat dels nostres valuosos recursos.
-  - icon: /img/cards_icons/rocket.svg
-    title: Rendiment
-    text: Els nostres experts en intel·ligència artificial segueixen activament les notícies en aquest camp en moviment ràpid per tal que Pyronear es beneficiï dels seus últims avenços.
-  - icon: /img/cards_icons/auto-awesome.svg
-    title: Automàtic
-    text: Oferim una solució totalment automatitzada per alliberar temps dels bombers.
-  - icon: /img/cards_icons/grid-view-solid.svg
-    title: Modular
-    text: Oferim un sistema de detecció complet però el nostre dispositiu ha estat dissenyat per funcionar amb equips existents (ús de càmeres ja instal·lades, connexió amb programari existent...)
+  title: "Els nostres valors"
+  groups:
+  - title: "Obert"
+    items:
+    - icon: code
+      title: "Open source"
+      text: "Tot el nostre codi és lliure i el desenvolupen els nostres voluntaris."
+    - icon: share
+      title: "Open data"
+      text: "Les imatges anotades es comparteixen com a dades obertes."
+    - icon: grid
+      title: "Modular"
+      text: "Funciona amb les càmeres i el programari ja instal·lats."
+  - title: "Sobri"
+    items:
+    - icon: coin
+      title: "Econòmic"
+      text: "R+D voluntària i sense ànim de lucre: preus molt competitius."
+    - icon: leaf
+      title: "Baix consum"
+      text: "Un dispositiu de baixa tecnologia i poc consum."
+    - icon: spark
+      title: "Automàtic"
+      text: "Totalment automatitzat, per alliberar temps dels bombers."
+  - title: "Eficaç"
+    items:
+    - icon: smoke
+      title: "Detecció precoç"
+      text: "Un fum detectat a temps permet una intervenció més ràpida i menor."
+    - icon: bolt
+      title: "Rendiment"
+      text: "Els nostres experts en IA incorporen els últims avenços."
+    - icon: flame
+      title: "Amb els bombers"
+      text: "Cada desplegament es construeix amb els equips locals."
+community:
+  title: "Una comunitat"
+  text: "Més de 150 voluntaris des del 2020, una quinzena dels quals col·laboradors habituals."
+  roles:
+  - icon: chart
+    label: "Científics de dades"
+  - icon: code
+    label: "Desenvolupadors"
+  - icon: pen
+    label: "Dissenyadors"
+  - icon: flame
+    label: "Bombers"
+  note: "Projectes d'estudiants amb escoles d'enginyeria, hackatons i mecenatge de competències fan avançar Pyronear tot l'any."
+  legal: "Pyronear és una associació francesa sense ànim de lucre i d'interès general, amb seu a París."
+join:
+  title: "Uneix-te al bé comú"
+  link: "Veure com ajudar"
 ---
-
-## La nostra història
-
-Pyronear va néixer el març del 2020 de la trobada d'enginyers i científics de dades voluntaris durant una temporada de Data for Good. Estaven convençuts que la intel·ligència artificial podia ajudar els bombers a detectar els inicis d'incendi abans que esdevinguin incontrolables.
-
-Davant de solucions propietàries cares i inaccessibles per als petits serveis de bombers, van decidir construir un bé comú digital: una detecció precoç de codi obert, sòbria en energia i en cost, construïda conjuntament amb els bombers.
-
-## La nostra missió
-
-Democratitzar solucions tecnològiques sòbries, obertes i col·laboratives per lluitar contra els incendis forestals, al servei dels ecosistemes i de la ciutadania. En concret:
-
-- **Detectar** els inicis d'incendi com més aviat millor, per a una intervenció ràpida que limiti la superfície cremada, les emissions i la pèrdua de biodiversitat.
-- **Fer accessible** aquesta tecnologia a tots els serveis de bombers, inclosos els petits serveis rurals.
-- **Compartir** coneixement obert: codi, models, conjunts de dades i experiència de camp. [El nostre enfocament obert]({{< relref "/open-approach" >}}).
-- **Aplegar** voluntaris, investigadors i bombers al voltant d'un bé comú útil per adaptar-se al canvi climàtic.
-
-## Una comunitat
-
-Més de 150 voluntaris han contribuït al projecte des del 2020: científics de dades, desenvolupadors, dissenyadors i bombers. Una quinzena de col·laboradors habituals, projectes d'estudiants amb escoles d'enginyeria, hackatons i mecenatge de competències fan avançar Pyronear tot l'any.
-
-Pyronear és una associació francesa sense ànim de lucre i d'interès general, amb seu a París.

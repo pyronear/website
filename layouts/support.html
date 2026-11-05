@@ -1,15 +1,50 @@
 {{ define "main" }}
-  {{ partial "page-header.html" . }}
-  <section class="section">
-    <div class="container container--prose prose">{{ .Content }}</div>
+  {{- $deployments := site.GetPage "/deployments" }}
+  {{ partial "page-hero.html" (dict "title" .Title "lead" .Description "img" ($deployments.Resources.Get "install-camera.jpg")) }}
+
+  {{/* Four ways in, each with the people it is for and concrete things to do */}}
+  {{- range $i, $p := .Params.paths }}
+  <section class="section path {{ if eq (mod $i 2) 0 }}tone-paper{{ else }}tone-haze{{ end }}">
+    <div class="container path__inner">
+      <header class="path__head">
+        <span class="path__icon">{{ partial "icon.html" $p.icon }}</span>
+        <h2>{{ $p.title }}</h2>
+        <p class="path__who">{{ $p.who }}</p>
+      </header>
+      <div class="path__body">
+        <ul class="path__items">
+          {{- range $p.items }}
+          <li>
+            <span class="path__item-icon">{{ partial "icon.html" .icon }}</span>
+            <div>
+              <h3>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
+              <p>{{ .text }}</p>
+            </div>
+          </li>
+          {{- end }}
+        </ul>
+        {{- with $p.links }}
+        <ul class="path__links">
+          {{- range . }}
+          <li>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .label }}</a>{{ else }}<span>{{ .label }}</span>{{ end }}</li>
+          {{- end }}
+        </ul>
+        {{- end }}
+        {{- with $p.note }}<p class="path__note">{{ . }}</p>{{ end }}
+        <a class="text-link" href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
+      </div>
+    </div>
   </section>
-  {{ partial "logos.html" (dict "id" "sponsors" "items" hugo.Data.sponsors "copy" .Params.sponsors "alt" true) }}
+  {{- end }}
+
+  {{ partial "logo-wall.html" (dict "id" "sponsors" "items" hugo.Data.sponsors "copy" .Params.sponsors "alt" (eq (mod (len .Params.paths) 2) 0)) }}
+
   {{- with .Params.cta }}
   <section class="band">
     <div class="container container--narrow">
       <h2>{{ .title }}</h2>
       <p>{{ .text }}</p>
-      <a class="btn btn--accent" href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
+      <a class="btn btn--accent btn--lg btn--go" href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
     </div>
   </section>
   {{- end }}

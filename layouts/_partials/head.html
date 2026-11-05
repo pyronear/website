@@ -15,5 +15,6 @@
   {{- $sameAs := slice }}{{ range site.Params.social }}{{ $sameAs = $sameAs | append .url }}{{ end }}
   <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "NGO" "name" site.Title "url" site.Home.Permalink "logo" ("img/logo.png" | absURL) "description" site.Home.Description "sameAs" $sameAs | jsonify | safeJS }}</script>
   <link rel="icon" href="{{ "img/favicon.ico" | relURL }}">
+  <link rel="preload" href="{{ "fonts/schibsted-grotesk.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>

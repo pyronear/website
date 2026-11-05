@@ -2,27 +2,74 @@
 title: Pyronear
 description: Détection précoce de feux de forêt
 hero:
-  title: Détection précoce des départs de feux
-  subtitle: Pyronear est un projet open-source au service du bien commun
+  title: Repérer les feux de forêt dès la première fumée.
+  emph: "première fumée"
+  subtitle: "Des caméras sur les points hauts repèrent la fumée, la localisent et alertent les pompiers."
+  imageAlt: "Illustration à partir d'une photo réelle : une caméra sur un mât surveille la forêt. Au loin, un petit panache de fumée est repéré et sa position GPS calculée."
+  alert:
+    tag: "Fumée · 164°"
+    title: "Départ de feu"
+    time: "07:45"
+    steps:
+    - label: "Caméra sur point haut"
+      value: ""
+    - label: "Fumée détectée"
+      value: "07:45:20"
+    - label: "Position GPS"
+      value: "48.405° N, 2.692° E"
+    - label: "Pompiers alertés"
+      value: "07:45:41"
+steps:
+  title: "De la première fumée à l'alerte"
+  items:
+  - title: "Une caméra sur un point haut"
+    text: "Pylônes, châteaux d'eau, tours de guet."
+  - title: "La fumée est détectée"
+    text: "L'IA repère la fumée sur les images."
+  - title: "Le feu est localisé"
+    text: "Les caméras donnent sa position GPS."
+  - title: "Les pompiers sont alertés"
+    text: "Image et position arrivent au centre de commandement."
 about:
-  title: Qui sommes-nous ?
-  intro: <b>Pyronear</b> est une association à but non lucratif loi 1901 dont l’objectif est de démocratiser des solutions technologiques sobres et ouvertes de lutte contre les incendies de forêts, au service des écosystèmes et des citoyens. Pour cela, nous co-construisons une solution open source de détection détection précoce, performante, automatique, énergiquement sobre, économique et modulable des départs de feux dans les espaces naturels.
+  title: Un bien commun, pas un produit
+  intro: "Un commun numérique que chacun peut utiliser, vérifier et améliorer, porté depuis 2020 par plus de 150 bénévoles."
+  photoCaption: Chaque station s'installe avec les équipes locales.
+  more: Lire notre histoire
+  values:
+  - title: Ouvert
+    text: "Code, modèles, données et matériel publics."
+  - title: Sobre
+    text: "IA légère, matériel peu gourmand, R&D bénévole."
+  - title: Avec les pompiers
+    text: "Chaque déploiement est co-construit avec les équipes locales."
+network:
+  title: Là où nos caméras veillent
+  also: "Aussi en veille :"
 media:
-  eyebrow: Actualités & Perspectives
-  title: En vedette
-howItWorks:
-  title: "Comment ça marche"
-  intro: "Une détection de bout en bout, de la caméra au pompier."
-  steps:
-  - title: "Détecter"
-    text: "Des caméras sur des points hauts surveillent l'horizon. Une IA sobre analyse les images sur place."
-  - title: "Alerter"
-    text: "L'alerte est diffusée sur plusieurs canaux, sans dépendre d'une seule application, puis analysée sur notre plateforme."
-  - title: "Intervenir"
-    text: "Les utilisateurs qualifient rapidement le risque et déclenchent plus tôt les opérations : de précieuses dizaines de minutes gagnées contre les flammes."
+  title: Ils en parlent
+join:
+  title: Il y a une place pour vous
+  items:
+  - who: Services d'incendie, collectivités, ONF
+    title: Équiper un territoire
+    link: Écrire à l'équipe
+  - who: Data scientists, développeurs, makers
+    title: Devenir bénévole
+    page: /support
+    link: Voir comment aider
+  - who: Fondations, entreprises, universités
+    title: Soutenir le projet
+    page: /support
+    link: Voir comment soutenir
 contactForm:
-  title: Protégeons nos forêts
-follow:
-  title: Suivez l'aventure Pyronear
-  text: Pour se tenir informé de l'avancement du projet ou rejoindre l'aventure, retrouvez-nous sur les réseaux sociaux !
+  title: Parlons de votre forêt
+  text: "Un projet de déploiement, une question, une envie de contribuer : chaque message est lu par un membre de l'association."
+  note: "Pyronear est une association loi 1901 à but non lucratif et d'intérêt général, basée à Paris."
+  # Each topic becomes the e-mail subject; the last one is selected by default
+  topics:
+  - Équiper un territoire
+  - Devenir bénévole
+  - Soutenir le projet
+  - Presse
+  - Autre question
 ---

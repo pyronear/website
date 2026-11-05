@@ -1,78 +1,152 @@
 {{ define "main" }}
+  {{- $lang := site.Language.Lang }}
+  {{- $deployments := site.GetPage "/deployments" }}
   {{ partial "hero.html" . }}
-  <section class="section" id="about">
-    <div class="container">
-      <h2>{{ .Params.about.title }}</h2>
-      <p class="intro">{{ .Params.about.intro | safeHTML }}</p>
-      {{ partial "figures.html" . }}
-    </div>
+
+  {{/* Proof right under the hero: four numbers on the hero's own deep colour, so the photo hands over to the page without a seam */}}
+  <section class="proof">
+    <dl class="container proof__figures">
+      {{- range slice "cameras" "sdis" "countries" "fires" }}
+      {{- $id := . }}
+      {{- range where hugo.Data.figures "id" $id }}
+      <div><dt>{{ .value }}</dt><dd>{{ index .label $lang }}</dd></div>
+      {{- end }}
+      {{- end }}
+    </dl>
   </section>
-  {{- with .Params.howItWorks }}
-  <section class="section section--alt" id="how-it-works">
+
+  {{/* The product in four steps: what the hero shows, as a sequence */}}
+  {{- with .Params.steps }}
+  <section class="section steps tone-haze" id="how">
     <div class="container">
       <h2>{{ .title }}</h2>
-      <p class="intro">{{ .intro }}</p>
-      {{- $icons := slice "img/cards_icons/cctv.svg" "img/cards_icons/radio-tower.svg" "img/cards_icons/siren.svg" }}
-      <div class="cards steps">
-        {{- range $i, $step := .steps }}
-        <article class="card step">
-          <span class="card__icon" style="--icon: url('{{ index $icons $i | relURL }}')"></span>
-          <h3>{{ $step.title }}</h3>
-          <p>{{ $step.text }}</p>
-        </article>
+      <ol class="steps__list">
+        {{- range $i, $s := .items }}
+        <li class="steps__item">
+          <span class="steps__icon">{{ partial "icon.html" (index (slice "camera" "smoke" "pin" "bell") $i) }}</span>
+          <h3>{{ $s.title }}</h3>
+          <p>{{ $s.text }}</p>
+        </li>
         {{- end }}
-      </div>
+      </ol>
       {{- with site.GetPage "/how-it-works" }}
-      <p class="more"><a class="btn" href="{{ .RelPermalink }}">{{ i18n "seeHowItWorks" }}</a></p>
+      <a class="btn btn--outline btn--go" href="{{ .RelPermalink }}">{{ i18n "seeHowItWorks" }}</a>
       {{- end }}
     </div>
   </section>
   {{- end }}
-  <section class="section" id="discover">
-    <div class="container">
-      <h2>{{ i18n "discover" }}</h2>
-      <div class="cards cards--pages">
-        {{- range site.Menus.main }}
-        {{- with .Page }}
-        <a class="card card--link card--page" href="{{ .RelPermalink }}">
-          <h3>{{ .Title }}</h3>
-          <p>{{ .Description }}</p>
-        </a>
-        {{- end }}
-        {{- end }}
-      </div>
-    </div>
-  </section>
-  {{- with site.GetPage "/deployments" }}
-  <section class="section section--alt" id="partners">
-    <div class="container">
-      <p class="eyebrow">{{ .Params.partners.eyebrow }}</p>
-      <h2>{{ .Params.partners.title }}</h2>
-      <div class="logo-strip">
-        {{- range hugo.Data.partners }}
-        <a href="{{ .url }}" target="_blank" rel="noopener"><img src="{{ .logo | relURL }}" alt="{{ .name }}" loading="lazy"></a>
-        {{- end }}
-        {{- range where hugo.Data.sponsors "home" true }}
-        <a href="{{ .url }}" target="_blank" rel="noopener"><img src="{{ .logo | relURL }}" alt="{{ .name }}" loading="lazy"></a>
+
+  {{/* The commons: three principles, each with a small icon instead of a paragraph */}}
+  {{- with .Params.about }}
+  <section class="section commons tone-paper" id="about">
+    <div class="container commons__inner">
+      <div class="commons__text">
+        <h2>{{ .title }}</h2>
+        <p class="intro">{{ .intro }}</p>
+        <ul class="principles">
+          {{- range $i, $v := .values }}
+          <li>
+            {{ partial "icon.html" (index (slice "code" "leaf" "flame") $i) }}
+            <div><h3>{{ $v.title }}</h3><p>{{ $v.text }}</p></div>
+          </li>
+          {{- end }}
+        </ul>
+        {{- with site.GetPage "/about" }}
+        <p class="more"><a class="text-link" href="{{ .RelPermalink }}">{{ $.Params.about.more }}</a></p>
         {{- end }}
       </div>
-      <p class="more"><a class="btn" href="{{ .RelPermalink }}">{{ i18n "seeDeployments" }}</a></p>
+      <figure class="snapshots">
+        {{- range slice "install-camera.jpg" "install-truck.jpg" }}
+        {{- with $deployments.Resources.Get . }}
+        {{- $img := .Fill "560x720 webp q75 Center" }}
+        <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="" loading="lazy">
+        {{- end }}
+        {{- end }}
+        <figcaption>{{ .photoCaption }}</figcaption>
+      </figure>
     </div>
   </section>
   {{- end }}
-  <section class="section" id="media">
+
+  {{/* Where the cameras watch: a map and four numbers instead of a list and a paragraph */}}
+  {{- with .Params.network }}
+  <section class="section tone-haze" id="partners">
+    <div class="container network">
+      <div class="network__map">
+        {{ partial "france-map.html" .title }}
+      </div>
+      <div class="network__text">
+        <h2>{{ .title }}</h2>
+        <dl class="figures">
+          {{- range where hugo.Data.figures "id" "range" }}
+          <div><dt>{{ .value }}</dt><dd>{{ index .label $lang }}</dd></div>
+          {{- end }}
+        </dl>
+        <p class="network__also"><span>{{ .also }}</span>
+          {{- range hugo.Data.deployments }}
+          {{- if not (and .name (gt .lat 42.3) (lt .lat 51.2) (gt .lng -5.3) (lt .lng 8.4)) }}
+          <b>{{ index .place $lang }}</b>
+          {{- end }}
+          {{- end }}
+        </p>
+        {{- with $deployments }}
+        <a class="btn btn--outline btn--go" href="{{ .RelPermalink }}">{{ i18n "seeDeployments" }}</a>
+        {{- end }}
+      </div>
+    </div>
+    {{- with $deployments }}
     <div class="container">
-      <p class="eyebrow">{{ .Params.media.eyebrow }}</p>
-      <h2>{{ .Params.media.title }}</h2>
+      <h3 class="logo-strip__title">{{ .Params.partners.title }}</h3>
+      <div class="logo-strip">
+        {{- range hugo.Data.partners }}
+        <a href="{{ .url }}" target="_blank" rel="noopener">{{ if hasPrefix .logo "/" }}<img src="{{ .logo | relURL }}" alt="{{ .name }}" loading="lazy">{{ else }}<span class="logo-name">{{ .name }}</span>{{ end }}</a>
+        {{- end }}
+        {{- range where hugo.Data.sponsors "home" true }}
+        <a href="{{ .url }}" target="_blank" rel="noopener">{{ if hasPrefix .logo "/" }}<img src="{{ .logo | relURL }}" alt="{{ .name }}" loading="lazy">{{ else }}<span class="logo-name">{{ .name }}</span>{{ end }}</a>
+        {{- end }}
+      </div>
+    </div>
+    {{- end }}
+  </section>
+  {{- end }}
+
+  <section class="section tone-paper" id="media">
+    <div class="container">
+      <div class="section__head section__head--row">
+        <h2>{{ .Params.media.title }}</h2>
+        {{- with site.GetPage "/news" }}
+        <a class="text-link" href="{{ .RelPermalink }}">{{ i18n "allNews" }}</a>
+        {{- end }}
+      </div>
       <div class="media">
         {{- range where hugo.Data.news "featured" true }}
         {{ partial "media-card.html" . }}
         {{- end }}
       </div>
-      {{- with site.GetPage "/news" }}
-      <p class="more"><a class="btn" href="{{ .RelPermalink }}">{{ i18n "allNews" }}</a></p>
-      {{- end }}
     </div>
   </section>
+
+  {{- with .Params.join }}
+  <section class="section tone-haze" id="join">
+    <div class="container">
+      <h2>{{ .title }}</h2>
+      <div class="join">
+        {{- range $i, $it := .items }}
+        {{- $href := "#contact-form" }}
+        {{- with $it.page }}{{ with site.GetPage . }}{{ $href = .RelPermalink }}{{ end }}{{ end }}
+        <a class="join__item" href="{{ $href }}">
+          <span class="join__icon">{{ partial "icon.html" (index (slice "shield" "code" "heart") $i) }}</span>
+          <span class="join__who">{{ $it.who }}</span>
+          <h3>{{ $it.title }}</h3>
+          <span class="join__action">{{ $it.link }}</span>
+        </a>
+        {{- end }}
+      </div>
+    </div>
+  </section>
+  {{- end }}
+
+  {{- $navjs := resources.Get "js/nav.js" | minify | fingerprint }}
+  <script src="{{ $navjs.RelPermalink }}" integrity="{{ $navjs.Data.Integrity }}" defer></script>
   {{ partial "contact.html" . }}
 {{ end }}

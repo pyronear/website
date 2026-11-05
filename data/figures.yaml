@@ -1,35 +1,41 @@
-# Key figures shown on the home and About pages
-- value: "150+"
+# Key figures shown on the home page (by id) and the About page (all)
+- id: cameras
+  value: "150+"
   label:
     fr: caméras de détection déployées
     en: detection cameras deployed
     es: cámaras de detección desplegadas
     es-ct: càmeres de detecció desplegades
-- value: "500+"
+- id: fires
+  value: "500+"
   label:
     fr: départs de feu détectés
     en: fire starts detected
     es: inicios de incendio detectados
     es-ct: inicis d'incendi detectats
-- value: "9"
+- id: sdis
+  value: "9"
   label:
     fr: SDIS partenaires en France
     en: partner fire services in France
     es: servicios de bomberos socios en Francia
     es-ct: serveis de bombers socis a França
-- value: "5"
+- id: countries
+  value: "5"
   label:
     fr: pays
     en: countries
     es: países
     es-ct: països
-- value: "20 km"
+- id: range
+  value: "20 km"
   label:
     fr: de portée de détection
     en: detection range
     es: de alcance de detección
     es-ct: d'abast de detecció
-- value: "150+"
+- id: volunteers
+  value: "150+"
   label:
     fr: bénévoles depuis 2020
     en: volunteers since 2020

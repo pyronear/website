@@ -5,7 +5,56 @@ description: 'Més de 150 càmeres desplegades a França i a l''estranger per pr
 layout: deployments
 menus:
   main:
-    weight: 3
+    weight: 2
+cobuilt:
+  title: "Cada desplegament es construeix amb els equips locals"
+  steps:
+  - icon: pin
+    title: "Identificar punts alts"
+  - icon: camera
+    title: "Estudiar la cobertura"
+  - icon: bolt
+    title: "Instal·lar el sistema"
+  - icon: people
+    title: "Formar els operadors"
+install:
+  title: "Instal·lació plug and play"
+  facts:
+  - icon: grid
+    title: "Estacions completes o càmeres existents"
+    text: "Instal·lem les nostres estacions o connectem la nostra detecció a càmeres ja instal·lades."
+  - icon: clock
+    title: "Menys de mitja jornada"
+    text: "Per estació, plug and play: senzill, robust i ràpid."
+  - icon: people
+    title: "Un professional o en autonomia"
+    text: "La fa un professional acreditat o directament el servei usuari."
+case:
+  label: "Exemple a l'Essonne"
+  date: "19 de juny del 2026"
+  title: "El servei de bombers de l'Essonne (SDIS 91) va instal·lar pel seu compte 2 noves estacions en un dia, en plena onada de calor."
+  thanks: "Gràcies a la Communauté de Communes des 2 Vallées per la seva ajuda a identificar i accedir als punts alts, i a Crédit Agricole d'Île-de-France, que finança estacions per als serveis de bombers."
+  stats:
+  - value: "2"
+    label: "estacions"
+  - value: "1"
+    label: "dia"
+  alts:
+  - "Un bomber del SDIS 91 instal·la una càmera des de la plataforma"
+  - "L'autoescala del SDIS 91 al peu de la torre"
+  - "Instal·lació d'una estació a dalt d'un dipòsit d'aigua"
+service:
+  title: "Un servei amb seguiment, construït amb els usuaris"
+  intro: "Acompanyem els equips temporada rere temporada."
+  items:
+  - icon: chat
+    title: "Assistència"
+  - icon: wrench
+    title: "Manteniment"
+  - icon: spark
+    title: "Millora contínua"
+    text: "A partir dels comentaris dels usuaris."
+
 partners:
   eyebrow: Col·laboració i Innovació
   title: Els Nostres Socis
@@ -15,25 +64,3 @@ cta:
 build:
   publishResources: false
 ---
-
-Des del 2021, Pyronear desplega el seu sistema de detecció amb els serveis de bombers i emergències, les oficines de gestió forestal, ens locals i socis privats. Cada desplegament es construeix amb els equips locals: identificació de punts alts, estudi de cobertura, instal·lació i formació dels operadors.
-
-## Instal·lació plug and play {#installation}
-
-Segons les necessitats, instal·lem les nostres estacions completes o connectem la nostra detecció a càmeres ja instal·lades.
-
-Les nostres estacions estan pensades per ser **plug and play**: senzilles, robustes i ràpides d'instal·lar. Una instal·lació dura **menys de mitja jornada per estació**. La pot fer un professional acreditat o directament el servei usuari.
-
-**Exemple a l'Essonne**: el 19 de juny del 2026, el servei de bombers de l'Essonne (SDIS 91) va instal·lar pel seu compte 2 noves estacions en un dia, en plena onada de calor. Gràcies a la Communauté de Communes des 2 Vallées per la seva ajuda a identificar i accedir als punts alts, i a Crédit Agricole d'Île-de-France, que finança estacions per als serveis de bombers.
-
-{{< gallery >}}
-![Un bomber del SDIS 91 instal·la una càmera des de la plataforma](install-camera.jpg)
-![L'autoescala del SDIS 91 al peu de la torre](install-truck.jpg)
-![Instal·lació d'una estació a dalt d'un dipòsit d'aigua](install-water-tower.jpg)
-{{< /gallery >}}
-
-## Un servei amb seguiment, construït amb els usuaris
-
-Acompanyem els equips temporada rere temporada: assistència, manteniment i millora contínua a partir dels comentaris dels usuaris.
-
-**TODO: ADD VISUAL AND EXPAND TEXT**

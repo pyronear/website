@@ -1,0 +1,126 @@
+{{ define "main" }}
+  {{ partial "page-hero.html" (dict "title" .Title "lead" .Description "img" (.Resources.Get "cameras.jpg")) }}
+
+  {{/* The whole chain in three stages, then the film */}}
+  {{- with .Params.solution }}
+  <section class="section tone-paper">
+    <div class="container">
+      <h2>{{ .title }}</h2>
+      <ul class="mission__list mission__list--three">
+        {{- range .stages }}
+        <li class="mission__item">
+          <span class="mission__icon">{{ partial "icon.html" .icon }}</span>
+          <h3>{{ .title }}</h3>
+          <p>{{ .text }}</p>
+        </li>
+        {{- end }}
+      </ul>
+      {{- with $.Params.video }}
+      <figure class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/{{ .id }}" title="{{ .title }}" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <figcaption>{{ .caption }}</figcaption>
+      </figure>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* The station: what it is made of, what it achieves, what it looks like */}}
+  {{- with .Params.station }}
+  <section class="section tone-haze" id="station">
+    <div class="container">
+      <h2>{{ .title }}</h2>
+      <ul class="mission__list mission__list--three">
+        {{- range .parts }}
+        <li class="mission__item">
+          <span class="mission__icon">{{ partial "icon.html" .icon }}</span>
+          <h3>{{ .title }}</h3>
+          <p>{{ .text }}</p>
+        </li>
+        {{- end }}
+      </ul>
+      <dl class="stat-row">
+        {{- range .stats }}
+        <div><dt>{{ .value }}</dt><dd>{{ .label }}</dd></div>
+        {{- end }}
+      </dl>
+      <p class="station__extra">
+        <span class="vgroup__icon">{{ partial "icon.html" "grid" }}</span>
+        <span>{{ .extra }}
+          {{- with site.GetPage "/deployments" }} <a class="text-link" href="{{ .RelPermalink }}#installation">{{ $.Params.station.install }}</a>{{ end }}</span>
+      </p>
+      <ul class="photo-row">
+        {{- range .photos }}
+        {{- $caption := .caption }}
+        {{- with $.Resources.Get .file }}
+        {{- $img := .Fill "600x800 webp q75 Center" }}
+        <li>
+          <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="" loading="lazy">
+          <span>{{ $caption }}</span>
+        </li>
+        {{- end }}
+        {{- end }}
+      </ul>
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* The model: a real camera frame before and after, and the live demo */}}
+  {{- with .Params.model }}
+  <section class="section tone-paper">
+    <div class="container">
+      <h2>{{ .title }}</h2>
+      <p class="intro">{{ .text }}</p>
+      <div class="compare">
+        <figure>
+          {{- with $.Resources.Get "model-input.jpg" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" loading="lazy">{{ end }}
+          <figcaption>{{ .before }}</figcaption>
+        </figure>
+        <figure class="compare__after">
+          {{- with $.Resources.Get "model-output.jpg" }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" loading="lazy">{{ end }}
+          <figcaption>{{ .after }}</figcaption>
+        </figure>
+      </div>
+      <div class="prose how__demo">{{ $.Content }}</div>
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* The alert: three points, the platform, and a real example */}}
+  {{- with .Params.alert }}
+  <section class="section tone-haze">
+    <div class="container alert-flow">
+      <div>
+        <h2>{{ .title }}</h2>
+        <ul class="path__items path__items--one">
+          {{- range .items }}
+          <li>
+            <span class="path__item-icon">{{ partial "icon.html" .icon }}</span>
+            <div><h3>{{ .title }}</h3><p>{{ .text }}</p></div>
+          </li>
+          {{- end }}
+        </ul>
+        <p class="alert-flow__example"><strong>{{ .example.value }}</strong><span>{{ .example.text }}</span></p>
+      </div>
+      {{- with $.Resources.Get "platform-alert.jpg" }}
+      <img class="alert-flow__shot" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $.Params.alert.shot }}" loading="lazy">
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{- with .Params.open }}
+  <section class="band">
+    <div class="container container--narrow">
+      <h2>{{ .title }}</h2>
+      <p>{{ .text }}</p>
+      <div class="band__actions">
+        <a class="btn btn--accent btn--lg btn--go" href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
+        {{- with site.GetPage "/open-approach" }}
+        <a class="btn btn--outline btn--lg" href="{{ .RelPermalink }}">{{ $.Params.open.link }}</a>
+        {{- end }}
+      </div>
+    </div>
+  </section>
+  {{- end }}
+{{ end }}

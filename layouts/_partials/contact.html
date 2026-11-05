@@ -1,28 +1,60 @@
 {{- $js := resources.Get "js/form.js" | minify | fingerprint -}}
-<section class="band band--dark" id="contact-form">
-  <div class="container container--narrow">
-    <h2>{{ .Params.contactForm.title }}</h2>
-    <form class="form" method="POST" action="{{ site.Params.formAction }}" data-captcha-error="{{ i18n "captchaError" }}" data-send-error="{{ i18n "sendError" }}" data-rate-error="{{ i18n "rateError" }}" data-input-error="{{ i18n "inputError" }}" data-sending="{{ i18n "sending" }}">
-      <div class="form__honeypot" aria-hidden="true">
-        <label for="honeypot">Leave this field empty</label>
-        <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+{{- $ready := and site.Params.formAction site.Params.turnstileSiteKey -}}
+<section class="contact-section" id="contact-form">
+  {{- with resources.Get "img/contact-forest.jpg" }}
+  {{- $large := .Resize "1672x webp q72" }}
+  {{- $small := .Fill "752x940 webp q70 Center" }}
+  {{/* Generated with the Codex CLI: an illustrative forest, not a Pyronear site */}}
+  <picture class="contact-section__bg">
+    <source media="(max-width: 640px)" srcset="{{ $small.RelPermalink }}">
+    <img src="{{ $large.RelPermalink }}" width="{{ $large.Width }}" height="{{ $large.Height }}" alt="" loading="lazy">
+  </picture>
+  {{- end }}
+  <div class="container">
+    <div class="contact">
+      <div class="contact__intro">
+        <h2>{{ .Params.contactForm.title }}</h2>
+        <p>{{ .Params.contactForm.text }}</p>
+        {{ with .Params.contactForm.note }}<p class="contact__note">{{ . }}</p>{{ end }}
       </div>
-      <label for="email">{{ i18n "emailLabel" }}</label>
-      <input type="email" id="email" name="email" aria-describedby="email-help" autocomplete="email" maxlength="254" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" required>
-      <small id="email-help">{{ i18n "emailPrivacy" }}</small>
-      <label for="subject">{{ i18n "subjectLabel" }}</label>
-      <input type="text" id="subject" name="subject" maxlength="200">
-      <label for="message">{{ i18n "messageLabel" }}</label>
-      <textarea id="message" name="message" rows="4" maxlength="5000" required></textarea>
-      {{ if and site.Params.formAction site.Params.turnstileSiteKey }}<div class="cf-turnstile form__captcha" data-sitekey="{{ site.Params.turnstileSiteKey }}" data-action="contact" data-theme="dark" data-size="flexible" data-language="{{ if eq .Language.Lang "es-ct" }}auto{{ else }}{{ .Language.Lang }}{{ end }}"></div>{{ end }}
-      <p class="form__error" role="alert" hidden></p>
-      {{ if not (and site.Params.formAction site.Params.turnstileSiteKey) }}<p role="status">{{ i18n "formUnavailable" }}</p>{{ end }}
-      <noscript><p>{{ i18n "formNeedsJS" }}</p></noscript>
-      <button class="btn btn--accent" type="submit" disabled>{{ i18n "submit" }}</button>
-      <p class="form__note" role="status" hidden>{{ i18n "sendingNote" }}</p>
-      <p class="form__thanks" role="status" hidden>✅ {{ i18n "sentTitle" }}<br>{{ i18n "sentSubtitle" }}</p>
-    </form>
+      <form class="form" method="POST" action="{{ site.Params.formAction }}" data-captcha-error="{{ i18n "captchaError" }}" data-send-error="{{ i18n "sendError" }}" data-rate-error="{{ i18n "rateError" }}" data-input-error="{{ i18n "inputError" }}" data-sending="{{ i18n "sending" }}">
+        <div class="form__honeypot" aria-hidden="true">
+          <label for="honeypot">Leave this field empty</label>
+          <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+        </div>
+        {{- with .Params.contactForm.topics }}
+        {{/* The last topic is checked by default, so form.js always reads a subject. Icons follow the order of the topics. */}}
+        <fieldset class="topics">
+          <legend>{{ i18n "subjectLabel" }}</legend>
+          {{- range $i, $topic := . }}
+          <label><input type="radio" name="subject" value="{{ $topic }}"{{ if eq (add $i 1) (len $.Params.contactForm.topics) }} checked{{ end }}><span class="topic__body"><span class="topic__icon">{{ partial "icon.html" (index (slice "shield" "code" "heart" "news" "chat") $i) }}</span>{{ $topic }}</span></label>
+          {{- end }}
+        </fieldset>
+        {{- end }}
+        <div class="form__field">
+          <label for="email">{{ i18n "emailLabel" }}</label>
+          <div class="form__control">
+            <span class="form__icon">{{ partial "icon.html" "mail" }}</span>
+            <input type="email" id="email" name="email" aria-describedby="email-help" autocomplete="email" maxlength="254" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" placeholder="{{ i18n "emailPlaceholder" }}" required>
+          </div>
+          <small class="form__hint" id="email-help"><span class="form__icon">{{ partial "icon.html" "lock" }}</span>{{ i18n "emailPrivacy" }}</small>
+        </div>
+        <div class="form__field">
+          <label for="message">{{ i18n "messageLabel" }}</label>
+          <textarea id="message" name="message" rows="6" maxlength="5000" placeholder="{{ i18n "messagePlaceholder" }}" required></textarea>
+        </div>
+        {{ if $ready }}<div class="cf-turnstile form__captcha" data-sitekey="{{ site.Params.turnstileSiteKey }}" data-action="contact" data-theme="light" data-size="flexible" data-language="{{ if eq .Language.Lang "es-ct" }}auto{{ else }}{{ .Language.Lang }}{{ end }}"></div>{{ end }}
+        <p class="form__error" role="alert" hidden></p>
+        {{ if not $ready }}<p class="form__notice" role="status">{{ i18n "formUnavailable" }}</p>{{ end }}
+        <noscript><p class="form__notice">{{ i18n "formNeedsJS" }}</p></noscript>
+        <div class="form__actions">
+          <button class="btn btn--accent btn--go" type="submit" disabled>{{ i18n "submit" }}</button>
+          <p class="form__note" role="status" hidden>{{ i18n "sendingNote" }}</p>
+        </div>
+        <p class="form__thanks" role="status" hidden><strong>{{ i18n "sentTitle" }}</strong><br>{{ i18n "sentSubtitle" }}</p>
+      </form>
+    </div>
   </div>
 </section>
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
-{{ if and site.Params.formAction site.Params.turnstileSiteKey }}<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>{{ end }}
+{{ if $ready }}<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>{{ end }}

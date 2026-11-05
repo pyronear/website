@@ -5,7 +5,56 @@ description: More than 150 cameras deployed in France and abroad to protect natu
 layout: deployments
 menus:
   main:
-    weight: 3
+    weight: 2
+cobuilt:
+  title: "Every deployment is co-built with local teams"
+  steps:
+  - icon: pin
+    title: "Find high points"
+  - icon: camera
+    title: "Study coverage"
+  - icon: bolt
+    title: "Install the system"
+  - icon: people
+    title: "Train operators"
+install:
+  title: "Plug-and-play installation"
+  facts:
+  - icon: grid
+    title: "Complete stations or existing cameras"
+    text: "We install our stations, or connect our detection to cameras already in place."
+  - icon: clock
+    title: "Under half a day"
+    text: "Per station, plug and play: simple, robust, quick."
+  - icon: people
+    title: "By a pro or by you"
+    text: "Done by an approved professional or directly by the fire service."
+case:
+  label: "Example in Essonne"
+  date: "19 June 2026"
+  title: "The Essonne fire service (SDIS 91) installed 2 new stations by itself in one day, in the middle of a heatwave."
+  thanks: "Thanks to the Communauté de Communes des 2 Vallées for finding and reaching the high points, and to Crédit Agricole d'Île-de-France, which funds stations for fire services."
+  stats:
+  - value: "2"
+    label: "stations"
+  - value: "1"
+    label: "day"
+  alts:
+  - "An SDIS 91 firefighter installing a camera from the aerial platform"
+  - "The SDIS 91 aerial ladder at the foot of the pylon"
+  - "Installing a station on top of a water tower"
+service:
+  title: "A supported service, co-built with its users"
+  intro: "We support teams season after season."
+  items:
+  - icon: chat
+    title: "Assistance"
+  - icon: wrench
+    title: "Maintenance"
+  - icon: spark
+    title: "Continuous improvement"
+    text: "Based on user feedback."
+
 partners:
   eyebrow: Collaboration & Innovation
   title: Our Partners
@@ -15,25 +64,3 @@ cta:
 build:
   publishResources: false
 ---
-
-Since 2021, Pyronear has deployed its detection system with fire and rescue services, forest management offices, local authorities and private partners. Each deployment is co-built with local teams: finding high points, studying coverage, installing the system and training operators.
-
-## Plug-and-play installation {#installation}
-
-Depending on the needs, we install our complete stations or connect our detection to cameras that are already in place.
-
-Our stations are designed to be **plug and play**: simple, robust and quick to install. An installation takes **less than half a day per station**. It can be done by an approved professional or directly by the end user.
-
-**Example in Essonne**: on 19 June 2026, the Essonne fire service (SDIS 91) installed 2 new stations by itself in one day, in the middle of a heatwave. Thanks to the Communauté de Communes des 2 Vallées for its help in finding and accessing the high points, and to Crédit Agricole d'Île-de-France, which funds stations for fire services.
-
-{{< gallery >}}
-![An SDIS 91 firefighter installing a camera from the aerial platform](install-camera.jpg)
-![The SDIS 91 aerial ladder at the foot of the pylon](install-truck.jpg)
-![Installing a station on top of a water tower](install-water-tower.jpg)
-{{< /gallery >}}
-
-## A supported service, co-built with its users
-
-We support teams season after season: assistance, maintenance and continuous improvement based on user feedback.
-
-**TODO: ADD VISUAL AND EXPAND TEXT**
