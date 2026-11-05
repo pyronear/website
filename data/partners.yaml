@@ -64,7 +64,7 @@
     es-ct: La nostra col·lectivitat associada al parc natural regional de la Brenne
 - name: SDIS 91
   url: https://sdis91.fr/
-  logo: /img/sdis91.jpg
+  logo: /img/sdis91.webp
   description:
     fr: Notre partenaire pour la protection des massifs forestiers de l'Essonne
     en: Our partner for the protection of the forests of Essonne
@@ -88,7 +88,7 @@
     es-ct: El nostre soci per a la protecció del bosc de la Brenne i els seus voltants a l'Indre
 - name: EarthToolsMaker
   url: https://www.earthtoolsmaker.org/
-  logo: /img/earthtoolsmaker.svg
+  logo: /img/earthtoolsmaker.webp
   description:
     fr: "Notre partenaire technique en intelligence artificielle, qui améliore nos modèles de détection et réduit les fausses alertes"
     en: "Our technical AI partner, improving our detection models and cutting false alarms"
