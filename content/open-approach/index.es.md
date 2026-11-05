@@ -2,11 +2,6 @@
 title: Enfoque abierto
 slug: enfoque-abierto
 description: "Nuestro código, modelos, datos y hardware son abiertos: un bien común para detectar incendios."
-menus:
-  footer:
-    weight: 2
-build:
-  publishResources: false
 ---
 
 ## Un común digital

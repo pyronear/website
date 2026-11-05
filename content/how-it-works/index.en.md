@@ -2,14 +2,8 @@
 title: How it works
 slug: how-it-works
 description: Stations on high points, frugal AI and an alert platform for firefighters.
-layout: how-it-works
-menus:
-  main:
-    weight: 1
 images:
   - view.jpg
-build:
-  publishResources: false
 solution:
   title: "A complete solution"
   stages:

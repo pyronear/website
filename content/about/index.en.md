@@ -2,10 +2,6 @@
 title: About
 slug: about
 description: A non-profit building a digital commons to detect wildfires.
-layout: about
-menus:
-  main:
-    weight: 4
 story:
   year: "March 2020"
   title: "Our story"

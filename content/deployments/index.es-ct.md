@@ -2,10 +2,6 @@
 title: Desplegaments
 slug: desplegaments
 description: 'Més de 150 càmeres desplegades a França i a l''estranger per protegir els espais naturals.'
-layout: deployments
-menus:
-  main:
-    weight: 2
 cobuilt:
   title: "Cada desplegament es construeix amb els equips locals"
   steps:
@@ -61,6 +57,4 @@ partners:
 cta:
   title: "Us preocupa la detecció precoç d'incendis?"
   text: "Serveis de bombers, oficines de gestió forestal, ens locals, empreses: parlem de les vostres necessitats de detecció."
-build:
-  publishResources: false
 ---

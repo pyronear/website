@@ -2,10 +2,6 @@
 title: Actúa con nosotros
 slug: actua-con-nosotros
 description: "Voluntarios, socios, financiadores, universidades: elige tu forma de actuar."
-layout: support
-menus:
-  main:
-    weight: 3
 sponsors:
   eyebrow: Apoyo y Compromiso
   title: Nuestros Partidarios

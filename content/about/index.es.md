@@ -2,10 +2,6 @@
 title: Sobre nosotros
 slug: sobre-nosotros
 description: Una asociación de interés general que construye un bien común digital para detectar incendios forestales.
-layout: about
-menus:
-  main:
-    weight: 4
 story:
   year: "Marzo de 2020"
   title: "Nuestra historia"

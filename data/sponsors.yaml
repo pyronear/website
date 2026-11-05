@@ -88,7 +88,7 @@
     es-ct: Dóna suport a la recerca oberta i aplicada al territori de l’Illa de França
 - name: Mines Paris - PSL
   url: https://www.minesparis.psl.eu/
-  logo: /img/mines-paris.png
+  logo: /img/mines-paris.webp
   description:
     fr: Collabore avec nous sur des projets étudiants et de recherche en détection précoce des feux
     en: Works with us on student and research projects on early fire detection
@@ -96,7 +96,7 @@
     es-ct: Col·labora amb nosaltres en projectes d'estudiants i de recerca sobre la detecció precoç d'incendis
 - name: CentraleSupélec
   url: https://www.centralesupelec.fr/
-  logo: /img/centralesupelec.png
+  logo: /img/centralesupelec.webp
   description:
     fr: Collabore avec nous sur des projets étudiants et de recherche en détection précoce des feux
     en: Works with us on student and research projects on early fire detection
@@ -104,7 +104,7 @@
     es-ct: Col·labora amb nosaltres en projectes d'estudiants i de recerca sobre la detecció precoç d'incendis
 - name: CENIA
   url: https://cenia.cl/
-  logo: /img/cenia.jpg
+  logo: /img/cenia.webp
   home: true
   description:
     fr: Le centre national d'intelligence artificielle chilien avec qui on travaille pour notre premier déploiement à l’étranger

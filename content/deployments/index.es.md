@@ -2,10 +2,6 @@
 title: Despliegues
 slug: despliegues
 description: Más de 150 cámaras desplegadas en Francia y en el extranjero para proteger los espacios naturales.
-layout: deployments
-menus:
-  main:
-    weight: 2
 cobuilt:
   title: "Cada despliegue se construye con los equipos locales"
   steps:
@@ -61,6 +57,4 @@ partners:
 cta:
   title: "¿Le preocupa la detección temprana de incendios?"
   text: "Servicios de bomberos, oficinas de gestión forestal, entidades locales, empresas: hablemos de sus necesidades de detección."
-build:
-  publishResources: false
 ---

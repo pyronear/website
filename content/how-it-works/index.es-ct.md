@@ -2,14 +2,8 @@
 title: Com funciona
 slug: com-funciona
 description: Estacions en punts alts, una IA sòbria i una plataforma d'alertes per als bombers.
-layout: how-it-works
-menus:
-  main:
-    weight: 1
 images:
   - view.jpg
-build:
-  publishResources: false
 solution:
   title: "Una solució completa"
   stages:

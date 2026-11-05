@@ -2,11 +2,6 @@
 title: Démarche ouverte
 slug: demarche-ouverte
 description: "Notre code, nos modèles, nos données et notre matériel sont ouverts : un bien commun pour détecter les feux."
-menus:
-  footer:
-    weight: 2
-build:
-  publishResources: false
 ---
 
 ## Un commun numérique

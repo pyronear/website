@@ -2,10 +2,6 @@
 title: Actua amb nosaltres
 slug: actua-amb-nosaltres
 description: "Voluntaris, socis, finançadors, universitats: tria la teva manera d'actuar."
-layout: support
-menus:
-  main:
-    weight: 3
 sponsors:
   eyebrow: Suport i Compromís
   title: Els Nostres Partidaris

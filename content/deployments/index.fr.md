@@ -2,10 +2,6 @@
 title: Déploiements
 slug: deploiements
 description: 'Plus de 150 caméras déployées en France et à l''international pour protéger les espaces naturels.'
-layout: deployments
-menus:
-  main:
-    weight: 2
 cobuilt:
   title: "Chaque déploiement est co-construit avec les équipes locales"
   steps:
@@ -61,6 +57,4 @@ partners:
 cta:
   title: "Un enjeu de détection précoce des départs de feu ?"
   text: "Services d'incendie, ONF, collectivités, entreprises : parlons de vos enjeux de détection."
-build:
-  publishResources: false
 ---

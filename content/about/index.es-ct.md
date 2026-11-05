@@ -2,10 +2,6 @@
 title: Qui som
 slug: qui-som
 description: Una associació d'interès general que construeix un bé comú digital per detectar incendis forestals.
-layout: about
-menus:
-  main:
-    weight: 4
 story:
   year: "Març del 2020"
   title: "La nostra història"

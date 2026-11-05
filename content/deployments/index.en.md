@@ -2,10 +2,6 @@
 title: Deployments
 slug: deployments
 description: More than 150 cameras deployed in France and abroad to protect natural areas.
-layout: deployments
-menus:
-  main:
-    weight: 2
 cobuilt:
   title: "Every deployment is co-built with local teams"
   steps:
@@ -61,6 +57,4 @@ partners:
 cta:
   title: "Early fire detection is a concern for you?"
   text: "Fire services, forest management offices, local authorities, companies: let's talk about your detection needs."
-build:
-  publishResources: false
 ---

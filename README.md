@@ -48,7 +48,7 @@ hugo --gc --minify
 | Navigation | Pages with `menus.main` show in the nav; pages with `menus.footer` (News, Open approach) only in the footer |
 | Contact section background (generated with the Codex CLI) | `assets/img/contact-forest.jpg` |
 
-Each page's URL is set by `slug` in its front matter, and its place in the menu by `menus.main.weight`.
+Each page's URL is set by `slug` in its front matter. Shared menu order, templates and resource settings live in the `cascade` entries in `hugo.toml` and apply to every translation.
 
 Languages: French (default, served at `/`), English (`/en/`), Spanish (`/es/`) and Catalan (`/es-ct/`).
 
