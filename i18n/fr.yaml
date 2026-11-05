@@ -1,9 +1,8 @@
-moreInfo: En savoir plus
 contactUs: Nous contacter
-submit: Envoyer
+submit: "Envoyer le message"
 emailLabel: Votre adresse e-mail
 emailPrivacy: Nous ne partagerons jamais votre adresse e-mail sans votre autorisation.
-subjectLabel: Objet
+subjectLabel: "Votre message concerne"
 messageLabel: Votre message
 captchaError: La vérification a échoué. Merci de réessayer le contrôle de sécurité.
 inputError: Vérifiez votre adresse e-mail et votre message, puis réessayez.
@@ -16,11 +15,8 @@ sendError: "L'envoi a échoué. Merci de réessayer dans quelques minutes."
 notFound: Page introuvable
 backHome: Retour à l'accueil
 menu: "Menu"
-keyFigures: "Pyronear en chiffres"
-discover: "Découvrir Pyronear"
 allNews: "Toutes les actualités"
 seeDeployments: "Voir les déploiements"
-deploymentAreas: "Zones de déploiement"
 mapNote: "Positions approximatives, à l'échelle du département ou de la région."
 allNewsList: "Toutes les apparitions"
 featured: "En vedette"
@@ -33,3 +29,10 @@ sending: "Envoi en cours…"
 sendingNote: "Merci de patienter pendant l'envoi de votre message."
 seeHowItWorks: "Voir comment ça marche"
 whereDeployed: "Où est déployé Pyronear ?"
+footerAbout: "Association loi 1901 qui développe un commun numérique open source pour détecter les départs de feu au plus tôt."
+footerPages: "Pages"
+footerFollow: "Nous suivre"
+footerLegal: "Code sous licence Apache 2.0"
+emailPlaceholder: "nom@organisation.fr"
+messagePlaceholder: "Votre territoire, votre projet ou votre question…"
+footerTagline: "Fait par des bénévoles, pour la forêt."

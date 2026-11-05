@@ -1,9 +1,8 @@
-moreInfo: More information
 contactUs: Contact us
-submit: Submit
+submit: "Send the message"
 emailLabel: Your e-mail address
 emailPrivacy: We will never share your email without your consent.
-subjectLabel: Subject
+subjectLabel: "Your message is about"
 messageLabel: Your message
 captchaError: Verification failed. Please retry the security check.
 inputError: Check your email address and message, then try again.
@@ -16,11 +15,8 @@ sendError: "Sending failed. Please try again in a few minutes."
 notFound: Page not found
 backHome: Back to home
 menu: "Menu"
-keyFigures: "Pyronear in numbers"
-discover: "Discover Pyronear"
 allNews: "All news"
 seeDeployments: "See deployments"
-deploymentAreas: "Deployment areas"
 mapNote: "Approximate locations, at department or region level."
 allNewsList: "All coverage"
 featured: "Featured"
@@ -33,3 +29,10 @@ sending: "Sending…"
 sendingNote: "Please wait while we send your message."
 seeHowItWorks: "See how it works"
 whereDeployed: "Where is Pyronear deployed?"
+footerAbout: "Non-profit association building an open-source digital commons to detect wildfires as early as possible."
+footerPages: "Pages"
+footerFollow: "Follow us"
+footerLegal: "Code under the Apache 2.0 license"
+emailPlaceholder: "name@organisation.org"
+messagePlaceholder: "Your territory, your project or your question…"
+footerTagline: "Made by volunteers, for the forest."

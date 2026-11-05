@@ -5,15 +5,89 @@
     {{- $markers = $markers | append (dict "name" (.name | default "") "place" (index .place $lang) "lat" .lat "lng" .lng) -}}
   {{- end -}}
   {{- $js := resources.Get "js/map.js" | minify | fingerprint -}}
-  {{ partial "page-header.html" . }}
-  <section class="section">
-    <div class="container container--prose prose">{{ .Content }}</div>
+
+  {{ partial "page-hero.html" (dict "title" .Title "lead" .Description "img" ((site.GetPage "/how-it-works").Resources.Get "view.jpg")) }}
+
+  {{/* The headline numbers, on the same deep colour as the home page */}}
+  <section class="proof">
+    <dl class="container proof__figures">
+      {{- range slice "cameras" "sdis" "countries" "range" }}
+      {{- $id := . }}
+      {{- range where hugo.Data.figures "id" $id }}
+      <div><dt>{{ .value }}</dt><dd>{{ index .label $lang }}</dd></div>
+      {{- end }}
+      {{- end }}
+    </dl>
+  </section>
+
+  {{/* How a deployment goes: four steps, as on the home page */}}
+  {{- with .Params.cobuilt }}
+  <section class="section steps tone-paper">
+    <div class="container">
+      <h2>{{ .title }}</h2>
+      <ol class="steps__list">
+        {{- range .steps }}
+        <li class="steps__item">
+          <span class="steps__icon">{{ partial "icon.html" .icon }}</span>
+          <h3>{{ .title }}</h3>
+        </li>
+        {{- end }}
+      </ol>
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* Installation in three facts, then a real example */}}
+  {{- with .Params.install }}
+  <section class="section tone-haze" id="installation">
+    <div class="container">
+      <h2>{{ .title }}</h2>
+      <ul class="mission__list mission__list--three">
+        {{- range .facts }}
+        <li class="mission__item">
+          <span class="mission__icon">{{ partial "icon.html" .icon }}</span>
+          <h3>{{ .title }}</h3>
+          <p>{{ .text }}</p>
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+  </section>
+  {{- end }}
+
+  {{- with .Params.case }}
+  <section class="section tone-paper">
+    <div class="container case">
+      <div class="case__photos">
+        {{- $alts := .alts }}
+        {{- range $i, $name := slice "install-camera.jpg" "install-truck.jpg" "install-water-tower.jpg" }}
+        {{- with $.Resources.Get $name }}
+        {{- $img := .Fill "800x800 webp q75 Center" }}
+        <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ index $alts $i }}" loading="lazy">
+        {{- end }}
+        {{- end }}
+      </div>
+      <div class="case__text">
+        <p class="case__label">{{ .label }} · {{ .date }}</p>
+        <dl class="case__stats">
+          {{- range .stats }}
+          <div><dt>{{ .value }}</dt><dd>{{ .label }}</dd></div>
+          {{- end }}
+        </dl>
+        <p class="case__title">{{ .title }}</p>
+        <p class="case__thanks">{{ .thanks }}</p>
+      </div>
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* Where: the map and the areas it covers */}}
+  <section class="section tone-haze">
     <div class="container">
       <link rel="stylesheet" href="{{ "vendor/leaflet/leaflet.css" | relURL }}">
       <h2>{{ i18n "whereDeployed" }}</h2>
       <div id="map" class="map" data-markers="{{ $markers | jsonify }}"></div>
       <p class="map-note">{{ i18n "mapNote" }}</p>
-      <h2>{{ i18n "deploymentAreas" }}</h2>
       <ul class="areas">
         {{- range $markers }}
         <li>{{ with .name }}<strong>{{ . }}</strong> · {{ end }}{{ .place }}</li>
@@ -21,13 +95,33 @@
       </ul>
     </div>
   </section>
-  {{ partial "logos.html" (dict "id" "partners" "items" hugo.Data.partners "copy" .Params.partners "alt" true) }}
+
+  {{- with .Params.service }}
+  <section class="section steps tone-paper">
+    <div class="container">
+      <h2>{{ .title }}</h2>
+      <p class="intro">{{ .intro }}</p>
+      <ul class="service__list">
+        {{- range .items }}
+        <li>
+          <span class="steps__icon">{{ partial "icon.html" .icon }}</span>
+          <h3>{{ .title }}</h3>
+          {{- with .text }}<p>{{ . }}</p>{{ end }}
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+  </section>
+  {{- end }}
+
+  {{ partial "logo-wall.html" (dict "id" "partners" "items" hugo.Data.partners "copy" .Params.partners "alt" true) }}
+
   {{- with .Params.cta }}
   <section class="band">
     <div class="container container--narrow">
       <h2>{{ .title }}</h2>
       <p>{{ .text }}</p>
-      <a class="btn btn--accent" href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
+      <a class="btn btn--accent btn--lg btn--go" href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
     </div>
   </section>
   {{- end }}

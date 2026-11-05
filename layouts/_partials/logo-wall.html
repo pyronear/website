@@ -1,0 +1,12 @@
+{{- /* A section of logos: a logo when it is vendored locally, the name otherwise (hotlinked logos can fail to load). */ -}}
+<section class="section{{ if .alt }} tone-haze{{ end }}" id="{{ .id }}">
+  <div class="container">
+    <p class="eyebrow">{{ .copy.eyebrow }}</p>
+    <h2>{{ .copy.title }}</h2>
+    <div class="logo-strip">
+      {{- range .items }}
+      <a href="{{ .url }}" target="_blank" rel="noopener" title="{{ .name }}">{{ if hasPrefix .logo "/" }}<img src="{{ .logo | relURL }}" alt="{{ .name }}" loading="lazy">{{ else }}<span class="logo-name">{{ .name }}</span>{{ end }}</a>
+      {{- end }}
+    </div>
+  </div>
+</section>

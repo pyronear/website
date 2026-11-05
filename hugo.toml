@@ -50,28 +50,29 @@ build = { publishResources = false }
 
 [[cascade]]
 target = { path = "/about" }
-menus = { main = { weight = 1 } }
+menus = { main = { weight = 4 } }
 layout = "about"
 
 [[cascade]]
 target = { path = "/how-it-works" }
-menus = { main = { weight = 2 } }
+menus = { main = { weight = 1 } }
+layout = "how-it-works"
 
 [[cascade]]
 target = { path = "/deployments" }
-menus = { main = { weight = 3 } }
+menus = { main = { weight = 2 } }
 layout = "deployments"
 
 [[cascade]]
 target = { path = "/support" }
-menus = { main = { weight = 4 } }
+menus = { main = { weight = 3 } }
 layout = "support"
 
 [[cascade]]
 target = { path = "/news" }
-menus = { main = { weight = 5 } }
+menus = { footer = { weight = 1 } }
 layout = "news"
 
 [[cascade]]
 target = { path = "/open-approach" }
-menus = { main = { weight = 6 } }
+menus = { footer = { weight = 2 } }

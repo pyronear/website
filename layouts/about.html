@@ -1,25 +1,117 @@
 {{ define "main" }}
-  {{ partial "page-header.html" . }}
-  <section class="section">
-    <div class="container container--prose prose">{{ .Content }}</div>
-  </section>
-  <section class="section section--alt">
-    <div class="container">
-      <h2>{{ i18n "keyFigures" }}</h2>
-      {{ partial "figures.html" . }}
+  {{- $deployments := site.GetPage "/deployments" }}
+  {{- $lang := site.Language.Lang }}
+
+  {{/* Opening: the title and the mission in one line, beside a real install photo */}}
+  {{ partial "page-hero.html" (dict "title" .Title "lead" .Description "img" ($deployments.Resources.Get "install-water-tower.jpg")) }}
+
+  {{/* The story: a date, then two beats, set as text rather than as a prose column */}}
+  {{- with .Params.story }}
+  <section class="section tone-paper">
+    <div class="container story">
+      <p class="story__year">{{ .year }}</p>
+      <div>
+        <h2 class="story__label">{{ .title }}</h2>
+        <p class="story__idea">{{ .idea }}</p>
+        <p class="story__choice">{{ .choice }}</p>
+      </div>
     </div>
   </section>
-  {{- with .Params.values }}
-  <section class="section" id="values">
+  {{- end }}
+
+  {{/* Where it stands today: the figures, on the same deep colour as the home page */}}
+  <section class="proof">
+    <dl class="container proof__figures proof__figures--six">
+      {{- range hugo.Data.figures }}
+      <div><dt>{{ .value }}</dt><dd>{{ index .label $lang }}</dd></div>
+      {{- end }}
+    </dl>
+  </section>
+
+  {{/* The mission: four verbs, each with an icon */}}
+  {{- with .Params.mission }}
+  <section class="section tone-paper">
     <div class="container">
       <h2>{{ .title }}</h2>
-      <div class="cards">
-        {{- range .cards }}
-        <article class="card">
-          <span class="card__icon" style="--icon: url('{{ .icon | relURL }}')"></span>
+      <p class="intro">{{ .intro }}</p>
+      <ul class="mission__list">
+        {{- range .items }}
+        {{- $link := .link }}
+        <li class="mission__item">
+          <span class="mission__icon">{{ partial "icon.html" .icon }}</span>
           <h3>{{ .title }}</h3>
           <p>{{ .text }}</p>
-        </article>
+          {{- with .page }}{{ with site.GetPage . }}
+          <a class="text-link" href="{{ .RelPermalink }}">{{ $link }}</a>
+          {{- end }}{{ end }}
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* The values: nine ruled rows in three themes instead of eight cards */}}
+  {{- with .Params.values }}
+  <section class="section tone-haze" id="values">
+    <div class="container">
+      <h2>{{ .title }}</h2>
+      <div class="vgroups">
+        {{- range .groups }}
+        <div class="vgroup">
+          <h3 class="vgroup__title">{{ .title }}</h3>
+          <ul>
+            {{- range .items }}
+            <li>
+              <span class="vgroup__icon">{{ partial "icon.html" .icon }}</span>
+              <h4>{{ .title }}</h4>
+              <p>{{ .text }}</p>
+            </li>
+            {{- end }}
+          </ul>
+        </div>
+        {{- end }}
+      </div>
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* The community: who contributes, and the install days */}}
+  {{- with .Params.community }}
+  <section class="section tone-paper">
+    <div class="container community">
+      <div>
+        <h2>{{ .title }}</h2>
+        <p class="intro">{{ .text }}</p>
+        <ul class="roles">
+          {{- range .roles }}
+          <li><span class="roles__icon">{{ partial "icon.html" .icon }}</span>{{ .label }}</li>
+          {{- end }}
+        </ul>
+        <p class="community__note">{{ .note }}</p>
+        <p class="community__legal">{{ .legal }}</p>
+      </div>
+      <figure class="snapshots">
+        {{- range slice "install-camera.jpg" "install-truck.jpg" }}
+        {{- with $deployments.Resources.Get . }}
+        {{- $img := .Fill "560x720 webp q75 Center" }}
+        <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="" loading="lazy">
+        {{- end }}
+        {{- end }}
+      </figure>
+    </div>
+  </section>
+  {{- end }}
+
+  {{/* Closing: two ways in */}}
+  {{- with .Params.join }}
+  <section class="band">
+    <div class="container">
+      <h2>{{ .title }}</h2>
+      <div class="band__actions">
+        <a class="btn btn--accent btn--lg btn--go" href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
+        {{- with site.GetPage "/support" }}
+        <a class="btn btn--outline btn--lg" href="{{ .RelPermalink }}">{{ $.Params.join.link }}</a>
         {{- end }}
       </div>
     </div>

@@ -1,9 +1,8 @@
-moreInfo: Más información
 contactUs: Contacta con nosotros
-submit: Enviar
+submit: "Enviar el mensaje"
 emailLabel: Su dirección de correo electrónico
 emailPrivacy: Nunca compartiremos su correo electrónico sin su consentimiento.
-subjectLabel: Asunto
+subjectLabel: "Su mensaje trata de"
 messageLabel: Tu mensaje
 captchaError: La verificación ha fallado. Vuelva a intentar el control de seguridad.
 inputError: Compruebe su dirección de correo y su mensaje e inténtelo de nuevo.
@@ -16,11 +15,8 @@ sendError: "El envío ha fallado. Inténtelo de nuevo en unos minutos."
 notFound: Página no encontrada
 backHome: Volver al inicio
 menu: "Menú"
-keyFigures: "Pyronear en cifras"
-discover: "Descubre Pyronear"
 allNews: "Todas las noticias"
 seeDeployments: "Ver los despliegues"
-deploymentAreas: "Zonas de despliegue"
 mapNote: "Ubicaciones aproximadas, a escala de departamento o región."
 allNewsList: "Todas las apariciones"
 featured: "Destacado"
@@ -33,3 +29,10 @@ sending: "Enviando…"
 sendingNote: "Espere mientras enviamos su mensaje."
 seeHowItWorks: "Ver cómo funciona"
 whereDeployed: "¿Dónde está desplegado Pyronear?"
+footerAbout: "Asociación sin ánimo de lucro que desarrolla un bien común digital de código abierto para detectar los incendios lo antes posible."
+footerPages: "Páginas"
+footerFollow: "Síguenos"
+footerLegal: "Código bajo licencia Apache 2.0"
+emailPlaceholder: "nombre@organizacion.es"
+messagePlaceholder: "Su territorio, su proyecto o su pregunta…"
+footerTagline: "Hecho por voluntarios, para el bosque."

@@ -1,9 +1,8 @@
-moreInfo: Més informació
 contactUs: Contacta amb nosaltres
-submit: Enviar
+submit: "Enviar el missatge"
 emailLabel: La teva adreça de correu electrònic
 emailPrivacy: Mai compartirem el teu correu electrònic sense el teu consentiment.
-subjectLabel: Assumpte
+subjectLabel: "El vostre missatge tracta de"
 messageLabel: El teu missatge
 captchaError: La verificació ha fallat. Torna a provar el control de seguretat.
 inputError: Comprova la teva adreça de correu i el missatge i torna-ho a provar.
@@ -16,11 +15,8 @@ sendError: "L'enviament ha fallat. Torneu-ho a provar d'aquí a uns minuts."
 notFound: Pàgina no trobada
 backHome: Tornar a l'inici
 menu: "Menú"
-keyFigures: "Pyronear en xifres"
-discover: "Descobreix Pyronear"
 allNews: "Totes les notícies"
 seeDeployments: "Veure els desplegaments"
-deploymentAreas: "Zones de desplegament"
 mapNote: "Ubicacions aproximades, a escala de departament o regió."
 allNewsList: "Totes les aparicions"
 featured: "Destacat"
@@ -33,3 +29,10 @@ sending: "Enviant…"
 sendingNote: "Espera mentre enviem el teu missatge."
 seeHowItWorks: "Veure com funciona"
 whereDeployed: "On està desplegat Pyronear?"
+footerAbout: "Associació sense ànim de lucre que desenvolupa un bé comú digital de codi obert per detectar els incendis com més aviat millor."
+footerPages: "Pàgines"
+footerFollow: "Segueix-nos"
+footerLegal: "Codi sota llicència Apache 2.0"
+emailPlaceholder: "nom@organitzacio.cat"
+messagePlaceholder: "El vostre territori, el vostre projecte o la vostra pregunta…"
+footerTagline: "Fet per voluntaris, per al bosc."

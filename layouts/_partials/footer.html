@@ -1,15 +1,37 @@
-{{- with site.Home.Params.follow -}}
 <footer class="footer" id="contact">
-  <div class="container">
-    <h2>{{ .title }}</h2>
-    <p>{{ .text }}</p>
-    <p class="footer__social">
-      {{- range site.Params.social }}
-      <a href="{{ .url }}" target="_blank" rel="noopener" aria-label="{{ .name }}" title="{{ .name }}">
-        {{- with resources.Get (printf "icons/%s.svg" .icon) }}{{ .Content | safeHTML }}{{ else }}{{ .name }}{{ end -}}
-      </a>
-      {{- end }}
-    </p>
+  <div class="container footer__inner">
+    <div class="footer__about">
+      <img src="{{ "img/logo_letters.png" | relURL }}" alt="Pyronear" width="1108" height="226" loading="lazy">
+      <p>{{ i18n "footerAbout" }}</p>
+      <p class="footer__tagline">{{ i18n "footerTagline" }}</p>
+    </div>
+    <nav aria-label="{{ i18n "footerPages" }}">
+      <h2>{{ i18n "footerPages" }}</h2>
+      <ul>
+        {{- range site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end }}
+        {{- range site.Menus.footer }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end }}
+        <li><a href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h2>{{ i18n "footerFollow" }}</h2>
+      <ul>
+        {{- range site.Params.social }}
+        <li>
+          <a class="footer__social" href="{{ .url }}" target="_blank" rel="noopener">
+            {{- with resources.Get (printf "icons/%s.svg" .icon) }}{{ .Content | safeHTML }}{{ end }}
+            {{ .name }}
+          </a>
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>© {{ now.Year }} Pyronear · {{ i18n "footerLegal" }}</p>
   </div>
 </footer>
-{{- end -}}
