@@ -2,10 +2,6 @@
 title: Get involved
 slug: get-involved
 description: "Volunteers, partners, funders, universities: choose your way to get involved."
-layout: support
-menus:
-  main:
-    weight: 4
 sponsors:
   eyebrow: Support & Commitment
   title: Our Sponsors

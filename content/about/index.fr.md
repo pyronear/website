@@ -2,10 +2,6 @@
 title: À propos
 slug: a-propos
 description: Une association d'intérêt général qui construit un commun numérique pour détecter les feux de forêt.
-layout: about
-menus:
-  main:
-    weight: 1
 values:
   title: Nos valeurs
   cards:

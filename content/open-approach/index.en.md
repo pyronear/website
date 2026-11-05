@@ -2,11 +2,6 @@
 title: Open approach
 slug: open-approach
 description: "Our code, models, data and hardware are open: a common good to detect fires."
-menus:
-  main:
-    weight: 6
-build:
-  publishResources: false
 ---
 
 ## A digital common

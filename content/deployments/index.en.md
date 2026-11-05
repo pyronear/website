@@ -2,18 +2,12 @@
 title: Deployments
 slug: deployments
 description: More than 150 cameras deployed in France and abroad to protect natural areas.
-layout: deployments
-menus:
-  main:
-    weight: 3
 partners:
   eyebrow: Collaboration & Innovation
   title: Our Partners
 cta:
   title: "Early fire detection is a concern for you?"
   text: "Fire services, forest management offices, local authorities, companies: let's talk about your detection needs."
-build:
-  publishResources: false
 ---
 
 Since 2021, Pyronear has deployed its detection system with fire and rescue services, forest management offices, local authorities and private partners. Each deployment is co-built with local teams: finding high points, studying coverage, installing the system and training operators.

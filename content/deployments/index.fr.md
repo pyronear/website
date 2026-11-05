@@ -2,18 +2,12 @@
 title: Déploiements
 slug: deploiements
 description: 'Plus de 150 caméras déployées en France et à l''international pour protéger les espaces naturels.'
-layout: deployments
-menus:
-  main:
-    weight: 3
 partners:
   eyebrow: Collaboration & Innovation
   title: Nos Partenaires
 cta:
   title: "Un enjeu de détection précoce des départs de feu ?"
   text: "Services d'incendie, ONF, collectivités, entreprises : parlons de vos enjeux de détection."
-build:
-  publishResources: false
 ---
 
 Depuis 2021, Pyronear déploie son dispositif de détection avec les services d'incendie et de secours (SDIS), l'ONF, des collectivités et des partenaires privés. Chaque déploiement est co-construit avec les équipes locales : identification des points hauts, étude de couverture, installation, formation des opérateurs.

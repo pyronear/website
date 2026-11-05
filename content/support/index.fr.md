@@ -2,10 +2,6 @@
 title: Agir avec nous
 slug: agir-avec-nous
 description: "Bénévoles, partenaires, financeurs, universités : choisissez votre façon d'agir."
-layout: support
-menus:
-  main:
-    weight: 4
 sponsors:
   eyebrow: Soutien & Engagement
   title: Nos Soutiens

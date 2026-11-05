@@ -2,11 +2,6 @@
 title: Enfocament obert
 slug: enfocament-obert
 description: "El nostre codi, models, dades i maquinari són oberts: un bé comú per detectar incendis."
-menus:
-  main:
-    weight: 6
-build:
-  publishResources: false
 ---
 
 ## Un comú digital

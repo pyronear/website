@@ -611,22 +611,10 @@ h3 {
   object-fit: cover;
 }
 
-.gallery--screens {
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-}
-
 /* An odd image out spans the full row instead of leaving a gap */
 .prose .gallery img:last-child:nth-child(odd) {
   grid-column: 1 / -1;
   aspect-ratio: 2 / 1;
-}
-
-.prose .gallery--screens img {
-  height: auto;
-  aspect-ratio: auto;
-  object-fit: contain;
-  box-shadow: var(--shadow);
 }
 
 .demo summary {
