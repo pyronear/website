@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}{{ site.Title }} - {{ $description }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+  <title>{{ if .IsHome }}{{ site.Title }} - {{ $description }}{{ else }}{{ if eq .Kind "404" }}{{ i18n "notFound" }}{{ else }}{{ .Title }}{{ end }} | {{ site.Title }}{{ end }}</title>
   <meta name="description" content="{{ $description }}">
   <meta name="google-site-verification" content="{{ site.Params.googleSiteVerification }}">
   <link rel="canonical" href="{{ .Permalink }}">
