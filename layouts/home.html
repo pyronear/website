@@ -66,4 +66,6 @@
     </div>
   </section>
   {{ partial "contact.html" . }}
+  {{- $navjs := resources.Get "js/nav.js" | minify | fingerprint }}
+  <script src="{{ $navjs.RelPermalink }}" integrity="{{ $navjs.Data.Integrity }}" defer></script>
 {{ end }}

@@ -5,7 +5,7 @@
   <a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
   {{- end }}
 {{- end -}}
-<header class="nav">
+<header class="nav{{ if .IsHome }} nav--sky{{ end }}">
   <div class="container nav__inner">
     <a class="nav__brand" href="{{ $home.RelPermalink }}">
       <img src="{{ "img/logo_letters.png" | relURL }}" alt="Pyronear" width="1108" height="226">

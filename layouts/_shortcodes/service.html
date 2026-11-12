@@ -3,7 +3,7 @@
 <div class="deploy-block">
   <h2>{{ .title }}</h2>
   {{- with .intro }}<p>{{ . }}</p>{{ end }}
-  <ul class="icon-list">
+  <ul class="icon-list icon-list--round">
     {{- range .items }}
     <li>
       <span class="icon-list__icon">{{ partial "icon.html" .icon }}</span>

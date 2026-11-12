@@ -3,8 +3,10 @@
   {{- $js := resources.Get "js/deploy-map.js" | minify | fingerprint -}}
   {{ partial "page-header.html" . }}
   <section class="section">
-    <div class="container container--prose prose">{{ .Content }}</div>
-    <div class="container container--prose deploy-where">
+    <div class="container prose prose--wide">{{ .Content }}</div>
+  </section>
+  <section class="deploy-where">
+    <div class="container">
       <h2>{{ i18n "whereDeployed" }}</h2>
       {{- with .Params.network }}
       {{- /* Entries with a `dept` are French departments to shade; the others are the countries, after France */ -}}
@@ -35,7 +37,7 @@
           <figcaption>{{ $.Params.network.legend }} <a href="#partners">{{ $.Params.network.legendLink }}</a></figcaption>
         </figure>
         {{- end }}
-        <dl class="figures deploy-figures">
+        <dl class="deploy-figures">
           {{- range .figures }}
           <div><dt>{{ .value }}</dt><dd>{{ .label }}</dd></div>
           {{- end }}
@@ -61,7 +63,7 @@
     <div class="container container--narrow">
       <h2>{{ .title }}</h2>
       <p>{{ .text }}</p>
-      <a class="btn btn--accent" href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
+      <a class="btn btn--accent btn--lg btn--go" href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
     </div>
   </section>
   {{- end }}

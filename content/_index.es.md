@@ -4,6 +4,20 @@ description: Detección temprana de incendios forestales
 hero:
   title: Detección temprana de incendios forestales
   subtitle: Pyronear es un proyecto de código abierto para el bien común
+  imageAlt: "Ilustración a partir de una foto real: una cámara en un poste vigila el bosque. A lo lejos se detecta una pequeña columna de humo y se calcula su posición GPS."
+  alert:
+    tag: "Humo · 164°"
+    title: "Inicio de incendio"
+    time: "07:45"
+    steps:
+    - label: "Cámara en punto alto"
+      value: ""
+    - label: "Humo detectado"
+      value: "07:45:20"
+    - label: "Posición GPS"
+      value: "48.405° N, 2.692° E"
+    - label: "Bomberos alertados"
+      value: "07:45:41"
 about:
   title: Quienes somos nosotros?
   intro: <b>Pyronear</b> es una ONG sin fines de lucro cuyo objetivo es democratizar soluciones abiertas y de baja tecnología para combatir incendios forestales, en beneficio de los ecosistemas y los ciudadanos. Para lograr este objetivo, estamos co-construyendo una solución de detección temprana que es de código abierto, eficiente, automática, energéticamente eficiente, económica y modular.
