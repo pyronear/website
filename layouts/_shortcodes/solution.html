@@ -1,0 +1,9 @@
+{{- /* The whole chain in three steps, repeated from the home page (its `howItWorks` front matter); the title comes from this page's `solution`. {{< solution >}} */ -}}
+{{- $title := .Page.Params.solution.title }}
+{{- with site.Home.Params.howItWorks }}
+<div class="solution">
+  <h2>{{ $title }}</h2>
+  <p>{{ .intro }}</p>
+  {{ partial "steps.html" .steps }}
+</div>
+{{- end }}

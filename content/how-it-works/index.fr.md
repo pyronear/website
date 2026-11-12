@@ -4,43 +4,67 @@ slug: comment-ca-marche
 description: Des stations sur des points hauts, une IA sobre et une plateforme d'alerte pour les pompiers.
 images:
   - view.jpg
+solution:
+  title: "Une solution complète"
+station:
+  title: "La station de détection"
+  parts:
+  - icon: camera
+    title: "2 caméras PTZ"
+    text: "Elles couvrent l'horizon à 360° depuis des pylônes, des châteaux d'eau et des tours de guet."
+  - icon: grid
+    title: "IA embarquée"
+    text: "Un micro-ordinateur de la taille d'une carte de crédit analyse chaque image sur place."
+  - icon: bolt
+    title: "Sobre"
+    text: "Très peu d'énergie et de bande passante, sur du matériel standard en 4G. Au besoin, un panneau solaire et une batterie la rendent autonome."
+  stats:
+  - icon: pin
+    value: "20 km"
+    label: "Détection fiable. Un record à 72 km."
+  - icon: clock
+    value: "2 h"
+    label: "Jusqu'à 2 heures d'avance sur les premiers appels au 18."
+  - icon: wrench
+    value: "< ½ journée"
+    label: "Pour installer une station."
+  extra: "Compatible avec des caméras déjà en place : notre détection peut se connecter à des réseaux de caméras existants."
+  install: "Voir comment s'installe une station"
+  photos:
+  - file: antenna.jpg
+    caption: "Pylône équipé d'une station Pyronear en forêt de Fontainebleau"
+  - file: cameras.jpg
+    caption: "Caméras installées en haut du pylône"
+  - file: hardware.jpg
+    caption: "Le boîtier de la station : micro-ordinateur, alimentation et connexion 4G"
+alert:
+  title: "Alerter et analyser"
+  shot: "Une alerte en cours : images de la caméra et localisation du feu sur la carte"
+  intro: "Être informé vite, et pouvoir qualifier le risque tout aussi vite."
+  items:
+  - icon: bell
+    title: "Alerte rapide"
+    text: "Dès la détection, notre API diffuse l'alerte sur les canaux de notification choisis par les utilisateurs."
+  - icon: pin
+    title: "Images et localisation"
+    text: "Chaque alerte arrive avec sa séquence d'images et la position du départ de feu sur la carte."
+  - icon: shield
+    title: "Levée de doute"
+    text: "Les opérateurs prennent la main sur la station à distance : vue en direct et zoom sur la fumée."
+  example:
+    value: "20 min"
+    text: "En avril 2026, une station a repéré le premier feu de l'année en forêt de Fontainebleau, vingt minutes avant le premier appel au 18. Un gain de temps que nous constatons régulièrement."
 ---
 
-## Une solution complète
-
-Pyronear est une **solution complète de gestion du risque incendie** : des **caméras** installées sur des points hauts, nos propres stations ou des caméras déjà en place, **détectent précocement** les départs de feu grâce à une IA légère et embarquée. Les services d'incendie **reçoivent rapidement** une alerte, qu'ils **analysent et qualifient** sur notre plateforme de supervision.
+{{< solution >}}
 
 {{< youtube id="f2z8mvvggI0" title="Mini-documentaire sur Pyronear" loading="lazy" >}}
 
 *Mini-documentaire sur Pyronear, réalisé par Fast Forward.*
 
-![Vue d'ensemble de la solution Pyronear](solution.png)
+{{< station >}}
 
-## La station de détection
-
-Nos stations sont installées sur des points hauts (pylônes, châteaux d'eau, tours de guet) avec vue sur les espaces naturels. Elles comptent généralement 2 caméras PTZ de détection, qui couvrent l'horizon à 360°, et un micro-ordinateur de la taille d'une carte de crédit. Il capture régulièrement une image par caméra et l'analyse sur place avec notre modèle d'intelligence artificielle. Très sobre en énergie, la station peut fonctionner sur panneau solaire et communique en 4G.
-
-- Détection fiable jusqu'à **20 km**. *Un record à 72 km.*
-- Jusqu'à **2 heures d'avance** sur les premiers appels au 18
-- Analyse sur place, **très faible consommation**, matériel standard
-- Compatible avec des **caméras déjà en place** : notre détection peut aussi se connecter à des réseaux de caméras existants
-
-Une station s'installe en moins d'une demi-journée : [voir comment]({{< relref "/deployments#installation" >}}).
-
-{{< gallery >}}
-![Pylône équipé d'une station Pyronear en forêt de Fontainebleau](antenna.jpg)
-![Caméras installées en haut du pylône](cameras.jpg)
-![Le boîtier de la station, qui contient le micro-ordinateur, l'alimentation et la connexion 4G](hardware.jpg)
-![La forêt vue depuis le haut du pylône](view.jpg)
-{{< /gallery >}}
-
-## Alerter et analyser
-
-Quand une caméra détecte une fumée, la station passe en mode alerte : toutes les images de la caméra concernée sont envoyées à notre base de données via notre API. L'alerte est notifiée aux utilisateurs par plusieurs canaux, selon leurs besoins, pour qu'elle arrive au plus vite et qu'ils puissent la qualifier au mieux. Sur notre plateforme, les opérateurs lèvent le doute, pilotent les caméras à distance et localisent le départ de feu par triangulation entre plusieurs caméras.
-
-![Une alerte en cours : images de la caméra et localisation du feu sur la carte](platform-alert.jpg)
-
-*Par exemple, en avril 2026, une station a repéré le premier feu de l'année en forêt de Fontainebleau, vingt minutes avant le premier appel au 18.*
+{{< alert >}}
 
 ## Essayer le modèle
 

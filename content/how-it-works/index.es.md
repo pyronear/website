@@ -4,43 +4,67 @@ slug: como-funciona
 description: Estaciones en puntos altos, una IA sobria y una plataforma de alertas para los bomberos.
 images:
   - view.jpg
+solution:
+  title: "Una solución completa"
+station:
+  title: "La estación de detección"
+  parts:
+  - icon: camera
+    title: "2 cámaras PTZ"
+    text: "Cubren el horizonte a 360° desde torres, depósitos de agua y torres de vigilancia."
+  - icon: grid
+    title: "IA integrada"
+    text: "Un microordenador del tamaño de una tarjeta de crédito analiza cada imagen in situ."
+  - icon: bolt
+    title: "Sobria"
+    text: "Muy poca energía y ancho de banda, con hardware estándar y 4G. Si hace falta, un panel solar y una batería la hacen autónoma."
+  stats:
+  - icon: pin
+    value: "20 km"
+    label: "Detección fiable. Un récord a 72 km."
+  - icon: clock
+    value: "2 h"
+    label: "Hasta 2 horas de adelanto sobre las primeras llamadas de emergencia."
+  - icon: wrench
+    value: "< ½ jornada"
+    label: "Para instalar una estación."
+  extra: "Compatible con cámaras ya instaladas: nuestra detección puede conectarse a redes de cámaras existentes."
+  install: "Ver cómo se instala una estación"
+  photos:
+  - file: antenna.jpg
+    caption: "Torre equipada con una estación Pyronear en el bosque de Fontainebleau"
+  - file: cameras.jpg
+    caption: "Cámaras instaladas en lo alto de la torre"
+  - file: hardware.jpg
+    caption: "La caja de la estación: microordenador, alimentación y conexión 4G"
+alert:
+  title: "Alertar y analizar"
+  shot: "Una alerta en curso: imágenes de la cámara y localización del incendio en el mapa"
+  intro: "Estar informado rápido y poder evaluar el riesgo igual de rápido."
+  items:
+  - icon: bell
+    title: "Alerta rápida"
+    text: "En cuanto se detecta humo, nuestra API difunde la alerta por los canales de notificación elegidos por los usuarios."
+  - icon: pin
+    title: "Imágenes y ubicación"
+    text: "Cada alerta llega con su secuencia de imágenes y la posición del inicio de incendio en el mapa."
+  - icon: shield
+    title: "Confirmación"
+    text: "Los operadores toman el control de la estación a distancia: vista en directo y zoom sobre el humo."
+  example:
+    value: "20 min"
+    text: "En abril de 2026, una estación detectó el primer incendio del año en el bosque de Fontainebleau, veinte minutos antes de la primera llamada de emergencia. Una ventaja de tiempo que constatamos con regularidad."
 ---
 
-## Una solución completa
-
-Pyronear es una **solución completa de gestión del riesgo de incendio**: **cámaras** instaladas en puntos altos, nuestras propias estaciones o cámaras ya instaladas, **detectan de forma temprana** los inicios de incendio gracias a una IA ligera e integrada. Los servicios de bomberos **reciben rápidamente** una alerta, que **analizan y evalúan** en nuestra plataforma de supervisión.
+{{< solution >}}
 
 {{< youtube id="f2z8mvvggI0" title="Minidocumental sobre Pyronear" loading="lazy" >}}
 
 *Un minidocumental sobre Pyronear, realizado por Fast Forward.*
 
-![Visión general de la solución Pyronear](solution-en.png)
+{{< station >}}
 
-## La estación de detección
-
-Nuestras estaciones se instalan en puntos altos (torres eléctricas, depósitos de agua, torres de vigilancia) con vistas a los espacios naturales. Suelen tener 2 cámaras PTZ de detección, que cubren el horizonte a 360°, y un microordenador del tamaño de una tarjeta de crédito. Captura regularmente una imagen por cámara y la analiza in situ con nuestro modelo de inteligencia artificial. Muy sobria en energía, la estación puede funcionar con un panel solar y se comunica por 4G.
-
-- Detección fiable hasta **20 km**. *Un récord a 72 km.*
-- Hasta **2 horas de adelanto** sobre las primeras llamadas de emergencia
-- Análisis in situ, **consumo muy bajo**, hardware estándar
-- Compatible con **cámaras ya instaladas**: nuestra detección también puede conectarse a redes de cámaras existentes
-
-Una estación se instala en menos de media jornada: [ver cómo]({{< relref "/deployments#installation" >}}).
-
-{{< gallery >}}
-![Torre equipada con una estación Pyronear en el bosque de Fontainebleau](antenna.jpg)
-![Cámaras instaladas en lo alto de la torre](cameras.jpg)
-![La caja de la estación, que contiene el microordenador, la alimentación y la conexión 4G](hardware.jpg)
-![El bosque visto desde lo alto de la torre](view.jpg)
-{{< /gallery >}}
-
-## Alertar y analizar
-
-Cuando una cámara detecta humo, la estación pasa a modo de alerta: todas las imágenes de la cámara afectada se envían a nuestra base de datos a través de nuestra API. La alerta se notifica a los usuarios por varios canales, según sus necesidades, para que llegue lo antes posible y puedan evaluarla lo mejor posible. En nuestra plataforma, los operadores la confirman, controlan las cámaras a distancia y localizan el incendio por triangulación entre varias cámaras.
-
-![Una alerta en curso: imágenes de la cámara y localización del incendio en el mapa](platform-alert.jpg)
-
-*Por ejemplo, en abril de 2026, una estación detectó el primer incendio del año en el bosque de Fontainebleau, veinte minutos antes de la primera llamada de emergencia.*
+{{< alert >}}
 
 ## Prueba el modelo
 
