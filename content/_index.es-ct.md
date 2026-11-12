@@ -14,8 +14,8 @@ howItWorks:
   title: "Com funciona"
   intro: "Una detecció de punta a punta, de la càmera al bomber."
   steps:
-  - title: "Detectar"
-    text: "Càmeres en punts alts vigilen l'horitzó. Una IA lleugera analitza les imatges in situ."
+  - title: "Detectar i localitzar"
+    text: "Càmeres en punts alts vigilen l'horitzó. Una IA lleugera analitza les imatges in situ i l'inici d'incendi queda localitzat."
   - title: "Alertar"
     text: "L'alerta es difon per diversos canals, sense dependre d'una sola aplicació, i després s'analitza a la nostra plataforma."
   - title: "Intervenir"

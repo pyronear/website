@@ -1,0 +1,11 @@
+{{- /* The three steps of the home page's `howItWorks` front matter, as cards with an icon. */ -}}
+{{- $icons := slice "img/cards_icons/cctv.svg" "img/cards_icons/radio-tower.svg" "img/cards_icons/siren.svg" }}
+<div class="cards steps">
+  {{- range $i, $step := . }}
+  <article class="card step">
+    <span class="card__icon" style="--icon: url('{{ index $icons $i | relURL }}')"></span>
+    <h3>{{ $step.title }}</h3>
+    <p>{{ $step.text }}</p>
+  </article>
+  {{- end }}
+</div>
