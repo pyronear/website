@@ -6,7 +6,7 @@ Hugo static site for Pyronear (home page plus 5 pages, 4 languages). See README.
 - Uses current Hugo layout conventions: `layouts/baseof.html`, `layouts/home.html`, `layouts/_partials/`.
 - Page copy goes in `content/_index.<lang>.md` (home) and `content/<page>/index.<lang>.md` (Markdown body, structured blocks in front matter), short UI strings in `i18n/`, shared lists in `data/`. Keep all 4 languages in sync.
 - Shared menu order, custom templates (`layouts/<layout>.html`) and resource settings use `cascade` in `hugo.toml`; other pages use `layouts/page.html`.
-- No CSS/JS framework: plain CSS in `assets/css/main.css`, vanilla JS in `assets/js/`. Leaflet is vendored in `static/vendor/leaflet/` and only loaded on the deployments page.
+- No CSS/JS framework: plain CSS in `assets/css/main.css`, vanilla JS in `assets/js/`. The deployments page draws its map as inline SVG from `data/france_departments.json` and `data/deployments.yaml` (hover labels in `assets/js/deploy-map.js`); no map library.
 - `assets/js/form.js` submits to the Cloudflare Worker in `worker/`; keep their validation and payload in sync. See README.md for credentials and deployment. Cloudflare Workers Builds hosts the website and pull-request previews in the Pyronear account.
 - Markdown images from the page bundle go through `layouts/_markup/render-image.html` (responsive WebP). Raw HTML is disabled in Markdown: use shortcodes in `layouts/_shortcodes/`.
 - Keep the `contact-form` anchor on the home page: every page links to it.

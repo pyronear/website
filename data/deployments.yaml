@@ -1,42 +1,64 @@
-# One marker per partner area. Coordinates are approximate (department or region level),
+# One entry per partner area. Coordinates are approximate (department or region level),
 # never the exact position of a station.
+# In France, `dept` is the department code shaded on the Deployments page map: to shade a new
+# department, add an entry with its `dept` (`name` is optional). Entries without `dept` are the
+# countries listed next to the map.
 - name: SDIS 07
+  dept: "07"
   lat: 44.73
   lng: 4.60
   place: { fr: Ardèche, en: Ardèche, es: Ardèche, es-ct: Ardèche }
 - name: SDIS 12
+  dept: "12"
   lat: 44.35
   lng: 2.57
   place: { fr: Aveyron, en: Aveyron, es: Aveyron, es-ct: Aveyron }
 - name: SDIS 13
+  dept: "13"
   lat: 43.53
   lng: 5.45
   place: { fr: Bouches-du-Rhône, en: Bouches-du-Rhône, es: Bouches-du-Rhône, es-ct: Boques del Roine }
 - name: SDIS 36
+  dept: "36"
   lat: 46.70
   lng: 1.25
   place: { fr: "Indre, Brenne", en: "Indre, Brenne", es: "Indre, Brenne", es-ct: "Indre, Brenne" }
 - name: SDIS 40
+  dept: "40"
   lat: 43.95
   lng: -0.75
   place: { fr: Landes, en: Landes, es: Landas, es-ct: Landes }
 - name: SIS 67
+  dept: "67"
   lat: 48.58
   lng: 7.60
   place: { fr: Bas-Rhin, en: Bas-Rhin, es: Bajo Rin, es-ct: Baix Rin }
 - name: SDIS 77
+  dept: "77"
   lat: 48.40
   lng: 2.70
   place: { fr: "Seine-et-Marne, forêt de Fontainebleau", en: "Seine-et-Marne, Fontainebleau forest", es: "Sena y Marne, bosque de Fontainebleau", es-ct: "Sena i Marne, bosc de Fontainebleau" }
 - name: SDIS 78 & ONF
+  dept: "78"
   lat: 48.64
   lng: 1.83
   place: { fr: "Yvelines, forêt de Rambouillet", en: "Yvelines, Rambouillet forest", es: "Yvelines, bosque de Rambouillet", es-ct: "Yvelines, bosc de Rambouillet" }
 - name: SDIS 91
+  dept: "91"
   lat: 48.53
   lng: 2.30
   place: { fr: Essonne, en: Essonne, es: Essonne, es-ct: Essonne }
+- dept: "11"
+  lat: 43.10
+  lng: 2.40
+  place: { fr: Aude, en: Aude, es: Aude, es-ct: Aude }
+- name: Ville du Touquet
+  dept: "62"
+  lat: 50.50
+  lng: 2.30
+  place: { fr: Pas-de-Calais, en: Pas-de-Calais, es: Paso de Calais, es-ct: Pas de Calais }
 - name: ENGIE Green
+  dept: "33"
   lat: 44.84
   lng: -0.58
   place: { fr: Gironde, en: Gironde, es: Gironda, es-ct: Gironda }
@@ -48,6 +70,9 @@
   lat: -33.45
   lng: -70.67
   place: { fr: Chili, en: Chile, es: Chile, es-ct: Xile }
+- lat: -38.42
+  lng: -63.62
+  place: { fr: Argentine, en: Argentina, es: Argentina, es-ct: Argentina }
 - lat: 50.50
   lng: 4.47
   place: { fr: Belgique, en: Belgium, es: Bélgica, es-ct: Bèlgica }
