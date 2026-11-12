@@ -1,24 +1,58 @@
 {{ define "main" }}
   {{- $lang := site.Language.Lang -}}
-  {{- $markers := slice -}}
-  {{- range hugo.Data.deployments -}}
-    {{- $markers = $markers | append (dict "name" (.name | default "") "place" (index .place $lang) "lat" .lat "lng" .lng) -}}
-  {{- end -}}
-  {{- $js := resources.Get "js/map.js" | minify | fingerprint -}}
+  {{- $js := resources.Get "js/deploy-map.js" | minify | fingerprint -}}
   {{ partial "page-header.html" . }}
   <section class="section">
     <div class="container container--prose prose">{{ .Content }}</div>
-    <div class="container">
-      <link rel="stylesheet" href="{{ "vendor/leaflet/leaflet.css" | relURL }}">
+    <div class="container container--prose deploy-where">
       <h2>{{ i18n "whereDeployed" }}</h2>
-      <div id="map" class="map" data-markers="{{ $markers | jsonify }}"></div>
-      <p class="map-note">{{ i18n "mapNote" }}</p>
-      <h2>{{ i18n "deploymentAreas" }}</h2>
-      <ul class="areas">
-        {{- range $markers }}
-        <li>{{ with .name }}<strong>{{ . }}</strong> · {{ end }}{{ .place }}</li>
+      {{- with .Params.network }}
+      {{- /* Entries with a `dept` are French departments to shade; the others are the countries, after France */ -}}
+      {{- $countries := slice .home }}
+      {{- $equipped := dict }}
+      {{- range $area := hugo.Data.deployments }}
+      {{- $place := index $area.place $lang }}
+      {{- with $area.dept }}
+      {{- $equipped = merge $equipped (dict . (cond (not $area.name) $place (printf "%s · %s" $area.name $place))) }}
+      {{- else }}
+      {{- $countries = $countries | append $place }}
+      {{- end }}
+      {{- end }}
+      <div class="deploy-where__grid">
+        {{- /* Static map of France: one shape per department, the equipped ones filled */ -}}
+        {{- with hugo.Data.france_departments }}
+        <figure class="deploy-map">
+          <svg viewBox="-1 -1 {{ .width }} {{ .height }}" role="img" aria-label="{{ $.Params.network.legend }}{{ range $equipped }}, {{ . }}{{ end }}">
+            {{- range $code, $d := .paths }}
+            {{- with index $equipped $code }}
+            <path class="is-on" d="{{ $d }}" data-label="{{ . }}"/>
+            {{- else }}
+            <path d="{{ $d }}"/>
+            {{- end }}
+            {{- end }}
+          </svg>
+          <span class="deploy-map__tip" hidden></span>
+          <figcaption>{{ $.Params.network.legend }} <a href="#partners">{{ $.Params.network.legendLink }}</a></figcaption>
+        </figure>
         {{- end }}
-      </ul>
+        <dl class="figures deploy-figures">
+          {{- range .figures }}
+          <div><dt>{{ .value }}</dt><dd>{{ .label }}</dd></div>
+          {{- end }}
+          <div><dt>{{ len $equipped }}</dt><dd>{{ .departments }}</dd></div>
+          <div class="deploy-figures__countries">
+            <dt>{{ len $countries }} {{ .countries }}</dt>
+            <dd>
+              <ul class="deploy-countries">
+                {{- range $countries }}
+                <li>{{ . }}</li>
+                {{- end }}
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </div>
+      {{- end }}
     </div>
   </section>
   {{ partial "logos.html" (dict "id" "partners" "items" hugo.Data.partners "copy" .Params.partners "alt" true) }}
@@ -31,6 +65,5 @@
     </div>
   </section>
   {{- end }}
-  <script src="{{ "vendor/leaflet/leaflet.js" | relURL }}" defer></script>
   <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 {{ end }}
