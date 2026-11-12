@@ -21,7 +21,7 @@ hugo --gc --minify
 | --- | --- |
 | Home page copy (hero, intro, contact form, footer) | `content/_index.<lang>.md` |
 | Other pages (About, How it works, Deployments, Support us, News) | `content/<page>/index.<lang>.md` |
-| Buttons, form labels, short UI text | `i18n/<lang>.yaml` |
+| Buttons, form labels, short UI text | `i18n/<lang>.yaml` (`i18n/ca.yaml` for Catalan) |
 | Key figures (home and About) | `data/figures.yaml` |
 | Deployment map markers | `data/deployments.yaml` |
 | Partners | `data/partners.yaml` |

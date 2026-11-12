@@ -33,7 +33,7 @@ enableRobotsTXT = true
     label = "ES"
     locale = "es"
     weight = 3
-  # Catalan; the key keeps the historical /es-ct/ URL
+  # Catalan; the key keeps the historical /es-ct/ URL. UI strings are in i18n/ca.yaml (named after the locale; Hugo ignores i18n/es-ct.yaml)
   [languages.es-ct]
     label = "CA"
     locale = "ca"
