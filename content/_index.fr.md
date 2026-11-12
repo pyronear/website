@@ -14,8 +14,8 @@ howItWorks:
   title: "Comment ça marche"
   intro: "Une détection de bout en bout, de la caméra au pompier."
   steps:
-  - title: "Détecter"
-    text: "Des caméras sur des points hauts surveillent l'horizon. Une IA sobre analyse les images sur place."
+  - title: "Détecter et localiser"
+    text: "Des caméras sur des points hauts surveillent l'horizon. Une IA sobre analyse les images sur place, et le départ de feu est localisé."
   - title: "Alerter"
     text: "L'alerte est diffusée sur plusieurs canaux, sans dépendre d'une seule application, puis analysée sur notre plateforme."
   - title: "Intervenir"

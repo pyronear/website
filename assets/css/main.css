@@ -591,6 +591,156 @@ h3 {
   text-align: inherit;
 }
 
+.solution + *,
+.station + *,
+.alert-block + * {
+  margin-top: 2.5rem;
+}
+
+/* The home page's three steps, fitted to the text column */
+.solution .steps {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.solution .step {
+  padding: 1.25rem 1rem;
+}
+
+.solution .step:not(:last-child)::after {
+  top: calc(1.25rem + 36px);
+  width: 1.5rem;
+}
+
+.prose .solution .step h3 {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 1.15rem;
+}
+
+.solution .step p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 700px) {
+  .solution .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* A real case set apart: a key figure and one sentence */
+.example {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--amber);
+  background: rgb(251 180 0 / 10%);
+}
+
+.example strong {
+  flex: none;
+  color: var(--teal);
+  font-size: 1.8rem;
+  line-height: 1.1;
+}
+
+@media (max-width: 560px) {
+  .example {
+    display: block;
+  }
+
+  .example strong {
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+}
+
+/* Icon, short title and one sentence per point */
+.icon-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem 2rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each point shares the list's two rows, so titles and texts line up across columns even when a title wraps */
+.prose .icon-list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  gap: 0.25rem 0.75rem;
+  margin: 0;
+}
+
+.icon-list__icon {
+  color: var(--teal);
+}
+
+/* Same height as the title's first line, so the icon sits level with it */
+.icon-list__icon svg {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.prose .icon-list h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.15rem;
+  line-height: 1.5rem;
+}
+
+.icon-list p {
+  grid-column: 2;
+  margin: 0;
+  color: var(--muted);
+}
+
+.station__extra {
+  margin: 1.5rem 0 0;
+}
+
+.photo-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prose .photo-row li {
+  margin: 0;
+}
+
+.prose .photo-row img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.photo-row span {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 560px) {
+  .photo-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

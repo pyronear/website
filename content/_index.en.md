@@ -14,8 +14,8 @@ howItWorks:
   title: "How it works"
   intro: "End-to-end detection, from the camera to the firefighter."
   steps:
-  - title: "Detect"
-    text: "Cameras on high points watch the horizon. A lightweight AI analyses the images on site."
+  - title: "Detect and locate"
+    text: "Cameras on high points watch the horizon. A lightweight AI analyses the images on site, and the fire start is located."
   - title: "Alert"
     text: "The alert is sent through several channels, so it does not depend on a single application, then analysed on our platform."
   - title: "Respond"
