@@ -27,8 +27,6 @@ Nos stations sont installées sur des points hauts (pylônes, châteaux d'eau, t
 
 Une station s'installe en moins d'une demi-journée : [voir comment]({{< relref "/deployments#installation" >}}).
 
-![Fonctionnement d'une station de détection](model.png)
-
 {{< gallery >}}
 ![Pylône équipé d'une station Pyronear en forêt de Fontainebleau](antenna.jpg)
 ![Caméras installées en haut du pylône](cameras.jpg)
@@ -46,7 +44,9 @@ Quand une caméra détecte une fumée, la station passe en mode alerte : toutes 
 
 ## Essayer le modèle
 
-Testez notre modèle de détection dans votre navigateur : choisissez une image de caméra et regardez-le repérer les fumées.
+Testez notre modèle de détection dans votre navigateur : donnez-lui une vidéo ou une séquence d'images de caméra, ou à défaut une simple image, et regardez-le repérer les fumées.
+
+{{< compare before="model-input.jpg" beforeCaption="Image de la caméra" after="model-output.jpg" afterCaption="Détection" >}}
 
 {{< hf-space "pyronear/Pyronear-Wildfire-Detection" "https://pyronear-pyronear-wildfire-detection.hf.space" >}}
 

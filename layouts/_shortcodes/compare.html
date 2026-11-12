@@ -1,0 +1,9 @@
+{{- /* Two page-bundle images side by side, each with a caption: {{< compare before="a.jpg" beforeCaption="…" after="b.jpg" afterCaption="…" >}} */ -}}
+<div class="compare">
+  {{- range slice (slice (.Get "before") (.Get "beforeCaption")) (slice (.Get "after") (.Get "afterCaption")) }}
+  <figure>
+    {{ printf "![](%s)" (index . 0) | $.Page.RenderString }}
+    <figcaption>{{ index . 1 }}</figcaption>
+  </figure>
+  {{- end }}
+</div>

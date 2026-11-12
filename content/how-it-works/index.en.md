@@ -27,8 +27,6 @@ Our stations are installed on high points (pylons, water towers, lookout towers)
 
 A station is installed in less than half a day: [see how]({{< relref "/deployments#installation" >}}).
 
-![How a detection station works](model.png)
-
 {{< gallery >}}
 ![Pylon fitted with a Pyronear station in the Fontainebleau forest](antenna.jpg)
 ![Cameras installed at the top of the pylon](cameras.jpg)
@@ -46,7 +44,9 @@ When a camera detects smoke, the station switches to alert mode: all the images 
 
 ## Try the model
 
-Test our detection model in your browser: pick a camera image and watch it spot the smoke.
+Test our detection model in your browser: give it a video or a sequence of camera images, or failing that a single image, and watch it spot the smoke.
+
+{{< compare before="model-input.jpg" beforeCaption="Camera image" after="model-output.jpg" afterCaption="Detection" >}}
 
 {{< hf-space "pyronear/Pyronear-Wildfire-Detection" "https://pyronear-pyronear-wildfire-detection.hf.space" >}}
 
