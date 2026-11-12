@@ -1,7 +1,7 @@
 {{- /* Installing a station, from the page's `install` front matter: icon points, then a real case (photos, two big figures, one sentence). Keeps the `installation` anchor other pages link to. {{< install >}} */ -}}
 {{- $page := .Page }}
 {{- with $page.Params.install }}
-<div class="deploy-block">
+<div class="deploy-block bleed">
   <h2 id="installation">{{ .title }}</h2>
   <ul class="icon-list">
     {{- range .facts }}
@@ -14,7 +14,7 @@
   </ul>
   {{- with .example }}
   <div class="deploy-case">
-    <div class="deploy-case__photos">
+    <div class="deploy-case__photos frame">
       {{- range .photos }}
       {{- $alt := .alt }}
       {{- with $page.Resources.Get .file }}

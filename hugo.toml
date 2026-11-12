@@ -56,6 +56,7 @@ layout = "about"
 [[cascade]]
 target = { path = "/how-it-works" }
 menus = { main = { weight = 2 } }
+layout = "how-it-works"
 
 [[cascade]]
 target = { path = "/deployments" }

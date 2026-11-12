@@ -1,0 +1,18 @@
+{{- /* The hero visual: an image edited from a real photo of the team's own viewpoint, with the detection drawn over it.
+   Coordinates are in a 1600 x 900 space; the image is 4:3, scaled to 1600 px wide and centred vertically: scene y = image y - 150.
+   The camera lens is at (1192, 369); the smoke plume rises at (874, 439) and is framed by the brackets. */ -}}
+{{- $photo := resources.Get "img/hero-early-fire.webp" -}}
+<svg class="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="{{ .imageAlt }}">
+  <image href="{{ $photo.RelPermalink }}" x="0" y="-150" width="1600" height="1200"/>
+  <g class="sc-detect">
+    <path class="sc-bearing" d="M1192 369 L924 421"/>
+    <circle class="sc-lens" cx="1192" cy="369" r="4.500"/>
+    <path class="sc-brackets" pathLength="1" d="M856 411V397H870M898 397H912V411M912 447V461H898M870 461H856V447"/>
+    <circle class="sc-pulse" cx="874" cy="439" r="5"/>
+    <g class="sc-tag">
+      <rect x="856" y="364" width="122" height="26" rx="13"/>
+      <path transform="translate(865 369.500) scale(.44)" d="M12 1c1 6 10 9.500 10 19a10 10 0 0 1-20 0c0-4 2-7 4-9 .4 4 2 6 4 6-1-6-1-11 2-16z"/>
+      <text x="882" y="382">{{ .alert.tag }}</text>
+    </g>
+  </g>
+</svg>
