@@ -1,96 +1,112 @@
 - name: SDIS 07
   url: https://www.sdis07.fr/
-  logo: https://www.sdis07.fr/ardeche-secours-incendie/themes/sapeurs-pompiers-ardeche/medias/img/logo-sdis07-pompiers-ardeche.png
+  logo: /img/logo_sdis07.webp
   description:
-    fr: Notre partenaire pour le recueil des besoins et l'expérimentation terrain
-    en: Our first partner for requirements gathering and field experimentation
-    es: Nuestro primer socio para la recopilación de requisitos y la experimentación de campo
-    es-ct: El nostre primer soci per a la recollida de requisits i l'experimentació de camp
+    fr: "Service d'incendie et de secours de l'Ardèche"
+    en: "Ardèche fire and rescue service"
+    es: "Servicio de bomberos y emergencias de Ardèche"
+    es-ct: "Servei de bombers i emergències de l'Ardèche"
 - name: Engie Green
   url: https://www.engie-green.fr/
   logo: /img/engie-green-logo.svg
   description:
-    fr: Notre premier partenaire privé, avec qui on réalise une expérimentation en gironde
-    en: Our first private partner, with whom we are conducting an experiment in Gironde
-    es: Nuestro primer socio privado, con quien estamos realizando un experimento en Gironde
-    es-ct: El nostre primer soci privat, amb qui estem fent un experiment a Gironda
+    fr: "Producteur d'énergies renouvelables"
+    en: "Renewable energy producer"
+    es: "Productor de energías renovables"
+    es-ct: "Productor d'energies renovables"
 - name: ADF Subirats
   url: https://subirats.cat/adfsubirats/
   logo: https://i.postimg.cc/NfW4Xyx7/camera-logo.png
   description:
-    fr: Notre partenaire catalan pour l’adaptation de notre dispositif à des caméras existantes
-    en: Our catalan partner for the adaptation of our device to existing cameras
-    es: Nuestro partner catalán para la adaptación de las cámaras existentes
-    es-ct: El nostre soci català per a l'adaptació del nostre dispositiu a les càmeres existents
+    fr: "Association de défense de la forêt, en Catalogne"
+    en: "Forest defence association, in Catalonia"
+    es: "Agrupación de defensa forestal, en Cataluña"
+    es-ct: "Agrupació de defensa forestal, a Catalunya"
 - name: FORCE 06
   url: https://www.departement06.fr/preservation-du-cadre-de-vie/force-06-3080.html
   logo: /img/force06_logo.png
   description:
-    fr: Notre partenaire des alpes maritimes afin de diversifier les tests terrains
-    en: Our partner in the department of Alpes Maritimes to diversify field tests
-    es: Nuestro socio en el departamento de Alpes Marítimos diversificará las pruebas sobre el terreno
-    es-ct: El nostre soci al departament dels Alpes Marítims per diversificar les proves de camp
+    fr: "Unité feux de forêt et risques naturels des Alpes-Maritimes"
+    en: "Forest fire and natural hazards unit of Alpes-Maritimes"
+    es: "Unidad de incendios forestales y riesgos naturales de Alpes Marítimos"
+    es-ct: "Unitat d'incendis forestals i riscos naturals dels Alps Marítims"
 - name: SDIS 12
   url: https://www.sdis12.fr/
   logo: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg2bUbkvsTyiTM7uHqbHBY0nxzu7L9AGHEGg&s
   description:
-    fr: Notre partenaire dans l'Aveyron afin de diversifier les tests terrains
-    en: Our partner in Aveyron to diversify field tests
-    es: Nuestro socio en Aveyron diversificará las pruebas sobre el terreno
-    es-ct: El nostre soci a Aveyron per diversificar les proves de camp
+    fr: "Service d'incendie et de secours de l'Aveyron"
+    en: "Aveyron fire and rescue service"
+    es: "Servicio de bomberos y emergencias de Aveyron"
+    es-ct: "Servei de bombers i emergències de l'Aveyron"
+- name: SDIS 13
+  url: https://pompiers13.org/
+  logo: /img/logo_sdis13.webp
+  description:
+    fr: "Service d'incendie et de secours des Bouches-du-Rhône"
+    en: "Bouches-du-Rhône fire and rescue service"
+    es: "Servicio de bomberos y emergencias de Bocas del Ródano"
+    es-ct: "Servei de bombers i emergències de les Boques del Roine"
 - name: SDIS 77
   url: https://www.sdis77.fr/
   logo: /img/logo_sdis77.png
   description:
-    fr: Notre partenaire en Seine & Marne afin de protéger la forêt de Fontainebleau
-    en: Our partner in Seine & Marne to help protect the Fontainebleau forest
-    es: Nuestro socio en Seine & Marne para ayudar a proteger el bosque de Fontainebleau
-    es-ct: El nostre soci a Seine & Marne per ajudar a protegir el bosc de Fontainebleau
+    fr: "Service d'incendie et de secours de Seine-et-Marne"
+    en: "Seine-et-Marne fire and rescue service"
+    es: "Servicio de bomberos y emergencias de Sena y Marne"
+    es-ct: "Servei de bombers i emergències de Sena i Marne"
 - name: SIS 67
   url: https://www.sis67.alsace/fr
   logo: https://www.annuaire-sdis.fr/uploads/public/admin/sdis/logo/557e5669389d3c12aeaba99162a53436.jpg
   description:
-    fr: Notre partenaire dans le Bas-Rhin
-    en: Our partner in Bas-Rhin
-    es: Nuestro socio en Bas-Rhin
-    es-ct: El nostre soci a Bas-Rhin
+    fr: "Service d'incendie et de secours du Bas-Rhin"
+    en: "Bas-Rhin fire and rescue service"
+    es: "Servicio de bomberos y emergencias del Bajo Rin"
+    es-ct: "Servei de bombers i emergències del Baix Rin"
 - name: Vendoeuvres
   url: https://www.vendoeuvres.fr/
   logo: https://files.appli-intramuros.com/img/city_logo/agglo/357/f05a127b8fba7467cd62eeb3fd239747_venduvres.png
   description:
-    fr: Notre collectivité partenaire dans le parc naturel régional de la Brenne
-    en: Our local authority partner in the Brenne Regional Natural Park
-    es: Nuestra colectividad asociada en el parque natural regional de Brenne
-    es-ct: La nostra col·lectivitat associada al parc natural regional de la Brenne
+    fr: "Commune de l'Indre, dans le parc naturel régional de la Brenne"
+    en: "Town in Indre, in the Brenne Regional Natural Park"
+    es: "Municipio del Indre, en el parque natural regional de la Brenne"
+    es-ct: "Municipi de l'Indre, al parc natural regional de la Brenne"
 - name: SDIS 91
   url: https://sdis91.fr/
   logo: /img/sdis91.webp
   description:
-    fr: Notre partenaire pour la protection des massifs forestiers de l'Essonne
-    en: Our partner for the protection of the forests of Essonne
-    es: Nuestro socio para la protección de los macizos forestales de Essonne
-    es-ct: El nostre soci per a la protecció de les masses forestals de l'Essonne
+    fr: "Service d'incendie et de secours de l'Essonne"
+    en: "Essonne fire and rescue service"
+    es: "Servicio de bomberos y emergencias de Essonne"
+    es-ct: "Servei de bombers i emergències de l'Essonne"
 - name: ONF
   url: https://www.onf.fr/
   logo: /img/onf_logo.svg
   description:
-    fr: La direction Ouest Île-de-France de l'ONF est notre partenaire pour protéger la forêt de Rambouillet
-    en: The ONF's West Île-de-France division is our partner in protecting the Rambouillet forest
-    es: La dirección Oeste Île-de-France de la ONF es nuestro socio para proteger el bosque de Rambouillet
-    es-ct: La direcció Oest Île-de-France de l'ONF és el nostre soci per protegir el bosc de Rambouillet
+    fr: "Office national des forêts, forêt de Rambouillet"
+    en: "French national forestry office, Rambouillet forest"
+    es: "Oficina nacional de bosques de Francia, bosque de Rambouillet"
+    es-ct: "Oficina nacional de boscos de França, bosc de Rambouillet"
 - name: SDIS 36
   url: https://www.sdis36.org/
   logo: /img/logo_sdis36.png
   description:
-    fr: Notre partenaire pour la protection de la forêt de Brenne et de ses environs dans l'Indre
-    en: Our partner for the protection of the Brenne forest and its surroundings in the Indre
-    es: Nuestro socio para la protección del bosque de la Brenne y sus alrededores en el Indre
-    es-ct: El nostre soci per a la protecció del bosc de la Brenne i els seus voltants a l'Indre
+    fr: "Service d'incendie et de secours de l'Indre"
+    en: "Indre fire and rescue service"
+    es: "Servicio de bomberos y emergencias del Indre"
+    es-ct: "Servei de bombers i emergències de l'Indre"
+- name: Ville du Touquet
+  url: https://www.letouquet.com/
+  logo: /img/ville-le-touquet.webp
+  description:
+    fr: "Commune du Pas-de-Calais"
+    en: "Town in Pas-de-Calais"
+    es: "Municipio de Paso de Calais"
+    es-ct: "Municipi del Pas de Calais"
 - name: EarthToolsMaker
   url: https://www.earthtoolsmaker.org/
   logo: /img/earthtoolsmaker.webp
   description:
-    fr: "Notre partenaire technique en intelligence artificielle, qui améliore nos modèles de détection et réduit les fausses alertes"
-    en: "Our technical AI partner, improving our detection models and cutting false alarms"
-    es: "Nuestro socio técnico en inteligencia artificial, que mejora nuestros modelos de detección y reduce las falsas alarmas"
-    es-ct: "El nostre soci tècnic en intel·ligència artificial, que millora els nostres models de detecció i redueix les falses alarmes"
+    fr: "Partenaire technique en intelligence artificielle"
+    en: "Technical partner in artificial intelligence"
+    es: "Socio técnico en inteligencia artificial"
+    es-ct: "Soci tècnic en intel·ligència artificial"

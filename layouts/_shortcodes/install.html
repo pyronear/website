@@ -1,0 +1,39 @@
+{{- /* Installing a station, from the page's `install` front matter: icon points, then a real case (photos, two big figures, one sentence). Keeps the `installation` anchor other pages link to. {{< install >}} */ -}}
+{{- $page := .Page }}
+{{- with $page.Params.install }}
+<div class="deploy-block">
+  <h2 id="installation">{{ .title }}</h2>
+  <ul class="icon-list">
+    {{- range .facts }}
+    <li>
+      <span class="icon-list__icon">{{ partial "icon.html" .icon }}</span>
+      <h3>{{ .title }}</h3>
+      <p>{{ .text }}</p>
+    </li>
+    {{- end }}
+  </ul>
+  {{- with .example }}
+  <div class="deploy-case">
+    <div class="deploy-case__photos">
+      {{- range .photos }}
+      {{- $alt := .alt }}
+      {{- with $page.Resources.Get .file }}
+      {{- $img := .Fill "800x800 webp q75 Center" }}
+      <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $alt }}" loading="lazy">
+      {{- end }}
+      {{- end }}
+    </div>
+    <div class="deploy-case__text">
+      <p class="deploy-case__label">{{ .label }}</p>
+      <dl class="deploy-case__stats">
+        {{- range .stats }}
+        <div><dt>{{ .value }}</dt><dd>{{ .label }}</dd></div>
+        {{- end }}
+      </dl>
+      <p class="deploy-case__lead">{{ .text }}</p>
+      <p class="deploy-case__thanks">{{ .thanks }}</p>
+    </div>
+  </div>
+  {{- end }}
+</div>
+{{- end }}

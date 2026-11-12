@@ -1,0 +1,16 @@
+{{- /* Support over the seasons, from the page's `service` front matter: a lead sentence and icon points. {{< service >}} */ -}}
+{{- with .Page.Params.service }}
+<div class="deploy-block">
+  <h2>{{ .title }}</h2>
+  {{- with .intro }}<p>{{ . }}</p>{{ end }}
+  <ul class="icon-list">
+    {{- range .items }}
+    <li>
+      <span class="icon-list__icon">{{ partial "icon.html" .icon }}</span>
+      <h3>{{ .title }}</h3>
+      <p>{{ .text }}</p>
+    </li>
+    {{- end }}
+  </ul>
+</div>
+{{- end }}

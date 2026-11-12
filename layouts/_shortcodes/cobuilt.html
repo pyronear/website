@@ -1,0 +1,15 @@
+{{- /* How a deployment goes, from the page's `cobuilt` front matter: a title and a sequence of steps, each with an icon, a title and one sentence. {{< cobuilt >}} */ -}}
+{{- with .Page.Params.cobuilt }}
+<div class="deploy-block">
+  <h2>{{ .title }}</h2>
+  <ol class="deploy-steps">
+    {{- range .steps }}
+    <li>
+      <span class="deploy-steps__icon">{{ partial "icon.html" .icon }}</span>
+      <h3>{{ .title }}</h3>
+      {{- with .text }}<p>{{ . }}</p>{{ end }}
+    </li>
+    {{- end }}
+  </ol>
+</div>
+{{- end }}

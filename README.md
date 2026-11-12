@@ -23,7 +23,8 @@ hugo --gc --minify
 | Other pages (About, How it works, Deployments, Support us, News) | `content/<page>/index.<lang>.md` |
 | Buttons, form labels, short UI text | `i18n/<lang>.yaml` (`i18n/ca.yaml` for Catalan) |
 | Key figures (home and About) | `data/figures.yaml` |
-| Deployment map markers | `data/deployments.yaml` |
+| Deployments map: shaded departments and countries | `data/deployments.yaml` |
+| Outlines of the French departments (generated, do not edit by hand) | `data/france_departments.json` |
 | Partners | `data/partners.yaml` |
 | Supporters | `data/sponsors.yaml` |
 | News items | `data/news.yaml` |
@@ -33,7 +34,6 @@ hugo --gc --minify
 | Styles and scripts | `assets/css/main.css`, `assets/js/` |
 | Images | `static/img/`; photos used in a page's Markdown go next to it in `content/<page>/` (the hero photo is in `assets/img/`) |
 | Default social share image | `static/img/og.jpg` |
-| Leaflet (map library) | `static/vendor/leaflet/` |
 
 Each page's URL is set by `slug` in its front matter. Shared menu order, templates and resource settings live in the `cascade` entries in `hugo.toml` and apply to every translation.
 
@@ -54,11 +54,27 @@ Languages: French (default, served at `/`), English (`/en/`), Spanish (`/es/`) a
 
 ### Deployment map
 
-Each entry in `data/deployments.yaml` is one marker. Use approximate coordinates (department or region level), never the exact position of a station.
+The Deployments page shows a static map of France with the departments where at least one camera runs, next to key figures and the list of countries. Everything comes from `data/deployments.yaml`:
+
+- An entry with `dept` (the department code, in quotes: `"07"`, `"2A"`) shades that department. `name` is optional and shows when hovering the department.
+- An entry without `dept` is a country: it is added to the list of countries.
+- The number of departments and the number of countries on the page are counted from these entries. The "countries" figure of the home and About pages is separate: update it in `data/figures.yaml`.
+
+```yaml
+- name: SDIS 07
+  dept: "07"
+  lat: 44.73
+  lng: 4.60
+  place: { fr: Ardèche, en: Ardèche, es: Ardèche, es-ct: Ardèche }
+```
+
+Keep `lat` and `lng` approximate (department or region level), never the exact position of a station.
+
+The department outlines in `data/france_departments.json` are simplified from IGN open data (Admin Express, Licence Ouverte 2.0).
 
 ### Adding a partner or supporter
 
-Add an entry to `data/partners.yaml` or `data/sponsors.yaml` with a `description` in every language:
+Add an entry to `data/partners.yaml` or `data/sponsors.yaml` with a `description` in every language. For a partner, keep it to one short line saying who they are (for example "Service d'incendie et de secours de l'Ardèche"):
 
 ```yaml
 - name: Example
@@ -71,7 +87,9 @@ Add an entry to `data/partners.yaml` or `data/sponsors.yaml` with a `description
     es-ct: ...
 ```
 
-Prefer putting the logo in `static/img/` over linking to an external image.
+Put the logo in `static/img/` (about 400 px wide is enough) rather than linking to an external image, which breaks when the other site changes.
+
+If the partner brings a new department or country, also add it to `data/deployments.yaml` (see "Deployment map") so the map, its hover label and the figures follow.
 
 ## Deployment
 
