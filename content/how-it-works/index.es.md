@@ -27,8 +27,6 @@ Nuestras estaciones se instalan en puntos altos (torres eléctricas, depósitos 
 
 Una estación se instala en menos de media jornada: [ver cómo]({{< relref "/deployments#installation" >}}).
 
-![Funcionamiento de una estación de detección](model.png)
-
 {{< gallery >}}
 ![Torre equipada con una estación Pyronear en el bosque de Fontainebleau](antenna.jpg)
 ![Cámaras instaladas en lo alto de la torre](cameras.jpg)
@@ -46,7 +44,9 @@ Cuando una cámara detecta humo, la estación pasa a modo de alerta: todas las i
 
 ## Prueba el modelo
 
-Prueba nuestro modelo de detección en tu navegador: elige una imagen de cámara y mira cómo detecta el humo.
+Prueba nuestro modelo de detección en tu navegador: dale un vídeo o una secuencia de imágenes de cámara, o en su defecto una sola imagen, y mira cómo detecta el humo.
+
+{{< compare before="model-input.jpg" beforeCaption="Imagen de la cámara" after="model-output.jpg" afterCaption="Detección" >}}
 
 {{< hf-space "pyronear/Pyronear-Wildfire-Detection" "https://pyronear-pyronear-wildfire-detection.hf.space" >}}
 
