@@ -22,11 +22,11 @@
   --line: #d6d3c1;
   --field: #c3c0ad;
   --error: #9b2c1f;
-  /* Forest greens: the contact section and the hero's bottom edge */
+  /* Forest greens: the contact section and the hero stage behind the photo */
   --forest: #2c5549;
   --deep: #1d4035;
   /* The scene's sky at its top edge: the nav and the headline band take the same colour so the hero reads as one */
-  --sky: #b3cfe2;
+  --sky: #959fad;
   --display: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --sans: var(--display);
   --radius: 8px;
@@ -422,27 +422,17 @@ h3 {
   --px: max(100cqw / 1600, 100cqh / 900);
 }
 
-/* Top and bottom edges fade into the nav (sky colour) and the next section (deep forest), whatever the crop */
-.hero__stage::before,
-.hero__stage::after {
+/* The top edge fades into the nav, which has the photo's own sky colour: the seam disappears and the photo keeps its colours */
+.hero__stage::before {
   content: "";
   position: absolute;
+  top: 0;
   right: 0;
   left: 0;
   z-index: 1;
-  pointer-events: none;
-}
-
-.hero__stage::before {
-  top: 0;
   height: 4rem;
-  background: linear-gradient(var(--sky), rgb(179 207 226 / 0%));
-}
-
-.hero__stage::after {
-  bottom: 0;
-  height: 7rem;
-  background: linear-gradient(rgb(29 64 53 / 0%), var(--deep));
+  background: linear-gradient(var(--sky), transparent);
+  pointer-events: none;
 }
 
 .hero__visual {
@@ -732,8 +722,7 @@ h3 {
     height: max(300px, 56.25vw);
   }
 
-  .hero__stage::before,
-  .hero__stage::after {
+  .hero__stage::before {
     content: none;
   }
 
