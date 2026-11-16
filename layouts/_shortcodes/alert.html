@@ -1,0 +1,21 @@
+{{- /* Alerting and analysing, from the page's `alert` front matter: a lead sentence, icon points, the platform screenshot and a framed example. {{< alert >}} */ -}}
+{{- $page := .Page }}
+{{- with $page.Params.alert }}
+<div class="alert-block" id="alert">
+  <h2>{{ .title }}</h2>
+  {{- with .intro }}<p>{{ . }}</p>{{ end }}
+  <ul class="icon-list">
+    {{- range .items }}
+    <li>
+      <span class="icon-list__icon">{{ partial "icon.html" .icon }}</span>
+      <h3>{{ .title }}</h3>
+      <p>{{ .text }}</p>
+    </li>
+    {{- end }}
+  </ul>
+  {{ printf "![%s](platform-alert.jpg)" .shot | $page.RenderString (dict "display" "block") }}
+  {{- with .example }}
+  <p class="example"><strong>{{ .value }}</strong><span>{{ .text }}</span></p>
+  {{- end }}
+</div>
+{{- end }}

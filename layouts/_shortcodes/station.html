@@ -1,0 +1,37 @@
+{{- /* The detection station, from the page's `station` front matter: icon points (parts and key figures), a note and photos. {{< station >}} */ -}}
+{{- $page := .Page }}
+{{- with $page.Params.station }}
+<div class="station" id="station">
+  <h2>{{ .title }}</h2>
+  <ul class="icon-list">
+    {{- range .parts }}
+    <li>
+      <span class="icon-list__icon">{{ partial "icon.html" .icon }}</span>
+      <h3>{{ .title }}</h3>
+      <p>{{ .text }}</p>
+    </li>
+    {{- end }}
+    {{- range .stats }}
+    <li>
+      <span class="icon-list__icon">{{ partial "icon.html" .icon }}</span>
+      <h3>{{ .value }}</h3>
+      <p>{{ .label }}</p>
+    </li>
+    {{- end }}
+  </ul>
+  <p class="station__extra">{{ .extra }}
+    {{- with $page.Site.GetPage "/deployments" }} <a href="{{ .RelPermalink }}#installation">{{ $page.Params.station.install }}</a>{{ end }}</p>
+  <ul class="photo-row">
+    {{- range .photos }}
+    {{- $caption := .caption }}
+    {{- with $page.Resources.Get .file }}
+    {{- $img := .Fill "600x800 webp q75 Center" }}
+    <li>
+      <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="" loading="lazy">
+      <span>{{ $caption }}</span>
+    </li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</div>
+{{- end }}
