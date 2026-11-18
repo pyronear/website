@@ -35,7 +35,16 @@ howItWorks:
   - title: "Intervenir"
     text: "Los usuarios evalúan rápido el riesgo y activan antes las operaciones: valiosas decenas de minutos ganadas frente a las llamas."
 contactForm:
-  title: Protejamos nuestros bosques
+  title: "Escríbanos"
+  text: "Un proyecto de despliegue, una pregunta, ganas de contribuir: cada mensaje lo lee un miembro de la asociación."
+  note: "Pyronear es una asociación francesa sin ánimo de lucro y de interés general, con sede en París."
+  # Each topic becomes the e-mail subject; the last one is selected by default
+  topics:
+  - Equipar un territorio
+  - Hacerse voluntario
+  - Apoyar el proyecto
+  - Prensa
+  - Otra pregunta
 follow:
   title: Sigue la aventura Pyronear
   text: Para mantenerse actualizado sobre nuestro progreso o para unirse a la aventura, ¡también puede comunicarse con nosotros en las redes sociales!

@@ -35,7 +35,16 @@ howItWorks:
   - title: "Respond"
     text: "Users quickly assess the risk and launch operations sooner: precious tens of minutes gained against the flames."
 contactForm:
-  title: Let us protect our forests
+  title: "Write to us"
+  text: "A deployment project, a question, a wish to contribute: every message is read by a member of the association."
+  note: "Pyronear is a French non-profit association of general interest, based in Paris."
+  # Each topic becomes the e-mail subject; the last one is selected by default
+  topics:
+  - Equip a territory
+  - Volunteer
+  - Support the project
+  - Press
+  - Other question
 follow:
   title: Follow the Pyronear adventure
   text: To stay updated about our progress or to join the adventure, you can also reach us on social media!

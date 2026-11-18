@@ -35,7 +35,16 @@ howItWorks:
   - title: "Intervenir"
     text: "Les utilisateurs qualifient rapidement le risque et déclenchent plus tôt les opérations : de précieuses dizaines de minutes gagnées contre les flammes."
 contactForm:
-  title: Protégeons nos forêts
+  title: "Écrivez-nous"
+  text: "Un projet de déploiement, une question, une envie de contribuer : chaque message est lu par un membre de l'association."
+  note: "Pyronear est une association loi 1901 à but non lucratif et d'intérêt général, basée à Paris."
+  # Each topic becomes the e-mail subject; the last one is selected by default
+  topics:
+  - Équiper un territoire
+  - Devenir bénévole
+  - Soutenir le projet
+  - Presse
+  - Autre question
 follow:
   title: Suivez l'aventure Pyronear
   text: Pour se tenir informé de l'avancement du projet ou rejoindre l'aventure, retrouvez-nous sur les réseaux sociaux !

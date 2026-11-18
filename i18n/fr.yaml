@@ -1,9 +1,9 @@
 moreInfo: En savoir plus
 contactUs: Nous contacter
-submit: Envoyer
+submit: "Envoyer le message"
 emailLabel: Votre adresse e-mail
 emailPrivacy: Nous ne partagerons jamais votre adresse e-mail sans votre autorisation.
-subjectLabel: Objet
+subjectLabel: "Votre message concerne"
 messageLabel: Votre message
 captchaError: La vérification a échoué. Merci de réessayer le contrôle de sécurité.
 inputError: Vérifiez votre adresse e-mail et votre message, puis réessayez.
@@ -17,7 +17,6 @@ notFound: Page introuvable
 backHome: Retour à l'accueil
 menu: "Menu"
 keyFigures: "Pyronear en chiffres"
-discover: "Découvrir Pyronear"
 allNews: "Toutes les actualités"
 seeDeployments: "Voir les déploiements"
 allNewsList: "Toutes les apparitions"
@@ -31,3 +30,5 @@ sending: "Envoi en cours…"
 sendingNote: "Merci de patienter pendant l'envoi de votre message."
 seeHowItWorks: "Voir comment ça marche"
 whereDeployed: "Où est déployé Pyronear ?"
+emailPlaceholder: "nom@organisation.fr"
+messagePlaceholder: "Votre territoire, votre projet ou votre question…"
