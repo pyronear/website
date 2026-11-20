@@ -2,9 +2,10 @@
 {{- $page := .Page }}
 {{- with $page.Params.alert }}
 <div class="alert-block" id="alert">
+  <div>
   <h2>{{ .title }}</h2>
   {{- with .intro }}<p>{{ . }}</p>{{ end }}
-  <ul class="icon-list">
+  <ul class="icon-list icon-list--rows">
     {{- range .items }}
     <li>
       <span class="icon-list__icon">{{ partial "icon.html" .icon }}</span>
@@ -13,9 +14,10 @@
     </li>
     {{- end }}
   </ul>
-  {{ printf "![%s](platform-alert.jpg)" .shot | $page.RenderString (dict "display" "block") }}
   {{- with .example }}
   <p class="example"><strong>{{ .value }}</strong><span>{{ .text }}</span></p>
   {{- end }}
+  </div>
+  <div class="alert-block__shot">{{ printf "![%s](platform-alert.jpg)" .shot | $page.RenderString (dict "display" "block") }}</div>
 </div>
 {{- end }}

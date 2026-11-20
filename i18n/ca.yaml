@@ -1,9 +1,9 @@
 moreInfo: Més informació
 contactUs: Contacta amb nosaltres
-submit: Enviar
+submit: "Enviar el missatge"
 emailLabel: La teva adreça de correu electrònic
 emailPrivacy: Mai compartirem el teu correu electrònic sense el teu consentiment.
-subjectLabel: Assumpte
+subjectLabel: "El vostre missatge tracta de"
 messageLabel: El teu missatge
 captchaError: La verificació ha fallat. Torna a provar el control de seguretat.
 inputError: Comprova la teva adreça de correu i el missatge i torna-ho a provar.
@@ -17,7 +17,6 @@ notFound: Pàgina no trobada
 backHome: Tornar a l'inici
 menu: "Menú"
 keyFigures: "Pyronear en xifres"
-discover: "Descobreix Pyronear"
 allNews: "Totes les notícies"
 seeDeployments: "Veure els desplegaments"
 allNewsList: "Totes les aparicions"
@@ -31,3 +30,5 @@ sending: "Enviant…"
 sendingNote: "Espera mentre enviem el teu missatge."
 seeHowItWorks: "Veure com funciona"
 whereDeployed: "On està desplegat Pyronear?"
+emailPlaceholder: "nom@organitzacio.cat"
+messagePlaceholder: "El vostre territori, el vostre projecte o la vostra pregunta…"

@@ -65,7 +65,7 @@
 - name: ADF Subirats
   lat: 41.40
   lng: 1.81
-  place: { fr: "Catalogne, Espagne", en: "Catalonia, Spain", es: "Cataluña, España", es-ct: "Catalunya, Espanya" }
+  place: { fr: Espagne, en: Spain, es: España, es-ct: Espanya }
 - name: CENIA
   lat: -33.45
   lng: -70.67

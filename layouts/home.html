@@ -19,23 +19,8 @@
     </div>
   </section>
   {{- end }}
-  <section class="section" id="discover">
-    <div class="container">
-      <h2>{{ i18n "discover" }}</h2>
-      <div class="cards cards--pages">
-        {{- range site.Menus.main }}
-        {{- with .Page }}
-        <a class="card card--link card--page" href="{{ .RelPermalink }}">
-          <h3>{{ .Title }}</h3>
-          <p>{{ .Description }}</p>
-        </a>
-        {{- end }}
-        {{- end }}
-      </div>
-    </div>
-  </section>
   {{- with site.GetPage "/deployments" }}
-  <section class="section section--alt" id="partners">
+  <section class="section" id="partners">
     <div class="container">
       <p class="eyebrow">{{ .Params.partners.eyebrow }}</p>
       <h2>{{ .Params.partners.title }}</h2>
@@ -51,7 +36,7 @@
     </div>
   </section>
   {{- end }}
-  <section class="section" id="media">
+  <section class="section section--alt" id="media">
     <div class="container">
       <p class="eyebrow">{{ .Params.media.eyebrow }}</p>
       <h2>{{ .Params.media.title }}</h2>
@@ -66,4 +51,6 @@
     </div>
   </section>
   {{ partial "contact.html" . }}
+  {{- $navjs := resources.Get "js/nav.js" | minify | fingerprint }}
+  <script src="{{ $navjs.RelPermalink }}" integrity="{{ $navjs.Data.Integrity }}" defer></script>
 {{ end }}
