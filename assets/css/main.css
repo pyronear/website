@@ -1010,9 +1010,8 @@ h3 {
   background-repeat: no-repeat;
 }
 
-/* Text pages: a readable column that starts at the container's left edge, under the page title */
-.container--prose > * {
-  max-width: 760px;
+.container--prose {
+  width: min(760px, 100% - 2 * var(--gutter));
 }
 
 .prose {
