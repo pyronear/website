@@ -97,7 +97,7 @@ Cloudflare Workers Builds connects `pyronear/website` to `pyronear-website` in t
 
 | Git branch | Result | Deploy command |
 | --- | --- | --- |
-| `main` | Deploy the website at `https://website.pyronear.org/` | `npx --yes wrangler@4.157.0 deploy` |
+| `main` | Deploy the website at `https://pyronear.org/` | `npx --yes wrangler@4.157.0 deploy` |
 | All other branches | Update a separate Preview; Cloudflare adds its URL to the pull request | `npx --yes wrangler@4.157.0 preview` |
 
 The website's Production and Previews Base build settings use the repository root, `HUGO_VERSION=0.166.0`, `NODE_VERSION=22.23.4`, and build command `node --test worker/index.test.mjs && npx --yes wrangler@4.157.0 deploy --dry-run --config worker/wrangler.toml && hugo --gc --minify --panicOnWarning`. Enable Previews and include all paths. Previews follow branches pushed to this repository; for a fork pull request, push a reviewed copy of its branch here.
@@ -106,7 +106,7 @@ The production build also needs `HUGO_PARAMS_FORMACTION` (the contact Worker's H
 
 The separate `pyronear-contact` Worker connects to the same repository with production branch `main`, root directory `worker`, build command `node --test index.test.mjs`, deploy command `npx --yes wrangler@4.157.0 deploy`, and Previews disabled. Both Workers deploy on each push to `main`.
 
-The custom domain is declared in `wrangler.toml`. Before changing domains, update `hugo.toml`, the website route, the contact Worker's allowed origins, and the Turnstile widget hostnames. The contact Worker already allows both `website.pyronear.org` and `pyronear.org`.
+The custom domains are declared in `wrangler.toml`: `pyronear.org` is the public address, and `website.pyronear.org` stays attached during the transition. Before changing domains, update `hugo.toml`, the website route, the contact Worker's allowed origins, and the Turnstile widget hostnames. The contact Worker already allows both `website.pyronear.org` and `pyronear.org`.
 
 ## Contact form
 
