@@ -4,7 +4,7 @@ description: Détection précoce de feux de forêt
 hero:
   title: Détection précoce des départs de feux
   subtitle: Pyronear est un projet open-source au service du bien commun
-  imageAlt: "Illustration à partir d'une photo réelle : une caméra sur un mât surveille la forêt. Au loin, un petit panache de fumée est repéré et sa position GPS calculée."
+  imageAlt: "Photo illustrative : une caméra sur une tour de guet surveille la forêt. Au loin, un petit panache de fumée est repéré et sa position GPS calculée."
   alert:
     tag: "Fumée · 164°"
     title: "Départ de feu"

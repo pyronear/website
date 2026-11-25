@@ -4,7 +4,7 @@ description: Early detection of forest wildfires
 hero:
   title: Early detection of wildfires
   subtitle: Pyronear is an open-source project for the common good
-  imageAlt: "Illustration from a real photo: a camera on a pole watches a forest. Far away, a small plume of smoke is spotted and its GPS position worked out."
+  imageAlt: "Illustrative photo: a camera on a lookout tower watches a forest. Far away, a small plume of smoke is spotted and its GPS position worked out."
   alert:
     tag: "Smoke · 164°"
     title: "Fire start"

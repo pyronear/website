@@ -4,7 +4,7 @@ description: Detecció precoç d'incendis forestals
 hero:
   title: Detecció d'incendis forestals
   subtitle: Pyronear és un projecte de codi obert per al bé comú
-  imageAlt: "Il·lustració a partir d'una foto real: una càmera en un pal vigila el bosc. Al lluny es detecta una petita columna de fum i se'n calcula la posició GPS."
+  imageAlt: "Foto il·lustrativa: una càmera en una torre de guaita vigila el bosc. Al lluny es detecta una petita columna de fum i se'n calcula la posició GPS."
   alert:
     tag: "Fum · 164°"
     title: "Inici d'incendi"
