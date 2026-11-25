@@ -4,7 +4,7 @@ description: Detección temprana de incendios forestales
 hero:
   title: Detección temprana de incendios forestales
   subtitle: Pyronear es un proyecto de código abierto para el bien común
-  imageAlt: "Ilustración a partir de una foto real: una cámara en un poste vigila el bosque. A lo lejos se detecta una pequeña columna de humo y se calcula su posición GPS."
+  imageAlt: "Foto ilustrativa: una cámara en una torre de vigilancia vigila el bosque. A lo lejos se detecta una pequeña columna de humo y se calcula su posición GPS."
   alert:
     tag: "Humo · 164°"
     title: "Inicio de incendio"

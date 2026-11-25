@@ -26,7 +26,7 @@
   --forest: #2c5549;
   --deep: #1d4035;
   /* The scene's sky at its top edge: the nav and the headline band take the same colour so the hero reads as one */
-  --sky: #959fad;
+  --sky: #85ade6;
   --display: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --sans: var(--display);
   --radius: 8px;
@@ -399,7 +399,7 @@ h3 {
   gap: 0.75rem;
 }
 
-/* Home hero: the whole system in one scene. A camera on a pylon watches a forest; smoke far away is spotted,
+/* Home hero: the whole system in one scene. A camera on a lookout tower watches a forest; smoke far away is spotted,
    framed, located and reported. The headline sits on a glass card over the open sky.
    Everything animates from a "pending" look to the resting state, so without motion the finished story shows. */
 .home-hero h1 {
@@ -566,14 +566,14 @@ h3 {
   }
 }
 
-/* The tracker: the same four steps in words, pinned in scene pixels at (900, 22) above the smoke.
+/* The tracker: the same four steps in words, pinned in scene pixels at (820, 22) above the smoke.
    An illustrative alert, as an operator would receive it. Static: nothing in it is clickable. */
 .alert-mock {
   position: absolute;
   z-index: 2;
   top: calc(50cqh + (22 - 450) * var(--px));
   left: calc(100cqw - (1600 - 820) * var(--px));
-  /* Never wider than the gap between the headline and the camera: its right edge stops at scene x = 1290 */
+  /* Never wider than the gap between the headline and the camera: its right edge stops at scene x = 1210 */
   width: min(320px, calc(390 * var(--px)));
   margin: 0;
   animation: fade-up 0.5s 0.6s ease-out backwards;
