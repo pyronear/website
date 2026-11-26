@@ -1,0 +1,76 @@
+{{- /* How it works opening: the title, then the four steps of the home page played over a camera feed.
+   The feed is the real view from the Fontainebleau mast, with a first smoke added (Codex edit); the alert figures are the
+   ones of the home hero, taken from a real alert. assets/js/chain.js moves data-step from 1 to 4; without it, step 1 shows.
+   The smoke box is in percent of the image (--x --y --w --h); in step 3 the operator steers the camera onto it, and step 4 stays there. */ -}}
+{{- $alert := site.Home.Params.hero.alert -}}
+{{- $steps := site.Home.Params.steps.items -}}
+<section class="page-hero">
+  <div class="container page-hero__inner chain">
+    <div>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+      <ol class="chain__steps">
+        {{- range $i, $step := $steps }}
+        <li><button type="button" data-go="{{ $i }}"{{ if eq $i 0 }} aria-current="step"{{ end }}>
+          <strong>{{ $step.title }}</strong><span>{{ $step.text }}</span>
+        </button></li>
+        {{- end }}
+      </ol>
+    </div>
+
+    <div class="frame">
+      <div class="feed" data-step="1" style="--x: 63.4; --y: 42.9; --w: 4.4; --h: 9.8" aria-hidden="true">
+        {{- with .Resources.Get "feed.jpg" }}
+        {{- $img := .Resize "1600x webp q72" }}
+        <img class="feed__view" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="">
+        {{- end }}
+        <span class="feed__box"><span>{{ $alert.tag }}</span></span>
+        <p class="feed__hud"><span class="feed__rec"></span>{{ (index $alert.steps 1).value }}</p>
+
+        {{/* Step 2: the alert as the dispatch centre receives it, with the bearings of the three cameras that saw the smoke */}}
+        <div class="feed__alert alert-mock__card">
+          <div class="alert-mock__head"><strong>{{ $alert.title }}</strong><time>{{ $alert.time }}</time></div>
+          <div class="feed__map"><svg viewBox="0 0 200 120">
+            <path d="M88 17 L100 60 M94 110 L100 60 M170 66 L100 60"/>
+            <circle cx="88" cy="17" r="3.500"/><circle cx="94" cy="110" r="3.500"/><circle cx="170" cy="66" r="3.500"/>
+            <circle class="feed__fire" cx="100" cy="60" r="6"/>
+          </svg></div>
+          <dl>
+            {{- range after 2 $alert.steps }}
+            <div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>
+            {{- end }}
+          </dl>
+        </div>
+
+        {{/* Step 3: the operator's screen. They take the camera by hand: the pad lights up as they zoom, pan and tilt onto the smoke */}}
+        <svg class="feed__aim" viewBox="0 0 40 40"><path d="M20 4v10M20 26v10M4 20h10M26 20h10"/></svg>
+        <p class="feed__manual">{{ .Params.feed.manual }}<b class="feed__zoom"></b></p>
+        <svg class="feed__pad" viewBox="0 0 104 64">
+          <circle cx="32" cy="32" r="29"/>
+          <path class="is-up" d="M32 9l7 8H25z"/><path class="is-right" d="M55 32l-8 7V25z"/>
+          <path d="M32 55l7-8H25zM9 32l8 7V25z"/><circle class="is-hub" cx="32" cy="32" r="7"/>
+          <g class="is-in"><circle cx="86" cy="18" r="13"/><path d="M80 18h12M86 12v12"/></g>
+          <g><circle cx="86" cy="46" r="13"/><path d="M80 46h12"/></g>
+        </svg>
+        <p class="feed__chip feed__chip--live">{{ partial "icon.html" "shield" }}{{ (index .Params.alert.items 2).title }}</p>
+
+        {{/* Step 4: the fire is confirmed and the engines leave, then what it changes, from the Fontainebleau example */}}
+        {{- with .Params.feed.dispatch }}{{ $status := .status }}
+        <div class="feed__dispatch alert-mock__card">
+          <div class="alert-mock__head"><strong>{{ .title }}</strong><time>{{ .time }}</time></div>
+          <p>{{ .label }}</p>
+          <ul>
+            {{- range $i, $unit := .units }}
+            <li style="--i: {{ $i }}">{{ partial "icon.html" "truck" }}{{ $unit }}<em>{{ $status }}</em></li>
+            {{- end }}
+          </ul>
+        </div>
+        {{- end }}
+        <p class="feed__chip feed__chip--gain"><strong>{{ .Params.alert.example.value }}</strong>{{ i18n "beforeFirstCall" }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{{- with resources.Get "js/chain.js" | minify | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+{{- end }}

@@ -1,43 +1,44 @@
 ---
 title: Démarche ouverte
 slug: demarche-ouverte
-description: "Notre code, nos modèles, nos données et notre matériel sont ouverts : un bien commun pour détecter les feux."
+description: "Code, modèles, données et matériel ouverts : un outil que vous pouvez vérifier, réutiliser et garder, sans dépendre d'un fournisseur."
 ---
 
-## Un commun numérique
+## Ce que l'ouverture change pour vous
 
-> Un commun, c'est une ressource produite collectivement par une communauté d'acteurs hétérogènes et gouvernée par des règles qui assurent sa survie et garantissent son caractère ouvert et partagé.
->
-> — [IGN, démarche géocommuns](https://www.ign.fr/institut/la-demarche-geocommuns)
+- **Aucune dépendance à un fournisseur** : le code est sous licence libre (Apache 2.0), sans frais de licence. Vous pouvez l'utiliser et le faire évoluer librement.
+- **Un outil vérifiable** : votre DSI, ou tout expert de votre choix, peut examiner le code, les modèles et le matériel.
+- **La continuité** : si Pyronear s'arrêtait, tout resterait public et utilisable.
+- **Vos données en France** : la plateforme d'alerte et les images sont hébergées sur des clouds français. Nous pouvons aussi déployer sur l'infrastructure de votre service.
 
-En clair : une ressource que tout le monde peut utiliser et enrichir, sans dépendre d'un fournisseur, comme Wikipédia ou OpenStreetMap. Pyronear applique cette idée à la détection précoce des feux : chaque amélioration, chaque image annotée et chaque retour du terrain profite à tous les territoires.
+Au Chili, c'est ce qui permet au CENIA, le centre national d'intelligence artificielle, de devenir autonome : transfert de connaissances, puis formation à l'assemblage des stations et au déploiement du système. Nous avons publié ensemble nos travaux de recherche ([lire l'article](https://www.mdpi.com/2079-9292/15/12/2652)).
 
 ## Ce qui est ouvert
 
-- **Le code** : le logiciel des stations, la plateforme d'alerte et les outils sont publiés sous licence libre (Apache 2.0). Tout service d'incendie, collectivité ou chercheur peut les réutiliser. [Voir sur GitHub](https://github.com/pyronear)
-- **Les modèles d'IA** : nos modèles de détection sont publiés. [Voir sur Hugging Face](https://huggingface.co/pyronear)
-- **Les données** : un dataset d'images de caméras annotées par la communauté de contributeurs, partagé en open data (Apache 2.0) pour que les images collectées servent au plus grand nombre. Plus de 15 000 téléchargements. [Voir le dataset](https://huggingface.co/datasets/pyronear/pyro-sdis)
-- **Le matériel** : la liste des composants et la configuration de nos stations sont publiques, pour que chacun puisse les assembler et les déployer. [Voir sur GitHub](https://github.com/pyronear)
-- **La recherche** : la science ouverte et l'intelligence collective sont la meilleure approche pour résoudre un problème complexe. Nos travaux sont menés en collaboration et publiés. [En savoir plus](#recherche)
+- **Le code** : le logiciel des stations, la plateforme d'alerte et les outils. [Voir sur GitHub](https://github.com/pyronear)
+- **Les modèles d'IA** : nos modèles de détection. [Voir sur Hugging Face](https://huggingface.co/pyronear)
+- **Les données** : un jeu de données d'images de caméras annotées par nos bénévoles, en open data (Apache 2.0). Plus de 15 000 téléchargements. [Voir le jeu de données](https://huggingface.co/datasets/pyronear/pyro-sdis)
+- **Le matériel** : la liste des composants et la configuration des stations, pour que chacun puisse les assembler. [Voir sur GitHub](https://github.com/pyronear)
+- **La recherche** : nos travaux sont menés avec des partenaires et publiés. [En savoir plus](#recherche)
 
-## Un cadre juridique favorable
+Pour aller plus loin, cette démarche rejoint la notion de [commun numérique](https://www.ign.fr/institut/la-demarche-geocommuns), portée en France par des acteurs publics comme l'IGN.
 
-En France, le cadre juridique est favorable à l'ouverture des données. Ce cadre a été identifié avec la DINUM, la direction interministérielle du numérique. Nous nous en saisissons : quand un service d'incendie partage ses images, c'est tout l'écosystème qui progresse, et la détection précoce devient encore plus accessible à tous les territoires.
+## Partager vos images
 
-Notre [note juridique pour les SDIS qui souhaitent partager leurs images](https://pyronear.notion.site/Notes-de-synth-se-FAQ-du-webinaire-open-data-DINUM-SDIS-MSP-18c425b63668806cb5dbc7a35d7452b4) explique comment faire.
+Partager ses images est un choix de chaque service. Les images partagées et annotées rejoignent le jeu de données ouvert et améliorent la détection pour tous les territoires.
 
-## Une recherche ouverte et collaborative {#recherche}
+Depuis un point haut, les caméras regardent la forêt au loin : à cette distance, les images ne permettent d'identifier ni des personnes ni des plaques d'immatriculation.
 
-Nous favorisons une démarche de science ouverte : la recherche collaborative est le meilleur moyen de résoudre un problème complexe, grâce à l'intelligence collective.
+En France, le cadre juridique est favorable à l'ouverture de ces données. Nous l'avons identifié avec la DINUM, la direction interministérielle du numérique : notre [synthèse du webinaire open data organisé avec la DINUM pour les SDIS](https://pyronear.notion.site/Notes-de-synth-se-FAQ-du-webinaire-open-data-DINUM-SDIS-MSP-18c425b63668806cb5dbc7a35d7452b4) explique comment faire.
 
-**Exemple au Chili.** Nous travaillons avec le CENIA, le centre national d'intelligence artificielle chilien : transfert de connaissances, puis formation à l'assemblage des stations et au déploiement du système pour qu'ils soient autonomes, et publication commune de travaux de recherche ([découvrir le papier](https://www.mdpi.com/2079-9292/15/12/2652)).
+## Une recherche ouverte {#recherche}
 
-La recherche ouverte facilite le partage des méthodes et des avancées : notre partenaire [EarthToolsMaker](https://www.earthtoolsmaker.org/) raconte en détail comment nous avons amélioré nos modèles (en anglais) :
+Nous menons nos travaux en science ouverte, avec nos partenaires, pour que méthodes et avancées profitent à tous. [EarthToolsMaker](https://www.earthtoolsmaker.org/) raconte en détail comment nous avons amélioré nos modèles (en anglais) :
 
 - [Smoke Is a Behavior: Inside Pyronear's Temporal Wildfire Detection Model](https://www.earthtoolsmaker.org/posts/smoke-is-a-behavior/)
 - [Racing Models, Not Opinions: How We Ran Wildfire ML R&D for Pyronear](https://www.earthtoolsmaker.org/posts/racing-models-not-opinions/)
 - [Protecting the Forest: Building an early forest fire detector](https://www.earthtoolsmaker.org/posts/protecting-the-forest-early-forest-fire-detector/)
 
-## Participer
+## Parlons-en
 
-Utiliser, adapter, contribuer : toutes les façons de nous rejoindre sont sur la page [Agir avec nous]({{< relref "/support" >}}). Vous êtes un service d'incendie et vous souhaitez partager des images ? [Contactez-nous](../#contact-form).
+Votre DSI veut examiner le code ou le matériel ? Vous souhaitez partager des images ou déployer sur votre infrastructure ? [Écrivez-nous](../#contact-form). Pour contribuer autrement, voir [Agir avec nous]({{< relref "/support" >}}).

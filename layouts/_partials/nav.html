@@ -8,32 +8,28 @@
 <header class="nav{{ if .IsHome }} nav--sky{{ end }}">
   <div class="container nav__inner">
     <a class="nav__brand" href="{{ $home.RelPermalink }}">
-      <img src="{{ "img/logo_letters.png" | relURL }}" alt="Pyronear" width="1108" height="226">
+      <img src="{{ "img/logo_letters.webp" | relURL }}" alt="Pyronear" width="1108" height="226">
     </a>
     <nav class="nav__links" aria-label="Pages">{{ partial "nav-links.html" $current }}</nav>
     <a class="btn btn--small nav__contact" href="{{ $home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
     <details class="lang">
-      <summary>
-        <img src="{{ printf "img/flags/%s.svg" site.Language.Lang | relURL }}" alt="" width="20" height="20">
-        {{ site.Language.Label }}
-      </summary>
+      <summary aria-label="{{ i18n "language" }} ({{ site.Language.Label }})">{{ partial "icon.html" "globe" }}{{ index (split site.Language.Locale "-") 0 | upper }}</summary>
       <ul>
         {{- range $current.AllTranslations | default site.Home.AllTranslations }}
         <li>
-          <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}"{{ if eq .Language.Lang site.Language.Lang }} aria-current="true"{{ end }}>
-            <img src="{{ printf "img/flags/%s.svg" .Language.Lang | relURL }}" alt="" width="20" height="20">
-            {{ .Language.Label }}
-          </a>
+          <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}"{{ if eq .Language.Lang site.Language.Lang }} aria-current="true"{{ end }}>{{ .Language.Label }}</a>
         </li>
         {{- end }}
       </ul>
     </details>
     <details class="menu">
-      <summary>{{ i18n "menu" }}</summary>
+      <summary aria-label="{{ i18n "menu" }}"><span class="menu__bars" aria-hidden="true"></span></summary>
       <nav aria-label="Pages">
         {{ partial "nav-links.html" $current }}
-        <a href="{{ $home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
+        <a class="btn btn--accent btn--go" href="{{ $home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a>
       </nav>
     </details>
   </div>
 </header>
+{{- $js := resources.Get "js/nav.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

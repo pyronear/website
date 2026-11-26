@@ -1,15 +1,15 @@
 {{- $lang := site.Language.Lang -}}
-<section class="section{{ if .alt }} section--alt{{ end }}" id="{{ .id }}">
+<section class="section {{ if .alt }}tone-haze{{ else }}tone-paper{{ end }}" id="{{ .id }}">
   <div class="container">
     <p class="eyebrow">{{ .copy.eyebrow }}</p>
     <h2>{{ .copy.title }}</h2>
     <div class="logos">
       {{- range .items }}
       <a class="logo-card" href="{{ .url }}" target="_blank" rel="noopener">
-        <span class="logo-card__img"><img src="{{ .logo | relURL }}" alt="{{ .name }}" loading="lazy"></span>
-        <h3>{{ .name }}</h3>
-        <p>{{ index .description $lang }}</p>
-      </a>
+        {{/* The name is written next to the logo, so the logo itself is decorative */}}
+        <span class="logo-card__img"><img src="{{ .logo | relURL }}" alt="" loading="lazy"></span>
+        <span><h3>{{ .name }}</h3><p>{{ index .description $lang }}</p></span>
+      <span class="visually-hidden"> {{ i18n "newTab" }}</span></a>
       {{- end }}
     </div>
   </div>

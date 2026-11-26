@@ -1,0 +1,10 @@
+{{- /* Opening of an inner page: title and one-line lead beside a visual of its own. Pass a dict: title, lead, visual (ready HTML). */ -}}
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <div>
+      <h1>{{ .title }}</h1>
+      {{ with .lead }}<p class="lead">{{ . }}</p>{{ end }}
+    </div>
+    {{ .visual }}
+  </div>
+</section>

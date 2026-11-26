@@ -1,19 +1,18 @@
-{{- /* The hero visual: an illustrative photo of a camera on a lookout tower above a forest, with the detection drawn over it.
-   Coordinates are in a 1600 x 900 space; the image is 16:9 and fills it.
-   The camera lens is at (1284, 270); the smoke plume rises from (1023, 399), on the horizon,
-   and is framed by the brackets; the label sits under them, clear of the alert card above. */ -}}
+{{- /* The hero visual: a photo edited with Codex (a long-range camera on a lookout tower, a first smoke far away), with the detection drawn over it.
+   Coordinates are in a 1600 x 900 space, the image's own 16:9 scaled to 1600 px wide.
+   The PTZ camera head is turned away from us, towards the smoke; its far side is at (1250, 256); the smoke rises from (1025, 400) and is framed by the brackets, the label sits under them. */ -}}
 {{- $photo := resources.Get "img/hero-early-fire.webp" -}}
 <svg class="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="{{ .imageAlt }}">
   <image href="{{ $photo.RelPermalink }}" x="0" y="0" width="1600" height="900"/>
   <g class="sc-detect">
-    <path class="sc-bearing" d="M1284 270 L1048 350"/>
-    <circle class="sc-lens" cx="1284" cy="270" r="4.500"/>
-    <path class="sc-brackets" pathLength="1" d="M962 338V324H976M1022 324H1036V338M1036 394V408H1022M976 408H962V394"/>
-    <circle class="sc-pulse" cx="1023" cy="399" r="5"/>
+    <path class="sc-bearing" d="M1250 256 L1051 372"/>
+    <circle class="sc-lens" cx="1250" cy="256" r="4.500"/>
+    <path class="sc-brackets" pathLength="1" d="M987 362V348H1001M1029 348H1043V362M1043 398V412H1029M1001 412H987V398"/>
+    <circle class="sc-pulse" cx="1025" cy="400" r="5"/>
     <g class="sc-tag">
-      <rect x="962" y="415" width="122" height="26" rx="13"/>
-      <path transform="translate(971 420.500) scale(.44)" d="M12 1c1 6 10 9.500 10 19a10 10 0 0 1-20 0c0-4 2-7 4-9 .4 4 2 6 4 6-1-6-1-11 2-16z"/>
-      <text x="988" y="433">{{ .alert.tag }}</text>
+      <rect x="987" y="422" width="122" height="26" rx="13"/>
+      <path transform="translate(996 427.500) scale(.44)" d="M12 1c1 6 10 9.500 10 19a10 10 0 0 1-20 0c0-4 2-7 4-9 .4 4 2 6 4 6-1-6-1-11 2-16z"/>
+      <text x="1013" y="440">{{ .alert.tag }}</text>
     </g>
   </g>
 </svg>

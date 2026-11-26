@@ -1,13 +1,15 @@
-{{- /* Home hero: the scene (photo with the detection drawn over it), the headline on a glass card, and an illustrative alert */ -}}
 {{- $hero := .Params.hero -}}
-<section class="home-hero">
+<section class="hero">
   <div class="hero__stage">
     <div class="hero__visual">
       {{ partial "scene.html" $hero }}
     </div>
     <div class="container hero__content">
       <div class="hero__text">
-        <h1>{{ $hero.title }}</h1>
+        {{/* The key phrase gets a hand-drawn stroke */}}
+        {{- $title := $hero.title | htmlEscape }}
+        {{- with $hero.emph }}{{ $title = replace $title (. | htmlEscape) (printf `<span class="mark">%s</span>` (. | htmlEscape)) }}{{ end }}
+        <h1>{{ $title | safeHTML }}</h1>
         <p class="lead">{{ $hero.subtitle }}</p>
         <div class="hero__actions">
           <a class="btn btn--accent btn--lg btn--go" href="#contact-form">{{ i18n "contactUs" }}</a>
@@ -20,7 +22,7 @@
       <figure class="alert-mock">
         <div class="alert-mock__card" aria-hidden="true">
           <div class="alert-mock__head"><strong>{{ .title }}</strong><time>{{ .time }}</time></div>
-          {{- /* The story in four steps, ticked off in order by the animation */}}
+          {{/* The story in four steps, ticked off in order by the animation, matching the numbered markers in the scene */}}
           <ol class="alert-steps">
             {{- range .steps }}
             <li><span class="alert-steps__mark"></span><span class="alert-steps__label">{{ .label }}</span><span class="alert-steps__value">{{ .value }}</span></li>
