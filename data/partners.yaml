@@ -86,6 +86,14 @@
     en: "Indre fire and rescue service"
     es: "Servicio de bomberos y emergencias del Indre"
     es-ct: "Servei de bombers i emergències de l'Indre"
+- name: SDIS 40
+  url: https://www.sdis40.fr/
+  logo: /img/logo_sdis40.webp
+  description:
+    fr: "Service d'incendie et de secours des Landes"
+    en: "Landes fire and rescue service"
+    es: "Servicio de bomberos y emergencias de Landas"
+    es-ct: "Servei de bombers i emergències de les Landes"
 - name: Ville du Touquet
   url: https://www.letouquet.com/
   logo: /img/ville-le-touquet.webp
@@ -94,3 +102,11 @@
     en: "Town in Pas-de-Calais"
     es: "Municipio de Paso de Calais"
     es-ct: "Municipi del Pas de Calais"
+- name: ANB
+  url: https://natuurenbos.be/
+  logo: /img/logo_anb.png
+  description:
+    fr: "Agence flamande pour la nature et les forêts, en Belgique"
+    en: "Flemish Agency for Nature and Forests, in Belgium"
+    es: "Agencia flamenca para la naturaleza y los bosques, en Bélgica"
+    es-ct: "Agència flamenca per a la natura i els boscos, a Bèlgica"
