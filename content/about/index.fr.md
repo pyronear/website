@@ -10,19 +10,19 @@ values:
     text: Tout notre code est disponible en accès libre et co-développé par nos bénévoles. Nous pensons que l'intelligence collective est la meilleure façon de résoudre un problème complexe.
   - icon: /img/cards_icons/radar-2.svg
     title: Détection précoce
-    text: Pour lutter efficacement contre les feux de forêt il est important de les détecter de façon précoce pour permettre une intervention rapide des services d’incendies et secours et ainsi limiter leur impact.
+    text: Pour lutter efficacement contre les feux de forêt il est important de les détecter de façon précoce pour permettre une intervention rapide des services d’incendie et de secours et ainsi limiter leur impact.
   - icon: /img/cards_icons/share.svg
     title: Open data
-    text: Nous construisons à l’aide de nos partenaires et bénévoles, un dataset que nous partageons en open data, afin que les images collectées et annotées puissent servir au plus grand nombre.
+    text: Nous construisons, à l’aide de nos partenaires et bénévoles, un dataset que nous partageons en open data, afin que les images collectées et annotées puissent servir au plus grand nombre.
   - icon: /img/cards_icons/savings-solid.svg
     title: Économique
-    text: Notre R&D est faite par des bénévoles, notre dispositif est sobre et l’objet non-lucratif de notre association, ce qui nous permet de proposer des prix très compétitifs afin de faciliter un déploiement sur le territoire.
+    text: Notre R&D est faite par des bénévoles, notre dispositif est sobre et notre association est à but non lucratif, ce qui nous permet de proposer des prix très compétitifs afin de faciliter un déploiement sur le territoire.
   - icon: /img/cards_icons/eco.svg
-    title: Enérgétiquement sobre
+    title: Énergétiquement sobre
     text: Nous sommes dans une démarche dite low-tech, nous avons construit un dispositif peu consommateur permettant un déploiement plus facile et une utilisation plus raisonnée de nos précieuses ressources.
   - icon: /img/cards_icons/rocket.svg
     title: Performance
-    text: Nos experts en intelligence artificielle suivent activement l’actualité de ce domaine en plein ébullition afin de faire bénéficier Pyronear de ses dernières avancées.
+    text: Nos experts en intelligence artificielle suivent activement l’actualité de ce domaine en pleine ébullition afin de faire bénéficier Pyronear de ses dernières avancées.
   - icon: /img/cards_icons/auto-awesome.svg
     title: Automatique
     text: Nous proposons une solution complètement automatisée afin de libérer du temps aux pompiers.
