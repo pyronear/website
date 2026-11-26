@@ -1,0 +1,56 @@
+{{- /* Deployments opening: a coverage study, step 1 of a deployment. On a relief map, the candidate high points appear;
+   then, one by one, the kept points sweep their line of sight and the forest they see turns amber, while the share of
+   forest in view rises. It plays once and ends on the result, which is also what shows when motion is reduced.
+   Illustrative terrain, but computed like a real study: scripts/coverage-study.mjs writes the images in this bundle and
+   data/coverage.json (points in a 600 x 450 space, the 20 km range in the same units, coverage after each point). */ -}}
+{{- $study := hugo.Data.coverage -}}
+{{- $range := index (where hugo.Data.figures "id" "range") 0 -}}
+<figure class="frame visual">
+  <div class="coverage" aria-hidden="true">
+    {{- with .Resources.Get "coverage-terrain.webp" }}
+    <img class="coverage__terrain" src="{{ .RelPermalink }}" width="1200" height="900" alt="">
+    {{- end }}
+    <div class="coverage__seen">
+      {{- range $i, $p := $study.kept }}
+      {{- with $.Resources.Get (printf "coverage-%d.webp" (add $i 1)) }}
+      <img src="{{ .RelPermalink }}" style="--i: {{ $i }}; --x: {{ div (mul $p.x 100.0) 600 }}%; --y: {{ div (mul $p.y 100.0) 450 }}%" width="1200" height="900" alt="">
+      {{- end }}
+      {{- end }}
+    </div>
+    <svg viewBox="0 0 600 450">
+      {{- range $i, $p := $study.kept }}
+      <line class="coverage__sweep" style="--i: {{ $i }}; transform-origin: {{ $p.x }}px {{ $p.y }}px" x1="{{ $p.x }}" y1="{{ $p.y }}" x2="{{ $p.x }}" y2="{{ sub $p.y $study.range }}"/>
+      {{- end }}
+      {{- range $i, $p := $study.candidates }}
+      <circle class="coverage__site" style="--n: {{ add $i (len $study.kept) }}" cx="{{ $p.x }}" cy="{{ $p.y }}" r="4.5"/>
+      {{- end }}
+      {{- range $i, $p := $study.kept }}
+      <g class="coverage__site is-kept" style="--n: {{ $i }}; --i: {{ $i }}">
+        <circle cx="{{ $p.x }}" cy="{{ $p.y }}" r="6"/>
+        <text x="{{ add $p.x 11 }}" y="{{ add $p.y 4 }}">{{ $p.elevation }} m</text>
+      </g>
+      {{- end }}
+      <g class="coverage__scale">
+        <path d="M24 422 V428 H{{ add 24 $study.range }} V422 M{{ add 24 (div $study.range 2) }} 425 V428"/>
+        <text x="24" y="414">0</text>
+        <text x="{{ add 24 $study.range }}" y="414">{{ $range.value }}</text>
+      </g>
+    </svg>
+    <div class="coverage__readout">
+      <p>{{ (index .Params.cobuilt.steps 0).title }}</p>
+      <p class="coverage__pct">
+        <span style="--j: 0">{{ lang.FormatPercent 0 0 }}</span>
+        {{- range $j, $v := $study.steps }}
+        <span style="--j: {{ add $j 1 }}">{{ lang.FormatPercent 0 $v }}</span>
+        {{- end }}
+      </p>
+      <p>{{ i18n "coverageSeen" }}</p>
+    </div>
+  </div>
+  <figcaption class="coverage__legend">
+    <span><i class="is-candidate"></i>{{ i18n "coverageCandidate" }}</span>
+    <span><i class="is-kept"></i>{{ i18n "coverageKept" }}</span>
+    <span><i class="is-seen"></i>{{ i18n "coverageSeen" }}</span>
+    <span><i class="is-hidden"></i>{{ i18n "coverageHidden" }}</span>
+  </figcaption>
+</figure>

@@ -2,9 +2,10 @@
 title: Pyronear
 description: Detección temprana de incendios forestales
 hero:
-  title: Detección temprana de incendios forestales
-  subtitle: Pyronear es un proyecto de código abierto para el bien común
-  imageAlt: "Foto ilustrativa: una cámara en una torre de vigilancia vigila el bosque. A lo lejos se detecta una pequeña columna de humo y se calcula su posición GPS."
+  title: Detectar los incendios forestales desde el primer humo.
+  emph: "primer humo"
+  subtitle: "Para bomberos, administraciones y gestores forestales: nuestras cámaras detectan el humo, lo localizan y avisan a la central."
+  imageAlt: "Ilustración: una cámara de largo alcance en una torre de vigilancia vigila un valle boscoso. A lo lejos se detecta un primer hilo de humo y se calcula su posición GPS."
   alert:
     tag: "Humo · 164°"
     title: "Inicio de incendio"
@@ -16,28 +17,53 @@ hero:
       value: "07:45:20"
     - label: "Posición GPS"
       value: "48.405° N, 2.692° E"
-    - label: "Bomberos alertados"
+    - label: "Central alertada"
       value: "07:45:41"
-about:
-  title: Quienes somos nosotros?
-  intro: <b>Pyronear</b> es una ONG sin fines de lucro cuyo objetivo es democratizar soluciones abiertas y de baja tecnología para combatir incendios forestales, en beneficio de los ecosistemas y los ciudadanos. Para lograr este objetivo, estamos co-construyendo una solución de detección temprana que es de código abierto, eficiente, automática, energéticamente eficiente, económica y modular.
-media:
-  eyebrow: Noticias y Perspectivas
-  title: Destacados
-howItWorks:
-  title: "Cómo funciona"
-  intro: "Una detección de principio a fin, de la cámara al bombero."
-  steps:
-  - title: "Detectar y localizar"
-    text: "Cámaras en puntos altos vigilan el horizonte. Una IA ligera analiza las imágenes en el lugar y el inicio de incendio queda localizado."
+steps:
+  title: "Del primer humo a la intervención"
+  items:
+  - title: "Detectar"
+    text: "La IA de la estación detecta el humo en las imágenes, in situ."
   - title: "Alertar"
-    text: "La alerta se difunde por varios canales, sin depender de una sola aplicación, y luego se analiza en nuestra plataforma."
-  - title: "Intervenir"
-    text: "Los usuarios evalúan rápido el riesgo y activan antes las operaciones: valiosas decenas de minutos ganadas frente a las llamas."
+    text: "Imágenes y posición aproximada llegan a la central."
+  - title: "Verificar"
+    text: "Un operador confirma a distancia, en directo y con zoom."
+  - title: "Intervenir antes"
+    text: "Los medios salen a menudo antes de las primeras llamadas de emergencia."
+about:
+  title: Una herramienta abierta, un servicio acompañado
+  intro: "Pyronear es una asociación francesa sin ánimo de lucro y de interés general. Su detección es de código abierto: cualquiera puede usarla, verificarla y mejorarla. Está impulsada desde 2020 por más de 150 voluntarios."
+  photoCaption: Cada estación se instala con los equipos locales.
+  more: Leer nuestra historia
+  values:
+  - title: Abierto
+    text: "Código, modelos, datos y hardware públicos."
+  - title: Acompañado
+    text: "Formación, soporte, mantenimiento y mejora continua, temporada tras temporada."
+  - title: Con los bomberos
+    text: "Cada despliegue se construye con los equipos locales."
+network:
+  title: Donde vigilan nuestras cámaras
+  also: "También vigilando:"
+media:
+  title: Hablan de nosotros
+join:
+  title: Hay un lugar para ti
+  items:
+  - who: Bomberos, administraciones, servicios forestales
+    title: Equipar un territorio
+    link: Escribir al equipo
+  - who: Científicos de datos, desarrolladores, makers
+    title: Hacerse voluntario
+    page: /support
+    link: Ver cómo ayudar
+  - who: Fundaciones, empresas, universidades
+    title: Apoyar el proyecto
+    page: /support
+    link: Ver cómo apoyarnos
 contactForm:
   title: "Escríbanos"
   text: "Un proyecto de despliegue, una pregunta, ganas de contribuir: cada mensaje lo lee un miembro de la asociación."
-  note: "Pyronear es una asociación francesa sin ánimo de lucro y de interés general, con sede en París."
   # Each topic becomes the e-mail subject; the last one is selected by default
   topics:
   - Equipar un territorio
@@ -45,7 +71,4 @@ contactForm:
   - Apoyar el proyecto
   - Prensa
   - Otra pregunta
-follow:
-  title: Sigue la aventura Pyronear
-  text: Para mantenerse actualizado sobre nuestro progreso o para unirse a la aventura, ¡también puede comunicarse con nosotros en las redes sociales!
 ---

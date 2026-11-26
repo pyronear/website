@@ -1,0 +1,23 @@
+{{- /* About opening: the commons at work. Commits per day over the last 52 weeks on Pyronear's public repositories, bots left
+   out, from data/github.json (refresh with scripts/github-activity.py). One column per week, Monday at the top; the cells
+   come in week by week, then stay. */ -}}
+{{- with hugo.Data.github -}}
+{{- $days := .days -}}
+<figure class="frame visual">
+  <div class="activity">
+    <p class="activity__head"><span>github.com/pyronear</span><span>{{ i18n "commonsPeriod" }}</span></p>
+    <svg class="activity__grid" viewBox="0 0 {{ mul (add (div (len $days) 7) 1) 12 }} 84" aria-hidden="true">
+      {{- range $i, $n := $days }}
+      {{- $week := div $i 7 }}
+      <rect x="{{ mul $week 12 }}" y="{{ mul (mod $i 7) 12 }}" width="10" height="10" rx="2" class="l{{ cond (eq $n 0) 0 (cond (le $n 2) 1 (cond (le $n 6) 2 (cond (le $n 15) 3 4))) }}" style="--w: {{ $week }}"/>
+      {{- end }}
+    </svg>
+    <dl class="activity__figures">
+      <div><dt>{{ lang.FormatNumber 0 .commits }}</dt><dd>{{ i18n "commonsCommits" }}</dd></div>
+      <div><dt>{{ .contributors }}</dt><dd>{{ i18n "commonsContributors" }}</dd></div>
+      <div><dt>{{ .repos }}</dt><dd>{{ i18n "commonsRepos" }}</dd></div>
+    </dl>
+  </div>
+  <figcaption class="activity__note">{{ i18n "commonsNote" }} {{ (time.AsTime .updated) | time.Format ":date_long" }}</figcaption>
+</figure>
+{{- end -}}

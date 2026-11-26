@@ -1,4 +1,4 @@
-{{- /* Small line icons for the home page: pass a name. */ -}}
+{{- /* Small line icons: pass a name. */ -}}
 <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
   {{- if eq . "code" }}<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>
   {{- else if eq . "leaf" }}<path d="M5 19C5 10 10 5 19 5c0 9-5 14-14 14zM5 19l7-7"/>
@@ -22,7 +22,9 @@
   {{- else if eq . "chart" }}<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>
   {{- else if eq . "pen" }}<path d="M4 20l1-4L16 5l3 3L8 19zM14 7l3 3"/>
   {{- else if eq . "book" }}<path d="M4 5h6a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4zM20 5h-6a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6z"/>
+  {{- else if eq . "truck" }}<path d="M2 7h12v10H2zM14 10h4l4 4v3h-8M6.500 19.500a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17.500 19.500a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
   {{- else if eq . "clock" }}<path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2"/>
+  {{- else if eq . "globe" }}<path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3.500 9h17M3.500 15h17M12 3c-2.500 2.500-3.700 5.500-3.700 9s1.200 6.500 3.700 9c2.500-2.500 3.700-5.500 3.700-9S14.500 5.500 12 3z"/>
   {{- else if eq . "wrench" }}<path d="M14.500 6.500a4 4 0 0 0-5 5L3 18l3 3 6.500-6.500a4 4 0 0 0 5-5l-2.500 2.500-2.500-.5-.5-2.500z"/>
   {{- end }}
 </svg>

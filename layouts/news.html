@@ -2,35 +2,53 @@
   {{ partial "page-header.html" . }}
   <section class="section">
     <div class="container">
+      {{- $years := slice }}
+      {{- range hugo.Data.news }}{{ $years = $years | append (index (last 1 (split .date ".")) 0) }}{{ end }}
+      {{- $years = uniq $years }}
+      <p class="lead news-count">{{ i18n "newsCount" (dict "Count" (len hugo.Data.news) "Year" (index (last 1 $years) 0)) }}</p>
+
       <h2>{{ i18n "featured" }}</h2>
       <div class="media">
         {{- range where hugo.Data.news "featured" true }}
         {{ partial "media-card.html" . }}
         {{- end }}
       </div>
+
+      {{/* Every mention, newest first, under its year: outlet and format, headline, month. Dates are "MM.YYYY" or "YYYY". */}}
+      <h2 class="news-archive-title">{{ i18n "allNewsList" }}</h2>
+      {{- range $years }}
+      {{- $year := . }}
+      <div class="press-year">
+        <h3>{{ $year }}</h3>
+        <ul class="press-log">
+          {{- range hugo.Data.news }}
+          {{- $parts := split .date "." }}
+          {{- if eq (index (last 1 $parts) 0) $year }}
+          <li>
+            <a href="{{ .url }}" target="_blank" rel="noopener">
+              <span class="press-log__outlet">{{ .outlet }}{{ with .format }}<small>{{ i18n (printf "format%s" (strings.FirstUpper .)) }}</small>{{ end }}</span>
+              <span class="press-log__title"{{ with .lang }} lang="{{ . }}"{{ end }}>{{ .title | markdownify }}</span>
+              <span class="press-log__month">
+                {{- if eq (len $parts) 2 }}{{ time.AsTime (printf "%s-%s-01" $year (index $parts 0)) | time.Format "January" | replaceRE "^(de |d’)" "" }}{{ end -}}
+              </span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            <span class="visually-hidden"> {{ i18n "newTab" }}</span></a>
+          </li>
+          {{- end }}
+          {{- end }}
+        </ul>
+      </div>
+      {{- end }}
+
       {{- range where site.Params.social "icon" "linkedin" }}
       <aside class="follow-box">
         <div>
           <h3>{{ i18n "linkedinTitle" }}</h3>
           <p>{{ i18n "linkedinText" }}</p>
         </div>
-        <a class="btn" href="{{ .url }}" target="_blank" rel="noopener">{{ i18n "linkedinButton" }}</a>
+        <a class="btn" href="{{ .url }}" target="_blank" rel="noopener">{{ i18n "linkedinButton" }}<span class="visually-hidden"> {{ i18n "newTab" }}</span></a>
       </aside>
       {{- end }}
-      <h2 class="news-archive-title">{{ i18n "allNewsList" }}</h2>
-      <ul class="news-list">
-        {{- range hugo.Data.news }}
-        <li>
-          <a href="{{ .url }}" target="_blank" rel="noopener">
-            <span class="news-list__logo"><img src="{{ .logo | relURL }}" alt="" loading="lazy"></span>
-            <span>
-              <span class="news-list__outlet">{{ .outlet }}{{ with .date }} · {{ . }}{{ end }}</span>
-              <span class="news-list__title">{{ .title }}</span>
-            </span>
-          </a>
-        </li>
-        {{- end }}
-      </ul>
     </div>
   </section>
 {{ end }}

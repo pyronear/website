@@ -2,10 +2,15 @@
 title: Cómo funciona
 slug: como-funciona
 description: Estaciones en puntos altos, una IA sobria y una plataforma de alertas para los bomberos.
-images:
-  - view.jpg
-solution:
-  title: "Una solución completa"
+# The opening's camera feed: step 3 (the operator takes the camera by hand) and step 4 (the engines leave)
+feed:
+  manual: "Control manual"
+  dispatch:
+    title: "Incendio confirmado"
+    time: "07:47"
+    label: "Medios movilizados"
+    units: ["Autobomba 1", "Autobomba 2"]
+    status: "En camino"
 station:
   title: "La estación de detección"
   parts:
@@ -21,7 +26,7 @@ station:
   stats:
   - icon: pin
     value: "20 km"
-    label: "Detección fiable. Un récord a 72 km."
+    label: "Detección fiable. Un récord a 35 km."
   - icon: clock
     value: "2 h"
     label: "Hasta 2 horas de adelanto sobre las primeras llamadas de emergencia."
@@ -44,10 +49,10 @@ alert:
   items:
   - icon: bell
     title: "Alerta rápida"
-    text: "En cuanto se detecta humo, nuestra API difunde la alerta por los canales de notificación elegidos por los usuarios."
+    text: "En cuanto se detecta humo, la alerta llega a la central y a los canales elegidos por cada servicio, sin depender de una sola aplicación. La plataforma está pensada para conectarse a nexSIS, el sistema de información de los bomberos franceses."
   - icon: pin
     title: "Imágenes y ubicación"
-    text: "Cada alerta llega con su secuencia de imágenes y la posición del inicio de incendio en el mapa."
+    text: "Cada alerta llega con su secuencia de imágenes y la posición aproximada del inicio de incendio en el mapa."
   - icon: shield
     title: "Confirmación"
     text: "Los operadores toman el control de la estación a distancia: vista en directo y zoom sobre el humo."
@@ -55,8 +60,6 @@ alert:
     value: "20 min"
     text: "En abril de 2026, una estación detectó el primer incendio del año en el bosque de Fontainebleau, veinte minutos antes de la primera llamada de emergencia. Una ventaja de tiempo que constatamos con regularidad."
 ---
-
-{{< solution >}}
 
 {{< youtube id="f2z8mvvggI0" title="Minidocumental sobre Pyronear" loading="lazy" >}}
 
@@ -70,9 +73,7 @@ alert:
 
 Prueba nuestro modelo de detección en tu navegador: dale un vídeo o una secuencia de imágenes de cámara, o en su defecto una sola imagen, y mira cómo detecta el humo.
 
-{{< compare before="model-input.jpg" beforeCaption="Imagen de la cámara" after="model-output.jpg" afterCaption="Detección" >}}
-
-{{< hf-space "pyronear/Pyronear-Wildfire-Detection" "https://pyronear-pyronear-wildfire-detection.hf.space" >}}
+{{< hf-space space="pyronear/Pyronear-Wildfire-Detection" src="https://pyronear-pyronear-wildfire-detection.hf.space" image="model-input.jpg" label="Humo" box="22.8 69.3 11.8 16.7" caption="Imagen real de una cámara Pyronear en los Alpes Marítimos: el modelo detecta un hilo de humo apenas visible." >}}
 
 ## Un enfoque abierto
 

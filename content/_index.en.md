@@ -2,9 +2,10 @@
 title: Pyronear
 description: Early detection of forest wildfires
 hero:
-  title: Early detection of wildfires
-  subtitle: Pyronear is an open-source project for the common good
-  imageAlt: "Illustrative photo: a camera on a lookout tower watches a forest. Far away, a small plume of smoke is spotted and its GPS position worked out."
+  title: Spot forest fires from the very first smoke.
+  emph: "first smoke"
+  subtitle: "For fire services, local authorities and forest managers: our cameras spot the smoke, locate it and alert the dispatch centre."
+  imageAlt: "Illustration: a long-range camera on a fire lookout tower watches a forested valley. Far away, a first wisp of smoke is spotted and its GPS position worked out."
   alert:
     tag: "Smoke · 164°"
     title: "Fire start"
@@ -16,28 +17,53 @@ hero:
       value: "07:45:20"
     - label: "GPS position"
       value: "48.405° N, 2.692° E"
-    - label: "Firefighters alerted"
+    - label: "Dispatch alerted"
       value: "07:45:41"
-about:
-  title: Who are we?
-  intro: <b>Pyronear</b> is a non-profit NGO whose objective is to democratize open and low-tech solutions for fighting wildfires, for the benefit of the ecosystems and the citizens. To achieve this goal, we are co-building an early detection solution that is open source, efficient, automatic, energy-efficient, economical and modular
-media:
-  eyebrow: News & Insights
-  title: Featured Stories
-howItWorks:
-  title: "How it works"
-  intro: "End-to-end detection, from the camera to the firefighter."
-  steps:
-  - title: "Detect and locate"
-    text: "Cameras on high points watch the horizon. A lightweight AI analyses the images on site, and the fire start is located."
+steps:
+  title: "From the first smoke to the response"
+  items:
+  - title: "Detect"
+    text: "The station's AI spots smoke in the images, on site."
   - title: "Alert"
-    text: "The alert is sent through several channels, so it does not depend on a single application, then analysed on our platform."
-  - title: "Respond"
-    text: "Users quickly assess the risk and launch operations sooner: precious tens of minutes gained against the flames."
+    text: "Images and an approximate position reach the dispatch centre."
+  - title: "Check"
+    text: "An operator confirms remotely, with a live, zoomed view."
+  - title: "Respond earlier"
+    text: "Crews often leave before the first emergency calls."
+about:
+  title: An open tool, a supported service
+  intro: "Pyronear is a French non-profit association of public interest. Its detection is open source: anyone can use, check and improve it. It has been run since 2020 by more than 150 volunteers."
+  photoCaption: Every station is installed with the local teams.
+  more: Read our story
+  values:
+  - title: Open
+    text: "Code, models, data and hardware are public."
+  - title: Supported
+    text: "Training, support, maintenance and continuous improvement, season after season."
+  - title: With firefighters
+    text: "Every deployment is co-built with the local teams."
+network:
+  title: Where our cameras keep watch
+  also: "Also on watch:"
+media:
+  title: In the press
+join:
+  title: There is a place for you
+  items:
+  - who: Fire services, local authorities, forestry offices
+    title: Equip a territory
+    link: Write to the team
+  - who: Data scientists, developers, makers
+    title: Volunteer
+    page: /support
+    link: See how to help
+  - who: Foundations, companies, universities
+    title: Support the project
+    page: /support
+    link: See how to support us
 contactForm:
   title: "Write to us"
   text: "A deployment project, a question, a wish to contribute: every message is read by a member of the association."
-  note: "Pyronear is a French non-profit association of general interest, based in Paris."
   # Each topic becomes the e-mail subject; the last one is selected by default
   topics:
   - Equip a territory
@@ -45,7 +71,4 @@ contactForm:
   - Support the project
   - Press
   - Other question
-follow:
-  title: Follow the Pyronear adventure
-  text: To stay updated about our progress or to join the adventure, you can also reach us on social media!
 ---

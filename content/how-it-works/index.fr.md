@@ -2,10 +2,15 @@
 title: Comment ça marche
 slug: comment-ca-marche
 description: Des stations sur des points hauts, une IA sobre et une plateforme d'alerte pour les pompiers.
-images:
-  - view.jpg
-solution:
-  title: "Une solution complète"
+# The opening's camera feed: step 3 (the operator takes the camera by hand) and step 4 (the engines leave)
+feed:
+  manual: "Contrôle manuel"
+  dispatch:
+    title: "Feu confirmé"
+    time: "07:47"
+    label: "Moyens engagés"
+    units: ["CCF 1", "CCF 2"]
+    status: "En route"
 station:
   title: "La station de détection"
   parts:
@@ -21,7 +26,7 @@ station:
   stats:
   - icon: pin
     value: "20 km"
-    label: "Détection fiable. Un record à 72 km."
+    label: "Détection fiable. Un record à 35 km."
   - icon: clock
     value: "2 h"
     label: "Jusqu'à 2 heures d'avance sur les premiers appels au 18."
@@ -44,10 +49,10 @@ alert:
   items:
   - icon: bell
     title: "Alerte rapide"
-    text: "Dès la détection, notre API diffuse l'alerte sur les canaux de notification choisis par les utilisateurs."
+    text: "Dès la détection, l'alerte part vers le CODIS et les canaux choisis par chaque service, sans dépendre d'une seule application. La plateforme est pensée pour se connecter à nexSIS."
   - icon: pin
     title: "Images et localisation"
-    text: "Chaque alerte arrive avec sa séquence d'images et la position du départ de feu sur la carte."
+    text: "Chaque alerte arrive avec sa séquence d'images et la position approximative du départ de feu sur la carte."
   - icon: shield
     title: "Levée de doute"
     text: "Les opérateurs prennent la main sur la station à distance : vue en direct et zoom sur la fumée."
@@ -55,8 +60,6 @@ alert:
     value: "20 min"
     text: "En avril 2026, une station a repéré le premier feu de l'année en forêt de Fontainebleau, vingt minutes avant le premier appel au 18. Un gain de temps que nous constatons régulièrement."
 ---
-
-{{< solution >}}
 
 {{< youtube id="f2z8mvvggI0" title="Mini-documentaire sur Pyronear" loading="lazy" >}}
 
@@ -70,9 +73,7 @@ alert:
 
 Testez notre modèle de détection dans votre navigateur : donnez-lui une vidéo ou une séquence d'images de caméra, ou à défaut une simple image, et regardez-le repérer les fumées.
 
-{{< compare before="model-input.jpg" beforeCaption="Image de la caméra" after="model-output.jpg" afterCaption="Détection" >}}
-
-{{< hf-space "pyronear/Pyronear-Wildfire-Detection" "https://pyronear-pyronear-wildfire-detection.hf.space" >}}
+{{< hf-space space="pyronear/Pyronear-Wildfire-Detection" src="https://pyronear-pyronear-wildfire-detection.hf.space" image="model-input.jpg" label="Fumée" box="22.8 69.3 11.8 16.7" caption="Image réelle d'une caméra Pyronear dans les Alpes-Maritimes : le modèle repère un filet de fumée à peine visible." >}}
 
 ## Une démarche ouverte
 

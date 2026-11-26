@@ -2,10 +2,15 @@
 title: Com funciona
 slug: com-funciona
 description: Estacions en punts alts, una IA sòbria i una plataforma d'alertes per als bombers.
-images:
-  - view.jpg
-solution:
-  title: "Una solució completa"
+# The opening's camera feed: step 3 (the operator takes the camera by hand) and step 4 (the engines leave)
+feed:
+  manual: "Control manual"
+  dispatch:
+    title: "Incendi confirmat"
+    time: "07:47"
+    label: "Mitjans mobilitzats"
+    units: ["Autobomba 1", "Autobomba 2"]
+    status: "En camí"
 station:
   title: "L'estació de detecció"
   parts:
@@ -21,7 +26,7 @@ station:
   stats:
   - icon: pin
     value: "20 km"
-    label: "Detecció fiable. Un rècord a 72 km."
+    label: "Detecció fiable. Un rècord a 35 km."
   - icon: clock
     value: "2 h"
     label: "Fins a 2 hores d'avançament sobre les primeres trucades d'emergència."
@@ -44,10 +49,10 @@ alert:
   items:
   - icon: bell
     title: "Alerta ràpida"
-    text: "Tan bon punt es detecta fum, la nostra API difon l'alerta pels canals de notificació triats pels usuaris."
+    text: "Tan bon punt es detecta fum, l'alerta arriba a la central i als canals triats per cada servei, sense dependre d'una sola aplicació. La plataforma està pensada per connectar-se a nexSIS, el sistema d'informació dels bombers francesos."
   - icon: pin
     title: "Imatges i ubicació"
-    text: "Cada alerta arriba amb la seva seqüència d'imatges i la posició de l'inici d'incendi al mapa."
+    text: "Cada alerta arriba amb la seva seqüència d'imatges i la posició aproximada de l'inici d'incendi al mapa."
   - icon: shield
     title: "Confirmació"
     text: "Els operadors prenen el control de l'estació a distància: vista en directe i zoom sobre el fum."
@@ -55,8 +60,6 @@ alert:
     value: "20 min"
     text: "L'abril del 2026, una estació va detectar el primer incendi de l'any al bosc de Fontainebleau, vint minuts abans de la primera trucada d'emergència. Un guany de temps que constatem regularment."
 ---
-
-{{< solution >}}
 
 {{< youtube id="f2z8mvvggI0" title="Minidocumental sobre Pyronear" loading="lazy" >}}
 
@@ -70,9 +73,7 @@ alert:
 
 Prova el nostre model de detecció al navegador: dona-li un vídeo o una seqüència d'imatges de càmera, o si no una sola imatge, i mira com detecta el fum.
 
-{{< compare before="model-input.jpg" beforeCaption="Imatge de la càmera" after="model-output.jpg" afterCaption="Detecció" >}}
-
-{{< hf-space "pyronear/Pyronear-Wildfire-Detection" "https://pyronear-pyronear-wildfire-detection.hf.space" >}}
+{{< hf-space space="pyronear/Pyronear-Wildfire-Detection" src="https://pyronear-pyronear-wildfire-detection.hf.space" image="model-input.jpg" label="Fum" box="22.8 69.3 11.8 16.7" caption="Imatge real d'una càmera Pyronear als Alps Marítims: el model detecta un fil de fum gairebé invisible." >}}
 
 ## Un enfocament obert
 

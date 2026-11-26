@@ -1,10 +1,18 @@
+{{- /* A featured press mention: the outlet's own share image (16:9, in assets/img/), the outlet set as type, the headline
+   with typographic quotes, then format, duration and month. data/news.yaml dates are "MM.YYYY"; Catalan month names come
+   as "de maig", trimmed to "maig". */ -}}
 <a class="media-card" href="{{ .url }}" target="_blank" rel="noopener">
-  <span class="media-card__img">
-    <img src="{{ .image }}" alt="" loading="lazy">
-    <img class="media-card__logo" src="{{ .logo | relURL }}" alt="{{ .outlet }}" loading="lazy">
+  {{- with .image }}{{ with resources.Get (printf "img/%s" .) }}
+  {{- $small := .Resize "480x webp q76" }}{{ $large := .Resize "960x webp q76" }}
+  <span class="media-card__image"><img src="{{ $large.RelPermalink }}" srcset="{{ $small.RelPermalink }} 480w, {{ $large.RelPermalink }} 960w" sizes="(max-width: 760px) 100vw, 400px" width="{{ $large.Width }}" height="{{ $large.Height }}" alt="" loading="lazy" decoding="async"></span>
+  {{- end }}{{ end }}
+  <span class="media-card__outlet">{{ .outlet }}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+  <h3>{{ .title | markdownify }}</h3>
+  <span class="media-card__meta">
+    {{- with .format }}{{ i18n (printf "format%s" (strings.FirstUpper .)) }} · {{ end }}{{ with .duration }}{{ . }} · {{ end }}
+    {{- with .date }}
+    {{- $month := time.AsTime (printf "%s-%s-01" (index (split . ".") 1) (index (split . ".") 0)) }}
+    <time datetime="{{ $month | time.Format "2006-01" }}">{{ $month | time.Format "January 2006" | replaceRE "^(de |d’)" "" }}</time>
+    {{- end -}}
   </span>
-  <span class="media-card__body">
-    <h3>{{ .title }}</h3>
-    {{ with .date }}<time>{{ . }}</time>{{ end }}
-  </span>
-</a>
+<span class="visually-hidden"> {{ i18n "newTab" }}</span></a>

@@ -1,43 +1,44 @@
 ---
 title: Open approach
 slug: open-approach
-description: "Our code, models, data and hardware are open: a common good to detect fires."
+description: "Open code, models, data and hardware: a tool you can check, reuse and keep, without depending on a supplier."
 ---
 
-## A digital common
+## What openness means for you
 
-> A common is a resource produced collectively by a community of diverse actors and governed by rules that ensure its survival and guarantee its open and shared nature.
->
-> — [IGN, geocommons approach](https://www.ign.fr/institut/la-demarche-geocommuns) (in French)
+- **No dependence on a supplier**: the code is under a free licence (Apache 2.0), with no licence fee. You can use it and change it freely.
+- **A tool you can check**: your IT department, or any expert you choose, can examine the code, the models and the hardware.
+- **Continuity**: if Pyronear stopped, everything would stay public and usable.
+- **Your data in France**: the alert platform and the images are hosted on French clouds. We can also deploy on your own service's infrastructure.
 
-In plain words: a resource that anyone can use and enrich, without depending on a vendor, like Wikipedia or OpenStreetMap. Pyronear applies this idea to early fire detection: every improvement, every annotated image and every field feedback benefits all territories.
+In Chile, this is what lets CENIA, the national centre for artificial intelligence, become autonomous: knowledge transfer, then training in assembling the stations and deploying the system. We published our research together ([read the paper](https://www.mdpi.com/2079-9292/15/12/2652)).
 
 ## What is open
 
-- **The code**: the station software, the alert platform and the tools are published under a free licence (Apache 2.0). Any fire service, local authority or researcher can reuse them. [See on GitHub](https://github.com/pyronear)
-- **The AI models**: our detection models are published. [See on Hugging Face](https://huggingface.co/pyronear)
-- **The data**: a dataset of camera images annotated by the community of contributors, shared as open data (Apache 2.0) so that the collected images serve as many people as possible. More than 15,000 downloads. [See the dataset](https://huggingface.co/datasets/pyronear/pyro-sdis)
-- **The hardware**: the list of components and the configuration of our stations are public, so that anyone can assemble and deploy them. [See on GitHub](https://github.com/pyronear)
-- **The research**: open science and collective intelligence are the best approach to solve a complex problem. Our work is done in collaboration and published. [Learn more](#research)
+- **The code**: the station software, the alert platform and the tools. [See on GitHub](https://github.com/pyronear)
+- **The AI models**: our detection models. [See on Hugging Face](https://huggingface.co/pyronear)
+- **The data**: a dataset of camera images annotated by our volunteers, as open data (Apache 2.0). More than 15,000 downloads. [See the dataset](https://huggingface.co/datasets/pyronear/pyro-sdis)
+- **The hardware**: the list of components and the configuration of the stations, so that anyone can assemble them. [See on GitHub](https://github.com/pyronear)
+- **The research**: our work is done with partners and published. [Learn more](#research)
 
-## A favourable legal framework
+To go further, this approach is in line with the idea of a [digital common](https://www.ign.fr/institut/la-demarche-geocommuns) (in French), promoted in France by public bodies such as IGN, the national mapping agency.
 
-In France, the legal framework favours open data. This framework was identified with DINUM, the French interministerial digital directorate. We seize it: when a fire service shares its images, the whole ecosystem moves forward, and early fire detection becomes even more accessible to all territories.
+## Sharing your images
 
-Our [legal note for fire services (SDIS) that wish to share their images](https://pyronear.notion.site/Notes-de-synth-se-FAQ-du-webinaire-open-data-DINUM-SDIS-MSP-18c425b63668806cb5dbc7a35d7452b4) explains how to do it (in French).
+Sharing images is each service's choice. Shared and annotated images join the open dataset and improve detection for every area.
 
-## Open, collaborative research {#research}
+From a high point, the cameras look at the forest far away: at that distance, the images identify neither people nor number plates.
 
-We promote an open science approach: collaborative research is the best way to solve a complex problem, thanks to collective intelligence.
+In France, the legal framework favours opening up this data. We identified it with DINUM, the French government's digital agency: our [summary of the open data webinar held with DINUM for fire services](https://pyronear.notion.site/Notes-de-synth-se-FAQ-du-webinaire-open-data-DINUM-SDIS-MSP-18c425b63668806cb5dbc7a35d7452b4) explains how to do it (in French).
 
-**Example in Chile.** We work with CENIA, the Chilean national centre for artificial intelligence: knowledge transfer, then training in assembling the stations and deploying the system so that they are autonomous, and joint publication of research work ([read the paper](https://www.mdpi.com/2079-9292/15/12/2652)).
+## Open research {#research}
 
-Open research makes it easier to share methods and progress: our partner [EarthToolsMaker](https://www.earthtoolsmaker.org/) tells in detail how we improved our models (in English):
+We do our work as open science, with our partners, so that methods and progress benefit everyone. [EarthToolsMaker](https://www.earthtoolsmaker.org/) tells in detail how we improved our models:
 
 - [Smoke Is a Behavior: Inside Pyronear's Temporal Wildfire Detection Model](https://www.earthtoolsmaker.org/posts/smoke-is-a-behavior/)
 - [Racing Models, Not Opinions: How We Ran Wildfire ML R&D for Pyronear](https://www.earthtoolsmaker.org/posts/racing-models-not-opinions/)
 - [Protecting the Forest: Building an early forest fire detector](https://www.earthtoolsmaker.org/posts/protecting-the-forest-early-forest-fire-detector/)
 
-## Take part
+## Let's talk
 
-Use, adapt, contribute: all the ways to join us are on the [Get involved]({{< relref "/support" >}}) page. Are you a fire service and want to share images? [Contact us](../#contact-form).
+Does your IT department want to examine the code or the hardware? Would you like to share images or deploy on your own infrastructure? [Write to us](../#contact-form). For other ways to contribute, see [Get involved]({{< relref "/support" >}}).

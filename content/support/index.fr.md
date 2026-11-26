@@ -8,46 +8,68 @@ sponsors:
 cta:
   title: "Prêt à agir avec nous ?"
   text: "Une question, une idée, une proposition de soutien : écrivez-nous."
+paths:
+- icon: people
+  title: "Donner de son temps et de ses compétences"
+  who: "Bénévoles, salariés en mécénat de compétences"
+  items:
+  - icon: chart
+    title: "IA et data"
+    text: "Améliorer les modèles de détection, réduire les fausses alertes, enrichir les jeux de données."
+  - icon: code
+    title: "Développement"
+    text: "Faire évoluer la plateforme d'alerte et le logiciel des stations, tout est open source sur GitHub."
+    url: https://github.com/pyronear
+  - icon: camera
+    title: "Annotation d'images"
+    text: "Repérer les fumées sur les images des caméras pour entraîner le modèle. Aucune compétence technique requise."
+  - icon: pin
+    title: "Terrain"
+    text: "Aider à choisir les points hauts, installer les stations et adapter l'outil aux besoins réels."
+  - icon: pen
+    title: "Communication et design"
+    text: "Visuels, vidéos, réseaux sociaux et récit du projet."
+  - icon: coin
+    title: "Financements"
+    text: "Monter des dossiers, trouver fondations et partenaires."
+  note: "Plus de 150 bénévoles depuis 2020. Le mécénat de compétences permet à vos équipes de consacrer des jours de travail au projet."
+- icon: heart
+  title: "Financer le projet"
+  who: "Fondations, fonds de dotation, entreprises, collectivités"
+  items:
+  - icon: shield
+    title: "Financer des stations"
+    text: "Pour des services d'incendie aux moyens limités."
+  - icon: share
+    title: "Soutenir la recherche ouverte"
+    text: "Chaque amélioration des modèles profite à toutes les stations, en France et à l'étranger."
+  - icon: leaf
+    title: "Nous accompagner dans la durée"
+    text: "Déploiement, maintenance et suivi des stations, saison après saison."
+  note: "Pyronear est une association d'intérêt général : les dons ouvrent droit à une réduction d'impôt, avec reçus fiscaux."
+- icon: book
+  title: "Enseigner et chercher ensemble"
+  who: "Écoles, universités, laboratoires"
+  items:
+  - icon: book
+    title: "Science ouverte"
+    text: "Nous travaillons en ouvert avec le monde académique sur la détection précoce."
+  - icon: code
+    title: "Projets étudiants"
+    text: "Des sujets concrets en IA, données, logiciel et terrain."
+  links:
+  - label: "Mines Paris"
+  - label: "CentraleSupélec · Latitudes"
+    url: https://www.latitudes.cc/
+- icon: share
+  title: "Faire connaître Pyronear"
+  who: "Tout le monde"
+  items:
+  - icon: people
+    title: "Parlez-en autour de vous"
+    text: "Services d'incendie, communes, gestionnaires d'espaces, entreprises, associations."
+  - icon: news
+    title: "Suivre et partager"
+    text: "Nos actualités sur LinkedIn."
+    url: https://www.linkedin.com/company/pyronearfr
 ---
-
-Pyronear est une association à but non lucratif qui anime une communauté de contributeurs. Que vous soyez bénévole, entreprise, fondation, collectivité, université ou service d'incendie, il y a une façon d'agir avec nous.
-
-Ouvrez le bloc qui vous correspond :
-
-{{< fold title="Donner de son temps et de ses compétences" for="Bénévoles, salariés en mécénat de compétences" >}}
-Bénévole ou salarié d'une entreprise qui pratique le mécénat de compétences, il y a une place pour vous :
-
-- **Intelligence artificielle et data** : améliorer nos modèles de détection, réduire les fausses alertes, enrichir nos jeux de données.
-- **Développement** : faire évoluer la plateforme d'alerte et le logiciel des stations. Tout est open source sur [GitHub](https://github.com/pyronear).
-- **Annotation d'images** : repérer les fumées sur les images de nos caméras pour entraîner le modèle. Aucune compétence technique n'est nécessaire.
-- **Terrain** : pompiers, forestiers, collectivités, installateurs, votre expérience nous aide à choisir les points hauts, installer les stations et adapter l'outil aux besoins réels.
-- **Communication et design** : créer des visuels, des animations et des vidéos, animer nos réseaux et raconter le projet.
-- **Recherche de financements** : monter des dossiers, identifier des fondations et des partenaires, donner au projet les moyens de grandir.
-
-Plus de 150 bénévoles ont contribué depuis 2020. Pour une entreprise, le mécénat de compétences permet à vos équipes de consacrer des jours de travail au projet.
-
-Envie de contribuer ? [Contactez-nous](../#contact-form).
-{{< /fold >}}
-
-{{< fold title="Financer le projet" for="Fondations, fonds de dotation, entreprises, collectivités" >}}
-Fondations, fonds de dotation, entreprises et collectivités peuvent :
-
-- **Financer des stations** pour des services d'incendie aux moyens limités.
-- **Soutenir la recherche ouverte** : chaque amélioration de nos modèles profite immédiatement à toutes les stations, en France et à l'étranger.
-- **Nous accompagner dans la durée** : permettre d'accompagner le déploiement de la solution avec d'autres structures à but non lucratif, d'en assurer la maintenance et le suivi des stations, saison après saison.
-
-Pyronear est une association d'intérêt général : vos dons ouvrent droit à une réduction d'impôt et nous émettons des reçus fiscaux.
-
-Pour en parler, [contactez-nous](../#contact-form) : nous construisons chaque soutien avec vous.
-{{< /fold >}}
-
-{{< fold title="Collaborer sur l'enseignement et la recherche" for="Écoles, universités, laboratoires : avançons ensemble sur les formations et les sujets de recherche en détection précoce" >}}
-Pyronear est un écosystème ouvert : nous pratiquons la science ouverte avec les acteurs du monde académique et nous offrons des opportunités concrètes aux étudiants (intelligence artificielle, données, logiciel, terrain). Nous travaillons déjà avec Mines Paris, et avec CentraleSupélec via l'association [Latitudes](https://www.latitudes.cc/).
-
-Vous enseignez, encadrez des projets ou dirigez un laboratoire ? [Contactez-nous](../#contact-form).
-{{< /fold >}}
-
-{{< fold title="Faire connaître Pyronear" for="Tout le monde" >}}
-- Parlez de nous à tout acteur concerné par la protection des espaces naturels et la prévention des incendies : service d'incendie, commune, intercommunalité, gestionnaire d'espaces, entreprise, association.
-- Suivez et partagez nos actualités sur [LinkedIn](https://www.linkedin.com/company/pyronearfr).
-{{< /fold >}}

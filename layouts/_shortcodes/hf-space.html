@@ -1,17 +1,28 @@
-{{- /* Hugging Face Space, only loaded when the visitor opens it: {{< hf-space "owner/name" "https://owner-name.hf.space" >}} */ -}}
-{{- $page := printf "https://huggingface.co/spaces/%s" (.Get 0) -}}
-<details class="demo" data-src="{{ .Get 1 }}">
-  <summary class="btn btn--accent">{{ i18n "tryDemo" }}</summary>
+{{- /* A Hugging Face demo behind a camera frame: the frame, with the model's detection drawn over it, is the button that loads the demo in its place.
+   {{< hf-space space="owner/name" src="https://owner-name.hf.space" image="frame.jpg" label="Smoke" box="left top width height" caption="…" >}}
+   The box is in percent of the image, so it stays sharp at any size. The demo only loads when opened. */ -}}
+{{- $box := split (.Get "box") " " -}}
+<details class="demo" data-src="{{ .Get "src" }}">
+  <summary>
+    <span class="demo__poster">
+      {{- with .Page.Resources.Get (.Get "image") }}
+      {{- $small := .Resize "960x webp q80" }}{{ $full := .Resize (printf "%dx webp q80" .Width) }}
+      <img src="{{ $full.RelPermalink }}" srcset="{{ $small.RelPermalink }} 960w, {{ $full.RelPermalink }} {{ $full.Width }}w" sizes="(max-width: 1200px) 100vw, 1140px" width="{{ $full.Width }}" height="{{ $full.Height }}" alt="" loading="lazy" decoding="async">
+      {{- end }}
+      <span class="demo__box" style="left: {{ index $box 0 }}%; top: {{ index $box 1 }}%; width: {{ index $box 2 }}%; height: {{ index $box 3 }}%" aria-hidden="true"><span>{{ .Get "label" }}</span></span>
+      <span class="btn btn--accent btn--lg btn--go">{{ i18n "tryDemo" }}</span>
+    </span>
+    <span class="demo__caption">{{ .Get "caption" }}</span>
+  </summary>
   <iframe title="{{ i18n "tryDemo" }}" class="demo__frame" allow="clipboard-write"></iframe>
+  <p class="demo__link"><a href="https://huggingface.co/spaces/{{ .Get "space" }}" target="_blank" rel="noopener">{{ i18n "openDemo" }}<span class="visually-hidden"> {{ i18n "newTab" }}</span></a></p>
 </details>
-<p class="demo__link"><a href="{{ $page }}" target="_blank" rel="noopener">{{ i18n "openDemo" }}</a></p>
-{{- if not (.Page.Store.Get "hfSpaceScript") }}{{ .Page.Store.Set "hfSpaceScript" true }}
+{{- /* Each demo wires itself: a page-wide "script already added" flag in .Page.Store survives hugo server rebuilds and dropped the script */}}
 <script>
-  document.querySelectorAll("details.demo").forEach(function (d) {
+  (function (d) {
     d.addEventListener("toggle", function () {
       var frame = d.querySelector("iframe");
       if (d.open && !frame.src) frame.src = d.dataset.src;
     });
-  });
+  })(document.currentScript.previousElementSibling);
 </script>
-{{- end }}

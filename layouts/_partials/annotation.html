@@ -1,0 +1,18 @@
+{{- /* Get involved opening: annotating an image, the way to help that needs no technical skill. A pointer draws a box
+   around the smoke, labels it and confirms twice, then the finished annotation stays (shown at once when motion is reduced).
+   The frame is an AI-generated camera view (Codex); the smoke box is in percent of the image (--x --y --w --h).
+   The smoke label is the first word of the home hero tag ("Fumée · 164°"). */ -}}
+{{- $item := index (index .Params.paths 0).items 2 -}}
+<figure class="frame visual">
+  <div class="annot" style="--x: 66.1; --y: 39.6; --w: 6.8; --h: 9.3" aria-hidden="true">
+    {{- with .Resources.Get "annotation.jpg" }}
+    {{- $img := .Resize "1400x webp q72" }}
+    <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="">
+    {{- end }}
+    <p class="annot__tool">{{ partial "icon.html" "pen" }}{{ $item.title }}</p>
+    <span class="annot__box"><span>{{ index (split site.Home.Params.hero.alert.tag " · ") 0 }}</span></span>
+    <span class="annot__ok">{{ i18n "annotValidate" }}</span>
+    <p class="annot__done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>{{ i18n "annotDone" }}</p>
+    <svg class="annot__pointer" viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.500L10 19z"/></svg>
+  </div>
+</figure>
