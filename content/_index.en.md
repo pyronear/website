@@ -45,7 +45,4 @@ contactForm:
   - Support the project
   - Press
   - Other question
-follow:
-  title: Follow the Pyronear adventure
-  text: To stay updated about our progress or to join the adventure, you can also reach us on social media!
 ---

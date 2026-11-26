@@ -262,6 +262,14 @@ h3 {
   min-height: 4rem;
 }
 
+/* The logo link is a 44px tap target even where the wordmark is small */
+.nav__brand {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+
+
 .nav__brand img {
   display: block;
   width: 136px;
@@ -292,7 +300,6 @@ h3 {
 
 .menu {
   display: none;
-  position: relative;
 }
 
 .menu summary,
@@ -307,8 +314,92 @@ h3 {
   list-style: none;
 }
 
+/* Phones and tablets: a burger that turns into a cross, opening a full-width panel under the bar */
 .menu summary {
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
   border: 1px solid var(--field);
+}
+
+.menu__bars,
+.menu__bars::before,
+.menu__bars::after {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--ink);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.menu__bars {
+  position: relative;
+}
+
+.menu__bars::before,
+.menu__bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu__bars::before {
+  top: -6px;
+}
+
+.menu__bars::after {
+  top: 6px;
+}
+
+.menu[open] .menu__bars {
+  background: transparent;
+}
+
+.menu[open] .menu__bars::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu[open] .menu__bars::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* .nav is the containing block: the panel spans the bar's full width, right under it */
+.menu nav {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  display: grid;
+  max-height: calc(100dvh - 4rem);
+  overflow-y: auto;
+  padding: 0.5rem var(--gutter) var(--space-l);
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 20px 40px rgb(14 46 42 / 14%);
+}
+
+.menu nav a:not(.btn) {
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.menu nav a[aria-current] {
+  color: var(--teal);
+  box-shadow: inset 3px 0 var(--amber);
+  padding-left: 0.85rem;
+}
+
+/* The panel's contact button stands in for the bar's one, which phones hide */
+.menu nav .btn {
+  display: none;
+  justify-content: center;
+  margin-top: var(--space-m);
 }
 
 .menu summary::-webkit-details-marker,
@@ -316,7 +407,6 @@ h3 {
   display: none;
 }
 
-.menu nav,
 .lang ul {
   position: absolute;
   right: 0;
@@ -328,12 +418,6 @@ h3 {
   box-shadow: var(--shadow);
 }
 
-.menu nav {
-  display: grid;
-  min-width: 220px;
-}
-
-.menu nav a,
 .lang li a {
   display: flex;
   align-items: center;
@@ -344,8 +428,6 @@ h3 {
   text-decoration: none;
 }
 
-.menu nav a:hover,
-.menu nav a[aria-current],
 .lang li a:hover,
 .lang li a[aria-current] {
   background: var(--haze-deep);
@@ -355,9 +437,30 @@ h3 {
   position: relative;
 }
 
+.lang summary {
+  gap: 0.35rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.lang summary .icon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
 .lang summary::after {
-  content: "▾";
-  font-size: 0.8em;
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  margin: -0.2rem 0 0 0.1rem;
+  border: solid currentColor;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+
+.lang[open] summary::after {
+  margin-top: 0.2rem;
+  transform: rotate(-135deg);
 }
 
 .lang summary:hover {
@@ -365,7 +468,23 @@ h3 {
 }
 
 .lang ul {
+  min-width: 10rem;
   list-style: none;
+}
+
+.lang li a[aria-current] {
+  font-weight: 600;
+}
+
+/* A check mark on the current language */
+.lang li a[aria-current]::after {
+  content: "";
+  width: 0.6rem;
+  height: 0.3rem;
+  margin: -0.15rem 0 0 auto;
+  border: solid var(--teal);
+  border-width: 0 0 2px 2px;
+  transform: rotate(-45deg);
 }
 
 /* Full-height dark opening (404 page) */
@@ -2386,8 +2505,8 @@ h3 {
 
 .footer__inner {
   display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr) minmax(0, 3fr);
-  gap: var(--space-l);
+  grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+  gap: 2rem;
 }
 
 .footer__about img {
@@ -2403,6 +2522,12 @@ h3 {
   color: rgb(255 255 255 / 72%);
 }
 
+.footer .footer__tagline {
+  margin-top: var(--space-s);
+  color: var(--amber);
+  font-weight: 600;
+}
+
 .footer h2 {
   margin-bottom: 0.75rem;
   color: #fff;
@@ -2410,10 +2535,6 @@ h3 {
   font-weight: 700;
   letter-spacing: 0;
   line-height: 1.4;
-}
-
-.footer p + ul {
-  margin-top: var(--space-s);
 }
 
 .footer ul {
@@ -2434,26 +2555,67 @@ h3 {
   text-decoration: underline var(--amber);
 }
 
-.footer__social {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+/* Social links: icons only, on the bottom line next to the copyright */
+.footer .footer__social {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.footer__social a {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.footer__social a:hover,
+.footer__social a:focus-visible {
+  background: rgb(255 255 255 / 10%);
 }
 
 .footer__social svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   fill: currentColor;
   color: var(--amber);
 }
 
-@media (max-width: 700px) {
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-s);
+  margin-top: var(--space-l);
+  padding-top: var(--space-m);
+  border-top: 1px solid rgb(255 255 255 / 14%);
+}
+
+.footer__bottom p {
+  max-width: none;
+  font-size: 0.88rem;
+}
+
+/* Footer: the description across, then the link columns side by side */
+@media (max-width: 900px) {
   .footer__inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .footer__about {
+    grid-column: 1 / -1;
   }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 480px) {
+  .footer__inner {
+    column-gap: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
   .nav__links {
     display: none;
   }
@@ -2467,7 +2629,7 @@ h3 {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 640px) {
   .nav__brand img {
     width: 110px;
   }
@@ -2480,6 +2642,10 @@ h3 {
 
   .nav__contact {
     display: none;
+  }
+
+  .menu nav .btn {
+    display: flex;
   }
 
   .lang {

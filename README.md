@@ -19,7 +19,7 @@ hugo --gc --minify
 
 | What | File |
 | --- | --- |
-| Home page copy (hero, intro, contact form, footer) | `content/_index.<lang>.md` |
+| Home page copy (hero, intro, contact form) | `content/_index.<lang>.md` |
 | Other pages (About, How it works, Deployments, Support us, News) | `content/<page>/index.<lang>.md` |
 | Buttons, form labels, short UI text | `i18n/<lang>.yaml` (`i18n/ca.yaml` for Catalan) |
 | Key figures (home and About) | `data/figures.yaml` |
@@ -29,6 +29,7 @@ hugo --gc --minify
 | Supporters | `data/sponsors.yaml` |
 | News items | `data/news.yaml` |
 | Site settings, languages, social links | `hugo.toml` |
+| Navigation and footer | Pages with `menus.main` (set in the `cascade` entries of `hugo.toml`) show in the nav. The footer lists pages in three columns set by `footer` in `hugo.toml` `[params]` (each a title key from `i18n/` and page paths); its text is in the `footer*` keys of `i18n/<lang>.yaml`, and the social links show as icons on its bottom line |
 | Website / contact Worker settings | `wrangler.toml` / `worker/wrangler.toml` |
 | Templates | `layouts/` |
 | Styles and scripts | `assets/css/main.css`, `assets/js/` |
