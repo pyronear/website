@@ -1691,6 +1691,47 @@ h3 {
   aspect-ratio: 2 / 1;
 }
 
+.compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-s);
+  margin: var(--space-l) 0;
+}
+
+.compare figure {
+  position: relative;
+  margin: 0;
+}
+
+.prose .compare img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.compare figcaption {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  background: rgb(16 42 36 / 70%);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.compare figure:last-child figcaption {
+  background: var(--amber);
+  color: var(--ink);
+}
+
+@media (max-width: 560px) {
+  .compare {
+    grid-template-columns: 1fr;
+  }
+}
+
 .demo summary {
   list-style: none;
 }

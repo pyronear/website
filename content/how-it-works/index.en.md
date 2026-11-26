@@ -54,16 +54,6 @@ alert:
   example:
     value: "20 min"
     text: "In April 2026, a station spotted the first fire of the year in the Fontainebleau forest, twenty minutes before the first emergency call. A time gain we see regularly."
-modelSteps:
-- icon: camera
-  title: "Capture"
-  text: "The station's cameras photograph the horizon at regular intervals."
-- icon: smoke
-  title: "Analyse"
-  text: "The model looks for smoke in each image, directly on the station."
-- icon: bell
-  title: "Alert"
-  text: "When it finds smoke, it boxes it, as above, and an alert is sent."
 ---
 
 {{< solution >}}
@@ -80,9 +70,7 @@ modelSteps:
 
 Test our detection model in your browser: give it a video or a sequence of camera images, or failing that a single image, and watch it spot the smoke.
 
-![Smoke detected by the model in a camera image](model-output.jpg)
-
-{{< model-steps >}}
+{{< compare before="model-input.jpg" beforeCaption="Camera image" after="model-output.jpg" afterCaption="Detection" >}}
 
 {{< hf-space "pyronear/Pyronear-Wildfire-Detection" "https://pyronear-pyronear-wildfire-detection.hf.space" >}}
 

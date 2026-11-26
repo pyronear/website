@@ -54,16 +54,6 @@ alert:
   example:
     value: "20 min"
     text: "En abril de 2026, una estación detectó el primer incendio del año en el bosque de Fontainebleau, veinte minutos antes de la primera llamada de emergencia. Una ventaja de tiempo que constatamos con regularidad."
-modelSteps:
-- icon: camera
-  title: "Capturar"
-  text: "Las cámaras de la estación fotografían el horizonte a intervalos regulares."
-- icon: smoke
-  title: "Analizar"
-  text: "El modelo busca humo en cada imagen, directamente en la estación."
-- icon: bell
-  title: "Alertar"
-  text: "Cuando encuentra humo, lo enmarca, como arriba, y se envía una alerta."
 ---
 
 {{< solution >}}
@@ -80,9 +70,7 @@ modelSteps:
 
 Prueba nuestro modelo de detección en tu navegador: dale un vídeo o una secuencia de imágenes de cámara, o en su defecto una sola imagen, y mira cómo detecta el humo.
 
-![Humo detectado por el modelo en una imagen de cámara](model-output.jpg)
-
-{{< model-steps >}}
+{{< compare before="model-input.jpg" beforeCaption="Imagen de la cámara" after="model-output.jpg" afterCaption="Detección" >}}
 
 {{< hf-space "pyronear/Pyronear-Wildfire-Detection" "https://pyronear-pyronear-wildfire-detection.hf.space" >}}
 
