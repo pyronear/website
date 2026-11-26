@@ -61,7 +61,7 @@ test("verified request sends plain text with fixed routing and a visitor reply a
   assert.equal(options.body.get("remoteip"), "192.0.2.1");
   assert.equal(send.mock.callCount(), 1);
   assert.deepEqual(send.mock.calls[0].arguments[0], {
-    from: { name: "Pyronear website", email: "forms@pyronear.org" }, to: "fg@pyronear.org",
+    from: { name: "Pyronear website", email: "forms@pyronear.org" }, to: "inquiries@pyronear.org",
     replyTo: valid.email, subject: "[Contact form] Bonjour", text: valid.message,
   });
 });
