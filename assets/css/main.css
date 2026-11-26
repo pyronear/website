@@ -2109,8 +2109,14 @@ h3 {
 
 .form {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-m);
   color: var(--ink);
+}
+
+/* Turnstile's flexible widget is never narrower than 300px: on small phones it reaches into the side padding instead of widening the whole form */
+.form__captcha {
+  margin-inline: min(0px, (100% - 300px) / 2);
 }
 
 .contact .form {
