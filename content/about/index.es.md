@@ -16,15 +16,15 @@ values:
     text: Con la ayuda de nuestros asociados y voluntarios, estamos construyendo un banco de datos que compartimos como Open Data, para que las imágenes recogidas y anotadas puedan ser utilizadas por el mayor número posible de personas.
   - icon: /img/cards_icons/savings-solid.svg
     title: Económico
-    text: Nuestra I+D es realizada por voluntarios, nuestro dispositivo es sobrio y sin ánimo de lucro objeto de nuestra asociación, lo que nos permite proponer precios muy competitivos para facilitar un despliegue en el territorio.
+    text: Nuestra I+D es realizada por voluntarios, nuestro dispositivo es sobrio y nuestra asociación no tiene ánimo de lucro, lo que nos permite proponer precios muy competitivos para facilitar un despliegue en el territorio.
   - icon: /img/cards_icons/eco.svg
     title: Energéticamente sobrio
     text: Estamos en un enfoque llamado de baja tecnología, hemos construido un dispositivo de bajo consumo que permite una implementación más fácil y un uso más razonado de nuestros valiosos recursos.
   - icon: /img/cards_icons/rocket.svg
-    title: Actuación
+    title: Rendimiento
     text: Nuestros expertos en IA siguen activamente las noticias en este campo de rápido movimiento para que Pyronear se beneficie de sus últimos avances.
   - icon: /img/cards_icons/auto-awesome.svg
-    title: Automátic
+    title: Automático
     text: Ofrecemos una solución totalmente automatizada para liberar el tiempo de los bomberos.
   - icon: /img/cards_icons/grid-view-solid.svg
     title: Modular

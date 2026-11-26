@@ -4,7 +4,7 @@ submit: "Enviar el mensaje"
 emailLabel: Su dirección de correo electrónico
 emailPrivacy: Nunca compartiremos su correo electrónico sin su consentimiento.
 subjectLabel: "Su mensaje trata de"
-messageLabel: Tu mensaje
+messageLabel: Su mensaje
 captchaError: La verificación ha fallado. Vuelva a intentar el control de seguridad.
 inputError: Compruebe su dirección de correo y su mensaje e inténtelo de nuevo.
 rateError: Demasiados intentos. Espere un minuto antes de volver a intentarlo.
