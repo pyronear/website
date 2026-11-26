@@ -16,7 +16,7 @@
     es-ct: "Productor d'energies renovables"
 - name: ADF Subirats
   url: https://subirats.cat/adfsubirats/
-  logo: /img/adf-subirats.png
+  logo: /img/adf-subirats.webp
   description:
     fr: "Association de défense de la forêt, en Catalogne"
     en: "Forest defence association, in Catalonia"
@@ -24,7 +24,7 @@
     es-ct: "Agrupació de defensa forestal, a Catalunya"
 - name: SDIS 12
   url: https://www.sdis12.fr/
-  logo: /img/logo_sdis12.png
+  logo: /img/logo_sdis12.webp
   description:
     fr: "Service d'incendie et de secours de l'Aveyron"
     en: "Aveyron fire and rescue service"
@@ -40,7 +40,7 @@
     es-ct: "Servei de bombers i emergències de les Boques del Roine"
 - name: SDIS 77
   url: https://www.sdis77.fr/
-  logo: /img/logo_sdis77.png
+  logo: /img/logo_sdis77.webp
   description:
     fr: "Service d'incendie et de secours de Seine-et-Marne"
     en: "Seine-et-Marne fire and rescue service"
@@ -48,7 +48,7 @@
     es-ct: "Servei de bombers i emergències de Sena i Marne"
 - name: SIS 67
   url: https://www.sis67.alsace/fr
-  logo: /img/logo_sis67.png
+  logo: /img/logo_sis67.webp
   description:
     fr: "Service d'incendie et de secours du Bas-Rhin"
     en: "Bas-Rhin fire and rescue service"
@@ -56,7 +56,7 @@
     es-ct: "Servei de bombers i emergències del Baix Rin"
 - name: Vendoeuvres
   url: https://www.vendoeuvres.fr/
-  logo: /img/vendoeuvres.png
+  logo: /img/vendoeuvres.webp
   description:
     fr: "Commune de l'Indre, dans le parc naturel régional de la Brenne"
     en: "Town in Indre, in the Brenne Regional Natural Park"
@@ -80,7 +80,7 @@
     es-ct: "Oficina nacional de boscos de França, bosc de Rambouillet"
 - name: SDIS 36
   url: https://www.sdis36.org/
-  logo: /img/logo_sdis36.png
+  logo: /img/logo_sdis36.webp
   description:
     fr: "Service d'incendie et de secours de l'Indre"
     en: "Indre fire and rescue service"

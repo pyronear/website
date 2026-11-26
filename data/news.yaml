@@ -2,7 +2,7 @@
 - outlet: info.fr
   title: "Essonne : le SDIS 91 mise sur l'IA Pyronear pour anticiper les incendies"
   url: https://info.fr/essonne-sdis-91-inaugure-ia-pyronear-detection-feux-foret/
-  logo: /img/press/info-fr.png
+  logo: /img/press/info-fr.webp
   date: "06.2026"
 - outlet: Crédit Agricole d'Île-de-France
   title: "PYRONEAR, une innovation pour prévenir les feux et protéger le territoire francilien"
@@ -12,7 +12,7 @@
 - outlet: Feux de Forêt
   title: "Des pylônes télécoms transformés en vigies anti-incendie à Fontainebleau"
   url: https://feuxdeforet.fr/2026/05/28/des-pylones-telecoms-transformes-en-vigies-anti-incendie-a-fontainebleau/
-  logo: /img/press/feuxdeforet.ico
+  logo: /img/press/feuxdeforet.webp
   date: "05.2026"
 - outlet: France Inter
   title: "\"Une meilleure vision que l'œil humain\" : une intelligence artificielle aide les pompiers à lutter contre les incendies"
@@ -31,14 +31,14 @@
 - outlet: Europe 1
   title: "Pyronear, pour détecter les feux de forêts précoces"
   url: https://www.dailymotion.com/video/x9xurik
-  logo: /img/europe1.png
+  logo: /img/europe1.webp
   image: https://s1.dmcdn.net/v/ZqslC1fQMaGpiX-rq/x720
   date: "01.2026"
   featured: true
 - outlet: Sciences et Avenir
   title: À Fontainebleau, une IA sobre en énergie s'entraîne à détecter les feux de forêt
   url: https://www.sciencesetavenir.fr/nature-environnement/a-fontainebleau-une-ia-sobre-en-energie-s-entraine-a-detecter-les-feux-de-foret_188336
-  logo: /img/press/sciences-et-avenir.jpg
+  logo: /img/press/sciences-et-avenir.webp
   image: https://www.sciencesetavenir.fr/assets/img/2025/09/23/cover-r4x3w1200-68d2413d77f24-e8bda95730789a3609aaea6cf6422a7fc24c9015-jpg.jpg
   date: "09.2025"
 - outlet: TV5MONDE
@@ -49,7 +49,7 @@
 - outlet: AI for Good
   title: Intervention de Pyronear au sommet AI for Good
   url: https://www.youtube.com/live/MDJBb0EL8U4?t=4330s
-  logo: /img/logo-aiforgood.png
+  logo: /img/logo-aiforgood.webp
   date: "09.2025"
 - outlet: La Croix
   title: "Incendies : ces bénévoles qui veillent dans l'ombre pour prévenir les feux de forêt"
@@ -60,7 +60,7 @@
 - outlet: Le Parisien
   title: "« Il faut agir vite et fort », l'IA de Pyronear permet de détecter les feux en forêt de Fontainebleau"
   url: https://www.leparisien.fr/seine-et-marne-77/seine-et-marne-lia-de-pyronear-permet-de-detecter-plus-vite-les-feux-en-foret-de-fontainebleau-14-08-2025-VY2MVYPDQJGDTBL33HMALDLL6I.php
-  logo: /img/press/le-parisien.png
+  logo: /img/press/le-parisien.webp
   image: https://www.leparisien.fr/resizer/zJGpJSr1z-NYQ6IW7TYEvioILNw=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/leparisien/CERVYLPLTZFXPBEEJW2VPHF3QQ.jpg
   date: "08.2025"
 - outlet: Fondation de France
@@ -82,12 +82,12 @@
 - outlet: Le Progrès
   title: "Feux de forêt : comment l'intelligence artificielle se met au service de leur détection"
   url: https://www.leprogres.fr/environnement/2025/06/03/feux-de-foret-comment-l-intelligence-artificielle-se-met-au-service-de-leur-detection
-  logo: /img/press/le-progres.png
+  logo: /img/press/le-progres.webp
   date: "06.2025"
 - outlet: Libre à vous
   title: "Émission 238 : Pyronear"
   url: https://www.libreavous.org/238-la-fin-des-erp-libres-pyronear
-  logo: /img/press/libre-a-vous.png
+  logo: /img/press/libre-a-vous.webp
   date: "03.2025"
 - outlet: Sénat
   title: Pyronear cité dans un rapport d'information du Sénat
@@ -107,12 +107,12 @@
 - outlet: Sécurité & Défense Magazine
   title: Pyronear sur S&D Magazine TV
   url: https://www.youtube.com/watch?v=pCaDu6_HhCY
-  logo: /img/press/securite-defense.png
+  logo: /img/press/securite-defense.webp
   date: "01.2024"
 - outlet: Techniques de l'Ingénieur
   title: Comment l'IA permet de détecter plus rapidement les incendies
   url: https://www.techniques-ingenieur.fr/actualite/articles/comment-lia-permet-de-detecter-plus-rapidement-les-incendies-129238/
-  logo: /img/press/techniques-ingenieur.png
+  logo: /img/press/techniques-ingenieur.webp
   date: "01.2024"
 - outlet: Le Monde
   title: Avec Pyronear, un système d'intelligence artificielle sous licence libre détecte les feux de forêt dès les premières fumées
@@ -122,12 +122,12 @@
 - outlet: Europe 1
   title: La lutte contre les feux de forêt passe aussi par les algorithmes
   url: https://www.europe1.fr/emissions/initiative-a-impact/la-lutte-contre-les-feux-de-foret-passe-aussi-par-les-algorithmes-4204947
-  logo: /img/europe1.png
+  logo: /img/europe1.webp
   date: "09.2023"
 - outlet: TEDx Tours
   title: Talk TEDx Tours
   url: https://www.youtube.com/watch?v=ZaBdnqnLVBg
-  logo: /img/tedx-tours.png
+  logo: /img/tedx-tours.webp
   date: "09.2023"
 - outlet: Safety Innov
   title: Podcast Safety Innov
@@ -137,32 +137,32 @@
 - outlet: DataGen
   title: Podcast DataGen
   url: https://open.spotify.com/episode/7DqAliUZ4IQp5lFGzgdKZX
-  logo: /img/press/datagen.png
+  logo: /img/press/datagen.webp
   date: "02.2023"
 - outlet: Le Parisien
   title: "Incendies : une ONG invente un système pour détecter les feux de forêt"
   url: https://www.leparisien.fr/environnement/incendies-une-ong-invente-un-systeme-pour-detecter-les-feux-de-foret-09-09-2022-YDDO4HSLRFEDLNEGJRMGEGNFAM.php
-  logo: /img/press/le-parisien.png
+  logo: /img/press/le-parisien.webp
   date: "09.2022"
 - outlet: TF1 Info
   title: Pyronear lauréat du prix Jeunes EPE 2022
   url: https://www.tf1info.fr/environnement-ecologie/nous-voulons-aider-les-pompiers-a-lutter-contre-les-incendies-le-projet-pyronear-laureat-du-prix-jeunes-epe-2022-protection-foret-secheresse-2223219.html
-  logo: /img/logo-epe.png
+  logo: /img/logo-epe.webp
   date: "2022"
 - outlet: Ministère de la Transition écologique
   title: Journée de la donnée au service de la transition écologique
   url: https://www.youtube.com/watch?v=XDUVsrxHf_w&list=PLx4I2Pvlf1NIUV4dQcPolj326bf80YvrT
-  logo: /img/press/ministere-transition-ecologique.jpg
+  logo: /img/press/ministere-transition-ecologique.webp
   date: "01.2022"
 - outlet: Qarnot
   title: Les data scientists sauveront-ils le monde ?
   url: https://blog.qarnot.com/les-data-scientists-sauveront-ils-le-monde/
-  logo: /img/press/qarnot.jpg
+  logo: /img/press/qarnot.webp
   date: "10.2021"
 - outlet: Horizon IA
   title: "Podcast saison 1 : feux de forêts"
   url: https://www.horizon-ia.com/saison1-feuxdeforets/
-  logo: /img/press/horizon-ia.png
+  logo: /img/press/horizon-ia.webp
   date: "09.2021"
 - outlet: Data for Good
   title: Présentation au Monthly Marty
@@ -172,7 +172,7 @@
 - outlet: DataXdays
   title: Présentation aux DataXdays 2021
   url: https://www.youtube.com/watch?v=QC52bYfXMkM&t=29931s
-  logo: /img/press/dataxdays.jpg
+  logo: /img/press/dataxdays.webp
   date: "2021"
 - outlet: PyTorch
   title: Poster au PyTorch Ecosystem Day 2021

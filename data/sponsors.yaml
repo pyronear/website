@@ -16,7 +16,7 @@
     es-ct: Un actor de la innovació en el rescat i el nostre punt de contacte amb els bombers.
 - name: Fondation M33
   url: https://www.linkedin.com/showcase/m33-foundation-theodo-group/?originalSubdomain=fr
-  logo: /img/m33_foundation.png
+  logo: /img/m33_foundation.webp
   description:
     fr: Qui nous soutient humainement et financièrement via un mécénat d’entreprise
     en: Who supports us humanly and financially through corporate sponsorship
@@ -24,7 +24,7 @@
     es-ct: Qui ens recolza humana i econòmicament a través del patrocini corporatiu
 - name: Hi!Paris
   url: https://www.hi-paris.fr/
-  logo: /img/hi-paris.png
+  logo: /img/hi-paris.webp
   description:
     fr: Qui nous aide par ses moyens humains et sa connection avec le monde de la recherche
     en: Which helps us with its human resources and its connection with the academic world
@@ -32,7 +32,7 @@
     es-ct: Ens ajuda amb els seus recursos humans i la seva connexió amb el món acadèmic
 - name: DINUM
   url: https://citoyens.transformation.gouv.fr/
-  logo: /img/dinum.png
+  logo: /img/dinum.webp
   description:
     fr: Qui nous accompagne via Etalab et l’Accélérateur d’initiatives citoyennes
     en: Who supports us through Etalab and the Citizen Initiative Accelerator
@@ -56,7 +56,7 @@
     es-ct: Que ens donen suport participant en el seu programa "Study Project" per implicar els estudiants en projectes tècnics, amb un mentor
 - name: Raise Sherpas
   url: https://www.raise-sherpas.co/
-  logo: /img/raise-sherpas.jpg
+  logo: /img/raise-sherpas.webp
   description:
     fr: Qui nous soutient humainement et financièrement via leur accélérateur philanthropique
     en: Who supports us humanly and financially via their philanthropic accelerator
@@ -64,7 +64,7 @@
     es-ct: Qui ens dóna suport humanament i financerament a través del seu accelerador filantròpic
 - name: Inherent
   url: https://www.inherent.fr/
-  logo: /img/inherent.png
+  logo: /img/inherent.webp
   description:
     fr: Qui nous soutient financièrement et par son réseau
     en: Who supports us financially and through their network
@@ -72,7 +72,7 @@
     es-ct: Que ens dóna suport financerament i a través de la seva xarxa
 - name: Fast Forward
   url: https://www.ffwd.org/accelerator
-  logo: /img/fastforward.png
+  logo: /img/fastforward.webp
   description:
     fr: Qui nous soutient via son programme d'accélération
     en: Who supports us through their accelerator program
@@ -80,7 +80,7 @@
     es-ct: Que ens dóna suport a través del seu programa d'acceleració
 - name: Fonds de Mécénat Environnement et Mobilité du Crédit Agricole d’Île-de-France
   url: https://ca-paris.com/banque-responsable/mecenat-banque/soutiens/pyronear-prevenir-feux/
-  logo: /img/credit-agricole-idf-fund.png
+  logo: /img/credit-agricole-idf-fund.webp
   description:
     fr: Soutient la recherche ouverte et appliquée sur le territoire francilien
     en: Supports open and applied research across the Île-de-France region
