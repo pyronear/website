@@ -20,7 +20,7 @@ hero:
       value: "07:45:41"
 about:
   title: Who are we?
-  intro: <b>Pyronear</b> is a non-profit NGO whose objective is to democratize open and low-tech solutions for fighting wildfires, for the benefit of the ecosystems and the citizens. To achieve this goal, we are co-building an early detection solution that is open source, efficient, automatic, energy-efficient, economical and modular
+  intro: <b>Pyronear</b> is a non-profit NGO whose objective is to democratize open and low-tech solutions for fighting wildfires, for the benefit of ecosystems and citizens. To achieve this goal, we are co-building an early detection solution that is open source, efficient, automatic, energy-efficient, economical and modular.
 media:
   eyebrow: News & Insights
   title: Featured Stories
