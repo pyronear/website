@@ -104,7 +104,7 @@
     es-ct: "Municipi del Pas de Calais"
 - name: ANB
   url: https://natuurenbos.be/
-  logo: /img/logo_anb.png
+  logo: /img/logo_anb.webp
   description:
     fr: "Agence flamande pour la nature et les forêts, en Belgique"
     en: "Flemish Agency for Nature and Forests, in Belgium"
