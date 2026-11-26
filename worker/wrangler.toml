@@ -8,6 +8,18 @@ preview_urls = false
 [vars]
 ALLOWED_ORIGINS = "https://website.pyronear.org,https://pyronear.org"
 
+[[send_email]]
+name = "CONTACT_EMAIL"
+destination_address = "inquiries@pyronear.org"
+
+[[durable_objects.bindings]]
+name = "CONTACT_DELIVERY"
+class_name = "ContactDelivery"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ContactDelivery"]
+
 [[ratelimits]]
 name = "CONTACT_RATE_LIMITER"
 namespace_id = "1001"

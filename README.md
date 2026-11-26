@@ -110,11 +110,11 @@ The custom domains are declared in `wrangler.toml`: `pyronear.org` is the public
 
 ## Contact form
 
-The form uses Managed Cloudflare Turnstile and the Worker in `worker/` to validate requests before sending through Resend. Browser email validation is native HTML; CAPTCHA rendering, expiry and challenge retries are handled by Turnstile. The Worker also validates fields, checks the token's hostname and `contact` action, and limits attempts to 5/minute/IP (per Cloudflare location).
+The form uses Managed Cloudflare Turnstile and the Worker in `worker/` to validate requests before sending through Cloudflare Email Sending. Browser email validation is native HTML; CAPTCHA rendering, expiry and challenge retries are handled by Turnstile. The Worker also validates fields, checks the token's hostname and `contact` action, and limits attempts to 5/minute/IP (per Cloudflare location).
 
 Mail goes from `forms@pyronear.org` to `inquiries@pyronear.org`, with the visitor in `Reply-To`, `[Contact form]` before the subject, and only the message in the body. Keep the recipient as a shared team inbox with clear reply ownership. For a Google Group, allow the external sender and preserve the visitor's Reply-To. No automated copy goes to the visitor and no spreadsheet entries are created.
 
-1. Verify `pyronear.org` in Resend and create a sending key restricted to that domain. Add its exact DKIM and return-path DNS records in Cloudflare; Pyronear uses `resend._domainkey` (TXT) and `rsend`/`send` (DNS-only CNAMEs). Preserve Google's root MX/SPF records and the existing DMARC policy. Never add a second SPF record at the same hostname. Check SPF, aligned DKIM and DMARC in a received message; authentication cannot guarantee inbox placement. Disable open/click tracking for these notifications.
+1. In the Pyronear Cloudflare account, open **Compute → Email Service → Email Routing → Destination Addresses** and add `inquiries@pyronear.org`. Open Cloudflare's message in the shared inbox, select **Verify email address**, and confirm the dashboard shows it as verified. This is an account-level destination. In **Email Sending → Onboard Domain**, select `pyronear.org` and review the records for `cf-bounce.pyronear.org`. Keep Google's root MX and SPF records and the existing DMARC policy. See [destination verification](https://developers.cloudflare.com/email-service/configuration/destination-addresses/) and [sender setup](https://developers.cloudflare.com/email-service/get-started/send-emails/).
 2. Create a Managed Turnstile widget with both `website.pyronear.org` and `pyronear.org` in its hostname allowlist before deployment. Keep it aligned with `ALLOWED_ORIGINS` in `worker/wrangler.toml`. Production widgets should exclude localhost and preview domains; the existing local test widget is separate. Check the rate-limit namespace ID is unused by other Workers in the account.
 3. From `worker/`, check and deploy using the Pyronear Cloudflare account:
 
@@ -123,19 +123,18 @@ node --test index.test.mjs
 npx --yes wrangler@4.157.0 deploy --dry-run
 npx wrangler@4.157.0 login
 npx wrangler@4.157.0 secret put TURNSTILE_SECRET_KEY
-npx wrangler@4.157.0 secret put RESEND_API_KEY
 npx wrangler@4.157.0 deploy
 ```
 
-4. Set the production Cloudflare build variables described above. Keys named `*_SECRET_KEY` and `RESEND_API_KEY` belong only in Worker secrets, never in the website or Git. Local/preview builds without public form configuration show an unavailable form.
-5. Test a real submission, delivery, Reply-To and token replay rejection before cutover. Then disable all old Google Apps Script web deployments that can send contact mail; removing their URL does not close them. Preserve the old Sheet as history.
+4. Set the production Cloudflare build variables described above. Keys named `*_SECRET_KEY` belong only in Worker secrets. Local/preview builds without public form configuration show an unavailable form.
+5. After deploying, submit the form at `pyronear.org`. Confirm delivery, authentication (SPF, DKIM and DMARC), the visitor's Reply-To, and rejection of reused CAPTCHA tokens. After confirming delivery, retire the Resend Worker secret and any DNS records used solely by this form. Disable any old Google Apps Script web deployments that can send contact mail and preserve the old Sheet as history.
 
-Failed submissions preserve the form and require a fresh CAPTCHA token. Unchanged manual retries reuse the Resend idempotency key to avoid duplicate emails after timeouts. Application logs exclude visitor addresses, messages, IPs and secrets. Tests mock the external services and send no email.
+Failed submissions preserve the form and require a fresh CAPTCHA token. Unchanged manual retries reuse the same request ID. A Durable Object coordinates retries and keeps a fingerprint of each accepted message for 24 hours. If Cloudflare accepts an email but the Worker fails before recording acceptance, a retry can send a duplicate. Application logs exclude visitor addresses, messages, IPs and secrets. Tests mock the external services and send no email.
 
-For a manual local test with real mail, use a separate real widget restricted to `127.0.0.1`. Store credentials in the ignored `worker/.dev.vars` file (permissions `600`) with `ALLOWED_ORIGINS="http://127.0.0.1:14137"`. From `worker/`, run `npx wrangler@4.157.0 dev --local --ip 127.0.0.1 --port 14138 --inspector-port 14139`; restart after credential changes. From the repository root, set `HUGO_PARAMS_FORMACTION=http://127.0.0.1:14138/contact` and `HUGO_PARAMS_TURNSTILESITEKEY` to the public sitekey, then run:
+For a manual local test with simulated delivery, use a separate real widget restricted to `127.0.0.1`. Store `TURNSTILE_SECRET_KEY` in the ignored `worker/.dev.vars` file (permissions `600`) with `ALLOWED_ORIGINS="http://127.0.0.1:14137"`. From `worker/`, run `npx wrangler@4.157.0 dev --local --ip 127.0.0.1 --port 14138 --inspector-port 14139`; restart after credential changes. From the repository root, set `HUGO_PARAMS_FORMACTION=http://127.0.0.1:14138/contact` and `HUGO_PARAMS_TURNSTILESITEKEY` to the public sitekey, then run:
 
 ```sh
 hugo server --bind 127.0.0.1 --port 14137 --baseURL http://127.0.0.1:14137 --disableFastRender
 ```
 
-Open `http://127.0.0.1:14137/#contact-form` in a regular browser. Automated UI tests should use [Turnstile test keys](https://developers.cloudflare.com/turnstile/troubleshooting/testing/) and a mock mail endpoint.
+Open `http://127.0.0.1:14137/#contact-form` in a regular browser. Wrangler [simulates and logs delivery](https://developers.cloudflare.com/email-service/observability/local-development/sending/), so use test data. Automated UI tests should use [Turnstile test keys](https://developers.cloudflare.com/turnstile/troubleshooting/testing/) and a simulated email binding.
