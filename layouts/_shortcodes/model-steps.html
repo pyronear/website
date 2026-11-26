@@ -1,0 +1,10 @@
+{{- /* How the model works, in order, from the page's `modelSteps` front matter: icon, title and text per step. {{< model-steps >}} */ -}}
+<ol class="icon-list">
+  {{- range .Page.Params.modelSteps }}
+  <li>
+    <span class="icon-list__icon">{{ partial "icon.html" .icon }}</span>
+    <h3>{{ .title }}</h3>
+    <p>{{ .text }}</p>
+  </li>
+  {{- end }}
+</ol>
