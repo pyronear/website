@@ -33,7 +33,7 @@ hugo --gc --minify
 | Templates | `layouts/` |
 | Styles and scripts | `assets/css/main.css`, `assets/js/` |
 | Images | `static/img/`; photos used in a page's Markdown go next to it in `content/<page>/` (the hero photo is in `assets/img/`) |
-| Default social share image | `static/img/og.jpg` |
+| Link previews (Open Graph, X/Twitter; one share image for every page, made from the hero photo and the wordmark) | `layouts/_partials/social.html`, `static/img/og.jpg`, `shareImageAlt` in `i18n/` |
 
 Each page's URL is set by `slug` in its front matter. Shared menu order, templates and resource settings live in the `cascade` entries in `hugo.toml` and apply to every translation.
 
@@ -50,7 +50,6 @@ Languages: French (default, served at `/`), English (`/en/`), Spanish (`/es/`) a
 - `{{< gallery >}} ... {{< /gallery >}}` shows the images inside as a grid.
 - `{{< youtube id="VIDEO_ID" title="..." loading="lazy" >}}` embeds a video from youtube-nocookie.com.
 - `{{< hf-space "owner/name" "https://owner-name.hf.space" >}}` embeds a Hugging Face demo that only loads when opened.
-- A page's share image can be set with `images: [photo.jpg]` in its front matter.
 
 ### Deployment map
 

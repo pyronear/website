@@ -2,8 +2,6 @@
 title: Comment ça marche
 slug: comment-ca-marche
 description: Des stations sur des points hauts, une IA sobre et une plateforme d'alerte pour les pompiers.
-images:
-  - view.jpg
 solution:
   title: "Une solution complète"
 station:
