@@ -116,7 +116,7 @@ export default {
         method: "POST",
         body: JSON.stringify({
           from: { name: "Pyronear website", email: "forms@pyronear.org" },
-          to: "inquiries@pyronear.org",
+          to: "fg@pyronear.org",
           replyTo: email,
           subject: `[Contact form] ${subject || "Website contact"}`,
           text: message,

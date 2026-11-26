@@ -10,7 +10,7 @@ ALLOWED_ORIGINS = "https://website.pyronear.org,https://pyronear.org"
 
 [[send_email]]
 name = "CONTACT_EMAIL"
-destination_address = "inquiries@pyronear.org"
+destination_address = "fg@pyronear.org"
 
 [[durable_objects.bindings]]
 name = "CONTACT_DELIVERY"
