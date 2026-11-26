@@ -15,10 +15,10 @@ values:
     title: Open data
     text: Amb l'ajuda dels nostres socis i voluntaris, estem construint un conjunt de dades que compartim com a Open Data, de manera que les imatges recollides i anotades puguin ser utilitzades per tantes persones com sigui possible.
   - icon: /img/cards_icons/savings-solid.svg
-    title: Economic
-    text: La nostra R+D la fan voluntaris, el nostre dispositiu és sobri i objecte sense ànim de lucre de la nostra associació, la qual cosa ens permet proposar preus molt competitius per facilitar un desplegament al territori.
+    title: Econòmic
+    text: La nostra R+D la fan voluntaris, el nostre dispositiu és sobri i la nostra associació no té ànim de lucre, la qual cosa ens permet proposar preus molt competitius per facilitar un desplegament al territori.
   - icon: /img/cards_icons/eco.svg
-    title: Sobre energia
+    title: Energèticament sobri
     text: Estem en un enfocament denominat de baixa tecnologia, hem construït un dispositiu de baix consum que permet un desplegament més fàcil i un ús més raonat dels nostres valuosos recursos.
   - icon: /img/cards_icons/rocket.svg
     title: Rendiment

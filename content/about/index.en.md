@@ -15,10 +15,10 @@ values:
     title: Open data
     text: With the help of our partners and volunteers, we are building a dataset that we are sharing as Open Data, so that the images collected and annotated can be used by as many people as possible.
   - icon: /img/cards_icons/savings-solid.svg
-    title: Economic
-    text: Our R&D is done by volunteers, our device is sober and the non-profit object of our association, which allows us to propose very competitive prices to facilitate a deployment on the territory.
+    title: Economical
+    text: Our R&D is done by volunteers, our device is frugal and our association is non-profit, which allows us to propose very competitive prices to facilitate a deployment on the territory.
   - icon: /img/cards_icons/eco.svg
-    title: Energetically sober
+    title: Energy-efficient
     text: We are in a so-called low-tech approach, we have built a low-consumption device allowing an easier deployment and a more reasoned use of our precious resources.
   - icon: /img/cards_icons/rocket.svg
     title: Performance
@@ -28,7 +28,7 @@ values:
     text: We offer a fully automated solution to free up firefighters' time.
   - icon: /img/cards_icons/grid-view-solid.svg
     title: Modular
-    text: We offer a complete detection pipeline but our system has been designed to work with existing equipment (use of cameras already in place, connection with existing software ...)
+    text: We offer a complete detection pipeline but our system has been designed to work with existing equipment (use of cameras already in place, connection with existing software...)
 ---
 
 ## Our story

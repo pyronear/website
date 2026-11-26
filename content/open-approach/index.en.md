@@ -4,13 +4,13 @@ slug: open-approach
 description: "Our code, models, data and hardware are open: a common good to detect fires."
 ---
 
-## A digital common
+## A digital commons
 
-> A common is a resource produced collectively by a community of diverse actors and governed by rules that ensure its survival and guarantee its open and shared nature.
+> A commons is a resource produced collectively by a community of diverse actors and governed by rules that ensure its survival and guarantee its open and shared nature.
 >
 > — [IGN, geocommons approach](https://www.ign.fr/institut/la-demarche-geocommuns) (in French)
 
-In plain words: a resource that anyone can use and enrich, without depending on a vendor, like Wikipedia or OpenStreetMap. Pyronear applies this idea to early fire detection: every improvement, every annotated image and every field feedback benefits all territories.
+In plain words: a resource that anyone can use and enrich, without depending on a vendor, like Wikipedia or OpenStreetMap. Pyronear applies this idea to early fire detection: every improvement, every annotated image and every piece of field feedback benefits all territories.
 
 ## What is open
 

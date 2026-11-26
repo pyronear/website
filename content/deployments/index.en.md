@@ -68,7 +68,7 @@ partners:
   eyebrow: Collaboration & Innovation
   title: Our Partners
 cta:
-  title: "Early fire detection is a concern for you?"
+  title: "Is early fire detection a concern for you?"
   text: "Fire services, forest management offices, local authorities, companies: let's talk about your detection needs."
 ---
 

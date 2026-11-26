@@ -20,7 +20,7 @@ hero:
       value: "07:45:41"
 about:
   title: Qui sommes-nous ?
-  intro: <b>Pyronear</b> est une association à but non lucratif loi 1901 dont l’objectif est de démocratiser des solutions technologiques sobres et ouvertes de lutte contre les incendies de forêts, au service des écosystèmes et des citoyens. Pour cela, nous co-construisons une solution open source de détection détection précoce, performante, automatique, énergiquement sobre, économique et modulable des départs de feux dans les espaces naturels.
+  intro: <b>Pyronear</b> est une association à but non lucratif loi 1901 dont l’objectif est de démocratiser des solutions technologiques sobres et ouvertes de lutte contre les incendies de forêts, au service des écosystèmes et des citoyens. Pour cela, nous co-construisons une solution open source de détection précoce, performante, automatique, énergétiquement sobre, économique et modulable des départs de feux dans les espaces naturels.
 media:
   eyebrow: Actualités & Perspectives
   title: En vedette
