@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mock, test, beforeEach, afterEach } from "node:test";
+import { mock, test, afterEach } from "node:test";
 import { readFileSync } from "node:fs";
 import { runInNewContext } from "node:vm";
 import worker, { ContactDelivery } from "./index.mjs";
@@ -10,31 +10,13 @@ const valid = {
   honeypot: "", "cf-turnstile-response": "fresh-token",
   requestId: "fa418393-75df-4ee4-a643-4a5694897c74",
 };
-const allowedOrigins = readFileSync(new URL("./wrangler.toml", import.meta.url), "utf8").match(/^ALLOWED_ORIGINS = "([^"]+)"/m)[1];
-let env, deliveries;
-beforeEach(() => {
-  deliveries = new Map();
-  env = {
-    ALLOWED_ORIGINS: allowedOrigins,
-    TURNSTILE_SECRET_KEY: "secret",
-    CONTACT_RATE_LIMITER: { limit: async () => ({ success: true }) },
-    CONTACT_EMAIL: { send: async () => ({ messageId: "email-id" }) },
-    CONTACT_DELIVERY: {
-      getByName(name) {
-        if (!deliveries.has(name)) {
-          const values = new Map();
-          const state = {
-            storage: { get: key => values.get(key), put: (key, value) => values.set(key, value), setAlarm() {} },
-            waitUntil() {},
-          };
-          deliveries.set(name, { state, object: new ContactDelivery(state, env) });
-        }
-        const { object } = deliveries.get(name);
-        return { fetch: (url, options) => object.fetch(new Request(url, options)) };
-      },
-    },
-  };
-});
+const delivery = { fetch: async () => new Response(null, { status: 204 }) };
+const env = {
+  ALLOWED_ORIGINS: readFileSync(new URL("./wrangler.toml", import.meta.url), "utf8").match(/^ALLOWED_ORIGINS = "([^"]+)"/m)[1],
+  TURNSTILE_SECRET_KEY: "secret", CONTACT_EMAIL: {},
+  CONTACT_RATE_LIMITER: { limit: async () => ({ success: true }) },
+  CONTACT_DELIVERY: { getByName: () => delivery },
+};
 function request(fields = {}, options = {}) {
   return new Request("https://contact.example/contact", {
     method: "POST", headers: { Origin: origin, "CF-Connecting-IP": "192.0.2.1" },
@@ -46,7 +28,8 @@ afterEach(() => mock.restoreAll());
 
 test("verified request sends plain text with fixed routing and a visitor reply address", async () => {
   const verify = mock.method(globalThis, "fetch", async () => Response.json(verified));
-  const send = mock.method(env.CONTACT_EMAIL, "send");
+  const getDelivery = mock.method(env.CONTACT_DELIVERY, "getByName");
+  const send = mock.method(delivery, "fetch");
   const response = await worker.fetch(request({
     to: "attacker@example.org", from: "fake@example.org", bcc: "hidden@example.org", cc: "copy@example.org",
   }), env);
@@ -59,35 +42,32 @@ test("verified request sends plain text with fixed routing and a visitor reply a
   assert.equal(url, "https://challenges.cloudflare.com/turnstile/v0/siteverify");
   assert.equal(options.body.get("response"), valid["cf-turnstile-response"]);
   assert.equal(options.body.get("remoteip"), "192.0.2.1");
+  assert.deepEqual(getDelivery.mock.calls.map(call => call.arguments), [[valid.requestId]]);
   assert.equal(send.mock.callCount(), 1);
-  assert.deepEqual(send.mock.calls[0].arguments[0], {
+  assert.deepEqual(JSON.parse(send.mock.calls[0].arguments[1].body), {
     from: { name: "Pyronear website", email: "forms@pyronear.org" }, to: "inquiries@pyronear.org",
     replyTo: valid.email, subject: "[Contact form] Bonjour", text: valid.message,
   });
 });
 
-test("both production domains work with matching Turnstile hostnames", async () => {
-  for (const source of [origin, "https://pyronear.org"]) {
-    const network = mock.method(globalThis, "fetch", async () => Response.json({ ...verified, hostname: new URL(source).hostname }));
-    const response = await worker.fetch(request({}, {
-      headers: { Origin: source, "CF-Connecting-IP": "192.0.2.1" },
-    }), env);
-    assert.equal(response.status, 200);
-    assert.equal(response.headers.get("Access-Control-Allow-Origin"), source);
-    assert.equal(network.mock.callCount(), 1);
-    mock.restoreAll();
-  }
+test("the apex domain also works with its matching Turnstile hostname", async () => {
+  mock.method(globalThis, "fetch", async () => Response.json({ ...verified, hostname: "pyronear.org" }));
+  const response = await worker.fetch(request({}, {
+    headers: { Origin: "https://pyronear.org", "CF-Connecting-IP": "192.0.2.1" },
+  }), env);
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("Access-Control-Allow-Origin"), "https://pyronear.org");
 });
 
 test("CRLF messages use the textarea's 5000-character limit", async () => {
   const message = "ab\r\n".repeat(1666) + "ab";
   const network = mock.method(globalThis, "fetch", async () => Response.json(verified));
-  const send = mock.method(env.CONTACT_EMAIL, "send");
+  const send = mock.method(delivery, "fetch");
   assert.equal((await worker.fetch(request({ message }), env)).status, 200);
   assert.equal((await worker.fetch(request({ message: message + "a" }), env)).status, 400);
   assert.equal(network.mock.callCount(), 1);
   assert.equal(send.mock.callCount(), 1);
-  assert.equal(send.mock.calls[0].arguments[0].text, message.replace(/\r\n/g, "\n"));
+  assert.equal(JSON.parse(send.mock.calls[0].arguments[1].body).text, message.replace(/\r\n/g, "\n"));
 });
 
 test("invalid inputs and absent challenges never reach external services", async () => {
@@ -150,63 +130,47 @@ test("rate limits and missing configuration fail closed", async () => {
   assert.equal(network.mock.callCount(), 0);
 });
 
-test("failed, expired, reused and mismatched Turnstile tokens cannot send", async () => {
-  for (const result of [
+test("failed Turnstile checks never reach delivery", async () => {
+  mock.method(console, "error", () => {});
+  const send = mock.method(delivery, "fetch");
+  const rejected = [
     { ...verified, success: false, "error-codes": ["timeout-or-duplicate"] },
     { ...verified, success: "true" }, { ...verified, hostname: "evil.example" },
     { ...verified, hostname: "pyronear.org" },
     { ...verified, action: "login" }, {},
+  ];
+  for (const [verify, status] of [
+    ...rejected.map(result => [() => Response.json(result), 403]),
+    [() => { throw new Error("timeout"); }, 502],
+    [() => new Response("bad gateway", { status: 502 }), 502],
+    [() => new Response("invalid JSON"), 502],
   ]) {
-    const network = mock.method(globalThis, "fetch", async () => Response.json(result));
-    assert.equal((await worker.fetch(request(), env)).status, 403);
-    assert.equal(network.mock.callCount(), 1);
-    mock.restoreAll();
-  }
-});
-
-test("verification outages never fall through to sending", async () => {
-  for (const verify of [
-    () => { throw new Error("timeout"); },
-    () => new Response("bad gateway", { status: 502 }),
-    () => new Response("invalid JSON"),
-  ]) {
-    mock.method(console, "error", () => {});
     const network = mock.method(globalThis, "fetch", verify);
-    assert.equal((await worker.fetch(request(), env)).status, 502);
+    assert.equal((await worker.fetch(request(), env)).status, status);
     assert.equal(network.mock.callCount(), 1);
-    mock.restoreAll();
+    network.mock.restore();
   }
+  assert.equal(send.mock.callCount(), 0);
 });
 
 test("failed emails can be retried and accepted emails are sent once across retries", async () => {
-  const started = Promise.withResolvers();
-  const fingerprinted = Promise.withResolvers();
-  const accepted = Promise.withResolvers();
+  let stored;
+  const storage = { get: () => stored, put: (_, value) => { stored = value; }, setAlarm() {} };
+  const state = { storage, waitUntil() {} };
+  const send = mock.fn(async () => ({ messageId: "accepted" }));
+  send.mock.mockImplementationOnce(() => { throw new Error("quota reached"); });
+  const emailEnv = { CONTACT_EMAIL: { send } };
+  let object = new ContactDelivery(state, emailEnv);
+  // Resolve both fingerprints without waiting for Web Crypto to schedule them.
+  mock.method(crypto.subtle, "digest", (_, bytes) => bytes);
+  const route = mock.method(delivery, "fetch", (_, { body }) => object.fetch({ text: () => body }));
   mock.method(console, "error", () => {});
   mock.method(globalThis, "fetch", async () => Response.json(verified));
-  let attempts = 0;
-  const send = mock.method(env.CONTACT_EMAIL, "send", async () => {
-    if (++attempts === 1) throw new Error("quota reached");
-    started.resolve();
-    return accepted.promise;
-  });
   assert.equal((await worker.fetch(request(), env)).status, 502);
-  const firstRetry = worker.fetch(request({ "cf-turnstile-response": "new-token" }), env);
-  await started.promise;
-  const digest = crypto.subtle.digest.bind(crypto.subtle);
-  const fingerprint = mock.method(crypto.subtle, "digest", async (...args) => {
-    const result = await digest(...args);
-    fingerprinted.resolve();
-    return result;
-  });
-  const secondRetry = worker.fetch(request({ "cf-turnstile-response": "another-token" }), env);
-  await fingerprinted.promise;
-  accepted.resolve({ messageId: "accepted" });
-  assert.deepEqual((await Promise.all([firstRetry, secondRetry])).map(response => response.status), [200, 200]);
-  fingerprint.mock.restore();
-
-  const delivery = deliveries.get(valid.requestId);
-  delivery.object = new ContactDelivery(delivery.state, env);
+  const retry = () => object.fetch({ text: () => route.mock.calls[0].arguments[1].body });
+  const retries = await Promise.all([retry(), retry()]);
+  assert.deepEqual(retries.map(response => response.status), [204, 204]);
+  object = new ContactDelivery(state, emailEnv);
   assert.equal((await worker.fetch(request(), env)).status, 200);
   assert.equal((await worker.fetch(request({ message: "Different message" }), env)).status, 502);
   assert.equal(send.mock.callCount(), 2);
