@@ -22,14 +22,6 @@
     en: "Forest defence association, in Catalonia"
     es: "Agrupación de defensa forestal, en Cataluña"
     es-ct: "Agrupació de defensa forestal, a Catalunya"
-- name: FORCE 06
-  url: https://www.departement06.fr/preservation-du-cadre-de-vie/force-06-3080.html
-  logo: /img/force06_logo.png
-  description:
-    fr: "Unité feux de forêt et risques naturels des Alpes-Maritimes"
-    en: "Forest fire and natural hazards unit of Alpes-Maritimes"
-    es: "Unidad de incendios forestales y riesgos naturales de Alpes Marítimos"
-    es-ct: "Unitat d'incendis forestals i riscos naturals dels Alps Marítims"
 - name: SDIS 12
   url: https://www.sdis12.fr/
   logo: /img/logo_sdis12.png
