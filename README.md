@@ -31,6 +31,7 @@ hugo --gc --minify
 | Site settings, languages, social links | `hugo.toml` |
 | Website / contact Worker settings | `wrangler.toml` / `worker/wrangler.toml` |
 | Templates | `layouts/` |
+| Contact section background (the aerial forest of the former pyronear.org hero, an Unsplash photo) | `assets/img/contact-forest.jpg` |
 | Styles and scripts | `assets/css/main.css`, `assets/js/` |
 | Images | `static/img/`; photos used in a page's Markdown go next to it in `content/<page>/` (the hero photo is in `assets/img/`) |
 | Default social share image | `static/img/og.jpg` |

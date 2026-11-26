@@ -37,7 +37,6 @@ howItWorks:
 contactForm:
   title: "Escriviu-nos"
   text: "Un projecte de desplegament, una pregunta, ganes de contribuir: cada missatge el llegeix un membre de l'associació."
-  note: "Pyronear és una associació francesa sense ànim de lucre i d'interès general, amb seu a París."
   # Each topic becomes the e-mail subject; the last one is selected by default
   topics:
   - Equipar un territori

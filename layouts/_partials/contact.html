@@ -1,12 +1,20 @@
 {{- $js := resources.Get "js/form.js" | minify | fingerprint -}}
 {{- $ready := and site.Params.formAction site.Params.turnstileSiteKey -}}
 <section class="contact-section" id="contact-form">
+  {{- with resources.Get "img/contact-forest.jpg" }}
+  {{- $large := .Resize "1672x webp q72" }}
+  {{- $small := .Fill "752x940 webp q70 Center" }}
+  {{/* The aerial forest from the pyronear.org hero (Unsplash photo 1476231682828-37e571bc172f, Unsplash licence) */}}
+  <picture class="contact-section__bg">
+    <source media="(max-width: 640px)" srcset="{{ $small.RelPermalink }}">
+    <img src="{{ $large.RelPermalink }}" width="{{ $large.Width }}" height="{{ $large.Height }}" alt="" loading="lazy">
+  </picture>
+  {{- end }}
   <div class="container">
     <div class="contact">
       <div class="contact__intro">
         <h2>{{ .Params.contactForm.title }}</h2>
         <p>{{ .Params.contactForm.text }}</p>
-        {{ with .Params.contactForm.note }}<p class="contact__note">{{ . }}</p>{{ end }}
       </div>
       <form class="form" method="POST" action="{{ site.Params.formAction }}" data-captcha-error="{{ i18n "captchaError" }}" data-send-error="{{ i18n "sendError" }}" data-rate-error="{{ i18n "rateError" }}" data-input-error="{{ i18n "inputError" }}" data-sending="{{ i18n "sending" }}">
         <div class="form__honeypot" aria-hidden="true">
@@ -21,6 +29,15 @@
           <label><input type="radio" name="subject" value="{{ $topic }}"{{ if eq (add $i 1) (len $.Params.contactForm.topics) }} checked{{ end }}><span class="topic__body"><span class="topic__icon">{{ partial "icon.html" (index (slice "shield" "code" "heart" "news" "chat") $i) }}</span>{{ $topic }}</span></label>
           {{- end }}
         </fieldset>
+        {{/* Phones get a dropdown instead; form.js enables only the visible control so one subject is sent */}}
+        <div class="form__field topics-select">
+          <label for="subject">{{ i18n "subjectLabel" }}</label>
+          <select id="subject" name="subject" disabled>
+            {{- range $i, $topic := . }}
+            <option{{ if eq (add $i 1) (len $.Params.contactForm.topics) }} selected{{ end }}>{{ $topic }}</option>
+            {{- end }}
+          </select>
+        </div>
         {{- end }}
         <div class="form__field">
           <label for="email">{{ i18n "emailLabel" }}</label>

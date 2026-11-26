@@ -37,7 +37,6 @@ howItWorks:
 contactForm:
   title: "Write to us"
   text: "A deployment project, a question, a wish to contribute: every message is read by a member of the association."
-  note: "Pyronear is a French non-profit association of general interest, based in Paris."
   # Each topic becomes the e-mail subject; the last one is selected by default
   topics:
   - Equip a territory

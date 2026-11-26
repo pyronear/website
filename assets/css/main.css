@@ -1915,7 +1915,7 @@ h3 {
 }
 
 .band::before,
-.contact-section::before,
+.contact__intro::before,
 .deploy-where::before,
 .footer::before {
   content: "";
@@ -1945,11 +1945,11 @@ h3 {
   mask: var(--treeline) repeat-x left bottom / auto 100%;
 }
 
-.band--dark::after,
-.contact-section::after {
+.band--dark::after {
   background: var(--teal-dark);
 }
 
+.contact-section::after,
 .deploy-where::after,
 .footer::after {
   background: var(--deep);
@@ -2061,29 +2061,52 @@ h3 {
   font-size: 0.85rem;
 }
 
-/* Home contact: one card on the dark band, a teal introduction beside the form */
+/* Home contact: one card on an aerial forest photo, under a dark conifer skyline; a teal introduction beside the form */
 .contact-section {
   position: relative;
   isolation: isolate;
-  padding: clamp(3.5rem, 8vw, 5rem) 0 calc(clamp(3.5rem, 8vw, 5rem) + 3rem);
-  background: var(--teal-dark);
+  padding: calc(var(--section) * 1.6) 0 var(--section);
+  background: var(--forest);
+}
+
+.contact-section__bg img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: -1;
+  height: 30%;
+  /* The skyline on top and the dark aerial forest read as one */
+  background: linear-gradient(var(--deep), rgb(29 64 53 / 0));
 }
 
 .contact {
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   overflow: hidden;
-  background: var(--paper);
-  border-radius: var(--radius);
-  box-shadow: 0 2px 6px rgb(0 0 0 / 12%), 0 30px 80px rgb(0 0 0 / 30%);
-  text-align: left;
+  background: rgb(250 251 248 / 88%);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgb(14 46 42 / 12%), 0 30px 80px rgb(14 46 42 / 30%);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
 }
 
 .contact__intro {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   padding: var(--space-xl) var(--space-l);
-  background: var(--teal);
+  background: rgb(5 69 70 / 86%);
   color: #fff;
 }
 
@@ -2098,13 +2121,6 @@ h3 {
   margin: 0;
   color: rgb(255 255 255 / 82%);
   font-size: 1.1rem;
-}
-
-.contact__intro .contact__note {
-  margin-top: auto;
-  padding-top: var(--space-l);
-  color: rgb(255 255 255 / 62%);
-  font-size: 0.92rem;
 }
 
 .form {
@@ -2160,6 +2176,7 @@ h3 {
 }
 
 .form input:not([type="radio"]),
+.form select,
 .form textarea {
   width: 100%;
   min-height: 3rem;
@@ -2182,11 +2199,13 @@ h3 {
 }
 
 .form input:not([type="radio"]):hover,
+.form select:hover,
 .form textarea:hover {
   border-color: var(--muted);
 }
 
 .form input:not([type="radio"]):focus,
+.form select:focus,
 .form textarea:focus {
   border-color: var(--teal);
   outline: none;
@@ -2202,6 +2221,18 @@ h3 {
   min-height: 9rem;
   line-height: 1.5;
   resize: vertical;
+}
+
+/* The phone topic dropdown, with a chevron in place of the native arrow */
+.topics-select {
+  display: none;
+}
+
+.form select {
+  padding-right: 2.6rem;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2353605b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 0.9rem center / 1.1rem no-repeat;
+  appearance: none;
+  cursor: pointer;
 }
 
 .form__hint {
@@ -2369,8 +2400,36 @@ h3 {
 }
 
 @media (max-width: 480px) {
+  /* form.js switches the subject to the dropdown at this same width */
   .topics {
-    grid-template-columns: 1fr;
+    display: none;
+  }
+
+  .topics-select {
+    display: grid;
+  }
+
+  /* The Turnstile widget needs 300px: a narrower margin and padding keep it inside the card's padding from 348px wide, and inside the card from 316px with .form__captcha */
+  .contact-section .container {
+    width: calc(100% - 1rem);
+  }
+
+  .contact__intro,
+  .contact .form {
+    padding-inline: 1rem;
+  }
+
+  .form__actions .btn {
+    flex: 1 1 100%;
+  }
+
+  /* Phones go straight from the title to the form */
+  .contact__intro h2 {
+    margin-bottom: 0;
+  }
+
+  .contact__intro p {
+    display: none;
   }
 }
 
