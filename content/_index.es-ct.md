@@ -2,7 +2,7 @@
 title: Pyronear
 description: Detecció precoç d'incendis forestals
 hero:
-  title: Detecció d'incendis forestals
+  title: Detecció precoç d'incendis forestals
   subtitle: Pyronear és un projecte de codi obert per al bé comú
   imageAlt: "Foto il·lustrativa: una càmera en una torre de guaita vigila el bosc. Al lluny es detecta una petita columna de fum i se'n calcula la posició GPS."
   alert:
@@ -19,7 +19,7 @@ hero:
     - label: "Bombers alertats"
       value: "07:45:41"
 about:
-  title: Qui sóm?
+  title: Qui som?
   intro: <b>Pyronear</b> és una ONG sense ànim de lucre que té com a objectiu democratitzar solucions obertes i de baixa tecnologia per a la lluita contra els incendis forestals, en benefici dels ecosistemes i dels ciutadans. Per aconseguir aquest objectiu, estem construint conjuntament una solució de detecció precoç que sigui de codi obert, eficient, automàtica, eficient energèticament, econòmica i modular.
 media:
   eyebrow: Notícies i Perspectives
