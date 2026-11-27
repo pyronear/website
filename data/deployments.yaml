@@ -79,3 +79,6 @@
 - lat: 51.16
   lng: 10.45
   place: { fr: Allemagne, en: Germany, es: Alemania, es-ct: Alemanya }
+- lat: 41.87
+  lng: 12.57
+  place: { fr: Italie, en: Italy, es: Italia, es-ct: Itàlia }
