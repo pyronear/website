@@ -16,6 +16,13 @@ sendError: "L'enviament ha fallat. Torneu-ho a provar d'aquí a uns minuts."
 notFound: Pàgina no trobada
 backHome: Tornar a l'inici
 menu: "Menú"
+footerAbout: "Associació sense ànim de lucre que desenvolupa eines de codi obert per detectar els incendis com més aviat millor."
+footerFollow: "Segueix-nos"
+footerSolution: "La solució"
+footerAssociation: "L'associació"
+footerAct: "Participar"
+language: "Idioma"
+newTab: "(pestanya nova)"
 keyFigures: "Pyronear en xifres"
 allNews: "Totes les notícies"
 seeDeployments: "Veure els desplegaments"

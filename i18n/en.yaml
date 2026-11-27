@@ -16,6 +16,13 @@ sendError: "Sending failed. Please try again in a few minutes."
 notFound: Page not found
 backHome: Back to home
 menu: "Menu"
+footerAbout: "Non-profit association building open-source tools to detect wildfires as early as possible."
+footerFollow: "Follow us"
+footerSolution: "The solution"
+footerAssociation: "The association"
+footerAct: "Take part"
+language: "Language"
+newTab: "(new tab)"
 keyFigures: "Pyronear in numbers"
 allNews: "All news"
 seeDeployments: "See deployments"

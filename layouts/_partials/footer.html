@@ -1,33 +1,35 @@
-{{- with site.Home.Params.follow -}}
 <footer class="footer" id="contact">
   <div class="container footer__inner">
     <div class="footer__about">
-      <img src="{{ "img/logo_letters.png" | relURL }}" alt="Pyronear" width="1108" height="226" loading="lazy">
-      <p>{{ site.Home.Params.hero.subtitle }}</p>
+      <img src="{{ "img/logo_letters.webp" | relURL }}" alt="Pyronear" width="1108" height="226" loading="lazy">
+      <p>{{ i18n "footerAbout" }}</p>
     </div>
-    <nav aria-label="{{ i18n "menu" }}">
-      <h2>{{ i18n "menu" }}</h2>
+    {{- /* Three short columns set in hugo.toml (params.footer): the solution, the association, taking part */}}
+    {{- range site.Params.footer }}
+    <nav aria-label="{{ i18n .title }}">
+      <h2>{{ i18n .title }}</h2>
       <ul>
-        {{- range site.Menus.main }}
-        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-        {{- end }}
+        {{- range .pages }}
+        {{- if eq . "#contact" }}
         <li><a href="{{ site.Home.RelPermalink }}#contact-form">{{ i18n "contactUs" }}</a></li>
+        {{- else }}{{ with site.GetPage . }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{- end }}{{ end }}
+        {{- end }}
       </ul>
     </nav>
-    <div>
-      <h2>{{ .title }}</h2>
-      <p>{{ .text }}</p>
-      <ul>
-        {{- range site.Params.social }}
-        <li>
-          <a class="footer__social" href="{{ .url }}" target="_blank" rel="noopener">
-            {{- with resources.Get (printf "icons/%s.svg" .icon) }}{{ .Content | safeHTML }}{{ end }}
-            {{ .name }}
-          </a>
-        </li>
-        {{- end }}
-      </ul>
-    </div>
+    {{- end }}
+  </div>
+  <div class="container footer__bottom">
+    <p>© {{ now.Year }} Pyronear</p>
+    <ul class="footer__social" aria-label="{{ i18n "footerFollow" }}">
+      {{- range site.Params.social }}
+      <li>
+        <a href="{{ .url }}" target="_blank" rel="noopener" aria-label="{{ .name }} {{ i18n "newTab" }}" title="{{ .name }}">
+          {{- with resources.Get (printf "icons/%s.svg" .icon) }}{{ .Content | safeHTML }}{{ end -}}
+        </a>
+      </li>
+      {{- end }}
+    </ul>
   </div>
 </footer>
-{{- end -}}

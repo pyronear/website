@@ -44,7 +44,4 @@ contactForm:
   - Soutenir le projet
   - Presse
   - Autre question
-follow:
-  title: Suivez l'aventure Pyronear
-  text: Pour se tenir informé de l'avancement du projet ou rejoindre l'aventure, retrouvez-nous sur les réseaux sociaux !
 ---
