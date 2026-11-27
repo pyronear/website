@@ -3,7 +3,6 @@
     <div class="footer__about">
       <img src="{{ "img/logo_letters.webp" | relURL }}" alt="Pyronear" width="1108" height="226" loading="lazy">
       <p>{{ i18n "footerAbout" }}</p>
-      <p class="footer__tagline">{{ i18n "footerTagline" }}</p>
     </div>
     {{- /* Three short columns set in hugo.toml (params.footer): the solution, the association, taking part */}}
     {{- range site.Params.footer }}
@@ -22,7 +21,7 @@
     {{- end }}
   </div>
   <div class="container footer__bottom">
-    <p>© {{ now.Year }} Pyronear · {{ i18n "footerLegal" }}</p>
+    <p>© {{ now.Year }} Pyronear</p>
     <ul class="footer__social" aria-label="{{ i18n "footerFollow" }}">
       {{- range site.Params.social }}
       <li>
