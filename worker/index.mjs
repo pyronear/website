@@ -46,8 +46,16 @@ export class ContactDelivery {
     const sent = await storage.get("sent");
     if (sent) return sent;
     await storage.setAlarm(Date.now() + RETRY_WINDOW_MS);
-    const result = await this.email.send(JSON.parse(payload));
-    if (!result.messageId) return null;
+    try {
+      const result = await this.email.send(JSON.parse(payload));
+      if (!result.messageId) return null;
+    } catch (error) {
+      const code = error?.code;
+      if (typeof code === "string" && /^E_[A-Z_]{1,48}$/.test(code)) {
+        console.error("Contact email send failed", code);
+      }
+      return null;
+    }
     // Store only the fingerprint after the provider confirms acceptance.
     await storage.put("sent", fingerprint);
     return fingerprint;

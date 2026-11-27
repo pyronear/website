@@ -158,15 +158,17 @@ test("failed emails can be retried and accepted emails are sent once across retr
   const storage = { get: () => stored, put: (_, value) => { stored = value; }, setAlarm() {} };
   const state = { storage, waitUntil() {} };
   const send = mock.fn(async () => ({ messageId: "accepted" }));
-  send.mock.mockImplementationOnce(() => { throw new Error("quota reached"); });
+  const failure = Object.assign(new Error("private provider response"), { code: "E_DAILY_LIMIT_EXCEEDED" });
+  send.mock.mockImplementationOnce(() => { throw failure; });
   const emailEnv = { CONTACT_EMAIL: { send } };
   let object = new ContactDelivery(state, emailEnv);
   // Resolve both fingerprints without waiting for Web Crypto to schedule them.
   mock.method(crypto.subtle, "digest", (_, bytes) => bytes);
   const route = mock.method(delivery, "fetch", (_, { body }) => object.fetch({ text: () => body }));
-  mock.method(console, "error", () => {});
+  const log = mock.method(console, "error", () => {});
   mock.method(globalThis, "fetch", async () => Response.json(verified));
   assert.equal((await worker.fetch(request(), env)).status, 502);
+  assert.deepEqual(log.mock.calls.map(call => call.arguments), [["Contact email send failed", failure.code], ["Contact request failed"]]);
   const retry = () => object.fetch({ text: () => route.mock.calls[0].arguments[1].body });
   const retries = await Promise.all([retry(), retry()]);
   assert.deepEqual(retries.map(response => response.status), [204, 204]);

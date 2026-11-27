@@ -116,7 +116,7 @@ Mail goes from `forms@pyronear.org` to `inquiries@pyronear.org`, with the visito
 
 1. In the Pyronear Cloudflare account, open **Compute → Email Service → Email Routing → Destination Addresses** and add `inquiries@pyronear.org`. Open Cloudflare's message in the shared inbox, select **Verify email address**, and confirm the dashboard shows it as verified. This is an account-level destination. In **Email Sending → Onboard Domain**, select `pyronear.org` and review the records for `cf-bounce.pyronear.org`. Keep Google's root MX and SPF records and the existing DMARC policy. See [destination verification](https://developers.cloudflare.com/email-service/configuration/destination-addresses/) and [sender setup](https://developers.cloudflare.com/email-service/get-started/send-emails/).
 2. Create a Managed Turnstile widget with both `website.pyronear.org` and `pyronear.org` in its hostname allowlist before deployment. Keep it aligned with `ALLOWED_ORIGINS` in `worker/wrangler.toml`. Production widgets should exclude localhost and preview domains; the existing local test widget is separate. Check the rate-limit namespace ID is unused by other Workers in the account.
-3. From `worker/`, check and deploy using the Pyronear Cloudflare account:
+3. For initial setup or a manual deploy, run these commands from `worker/` in the Pyronear Cloudflare account:
 
 ```sh
 node --test index.test.mjs
@@ -126,7 +126,7 @@ npx wrangler@4.157.0 secret put TURNSTILE_SECRET_KEY
 npx wrangler@4.157.0 deploy
 ```
 
-4. Set the production Cloudflare build variables described above. Keys named `*_SECRET_KEY` belong only in Worker secrets. Local/preview builds without public form configuration show an unavailable form.
+4. Set the production Cloudflare build variables described above. Store production keys named `*_SECRET_KEY` only as Worker secrets. Keep their values out of website code and Git. Local/preview builds without public form configuration show an unavailable form.
 5. After deploying, submit the form at `pyronear.org`. Confirm delivery, authentication (SPF, DKIM and DMARC), the visitor's Reply-To, and rejection of reused CAPTCHA tokens. After confirming delivery, retire the Resend Worker secret and any DNS records used solely by this form. Disable any old Google Apps Script web deployments that can send contact mail and preserve the old Sheet as history.
 
 Failed submissions preserve the form and require a fresh CAPTCHA token. Unchanged manual retries reuse the same request ID. A Durable Object coordinates retries and keeps a fingerprint of each accepted message for 24 hours. If Cloudflare accepts an email but the Worker fails before recording acceptance, a retry can send a duplicate. Application logs exclude visitor addresses, messages, IPs and secrets. Tests mock the external services and send no email.
