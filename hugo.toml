@@ -20,7 +20,7 @@ enableRobotsTXT = true
   ]
   # Footer columns: a title (i18n key) and the pages it lists by path; "#contact" is the home page contact form
   footer = [
-    { title = "footerSolution", pages = ["/how-it-works", "/deployments"] },
+    { title = "footerSolution", pages = ["/how-it-works", "/deployments", "/faq"] },
     { title = "footerAssociation", pages = ["/about", "/open-approach", "/news"] },
     { title = "footerAct", pages = ["/support", "#contact"] },
   ]
@@ -77,3 +77,7 @@ layout = "news"
 target = { path = "/about" }
 menus = { main = { weight = 4 } }
 layout = "about"
+
+[[cascade]]
+target = { path = "/faq" }
+layout = "faq"

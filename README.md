@@ -20,7 +20,7 @@ hugo --gc --minify
 | What | File |
 | --- | --- |
 | Home page copy (hero, intro, contact form) | `content/_index.<lang>.md` |
-| Other pages (About, How it works, Deployments, Support us, News) | `content/<page>/index.<lang>.md` |
+| Other pages (About, How it works, Deployments, Support us, News, FAQ) | `content/<page>/index.<lang>.md` |
 | Buttons, form labels, short UI text | `i18n/<lang>.yaml` (`i18n/ca.yaml` for Catalan) |
 | Key figures (home and About) | `data/figures.yaml` |
 | Deployments map: shaded departments and countries | `data/deployments.yaml` |
@@ -28,6 +28,7 @@ hugo --gc --minify
 | Partners | `data/partners.yaml` |
 | Supporters | `data/sponsors.yaml` |
 | News items | `data/news.yaml` |
+| FAQ (questions by theme, linked from the footer; also published as schema.org `FAQPage` data for search engines) | `groups` in `content/faq/index.<lang>.md` (`q`, `a`, and optionally `page` plus `link` for a link to another page), markup in `layouts/faq.html`. Only state what Pyronear can back up |
 | Site settings, languages, social links | `hugo.toml` |
 | Navigation and footer | Pages with `menus.main` (set in the `cascade` entries of `hugo.toml`) show in the nav. The footer lists pages in three columns set by `footer` in `hugo.toml` `[params]` (each a title key from `i18n/` and page paths); its text is in the `footer*` keys of `i18n/<lang>.yaml`, and the social links show as icons on its bottom line |
 | Website / contact Worker settings | `wrangler.toml` / `worker/wrangler.toml` |
