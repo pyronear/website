@@ -2,6 +2,7 @@ const MAX_BODY_BYTES = 65536;
 // HTML email syntax, with a dotted domain for public contact addresses.
 const EMAIL = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const RETRY_WINDOW_MS = 24 * 60 * 60 * 1000;
 
 async function readForm(request) {
   const reader = request.body?.getReader();
@@ -21,6 +22,50 @@ async function readForm(request) {
   return new URLSearchParams(await new Blob(chunks).text());
 }
 
+export class ContactDelivery {
+  constructor(state, env) {
+    this.state = state;
+    this.email = env.CONTACT_EMAIL;
+  }
+
+  async fetch(request) {
+    const payload = await request.text();
+    const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(payload));
+    const fingerprint = btoa(String.fromCharCode(...new Uint8Array(digest)));
+    if (!this.pending) {
+      this.pending = this.send(payload, fingerprint).catch(() => null).finally(() => { this.pending = undefined; });
+      this.state.waitUntil(this.pending);
+    }
+    const sent = await this.pending;
+    if (!sent) return new Response(null, { status: 502 });
+    return new Response(null, { status: sent === fingerprint ? 204 : 409 });
+  }
+
+  async send(payload, fingerprint) {
+    const { storage } = this.state;
+    const sent = await storage.get("sent");
+    if (sent) return sent;
+    await storage.setAlarm(Date.now() + RETRY_WINDOW_MS);
+    try {
+      const result = await this.email.send(JSON.parse(payload));
+      if (!result.messageId) return null;
+    } catch (error) {
+      const code = error?.code;
+      if (typeof code === "string" && /^E_[A-Z_]{1,48}$/.test(code)) {
+        console.error("Contact email send failed", code);
+      }
+      return null;
+    }
+    // Store only the fingerprint after the provider confirms acceptance.
+    await storage.put("sent", fingerprint);
+    return fingerprint;
+  }
+
+  async alarm() {
+    await this.state.storage.deleteAll();
+  }
+}
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin");
@@ -35,7 +80,7 @@ export default {
     if (request.headers.get("Content-Type")?.split(";")[0].trim().toLowerCase() !== "application/x-www-form-urlencoded") {
       return reply(415, "invalid_input");
     }
-    if (!env.TURNSTILE_SECRET_KEY || !env.RESEND_API_KEY || !env.CONTACT_RATE_LIMITER) {
+    if (!env.TURNSTILE_SECRET_KEY || !env.CONTACT_EMAIL || !env.CONTACT_DELIVERY || !env.CONTACT_RATE_LIMITER) {
       return reply(503, "unavailable");
     }
 
@@ -75,24 +120,17 @@ export default {
       }
 
       // The recipient and sender are never taken from submitted fields.
-      const response = await fetch("https://api.resend.com/emails", {
+      const response = await env.CONTACT_DELIVERY.getByName(requestId).fetch("https://contact-delivery.internal/", {
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${env.RESEND_API_KEY}`,
-          "Content-Type": "application/json",
-          "Idempotency-Key": `contact/${requestId}`,
-        },
         body: JSON.stringify({
-          from: "Pyronear website <forms@pyronear.org>",
-          to: ["inquiries@pyronear.org"],
-          reply_to: email,
+          from: { name: "Pyronear website", email: "forms@pyronear.org" },
+          to: "inquiries@pyronear.org",
+          replyTo: email,
           subject: `[Contact form] ${subject || "Website contact"}`,
           text: message,
         }),
-        signal: AbortSignal.timeout(10000),
       });
-      const result = await response.json();
-      if (!response.ok || !result.id) throw new Error("Email rejected");
+      if (!response.ok) throw new Error("Email rejected");
       return reply(200);
     } catch {
       // Do not log message contents, email addresses, IPs, tokens, or provider responses.

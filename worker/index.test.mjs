@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { mock, test, afterEach } from "node:test";
 import { readFileSync } from "node:fs";
 import { runInNewContext } from "node:vm";
-import worker from "./index.mjs";
+import worker, { ContactDelivery } from "./index.mjs";
 
 const origin = "https://website.pyronear.org";
 const valid = {
@@ -10,10 +10,12 @@ const valid = {
   honeypot: "", "cf-turnstile-response": "fresh-token",
   requestId: "fa418393-75df-4ee4-a643-4a5694897c74",
 };
+const delivery = { fetch: async () => new Response(null, { status: 204 }) };
 const env = {
   ALLOWED_ORIGINS: readFileSync(new URL("./wrangler.toml", import.meta.url), "utf8").match(/^ALLOWED_ORIGINS = "([^"]+)"/m)[1],
-  TURNSTILE_SECRET_KEY: "secret", RESEND_API_KEY: "secret",
+  TURNSTILE_SECRET_KEY: "secret", CONTACT_EMAIL: {},
   CONTACT_RATE_LIMITER: { limit: async () => ({ success: true }) },
+  CONTACT_DELIVERY: { getByName: () => delivery },
 };
 function request(fields = {}, options = {}) {
   return new Request("https://contact.example/contact", {
@@ -24,12 +26,10 @@ function request(fields = {}, options = {}) {
 const verified = { success: true, hostname: "website.pyronear.org", action: "contact" };
 afterEach(() => mock.restoreAll());
 
-test("verified request sends plain text with fixed routing and a retry key", async () => {
-  const calls = [];
-  mock.method(globalThis, "fetch", async (url, options) => {
-    calls.push({ url, options });
-    return Response.json(calls.length === 1 ? verified : { id: "email-id" });
-  });
+test("verified request sends plain text with fixed routing and a visitor reply address", async () => {
+  const verify = mock.method(globalThis, "fetch", async () => Response.json(verified));
+  const getDelivery = mock.method(env.CONTACT_DELIVERY, "getByName");
+  const send = mock.method(delivery, "fetch");
   const response = await worker.fetch(request({
     to: "attacker@example.org", from: "fake@example.org", bcc: "hidden@example.org", cc: "copy@example.org",
   }), env);
@@ -37,42 +37,37 @@ test("verified request sends plain text with fixed routing and a retry key", asy
   assert.deepEqual(await response.json(), { result: "success" });
   assert.equal(response.headers.get("Access-Control-Allow-Origin"), origin);
   assert.equal(response.headers.get("Cache-Control"), "no-store");
-  assert.equal(calls[0].url, "https://challenges.cloudflare.com/turnstile/v0/siteverify");
-  assert.equal(calls[0].options.body.get("response"), valid["cf-turnstile-response"]);
-  assert.equal(calls[0].options.body.get("remoteip"), "192.0.2.1");
-  assert.equal(calls[1].url, "https://api.resend.com/emails");
-  assert.equal(calls[1].options.headers["Idempotency-Key"], `contact/${valid.requestId}`);
-  assert.deepEqual(JSON.parse(calls[1].options.body), {
-    from: "Pyronear website <forms@pyronear.org>", to: ["inquiries@pyronear.org"],
-    reply_to: valid.email, subject: "[Contact form] Bonjour", text: valid.message,
+  assert.equal(verify.mock.callCount(), 1);
+  const [url, options] = verify.mock.calls[0].arguments;
+  assert.equal(url, "https://challenges.cloudflare.com/turnstile/v0/siteverify");
+  assert.equal(options.body.get("response"), valid["cf-turnstile-response"]);
+  assert.equal(options.body.get("remoteip"), "192.0.2.1");
+  assert.deepEqual(getDelivery.mock.calls.map(call => call.arguments), [[valid.requestId]]);
+  assert.equal(send.mock.callCount(), 1);
+  assert.deepEqual(JSON.parse(send.mock.calls[0].arguments[1].body), {
+    from: { name: "Pyronear website", email: "forms@pyronear.org" }, to: "inquiries@pyronear.org",
+    replyTo: valid.email, subject: "[Contact form] Bonjour", text: valid.message,
   });
 });
 
-test("both production domains work with matching Turnstile hostnames", async () => {
-  for (const source of [origin, "https://pyronear.org"]) {
-    const network = mock.method(globalThis, "fetch", async url => Response.json(
-      url.includes("siteverify") ? { ...verified, hostname: new URL(source).hostname } : { id: "email-id" },
-    ));
-    const response = await worker.fetch(request({}, {
-      headers: { Origin: source, "CF-Connecting-IP": "192.0.2.1" },
-    }), env);
-    assert.equal(response.status, 200);
-    assert.equal(response.headers.get("Access-Control-Allow-Origin"), source);
-    assert.equal(network.mock.callCount(), 2);
-    mock.restoreAll();
-  }
+test("the apex domain also works with its matching Turnstile hostname", async () => {
+  mock.method(globalThis, "fetch", async () => Response.json({ ...verified, hostname: "pyronear.org" }));
+  const response = await worker.fetch(request({}, {
+    headers: { Origin: "https://pyronear.org", "CF-Connecting-IP": "192.0.2.1" },
+  }), env);
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("Access-Control-Allow-Origin"), "https://pyronear.org");
 });
 
 test("CRLF messages use the textarea's 5000-character limit", async () => {
   const message = "ab\r\n".repeat(1666) + "ab";
-  const network = mock.method(globalThis, "fetch", async (url, options) => {
-    if (url.includes("siteverify")) return Response.json(verified);
-    assert.equal(JSON.parse(options.body).text, message.replace(/\r\n/g, "\n"));
-    return Response.json({ id: "email-id" });
-  });
+  const network = mock.method(globalThis, "fetch", async () => Response.json(verified));
+  const send = mock.method(delivery, "fetch");
   assert.equal((await worker.fetch(request({ message }), env)).status, 200);
   assert.equal((await worker.fetch(request({ message: message + "a" }), env)).status, 400);
-  assert.equal(network.mock.callCount(), 2);
+  assert.equal(network.mock.callCount(), 1);
+  assert.equal(send.mock.callCount(), 1);
+  assert.equal(JSON.parse(send.mock.calls[0].arguments[1].body).text, message.replace(/\r\n/g, "\n"));
 });
 
 test("invalid inputs and absent challenges never reach external services", async () => {
@@ -129,56 +124,61 @@ test("rate limits and missing configuration fail closed", async () => {
   });
   assert.equal(response.status, 429);
   assert.equal(response.headers.get("Retry-After"), "60");
-  for (const key of ["TURNSTILE_SECRET_KEY", "RESEND_API_KEY", "CONTACT_RATE_LIMITER"]) {
+  for (const key of ["TURNSTILE_SECRET_KEY", "CONTACT_EMAIL", "CONTACT_DELIVERY", "CONTACT_RATE_LIMITER"]) {
     assert.equal((await worker.fetch(request(), { ...env, [key]: undefined })).status, 503);
   }
   assert.equal(network.mock.callCount(), 0);
 });
 
-test("failed, expired, reused and mismatched Turnstile tokens cannot send", async () => {
-  for (const result of [
+test("failed Turnstile checks never reach delivery", async () => {
+  mock.method(console, "error", () => {});
+  const send = mock.method(delivery, "fetch");
+  const rejected = [
     { ...verified, success: false, "error-codes": ["timeout-or-duplicate"] },
     { ...verified, success: "true" }, { ...verified, hostname: "evil.example" },
     { ...verified, hostname: "pyronear.org" },
     { ...verified, action: "login" }, {},
+  ];
+  for (const [verify, status] of [
+    ...rejected.map(result => [() => Response.json(result), 403]),
+    [() => { throw new Error("timeout"); }, 502],
+    [() => new Response("bad gateway", { status: 502 }), 502],
+    [() => new Response("invalid JSON"), 502],
   ]) {
-    const network = mock.method(globalThis, "fetch", async () => Response.json(result));
-    assert.equal((await worker.fetch(request(), env)).status, 403);
-    assert.equal(network.mock.callCount(), 1);
-    mock.restoreAll();
-  }
-});
-
-test("verification outages never fall through to sending", async () => {
-  for (const verify of [
-    () => { throw new Error("timeout"); },
-    () => new Response("bad gateway", { status: 502 }),
-    () => new Response("invalid JSON"),
-  ]) {
-    mock.method(console, "error", () => {});
     const network = mock.method(globalThis, "fetch", verify);
-    assert.equal((await worker.fetch(request(), env)).status, 502);
+    assert.equal((await worker.fetch(request(), env)).status, status);
     assert.equal(network.mock.callCount(), 1);
-    mock.restoreAll();
+    network.mock.restore();
   }
+  assert.equal(send.mock.callCount(), 0);
 });
 
-test("provider failure never reports success; retry preserves the mail identity", async () => {
-  const keys = [];
-  let fail = true;
-  mock.method(console, "error", () => {});
-  mock.method(globalThis, "fetch", async (url, options) => {
-    if (url.includes("siteverify")) return Response.json(verified);
-    keys.push(options.headers["Idempotency-Key"]);
-    return fail ? Response.json({ message: "quota reached" }, { status: 429 }) : Response.json({ id: "accepted" });
-  });
+test("failed emails can be retried and accepted emails are sent once across retries", async () => {
+  let stored;
+  const storage = { get: () => stored, put: (_, value) => { stored = value; }, setAlarm() {} };
+  const state = { storage, waitUntil() {} };
+  const send = mock.fn(async () => ({ messageId: "accepted" }));
+  const failure = Object.assign(new Error("private provider response"), { code: "E_DAILY_LIMIT_EXCEEDED" });
+  send.mock.mockImplementationOnce(() => { throw failure; });
+  const emailEnv = { CONTACT_EMAIL: { send } };
+  let object = new ContactDelivery(state, emailEnv);
+  // Resolve both fingerprints without waiting for Web Crypto to schedule them.
+  mock.method(crypto.subtle, "digest", (_, bytes) => bytes);
+  const route = mock.method(delivery, "fetch", (_, { body }) => object.fetch({ text: () => body }));
+  const log = mock.method(console, "error", () => {});
+  mock.method(globalThis, "fetch", async () => Response.json(verified));
   assert.equal((await worker.fetch(request(), env)).status, 502);
-  fail = false;
-  assert.equal((await worker.fetch(request({ "cf-turnstile-response": "new-token" }), env)).status, 200);
-  assert.equal(keys[0], keys[1]);
+  assert.deepEqual(log.mock.calls.map(call => call.arguments), [["Contact email send failed", failure.code], ["Contact request failed"]]);
+  const retry = () => object.fetch({ text: () => route.mock.calls[0].arguments[1].body });
+  const retries = await Promise.all([retry(), retry()]);
+  assert.deepEqual(retries.map(response => response.status), [204, 204]);
+  object = new ContactDelivery(state, emailEnv);
+  assert.equal((await worker.fetch(request(), env)).status, 200);
+  assert.equal((await worker.fetch(request({ message: "Different message" }), env)).status, 502);
+  assert.equal(send.mock.callCount(), 2);
 });
 
-test("form submission validates, preserves failed messages and deduplicates retries", async () => {
+test("form submission validates, preserves failed messages and reuses the retry ID", async () => {
   const controls = Object.fromEntries([".form__error", ".form__note", ".form__thanks", "button", ".cf-turnstile"]
     .map(selector => [selector, { hidden: true, disabled: true, textContent: "Submit" }]));
   const values = { ...valid, "cf-turnstile-response": "" };
