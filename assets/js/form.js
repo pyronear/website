@@ -8,6 +8,21 @@ document.querySelectorAll("form.form").forEach(function (form) {
   var previousPayload, requestId;
   button.disabled = !widget;
 
+  // Topic cards on wider screens, a dropdown on phones (same breakpoint as main.css); only the shown one is sent
+  var topics = form.querySelector(".topics");
+  var select = form.querySelector(".topics-select select");
+  if (topics && select) {
+    var phone = matchMedia("(max-width: 480px)");
+    var switchTopics = function () {
+      if (phone.matches) select.value = topics.querySelector("input:checked").value;
+      else topics.querySelectorAll("input").forEach(function (radio) { radio.checked = radio.value === select.value; });
+      topics.disabled = phone.matches;
+      select.disabled = !phone.matches;
+    };
+    switchTopics();
+    phone.addEventListener("change", switchTopics);
+  }
+
   function showError(message) {
     error.textContent = message;
     error.hidden = false;
