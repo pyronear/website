@@ -1,17 +1,19 @@
 {{- $description := .Description | default site.Home.Description -}}
+{{- $title := cond .IsHome (printf "%s - %s" site.Title $description) (cond (eq .Kind "404") (i18n "notFound") .Title) -}}
+{{- /* Search engines get the home tagline; link previews get the hero subtitle, since the tagline is already in the title */ -}}
+{{- $summary := cond .IsHome (.Params.hero.subtitle | default $description) $description -}}
 {{- $css := resources.Get "css/main.css" | minify | fingerprint -}}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if .IsHome }}{{ site.Title }} - {{ $description }}{{ else }}{{ if eq .Kind "404" }}{{ i18n "notFound" }}{{ else }}{{ .Title }}{{ end }} | {{ site.Title }}{{ end }}</title>
+  <title>{{ $title }}{{ if not .IsHome }} | {{ site.Title }}{{ end }}</title>
   <meta name="description" content="{{ $description }}">
   <meta name="google-site-verification" content="{{ site.Params.googleSiteVerification }}">
   <link rel="canonical" href="{{ .Permalink }}">
   {{- range .AllTranslations }}
   <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
   {{- end }}
-  {{ partial "opengraph.html" . }}
-  {{ partial "twitter_cards.html" . }}
+  {{ partial "social.html" (dict "page" . "title" $title "description" $summary) }}
   {{- $sameAs := slice }}{{ range site.Params.social }}{{ $sameAs = $sameAs | append .url }}{{ end }}
   <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "NGO" "name" site.Title "url" site.Home.Permalink "logo" ("img/logo.png" | absURL) "description" site.Home.Description "sameAs" $sameAs | jsonify | safeJS }}</script>
   <link rel="icon" href="{{ "img/favicon.ico" | relURL }}">
