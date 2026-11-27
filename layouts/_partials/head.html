@@ -1,13 +1,13 @@
 {{- $description := .Description | default site.Home.Description -}}
 {{- $title := cond .IsHome (printf "%s - %s" site.Title $description) (cond (eq .Kind "404") (i18n "notFound") .Title) -}}
-{{- /* The home description is a short tagline for the title; its summary is the hero subtitle */ -}}
+{{- /* Search engines get the home tagline; link previews get the hero subtitle, since the tagline is already in the title */ -}}
 {{- $summary := cond .IsHome (.Params.hero.subtitle | default $description) $description -}}
 {{- $css := resources.Get "css/main.css" | minify | fingerprint -}}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ $title }}{{ if not .IsHome }} | {{ site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ $summary }}">
+  <meta name="description" content="{{ $description }}">
   <meta name="google-site-verification" content="{{ site.Params.googleSiteVerification }}">
   <link rel="canonical" href="{{ .Permalink }}">
   {{- range .AllTranslations }}
